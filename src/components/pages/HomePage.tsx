@@ -87,10 +87,12 @@ export function HomePage({ featuredPosts = [] }: HomePageProps) {
                   Mantente al día con nuestras últimas actualizaciones y consejos
                 </p>
               </div>
-              <Button variant="outline" className="hidden sm:flex items-center gap-2">
-                Ver todo el blog
-                <ArrowRight className="w-4 h-4" />
-              </Button>
+              <a href="/blog">
+                <Button variant="outline" className="hidden sm:flex items-center gap-2">
+                  Ver todo el blog
+                  <ArrowRight className="w-4 h-4" />
+                </Button>
+              </a>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -100,10 +102,12 @@ export function HomePage({ featuredPosts = [] }: HomePageProps) {
             </div>
 
             <div className="text-center mt-12 sm:hidden">
-              <Button variant="outline" className="flex items-center gap-2 mx-auto">
-                Ver todo el blog
-                <ArrowRight className="w-4 h-4" />
-              </Button>
+              <a href="/blog">
+                <Button variant="outline" className="flex items-center gap-2 mx-auto">
+                  Ver todo el blog
+                  <ArrowRight className="w-4 h-4" />
+                </Button>
+              </a>
             </div>
           </div>
         </section>

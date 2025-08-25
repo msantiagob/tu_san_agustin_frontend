@@ -40,7 +40,7 @@ export function PostCard({ post, compact = false }: PostCardProps) {
       <CardHeader className={compact ? 'pb-3' : 'pb-4'}>
         <h3 className={`font-bold leading-tight line-clamp-2 ${compact ? 'text-lg' : 'text-xl'}`}>
           <a 
-            href={`/blog/${post.slug}`}
+            href={`/posts/${post.slug}`}
             className="hover:text-blue-600 transition-colors duration-200"
             dangerouslySetInnerHTML={{ __html: post.title.rendered }}
           />

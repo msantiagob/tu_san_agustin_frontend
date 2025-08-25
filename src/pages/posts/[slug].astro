@@ -1,13 +1,48 @@
 ---
-const { slug } = Astro.params;
-let res = await fetch(`https://wp.tusanagustin.com/wp/wp-json/wp/v2/posts?slug=${slug}&_embed`);
-let [post]= await res.json();
+import '../../styles/global.css';
+import { Header } from '../../components/layout/Header';
+import { Footer } from '../../components/layout/Footer';
+import { PostDetail } from '../../components/blog/PostDetail';
+import { wpApi } from '../../lib/wordpress';
+import logoImage from '../../assets/images/Tu-San-Agustin_Logo.png';
 
+export async function getStaticPaths() {
+  try {
+    const posts = await wpApi.getPosts({ per_page: 100 });
+    return posts.map((post) => ({
+      params: { slug: post.slug },
+      props: { post }
+    }));
+  } catch (error) {
+    console.error('Error fetching posts for static paths:', error);
+    return [];
+  }
+}
+
+const { post } = Astro.props;
 ---
-<meta charset="UTF-8" />
 
-<article>
-<img src={post._embedded?.['wp:featuredmedia']?.[0]?.media_details?.sizes?.medium?.source_url} />
-    <h2 set:html={post.title.rendered} />
-    <div set:html={post.content.rendered} />
-</article>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{post.title.rendered} - Tu San Agustin</title>
+    <meta name="description" content={wpApi.stripHtmlTags(post.excerpt.rendered)} />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  </head>
+  <body>
+    <Header client:load logoUrl={logoImage.src} />
+    
+    <main class="min-h-screen bg-gray-50 py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <PostDetail client:load post={post} />
+      </div>
+    </main>
+    
+    <Footer client:load />
+  </body>
+</html>

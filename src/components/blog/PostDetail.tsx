@@ -119,9 +119,11 @@ export function PostDetail({ post, showBackButton = true }: PostDetailProps) {
                 <h3 className="font-medium mb-2">Categorías</h3>
                 <div className="flex flex-wrap gap-2">
                   {categories.map((category) => (
-                    <Badge key={category.id} variant="outline">
-                      {category.name}
-                    </Badge>
+                    <a key={category.id} href={`/category/${category.slug}`}>
+                      <Badge variant="outline" className="hover:bg-blue-50 transition-colors cursor-pointer">
+                        {category.name}
+                      </Badge>
+                    </a>
                   ))}
                 </div>
               </div>
@@ -135,9 +137,11 @@ export function PostDetail({ post, showBackButton = true }: PostDetailProps) {
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {tags.map((tag) => (
-                    <Badge key={tag.id} variant="secondary">
-                      #{tag.name}
-                    </Badge>
+                    <a key={tag.id} href={`/tag/${tag.slug}`}>
+                      <Badge variant="secondary" className="hover:bg-green-100 transition-colors cursor-pointer">
+                        #{tag.name}
+                      </Badge>
+                    </a>
                   ))}
                 </div>
               </div>
