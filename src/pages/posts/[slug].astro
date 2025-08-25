@@ -1,0 +1,13 @@
+---
+const { slug } = Astro.params;
+let res = await fetch(`https://wp.tusanagustin.com/wp/wp-json/wp/v2/posts?slug=${slug}&_embed`);
+let [post]= await res.json();
+
+---
+<meta charset="UTF-8" />
+
+<article>
+<img src={post._embedded?.['wp:featuredmedia']?.[0]?.media_details?.sizes?.medium?.source_url} />
+    <h2 set:html={post.title.rendered} />
+    <div set:html={post.content.rendered} />
+</article>

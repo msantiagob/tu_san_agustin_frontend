@@ -1,0 +1,27 @@
+---
+import BlogPostLayout from "../../layouts/BlogPostLayout.astro";
+
+const { slug } = Astro.params;
+
+const res = await fetch(
+  `https://wp.tusanagustin.com/wp/wp-json/wp/v2/posts?slug=${slug}&_embed`,
+  {
+    cache: "no-store", // this is to not cache the response
+  }
+);
+
+const data = await res.json();
+
+//if no data found
+if (!data.length) {
+  return Astro.redirect("/404");
+}
+
+const post = data[0];
+const title = post.title.rendered;
+const image = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "";
+const content = post.content.rendered;
+const date = post.date;
+---
+
+<BlogPostLayout title={title} image={image} content={content} date={date} />

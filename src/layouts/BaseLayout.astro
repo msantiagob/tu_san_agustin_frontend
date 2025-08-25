@@ -1,0 +1,19 @@
+---
+const { title = 'Tu San Agustín' } = Astro.props;
+---
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="../assets/favicon/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon/favicon.svg" />
+    <link rel="apple-touch-icon" href="../assets/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="../assets/favicon/site.webmanifest" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <title>{title}</title>
+    <link rel="stylesheet" href="../src/styles/globals.css" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
