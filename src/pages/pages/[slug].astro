@@ -1,0 +1,62 @@
+---
+import '../../styles/global.css';
+import { Header } from '../../components/layout/Header';
+import { Footer } from '../../components/layout/Footer';
+import { PageDetail } from '../../components/pages/PageDetail';
+import { wpApi } from '../../lib/wordpress';
+import logoImage from '../../assets/images/Tu-San-Agustin_Logo.png';
+
+export async function getStaticPaths() {
+  try {
+    const pages = await wpApi.getPages({ per_page: 100 });
+    return pages.map((page) => ({
+      params: { slug: page.slug },
+      props: { page }
+    }));
+  } catch (error) {
+    console.error('Error fetching pages for static paths:', error);
+    return [];
+  }
+}
+
+const { page } = Astro.props;
+
+if (!page) {
+  return Astro.redirect('/404');
+}
+
+const title = `${page.title.rendered} - Tu San Agustín`;
+const description = page.excerpt?.rendered 
+  ? wpApi.stripHtmlTags(page.excerpt.rendered) 
+  : `Conoce más sobre ${page.title.rendered} en Tu San Agustín`;
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="article" />
+    
+    <!-- Featured image if available -->
+    {wpApi.extractFeaturedImage(page) && (
+      <meta property="og:image" content={wpApi.extractFeaturedImage(page)} />
+    )}
+    
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  </head>
+  <body>
+    <Header client:load logoUrl={logoImage.src} />
+    <PageDetail client:load page={page} />
+    <Footer client:load />
+  </body>
+</html>

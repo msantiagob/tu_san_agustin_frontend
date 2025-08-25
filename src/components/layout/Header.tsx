@@ -13,6 +13,7 @@ export function Header({ siteName = 'Tu San Agustín', logoUrl }: HeaderProps) {
   const navigation = [
     { name: 'Inicio', href: '/' },
     { name: 'Blog', href: '/blog' },
+    { name: 'Páginas', href: '/pages' },
     { name: 'Acerca de', href: '/about' },
     { name: 'Contacto', href: '/contact' },
   ];
