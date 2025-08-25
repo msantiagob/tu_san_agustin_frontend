@@ -49,10 +49,10 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
+  --primary: #5cb3a8;
+  --primary-foreground: #ffffff;
+  --secondary: #333;
+  --secondary-foreground: #ffffff;
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.97 0 0);
@@ -117,4 +117,74 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Custom font faces */
+@font-face {
+  font-family: 'Alice';
+  src: url('/src/assets/fonts/Alice-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Amsterdam';
+  src: url('/src/assets/fonts/AmsterdamOne-eZ12l.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/src/assets/fonts/Poppins-Regular_0.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/src/assets/fonts/Poppins-Bold_0.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Custom utility classes */
+.primary-color {
+  color: #5cb3a8;
+}
+
+.primary-color-hover:hover {
+  color: #4a9b91;
+}
+
+.secondary-color {
+  color: #333;
+}
+
+.secondary-color-hover:hover {
+  color: #555;
+}
+
+.text-color-light {
+  color: #ccc;
+}
+
+.bg-primary-color {
+  background-color: #5cb3a8;
+}
+
+.bg-primary-color-hover:hover {
+  background-color: #4a9b91;
+}
+
+.bg-secondary-color {
+  background-color: #333;
+}
+
+.bg-secondary-color-hover:hover {
+  background-color: #555;
 }
