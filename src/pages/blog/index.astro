@@ -9,7 +9,7 @@ interface WPPost {
 }
 import "@/styles/global.css";
 import BlogsCardsGrid from "@/components/blog/BlogsCardsGrid.astro";
-import CarouselHero from "@/components/CarouselHero.astro";
+import CarouselHero from "@/components/blog/CarouselHero.astro";
 const res = await fetch(
   "https://wp.tusanagustin.com/wp/wp-json/wp/v2/posts?_embed",
   { cache: "no-store" }
