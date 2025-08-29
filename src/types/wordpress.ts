@@ -33,6 +33,39 @@ export interface WPPost {
   categories: number[];
   tags: number[];
   acf: Record<string, any>;
+  yoast_head?: string;
+  yoast_head_json?: {
+    title?: string;
+    description?: string;
+    robots?: {
+      index?: string;
+      follow?: string;
+      'max-snippet'?: string;
+      'max-image-preview'?: string;
+      'max-video-preview'?: string;
+    };
+    canonical?: string;
+    og_locale?: string;
+    og_type?: string;
+    og_title?: string;
+    og_description?: string;
+    og_url?: string;
+    og_site_name?: string;
+    article_published_time?: string;
+    article_modified_time?: string;
+    og_image?: Array<{
+      width?: number;
+      height?: number;
+      url?: string;
+      type?: string;
+    }>;
+    twitter_card?: string;
+    twitter_misc?: Record<string, string>;
+    schema?: {
+      '@context'?: string;
+      '@graph'?: any[];
+    };
+  };
   _links: {
     self: Array<{ href: string }>;
     collection: Array<{ href: string }>;
@@ -117,6 +150,39 @@ export interface WPPage {
   template: string;
   meta: Record<string, any>;
   acf: Record<string, any>;
+  yoast_head?: string;
+  yoast_head_json?: {
+    title?: string;
+    description?: string;
+    robots?: {
+      index?: string;
+      follow?: string;
+      'max-snippet'?: string;
+      'max-image-preview'?: string;
+      'max-video-preview'?: string;
+    };
+    canonical?: string;
+    og_locale?: string;
+    og_type?: string;
+    og_title?: string;
+    og_description?: string;
+    og_url?: string;
+    og_site_name?: string;
+    article_published_time?: string;
+    article_modified_time?: string;
+    og_image?: Array<{
+      width?: number;
+      height?: number;
+      url?: string;
+      type?: string;
+    }>;
+    twitter_card?: string;
+    twitter_misc?: Record<string, string>;
+    schema?: {
+      '@context'?: string;
+      '@graph'?: any[];
+    };
+  };
   _links: {
     self: Array<{ href: string }>;
     collection: Array<{ href: string }>;
