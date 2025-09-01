@@ -4,7 +4,6 @@ import { Header } from '../components/layout/Header';
 import { Footer } from '../components/layout/Footer';
 import { PageDetail } from '../components/pages/PageDetail';
 import { wpApi } from '../lib/wordpress';
-import logoImage from '../assets/images/Tu-San-Agustin_Logo.png';
 
 // Fetch "About" page from WordPress
 let page = null;
@@ -18,16 +17,16 @@ try {
 const fallbackPage = {
   id: 0,
   title: { rendered: 'Acerca de Tu San Agustín' },
-  content: { 
+  content: {
     rendered: `
       <p>Somos Tu San Agustín, la empresa líder en operación de eventos con más de 35 años de experiencia. Ofrecemos soluciones integrales y personalizadas para cualquier tipo de evento.</p>
-      
+
       <h2>Nuestra Historia</h2>
       <p>Con más de tres décadas en el mercado, hemos consolidado nuestra posición como líderes en la organización de eventos y turismo especializado en San Agustín, Huila.</p>
-      
+
       <h2>Nuestra Misión</h2>
       <p>Crear experiencias únicas e inolvidables a través de eventos perfectamente planificados y ejecutados, superando siempre las expectativas de nuestros clientes.</p>
-      
+
       <h2>Nuestros Valores</h2>
       <ul>
         <li><strong>Excelencia:</strong> Buscamos la perfección en cada detalle</li>
@@ -35,7 +34,7 @@ const fallbackPage = {
         <li><strong>Compromiso:</strong> Dedicación total con cada proyecto</li>
         <li><strong>Confiabilidad:</strong> Cumplimos lo que prometemos</li>
       </ul>
-    ` 
+    `
   },
   excerpt: { rendered: 'Conoce más sobre Tu San Agustín, líderes en eventos y turismo.' },
   date: new Date().toISOString(),
@@ -58,14 +57,13 @@ const fallbackPage = {
     <link rel="manifest" href="/site.webmanifest" />
   </head>
   <body>
-    <Header client:load logoUrl={logoImage.src} />
-    
+
     <main class="min-h-screen bg-gray-50 py-12">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <PageDetail client:load page={page || fallbackPage} />
       </div>
     </main>
-    
+
     <Footer client:load />
   </body>
 </html>

@@ -4,7 +4,6 @@ import { Header } from '../../components/layout/Header';
 import { Footer } from '../../components/layout/Footer';
 import { PostList } from '../../components/blog/PostList';
 import { wpApi } from '../../lib/wordpress';
-import logoImage from '../../assets/images/Tu-San-Agustin_Logo.png';
 
 // Fetch posts for blog page
 let posts = [];
@@ -28,8 +27,7 @@ try {
     <link rel="manifest" href="/site.webmanifest" />
   </head>
   <body>
-    <Header client:load logoUrl={logoImage.src} />
-    
+
     <main class="min-h-screen bg-gray-50">
       <div class="bg-white py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,12 +39,12 @@ try {
           </div>
         </div>
       </div>
-      
+
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <PostList client:load initialPosts={posts} />
       </div>
     </main>
-    
+
     <Footer client:load />
   </body>
 </html>

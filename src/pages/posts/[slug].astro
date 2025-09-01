@@ -4,7 +4,6 @@ import { Header } from '../../components/layout/Header';
 import { Footer } from '../../components/layout/Footer';
 import { PostDetail } from '../../components/blog/PostDetail';
 import { wpApi } from '../../lib/wordpress';
-import logoImage from '../../assets/images/Tu-San-Agustin_Logo.png';
 
 export async function getStaticPaths() {
   try {
@@ -35,14 +34,13 @@ const { post } = Astro.props;
     <link rel="manifest" href="/site.webmanifest" />
   </head>
   <body>
-    <Header client:load logoUrl={logoImage.src} />
-    
+
     <main class="min-h-screen bg-gray-50 py-12">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <PostDetail client:load post={post} />
       </div>
     </main>
-    
+
     <Footer client:load />
   </body>
 </html>
