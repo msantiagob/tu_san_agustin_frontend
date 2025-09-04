@@ -2,37 +2,37 @@
 import '../../styles/global.css';
 import { Header } from '../../components/layout/Header';
 import { Footer } from '../../components/layout/Footer';
-import { PostDetail } from '../../components/blog/PostDetail';
+import { PageDetail } from '../../components/pages/PageDetail';
 import { wpApi } from '../../lib/wordpress';
 
 export async function getStaticPaths() {
   try {
-    const posts = await wpApi.getPosts({ per_page: 100 });
-    return posts.map((post) => ({
-      params: { slug: post.slug },
-      props: { post }
+    const pages = await wpApi.getPages({ per_page: 100 });
+    return pages.map((page) => ({
+      params: { slug: page.slug },
+      props: { page }
     }));
   } catch (error) {
-    console.error('Error fetching posts for static paths:', error);
+    console.error('Error fetching pages for static paths:', error);
     return [];
   }
 }
 
-const { post } = Astro.props;
+const { page } = Astro.props;
 
-if (!post) {
+if (!page) {
   return Astro.redirect('/404');
 }
 
-const yoastSEO = post.yoast_head_json;
+const yoastSEO = page.yoast_head_json;
 
-const title = yoastSEO?.title || `${post.title.rendered} - Tu San Agustín`;
-const description = yoastSEO?.description || (post.excerpt?.rendered
-  ? wpApi.stripHtmlTags(post.excerpt.rendered)
-  : `Lee sobre ${post.title.rendered} en Tu San Agustín`);
+const title = yoastSEO?.title || `${page.title.rendered} - Tu San Agustín`;
+const description = yoastSEO?.description || (page.excerpt?.rendered
+  ? wpApi.stripHtmlTags(page.excerpt.rendered)
+  : `Conoce más sobre ${page.title.rendered} en Tu San Agustín`);
 
-const canonical = yoastSEO?.canonical || post.link;
-const ogImage = yoastSEO?.og_image?.[0]?.url || wpApi.extractFeaturedImage(post);
+const canonical = yoastSEO?.canonical || page.link;
+const ogImage = yoastSEO?.og_image?.[0]?.url || wpApi.extractFeaturedImage(page);
 const robots = yoastSEO?.robots;
 const schema = yoastSEO?.schema;
 ---
@@ -84,8 +84,8 @@ const schema = yoastSEO?.schema;
     )}
 
     <!-- Fallback to Yoast head if available -->
-    {!yoastSEO && post.yoast_head && (
-      <Fragment set:html={post.yoast_head} />
+    {!yoastSEO && page.yoast_head && (
+      <Fragment set:html={page.yoast_head} />
     )}
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -94,13 +94,7 @@ const schema = yoastSEO?.schema;
     <link rel="manifest" href="/site.webmanifest" />
   </head>
   <body>
-
-    <main class="min-h-screen bg-gray-50 py-12">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <PostDetail client:load post={post} />
-      </div>
-    </main>
-
+    <PageDetail client:load page={page} />
     <Footer client:load />
   </body>
 </html>

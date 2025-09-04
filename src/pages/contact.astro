@@ -1,0 +1,156 @@
+---
+import '../styles/global.css';
+import { Header } from '../components/layout/Header';
+import { Footer } from '../components/layout/Footer';
+import { PageDetail } from '../components/pages/PageDetail';
+
+// Contact page content
+const contactPage = {
+  id: 0,
+  title: { rendered: 'Contacto' },
+  content: {
+    rendered: `
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <h2>Información de Contacto</h2>
+          <div class="space-y-4 mb-8">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                <i class="fas fa-phone text-blue-600"></i>
+              </div>
+              <div>
+                <p class="font-medium">Teléfono</p>
+                <a href="tel:+573168753305" class="text-blue-600 hover:underline">(+57) 316 875 3305</a>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                <i class="fas fa-envelope text-blue-600"></i>
+              </div>
+              <div>
+                <p class="font-medium">Email</p>
+                <a href="mailto:info@tusanagustin.com" class="text-blue-600 hover:underline">info@tusanagustin.com</a>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                <i class="fas fa-map-marker-alt text-blue-600"></i>
+              </div>
+              <div>
+                <p class="font-medium">Ubicación</p>
+                <p class="text-gray-600">San Agustín, Huila, Colombia</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                <i class="fab fa-whatsapp text-green-600"></i>
+              </div>
+              <div>
+                <p class="font-medium">WhatsApp</p>
+                <a
+                  href="https://api.whatsapp.com/send/?phone=573168753305&text=Hola%21&type=phone_number&app_absent=0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-green-600 hover:underline"
+                >
+                  Enviar mensaje
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <h3 class="text-xl font-semibold">Síguenos en Redes Sociales</h3>
+            <div class="flex gap-4">
+              <a
+                href="https://www.facebook.com/tusanagustin/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-10 h-10 bg-blue-600 text-white rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/tusanagustin/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-10 h-10 bg-pink-600 text-white rounded-lg flex items-center justify-center hover:bg-pink-700 transition-colors"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="https://www.youtube.com/user/tusanagustin"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-10 h-10 bg-red-600 text-white rounded-lg flex items-center justify-center hover:bg-red-700 transition-colors"
+              >
+                <i class="fab fa-youtube"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/san-agust%C3%ADn-eventos-y-turismo-b36aa8109/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-10 h-10 bg-blue-800 text-white rounded-lg flex items-center justify-center hover:bg-blue-900 transition-colors"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2>Envíanos un Mensaje</h2>
+          <p class="text-gray-600 mb-6">¿Tienes alguna pregunta o quieres planificar tu evento? Estamos aquí para ayudarte.</p>
+
+          <div class="bg-blue-50 p-6 rounded-lg text-center">
+            <h3 class="text-lg font-semibold mb-2">¿Listo para comenzar?</h3>
+            <p class="text-gray-600 mb-4">Contáctanos directamente por WhatsApp para una respuesta más rápida</p>
+            <a
+              href="https://api.whatsapp.com/send/?phone=573168753305&text=Hola%21%20Estoy%20interesado%20en%20sus%20servicios&type=phone_number&app_absent=0"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-full hover:bg-green-700 transition-colors"
+            >
+              <i class="fab fa-whatsapp"></i>
+              Chatear por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    `
+  },
+  excerpt: { rendered: 'Contáctanos para planificar tu evento perfecto.' },
+  date: new Date().toISOString(),
+  featured_media: 0,
+  author: 1,
+  _embedded: null
+};
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Contacto - Tu San Agustín</title>
+    <meta name="description" content="Contáctanos para planificar tu evento perfecto. Teléfono, email, WhatsApp y redes sociales." />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </head>
+  <body>
+
+    <main class="min-h-screen bg-gray-50 py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <PageDetail client:load page={contactPage} />
+      </div>
+    </main>
+
+    <Footer client:load />
+  </body>
+</html>
