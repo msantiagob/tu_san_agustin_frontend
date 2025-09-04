@@ -1,6 +1,7 @@
 ---
 import NavSidebar from "./NavSidebar.astro";
 import HeaderNav from "./HeaderNav.tsx";
+import "@/styles/header.css";
 ---
 
 <header>
@@ -84,7 +85,7 @@ import HeaderNav from "./HeaderNav.tsx";
   <a href="https://www.tusanagustin.com/blog">Blog</a>
   <a
     href="#"
-    class="btn btn-primary"
+    class="btn btn-primary bg-primary"
     onclick="dispatchEvent(new CustomEvent('open-contact'))">Contacto</a
   >
 </nav>
