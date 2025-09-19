@@ -1,7 +1,7 @@
 ---
 import '../../styles/global.css';
-import { Header } from '../../components/layout/Header';
-import { Footer } from '../../components/layout/Footer';
+import Header from '@/components/pages/home/Header.astro';
+import Footer from '@/components/pages/home/Footer.astro';
 import { PostDetail } from '../../components/blog/PostDetail';
 import { wpApi } from '../../lib/wordpress';
 
@@ -10,7 +10,7 @@ export async function getStaticPaths() {
     const posts = await wpApi.getPosts({ per_page: 100 });
     return posts.map((post) => ({
       params: { slug: post.slug },
-      props: { post }
+      props: { post },
     }));
   } catch (error) {
     console.error('Error fetching posts for static paths:', error);
@@ -27,76 +27,139 @@ if (!post) {
 const yoastSEO = post.yoast_head_json;
 
 const title = yoastSEO?.title || `${post.title.rendered} - Tu San Agustín`;
-const description = yoastSEO?.description || (post.excerpt?.rendered
-  ? wpApi.stripHtmlTags(post.excerpt.rendered)
-  : `Lee sobre ${post.title.rendered} en Tu San Agustín`);
+const description =
+  yoastSEO?.description ||
+  (post.excerpt?.rendered
+    ? wpApi.stripHtmlTags(post.excerpt.rendered)
+    : `Lee sobre ${post.title.rendered} en Tu San Agustín`);
 
 const canonical = yoastSEO?.canonical || post.link;
-const ogImage = yoastSEO?.og_image?.[0]?.url || wpApi.extractFeaturedImage(post);
+const ogImage =
+  yoastSEO?.og_image?.[0]?.url || wpApi.extractFeaturedImage(post);
 const robots = yoastSEO?.robots;
 const schema = yoastSEO?.schema;
 ---
 
-<html lang="es">
+<html lang='es'>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="generator" content={Astro.generator} />
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <meta name='generator' content={Astro.generator} />
     <title>{title}</title>
-    <meta name="description" content={description} />
-
+    <meta name='description' content={description} />
+    <link
+      href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'
+      rel='stylesheet'
+    />
     <!-- Canonical URL -->
-    <link rel="canonical" href={canonical} />
+    <link rel='canonical' href={canonical} />
 
     <!-- Robots meta -->
-    {robots && (
-      <meta name="robots" content={`${robots.index || 'index'},${robots.follow || 'follow'}${robots['max-snippet'] ? `,max-snippet:${robots['max-snippet']}` : ''}${robots['max-image-preview'] ? `,max-image-preview:${robots['max-image-preview']}` : ''}${robots['max-video-preview'] ? `,max-video-preview:${robots['max-video-preview']}` : ''}`} />
-    )}
+    {
+      robots && (
+        <meta
+          name='robots'
+          content={`${robots.index || 'index'},${robots.follow || 'follow'}${robots['max-snippet'] ? `,max-snippet:${robots['max-snippet']}` : ''}${robots['max-image-preview'] ? `,max-image-preview:${robots['max-image-preview']}` : ''}${robots['max-video-preview'] ? `,max-video-preview:${robots['max-video-preview']}` : ''}`}
+        />
+      )
+    }
 
     <!-- Open Graph -->
-    <meta property="og:title" content={yoastSEO?.og_title || title} />
-    <meta property="og:description" content={yoastSEO?.og_description || description} />
-    <meta property="og:type" content={yoastSEO?.og_type || "article"} />
-    <meta property="og:url" content={yoastSEO?.og_url || canonical} />
-    {yoastSEO?.og_site_name && <meta property="og:site_name" content={yoastSEO.og_site_name} />}
-    {yoastSEO?.og_locale && <meta property="og:locale" content={yoastSEO.og_locale} />}
+    <meta property='og:title' content={yoastSEO?.og_title || title} />
+    <meta
+      property='og:description'
+      content={yoastSEO?.og_description || description}
+    />
+    <meta property='og:type' content={yoastSEO?.og_type || 'article'} />
+    <meta property='og:url' content={yoastSEO?.og_url || canonical} />
+    {
+      yoastSEO?.og_site_name && (
+        <meta property='og:site_name' content={yoastSEO.og_site_name} />
+      )
+    }
+    {
+      yoastSEO?.og_locale && (
+        <meta property='og:locale' content={yoastSEO.og_locale} />
+      )
+    }
 
     <!-- Featured image -->
-    {ogImage && (
-      <>
-        <meta property="og:image" content={ogImage} />
-        {yoastSEO?.og_image?.[0]?.width && <meta property="og:image:width" content={yoastSEO.og_image[0].width.toString()} />}
-        {yoastSEO?.og_image?.[0]?.height && <meta property="og:image:height" content={yoastSEO.og_image[0].height.toString()} />}
-        {yoastSEO?.og_image?.[0]?.type && <meta property="og:image:type" content={yoastSEO.og_image[0].type} />}
-      </>
-    )}
+    {
+      ogImage && (
+        <>
+          <meta property='og:image' content={ogImage} />
+          {yoastSEO?.og_image?.[0]?.width && (
+            <meta
+              property='og:image:width'
+              content={yoastSEO.og_image[0].width.toString()}
+            />
+          )}
+          {yoastSEO?.og_image?.[0]?.height && (
+            <meta
+              property='og:image:height'
+              content={yoastSEO.og_image[0].height.toString()}
+            />
+          )}
+          {yoastSEO?.og_image?.[0]?.type && (
+            <meta
+              property='og:image:type'
+              content={yoastSEO.og_image[0].type}
+            />
+          )}
+        </>
+      )
+    }
 
     <!-- Twitter Card -->
-    {yoastSEO?.twitter_card && <meta name="twitter:card" content={yoastSEO.twitter_card} />}
+    {
+      yoastSEO?.twitter_card && (
+        <meta name='twitter:card' content={yoastSEO.twitter_card} />
+      )
+    }
 
     <!-- Article meta -->
-    {yoastSEO?.article_published_time && <meta property="article:published_time" content={yoastSEO.article_published_time} />}
-    {yoastSEO?.article_modified_time && <meta property="article:modified_time" content={yoastSEO.article_modified_time} />}
+    {
+      yoastSEO?.article_published_time && (
+        <meta
+          property='article:published_time'
+          content={yoastSEO.article_published_time}
+        />
+      )
+    }
+    {
+      yoastSEO?.article_modified_time && (
+        <meta
+          property='article:modified_time'
+          content={yoastSEO.article_modified_time}
+        />
+      )
+    }
 
     <!-- Schema.org structured data -->
-    {schema && (
-      <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
-    )}
+    {
+      schema && (
+        <script
+          type='application/ld+json'
+          is:inline
+          set:html={JSON.stringify(schema)}
+        />
+      )
+    }
 
     <!-- Fallback to Yoast head if available -->
-    {!yoastSEO && post.yoast_head && (
-      <Fragment set:html={post.yoast_head} />
-    )}
+    {!yoastSEO && post.yoast_head && <Fragment set:html={post.yoast_head} />}
 
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+    <link rel='icon' type='image/x-icon' href='/favicon.ico' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
+    <link rel='manifest' href='/site.webmanifest' />
   </head>
   <body>
 
-    <main class="min-h-screen bg-gray-50 py-12">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <Header />
+
+    <main class='min-h-screen bg-gray-50 py-12'>
+      <div class='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         <PostDetail client:load post={post} />
       </div>
     </main>

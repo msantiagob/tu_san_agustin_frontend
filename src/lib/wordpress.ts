@@ -11,7 +11,7 @@ export class WordPressAPI {
 
   private async fetchAPI<T>(endpoint: string, params: Record<string, any> = {}): Promise<T> {
     const url = new URL(`${this.baseUrl}${endpoint}`);
-    
+
     Object.entries(params).forEach(([key, value]) => {
       if (value !== undefined && value !== null) {
         url.searchParams.append(key, String(value));
@@ -19,7 +19,7 @@ export class WordPressAPI {
     });
 
     const response = await fetch(url.toString());
-    
+
     if (!response.ok) {
       throw new Error(`WordPress API Error: ${response.status} ${response.statusText}`);
     }

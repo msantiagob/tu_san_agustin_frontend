@@ -119,38 +119,7 @@
   }
 }
 
-/* Custom font faces */
-@font-face {
-  font-family: 'Alice';
-  src: url('/public/assets/fonts/Alice-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
 
-@font-face {
-  font-family: 'Amsterdam';
-  src: url('/public/assets/fonts/AmsterdamOne-eZ12l.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/public/assets/fonts/Poppins-Regular_0.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/public/assets/fonts/Poppins-Bold_0.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
 
 /* Custom utility classes */
 .primary-color {
