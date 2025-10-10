@@ -1,0 +1,120 @@
+---
+/** No props por ahora; todo es markup + JS ligero en cliente */
+---
+<header class="bg-teal-500 text-white py-4" id="header">
+  <div class="h-12 px-4">
+    <div class="max-w-7xl mx-auto h-full flex items-center justify-center gap-x-6">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <img
+          src="uploads/Tu-San-Agustin_Logo.webp"
+          alt="San Agustín"
+          class="h-7 w-auto"
+        />
+      </div>
+
+      <!-- Teléfono -->
+      <div class="hidden sm:flex items-center gap-2 text-[17.5px]">
+        <span class="font-medium">Llámanos:</span>
+        <i class="fa-solid fa-phone text-[16px]" aria-hidden="true"></i>
+        <span>(+57) 316 875 33 05</span>
+      </div>
+
+      <!-- Íconos sociales + bandera -->
+      <div class="flex items-center gap-4">
+        <a href="#" aria-label="Facebook" class="hover:opacity-90">
+          <i class="fa-brands fa-facebook-f text-[18px]"></i>
+        </a>
+        <a href="#" aria-label="Instagram" class="hover:opacity-90">
+          <i class="fa-brands fa-instagram text-[18px]"></i>
+        </a>
+        <a href="#" aria-label="TikTok" class="hover:opacity-90">
+          <i class="fa-brands fa-tiktok text-[18px]"></i>
+        </a>
+        <a href="#" aria-label="Pinterest" class="hover:opacity-90">
+          <i class="fa-brands fa-pinterest-p text-[18px]"></i>
+        </a>
+        <a href="#" aria-label="LinkedIn" class="hover:opacity-90">
+          <i class="fa-brands fa-linkedin-in text-[18px]"></i>
+        </a>
+        <a href="#" aria-label="YouTube" class="hover:opacity-90">
+          <i class="fa-brands fa-youtube text-[18px]"></i>
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="#" aria-label="WhatsApp" class="inline-flex items-center justify-center w-7 h-7 hover:opacity-90">
+          <i class="fa-brands fa-whatsapp text-[16px]"></i>
+        </a>
+
+        <!-- Botón idioma -->
+        <button
+          id="lang-toggle"
+          class="flex items-center gap-2 focus:outline-none"
+          aria-pressed="false"
+        >
+          <!-- Bandera (inicia ES) -->
+          <span id="flag" class="w-7 h-7 rounded-full overflow-hidden flex ring-2 ring-white/70" aria-hidden="true">
+            <span class="flex flex-col w-full h-full">
+              <span class="flex-1 bg-yellow-400"></span>
+              <span class="flex-1 bg-blue-600"></span>
+              <span class="flex-1 bg-red-600"></span>
+            </span>
+          </span>
+          <span id="lang-label" class="text-sm font-semibold">ES</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Lógica mínima en cliente para alternar idioma y bandera
+  const root = document.getElementById('header');
+  const btn = root?.querySelector('#lang-toggle');
+  const flag = root?.querySelector('#flag');
+  const label = root?.querySelector('#lang-label');
+
+  let lang = 'ES';
+
+  function renderFlag() {
+    if (!flag) return;
+
+    if (lang === 'ES') {
+      // Colombia
+      flag.innerHTML = `
+        <span class="flex flex-col w-full h-full">
+          <span class="flex-1 bg-yellow-400"></span>
+          <span class="flex-1 bg-blue-600"></span>
+          <span class="flex-1 bg-red-600"></span>
+        </span>
+      `;
+    } else {
+      // Estados Unidos (simplificada)
+      flag.innerHTML = `
+        <span class="w-full h-full rounded-full overflow-hidden ring-2 ring-white/70 block">
+          <span class="w-full h-1/2 bg-blue-700 relative block"></span>
+          <span class="w-full h-1/2 block">
+            <span class="h-1 bg-red-600 block"></span>
+            <span class="h-1 bg-white block"></span>
+            <span class="h-1 bg-red-600 block"></span>
+            <span class="h-1 bg-white block"></span>
+          </span>
+        </span>
+      `;
+    }
+  }
+
+  function updateUI() {
+    if (label) label.textContent = lang;
+    renderFlag();
+  }
+
+  btn?.addEventListener('click', () => {
+    lang = lang === 'ES' ? 'EN' : 'ES';
+    btn.setAttribute('aria-pressed', String(lang === 'EN'));
+    updateUI();
+  });
+
+  // Render inicial
+  updateUI();
+</script>

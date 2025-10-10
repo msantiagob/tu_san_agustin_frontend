@@ -1,0 +1,120 @@
+---
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faInstagram,
+  faFacebook,
+  faWhatsapp,
+  faPinterest,
+  faYoutube,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
+import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+---
+
+<footer class="text-white" id="bgfooter">
+  <div class="px-6 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+      <!-- Logo + redes -->
+      <div class="space-y-6">
+        <div class="px-6 py-3 inline-block">
+          <img
+            src="uploads/Tu-San-Agustin_Logo_verde-300x156.webp"
+            alt="San Agustín"
+          />
+        </div>
+        <p class="text-gray-300 tpfo">Síguenos @tusanagustin</p>
+        <div class="flex flex-wrap gap-3">
+          <FontAwesomeIcon icon={faInstagram} class="w-6 h-6 text-gray-300 hover:text-teal-400 cursor-pointer" />
+          <FontAwesomeIcon icon={faWhatsapp} class="w-6 h-6 text-gray-300 hover:text-teal-400 cursor-pointer" />
+          <FontAwesomeIcon icon={faFacebook} class="w-6 h-6 text-gray-300 hover:text-teal-400 cursor-pointer" />
+          <FontAwesomeIcon icon={faPinterest} class="w-6 h-6 text-gray-300 hover:text-teal-400 cursor-pointer" />
+          <FontAwesomeIcon icon={faYoutube} class="w-6 h-6 text-gray-300 hover:text-teal-400 cursor-pointer" />
+          <FontAwesomeIcon icon={faLinkedin} class="w-6 h-6 text-gray-300 hover:text-teal-400 cursor-pointer" />
+        </div>
+      </div>
+
+      <!-- Navegación -->
+      <div class="space-y-4">
+        <ul class="space-y-2">
+          {["Inicio","Eventos","Servicios","Galerías","Lugares","Planners","Artistas","Historias","Blogs"].map((item) => (
+            <li>
+              <a href="#" class="text-gray-300 hover:text-teal-400">• {item}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Legal -->
+      <div class="space-y-4">
+        <ul class="space-y-2">
+          {[
+            "Contáctanos",
+            "Sobre nosotros",
+            "Preguntas frecuentes",
+            "Condiciones legales",
+            "Políticas de privacidad",
+            "Consentimiento de cookies",
+            "Mapa del sitio",
+          ].map((item) => (
+            <li>
+              <a href="#" class="text-gray-300 hover:text-teal-400">• {item}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Trabaja con nosotros -->
+      <div class="space-y-4">
+        <ul class="space-y-2">
+          {[
+            "¡Trabaja con nosotros!",
+            "Events & Wedding Planners",
+            "Artistas y espectáculos",
+            "Lugares para Eventos",
+            "Proveedores",
+          ].map((item) => (
+            <li>
+              <a href="#" class="text-gray-300 hover:text-teal-400">• {item}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Contacto + medios de pago -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-7xl mx-auto mt-12 pt-8">
+      <div class="space-y-4">
+        <h3 class="text-teal-400 font-semibold text-lg">Contáctanos</h3>
+        <div class="space-y-2">
+          <div class="flex items-center gap-2">
+            <FontAwesomeIcon icon={faPhone} class="w-4 h-4 text-teal-400" />
+            <span class="text-gray-300">(+57) 316 875 33 05</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <FontAwesomeIcon icon={faEnvelope} class="w-4 h-4 text-teal-400" />
+            <span class="text-gray-300">contacto@tusanagustin.com</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <h3 class="text-teal-400 font-semibold text-lg">Medios de pago</h3>
+        <div class="flex flex-wrap items-center gap-6">
+          <img class="h-8 object-contain" src="uploads/Tu-San-Agustin_Home_medios-de-pago-_08.webp" alt="Visa" />
+          <img class="h-8 object-contain" src="uploads/Tu-San-Agustin_Home_medios-de-pago-_07.webp" alt="MasterCard" />
+          <img class="h-8 object-contain" src="uploads/Tu-San-Agustin_Home_medios-de-pago-_09.webp" alt="PayPal" />
+          <img class="h-8 object-contain" src="uploads/Tu-San-Agustin_Home_medios-de-pago-_10.webp" alt="PSE" />
+          <img class="h-8 object-contain" src="uploads/Tu-San-Agustin_Home_medios-de-pago-_11.webp" alt="Wompi" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="py-4" id="bgcopy">
+    <div class="max-w-7xl mx-auto px-6">
+      <p class="text-center text-gray-400 text-sm">
+        Copyright © 1988 - 2025 Tu San Agustín
+      </p>
+    </div>
+  </div>
+</footer>
