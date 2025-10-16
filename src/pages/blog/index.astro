@@ -7,8 +7,10 @@ import { wpApi } from "../../lib/wordpress";
 import Header from "@/components/pages/home/Header.astro";
 import CarouselHero from "@/components/blog/CarouselHero.astro";
 
-// Fetch posts for blog page
-let posts = [];
+// Infer the exact return type of wpApi.getPosts and use it for `posts`
+type Posts = Awaited<ReturnType<typeof wpApi.getPosts>>;
+let posts: Posts = [];
+
 try {
   posts = await wpApi.getPosts({ per_page: 12, _embed: true });
 } catch (error) {
@@ -41,8 +43,7 @@ try {
       <CarouselHero />
       <div class="text-center max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <p class="text-gray-600">
-          Bienvenido al blog de Tu San Agustín, donde compartimos las últimas noticias,
-          consejos y experiencias sobre eventos y servicios. Explora nuestros
+          Bienvenido al blog de Tu San Agustín. Explora nuestros
           blogs para descubrir todo lo que tenemos para ofrecertee.
         </p>
       </div>
