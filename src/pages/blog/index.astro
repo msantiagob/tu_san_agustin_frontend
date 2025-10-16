@@ -1,55 +1,52 @@
 ---
-import '../../styles/global.css';
+import "../../styles/global.css";
 
-import Footer from '@/components/pages/home/Footer.astro';
-import { PostList } from '../../components/blog/PostList';
-import { wpApi } from '../../lib/wordpress';
-import Header from '@/components/pages/home/Header.astro';
+import Footer from "@/components/pages/home/Footer.astro";
+import { PostList } from "../../components/blog/PostList";
+import { wpApi } from "../../lib/wordpress";
+import Header from "@/components/pages/home/Header.astro";
+import CarouselHero from "@/components/blog/CarouselHero.astro";
 
 // Fetch posts for blog page
 let posts = [];
 try {
   posts = await wpApi.getPosts({ per_page: 12, _embed: true });
 } catch (error) {
-  console.error('Error fetching posts:', error);
+  console.error("Error fetching posts:", error);
 }
 ---
 
-<html lang='es'>
+<html lang="es">
   <head>
-    <meta charset='utf-8' />
-    <meta name='viewport' content='width=device-width, initial-scale=1' />
-    <meta name='generator' content={Astro.generator} />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
     <title>Blog - Tu San Agustín</title>
     <meta
-      name='description'
-      content='Descubre nuestras últimas noticias, consejos y experiencias sobre eventos y turismo en San Agustín.'
+      name="description"
+      content="Descubre nuestras últimas noticias, consejos y experiencias sobre eventos y turismo en San Agustín."
     />
-    <link rel='icon' type='image/x-icon' href='/favicon.ico' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-    <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
-    <link rel='manifest' href='/site.webmanifest' />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <link
-      href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'
-      rel='stylesheet'
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
     />
   </head>
   <body>
     <Header />
-    <main class='min-h-screen bg-gray-50'>
-      <div class='bg-white py-16'>
-        <div class='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <div class='text-center'>
-            <h1 class='text-4xl font-bold text-gray-900 mb-4'>Nuestro Blog</h1>
-            <p class='text-xl text-gray-600 max-w-2xl mx-auto'>
-              Descubre nuestras últimas noticias, consejos y experiencias sobre
-              eventos y turismo en San Agustín
-            </p>
-          </div>
-        </div>
+    <main class="min-h-screen bg-gray-50">
+      <CarouselHero />
+      <div class="text-center max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <p class="text-gray-600">
+          Bienvenido al blog de Tu San Agustín, donde compartimos las últimas noticias,
+          consejos y experiencias sobre eventos y servicios. Explora nuestros
+          blogs para descubrir todo lo que tenemos para ofrecertee.
+        </p>
       </div>
-
-      <div class='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12'>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <PostList client:load initialPosts={posts} />
       </div>
     </main>

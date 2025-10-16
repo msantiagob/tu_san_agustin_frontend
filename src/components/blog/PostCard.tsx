@@ -3,23 +3,39 @@ import type { WPPost } from '../../types/wordpress';
 import { wpApi } from '../../lib/wordpress';
 import { Card, CardContent, CardFooter, CardHeader } from '../ui/card';
 import { Badge } from '../ui/badge';
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
-import { Calendar, User } from 'lucide-react';
+import { Separator } from '../ui/separator';
+import { User } from 'lucide-react';
+import { Button } from '../ui/button';
 
 interface PostCardProps {
-  post: WPPost;
+  post: WPPost & {
+    authorName?: string;
+    authorAvatar?: string;
+    authorDescription?: string;
+  };
   compact?: boolean;
 }
 
 export function PostCard({ post, compact = false }: PostCardProps) {
   const featuredImage = wpApi.extractFeaturedImage(post);
-  const author = wpApi.extractAuthor(post);
   const categories = wpApi.extractCategories(post);
-  const formattedDate = wpApi.formatDate(post.date);
-  const excerpt = wpApi.stripHtmlTags(post.excerpt.rendered);
+
+  const _author = wpApi.extractAuthor(post);
+  const authorName = post.authorName || _author?.name;
+
+  const description = wpApi.stripHtmlTags(
+    (post as any)?.content?.rendered || post?.excerpt?.rendered || ''
+  );
 
   return (
-    <Card className={`overflow-hidden transition-all duration-300 hover:shadow-lg ${compact ? 'h-full' : ''}`}>
+    <Card
+      className={[
+        'bg-white text-secondary-color',
+        'border border-text-color-light/40',
+        'overflow-hidden transition-all duration-300 hover:shadow-lg',
+        compact ? 'h-full' : ''
+      ].join(' ')}
+    >
       {featuredImage && (
         <div className={`relative overflow-hidden ${compact ? 'h-48' : 'h-64'}`}>
           <img
@@ -29,61 +45,67 @@ export function PostCard({ post, compact = false }: PostCardProps) {
           />
           {categories.length > 0 && (
             <div className="absolute top-4 left-4">
-              <Badge variant="secondary" className="bg-white/90 text-gray-800">
+              <Badge
+                variant="secondary"
+                className="bg-white/90 text-secondary-color border border-text-color-light"
+              >
                 {categories[0].name}
               </Badge>
             </div>
           )}
         </div>
       )}
-      
-      <CardHeader className={compact ? 'pb-3' : 'pb-4'}>
-        <h3 className={`font-bold leading-tight line-clamp-2 ${compact ? 'text-lg' : 'text-xl'}`}>
-          <a 
-            href={`/posts/${post.slug}`}
-            className="hover:text-blue-600 transition-colors duration-200"
-            dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-          />
-        </h3>
-      </CardHeader>
+
+<CardHeader className={`${compact ? 'pb-3' : 'pb-4'} group`}>
+  <h3
+    className={`font-bold leading-tight line-clamp-2 ${compact ? 'text-lg' : 'text-xl'} !text-primary-color`}
+  >
+    <a
+      href={`/posts/${post.slug}`}
+      className="group-hover:!text-primary-color-hover !text-inherit"
+      dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+    />
+  </h3>
+</CardHeader>
+
 
       <CardContent className={compact ? 'pt-0 pb-3' : 'pt-0 pb-4'}>
-        {!compact && (
-          <p className="text-gray-600 line-clamp-3 mb-4">
-            {excerpt}
-          </p>
-        )}
-        
-        <div className="flex items-center gap-4 text-sm text-gray-500">
-          <div className="flex items-center gap-2">
-            <Calendar className="w-4 h-4" />
-            <span>{formattedDate}</span>
-          </div>
-          
-          {author && (
-            <div className="flex items-center gap-2">
-              <User className="w-4 h-4" />
-              <span>{author.name}</span>
-            </div>
-          )}
-        </div>
+        <p className="text-secondary-color-hover line-clamp-3 mb-4">
+          {description}
+        </p>
+        <Separator className="h-[9px] bg-primary-color" />
       </CardContent>
 
-      {!compact && author && (
-        <CardFooter className="pt-0 border-t">
-          <div className="flex items-center gap-3">
-            <Avatar className="w-8 h-8">
-              <AvatarImage src={author.avatar_urls['48']} alt={author.name} />
-              <AvatarFallback>{author.name.charAt(0).toUpperCase()}</AvatarFallback>
-            </Avatar>
-            <div>
-              <p className="font-medium text-sm">{author.name}</p>
-              {author.description && (
-                <p className="text-xs text-gray-500 line-clamp-1">
-                  {wpApi.stripHtmlTags(author.description)}
-                </p>
-              )}
+      {!compact && (
+        <CardFooter className="pt-0">
+          <div className="flex items-center justify-between w-full">
+            {/* Autor con icono User */}
+            <div className="flex items-center gap-2 text-sm text-secondary-color">
+              <User className="w-4 h-4 text-primary-color" />
+              <span>
+                <span className="text-secondary-color">Por:&nbsp;</span>
+                {authorName || 'Anónimo'}
+              </span>
             </div>
+
+            {/* Botón outline */}
+            <a
+              href={`/posts/${post.slug}`}
+              aria-label={`Leer más sobre ${wpApi.stripHtmlTags(post.title.rendered)}`}
+              className="shrink-0"
+            >
+              <Button
+                variant="outline"
+                size="sm"
+                className={[
+                  'border-primary-color text-primary-color',
+                  'hover:border-primary-color-hover hover:text-primary-color-hover hover:bg-primary-color/10',
+                  'focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-color/50'
+                ].join(' ')}
+              >
+                Leer más
+              </Button>
+            </a>
           </div>
         </CardFooter>
       )}
