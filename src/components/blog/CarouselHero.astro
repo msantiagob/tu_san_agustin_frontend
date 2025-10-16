@@ -1,35 +1,51 @@
 ---
-import Carousel from "./Carousel";
-import type { GalleryImage } from "./Carousel";
+import PostsCarousel from "./PostsCarousel";
+const API = "https://wp.tusanagustin.com/wp/wp-json/wp/v2/posts?_embed&per_page=5";
 
-const res = await fetch(
-  "https://wp.tusanagustin.com/wp/wp-json/wp/v2/posts?_embed&per_page=5",
-  { cache: "no-store" }
-);
-const posts = (await res.json()) as any[];
+// Helpers
+const stripHtml = (html = "") =>
+  html.replace(/<[^>]*>/g, "").replace(/&nbsp;/g, " ").trim();
 
-// Paso 1: Permitir null temporalmente
-const tempImages: (GalleryImage | null)[] = posts.map((post) => {
-  const imageUrl = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
-  const category = post._embedded?.["wp:term"]?.[0]?.[0]?.name ?? "Sin categoría";
-  const description = post.excerpt.rendered.replace(/<[^>]+>/g, "").trim();
-  if (!imageUrl) return null;
+const getFeatured = (p: any) => {
+  const media = p?._embedded?.["wp:featuredmedia"]?.[0];
+  if (!media) return { url: undefined, alt: undefined };
   return {
-    src: imageUrl,
-    alt: post.title.rendered,   
-    width: 800,
-    height: 600,
-    category,
-    description
+    url: media?.source_url,
+    alt: media?.alt_text || media?.title?.rendered || "",
+  };
+};
+
+// Fetch SSR (sin caché)
+const res = await fetch(API, { cache: "no-store" });
+if (!res.ok) {
+  console.error("Error fetching posts:", res.status, await res.text());
+  throw new Error("No se pudieron cargar las entradas.");
+}
+const posts = await res.json();
+
+// Usar slug para rutas internas
+const items = posts.map((p: any) => {
+  const { url, alt } = getFeatured(p);
+  const slug = p?.slug || String(p?.id);
+  return {
+    id: p.id,
+    title: stripHtml(p?.title?.rendered || ""),
+    href: `/blog/${slug}`,   //Internal link
+    date: p?.date,
+    image: url,
+    alt,
+    excerpt: stripHtml(p?.excerpt?.rendered || ""), 
   };
 });
-
-//Filtrar null y afirmar tipo
-const images: GalleryImage[] = tempImages.filter(
-  (img): img is GalleryImage => img !== null
-);
 ---
 
-<section class="container mx-auto px-4 2xl:max-w-[1400px]">
-  <Carousel images={images} client:load />
+<section class="mx-auto w-full max-w-7xl px-4 py-10 md:px-6 lg:py-14">
+  <PostsCarousel client:load items={items} className="rounded-2xl" />
+
+  <div class="mt-4 md:hidden">
+    <a
+      href="/blog"
+      class="inline-block rounded-full border px-4 py-2 text-sm font-medium hover:bg-muted"
+    >Ver todo</a>
+  </div>
 </section>

@@ -78,6 +78,9 @@ export interface WPPost {
     'wp:term': Array<{ taxonomy: string; embeddable: boolean; href: string }>;
     curies: Array<{ name: string; href: string; templated: boolean }>;
   };
+    authorName?: string;
+  authorAvatar?: string;
+  authorDescription?: string;
 }
 
 export interface WPCategory {
