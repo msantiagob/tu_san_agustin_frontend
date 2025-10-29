@@ -1,0 +1,59 @@
+---
+import '../styles/globals.css';
+import '../styles/style.css';
+import '../styles/fontawesome.css';
+import '../styles/header.css';
+import  Header  from '../components/header.astro';
+import Navigation  from '../components/navigation';
+import { HeroSection } from '../components/hero-section';
+import  EventosSection  from '../components/eventos-section';
+import  ServiciosSection  from '../components/servicios-section';
+import  LocacionesSection  from '../components/locaciones-section';
+import  VideoSection  from '../components/video-section.astro';
+import  ArtistasSection  from '../components/artistas-section.astro';
+import  HistoriasSection  from '../components/historias-section.astro';
+import  GaleriasSection  from '../components/galerias-section';
+import  PlannersSection from '../components/planners-section';
+import  TurismoSection  from '../components/turismo-section.astro';
+import BlogsSection from '../components/blogs-section';
+import CredentialsSection from '../components/credentials-section.astro';
+import AboutSection from '../components/about-section';
+import ContactForm from '../components/contact-form';
+import Footer from '../components/footer.astro';
+
+---
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tu San Agustin</title>
+
+<link rel="stylesheet" href="../../public/fontawesome/fontawesome-free-6.7.2-web/css/all.min.css">
+
+<link rel="stylesheet" href="../styles/style.css">
+<link rel="stylesheet" href="../styles/globals.css">
+  </head>
+  <body>
+    <div class="min-h-screen">
+      <Header  />
+      <Navigation />
+      <HeroSection client:visible />
+      <EventosSection client:visible />
+      <ServiciosSection client:visible />
+      <LocacionesSection client:visible />
+      <VideoSection client:visible />
+      <ArtistasSection client:visible />
+      <HistoriasSection client:visible />
+      <GaleriasSection client:visible />
+      <PlannersSection client:visible />
+      <TurismoSection client:visible />
+      <BlogsSection client:visible />
+      <CredentialsSection client:visible />
+      <AboutSection client:visible />
+      <ContactForm client:visible />
+      <Footer client:visible />
+    </div>
+  </body>
+</html>
+

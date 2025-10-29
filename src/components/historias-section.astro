@@ -1,0 +1,58 @@
+﻿---
+import HistoriasCarousel from "@/components/ui/HistoriasCarousel";
+
+const stories = [
+  {
+    id: 1,
+    image: "/uploads/Tu-San-Agustin-Home_img01.webp",
+    title: "Laura & Andrés Boda",
+    category: "Matrimonios",
+    description:
+      "Laura & Andrés una historia de amor realizada en nuestro lugar para Eventos Freebad, en esta historia se refleja la felicidad y pasión de una pareja que nos cautivó pues en cada fotografía se capturan momentos que sin duda serán recordados para toda la vida.",
+  },
+  {
+    id: 2,
+    image: "/uploads/Tu-San-Agustin-Home_img02-150x150.webp",
+    title: "Fiesta de 15 Años Mariam",
+    category: "Fiesta de 15 años",
+    description:
+      "Fiesta de 15 años realizada en nuestro sitio Finca Forest en Envigado, ideal para realizar fiestas y celebraciones llenas de magia y diversión, cuenta con este maravilloso lugar y el mejor servicio de San Agustín .",
+  },
+  {
+    id: 3,
+    image: "/uploads/Tu-San-Agustin-Home_img03.webp",
+    title: "Mitsubishi",
+    category: "Eventos Empresariales",
+    description:
+      "Realizamos la celebración de los 50 años de Mitsubishi, un evento empresarial en el que ofrecimos un servicio integral en la operación y logística en nuestro lugar para eventos Orquiderama Jardín Botánico.",
+  },
+];
+---
+
+<section class="py-16 px-4 relative">
+  <div class="absolute inset-0" id="historiasbg"></div>
+
+  <div class="container mx-auto relative z-10">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-serif main-title">
+        <span class="highlight">Historias</span>
+        <span class="text-gray-800">de Eventos Reales</span>
+      </h2>
+    </div>
+
+    <div class="mb-12">
+      <HistoriasCarousel client:visible stories={stories} />
+    </div>
+
+    <div class="flex justify-center">
+      <button class="btn-testimonials">
+        Ver testimonios
+        <div class="flex gap-1">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <span class="text-yellow-400 text-sm">★</span>
+          ))}
+        </div>
+      </button>
+    </div>
+  </div>
+</section>

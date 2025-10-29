@@ -1,0 +1,91 @@
+---
+import NavSidebar from "./NavSidebar.astro";
+import HeaderNav from "./HeaderNav";
+import '../styles/header.css';
+---
+
+<header>
+  <div
+    style="display:flex; justify-content:space-around; width:100vw; align-items:center;"
+  >
+    <img
+      id="logo-white"
+      src="/assets/images/Tu-San-Agustin_Logo.png"
+      alt="Tu San Agustín"
+      height="80"
+      width="80"
+    />
+
+    <a class="social-header" href="tel:+573168753305" style="cursor:pointer;">
+      Llámanos:(+57) 3168753305
+    </a>
+
+    <div class="social-header" style="flex-wrap:wrap;">
+      <a
+        href="https://www.facebook.com/tusanagustin/"
+        target="_blank"
+        rel="noopener"><i class="fa-brands fa-facebook-f"></i></a
+      >
+      <a
+        href="https://www.instagram.com/tusanagustin/"
+        target="_blank"
+        rel="noopener"><i class="fa-brands fa-instagram"></i></a
+      >
+      <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+      <a
+        href="https://es.pinterest.com/tusanagustin/_saved/"
+        target="_blank"
+        rel="noopener"><i class="fa-brands fa-pinterest"></i></a
+      >
+      <a
+        href="https://www.linkedin.com/in/san-agust%C3%ADn-eventos-y-turismo-b36aa8109/"
+        target="_blank"
+        rel="noopener"><i class="fa-brands fa-linkedin"></i></a
+      >
+      <a
+        href="https://www.youtube.com/user/tusanagustin"
+        target="_blank"
+        rel="noopener"><i class="fa-brands fa-youtube"></i></a
+      >
+      <a
+        href="https://www.flickr.com/photos/tusanagustin/"
+        target="_blank"
+        rel="noopener"><i class="fab fa-flickr"></i></a
+      >
+      <a
+        href="https://api.whatsapp.com/send/?phone=573168753305&text=%EF%BF%BD+Hola%21&type=phone_number&app_absent=0"
+        target="_blank"
+        rel="noopener"><i class="fab fa-whatsapp"></i></a
+      >
+    </div>
+
+    <img
+      src="/assets/images/united-states-of-america.png"
+      alt="USA"
+      height="30"
+      width="30"
+      style="margin-right:10px;"
+    />
+
+    <!-- Burger button for mobile -->
+    <HeaderNav client:load />
+  </div>
+
+  <!-- Mobile Sidebar -->
+  <NavSidebar />
+</header>
+<!-- Desktop Navigation -->
+<nav>
+  <a href="#">Inicio</a>
+  <a href="https://www.tusanagustin.com/sobre-nosotros">Sobre nosotros</a>
+  <a href="https://www.tusanagustin.com/servicios">Servicios</a>
+  <a href="https://www.tusanagustin.com/galeria">Galerías</a>
+  <a href="https://www.tusanagustin.com/lugares">Lugares</a>
+  <a href="#">Historias</a>
+  <a href="https://www.tusanagustin.com/blog">Blog</a>
+  <a
+    href="#"
+    class="btn btn-primary bg-primary"
+    onclick="dispatchEvent(new CustomEvent('open-contact'))">Contacto</a
+  >
+</nav>

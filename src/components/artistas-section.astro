@@ -1,0 +1,58 @@
+---
+import { Button } from "@/components/ui/button";
+import ArtistasCarousel from "@/components/ui/ArtistasCarousel"; // isla React que usa Carousel*
+
+const originalArtists = [
+  { name: "Maluma",  image: "/uploads/Tu-San-Agustin-Home_24.webp" },
+  { name: "Karol G", image: "/uploads/Tu-San-Agustin-Home_18.webp" },
+  { name: "J Balvin", image: "/uploads/Tu-San-Agustin-Home_21.webp" },
+];
+const artists = [...originalArtists, ...originalArtists, ...originalArtists];
+
+const categories = [
+  "Cantantes", "Imitadores", "Orquestas", "Grupos",
+  "Fotografía y Video", "Música popular", "Shows",
+];
+---
+<section class="carouselartistas --background-alt">
+  <div class="container mx-auto px-4">
+    <!-- Título (SSR) -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">
+        <span class="text-teal-400">Artistas</span>
+        <span class="text-white italic"> & </span>
+        <span class="text-white">Espectáculos</span>
+      </h2>
+    </div>
+
+    <!-- Carrusel (isla React completa) -->
+    <div class="mb-16">
+      <ArtistasCarousel client:visible artists={artists} />
+    </div>
+
+    <!-- Categorías (SSR) -->
+    <div class="border-t border-gray-600 pt-8">
+      <div class="flex flex-col md:flex-row md:flex-wrap justify-center items-center gap-4 md:gap-8 mb-8 text-white serviciostext">
+        {categories.map((c, i) => (
+          <span
+            key={i}
+            class="text-lg md:text-xl font-light italic cursor-pointer hover:text-teal-400 transition-colors"
+          >
+            {c}
+          </span>
+        ))}
+      </div>
+    </div>
+    <div class="border-b border-gray-600 pb-8 mb-12"></div>
+
+    <!-- CTA inferior (puede ser React SSR sin hidratar) -->
+    <div class="text-center px-4">
+      <Button
+        variant="outline"
+        className="bg-white hover:bg-gray-100 border-white px-4 md:px-8 py-3 rounded-full text-sm md:text-lg font-medium w-full max-w-md mx-auto"
+      >
+        Ingresa a la sección de Artistas y Espectáculos
+      </Button>
+    </div>
+  </div>
+</section>
