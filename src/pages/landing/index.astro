@@ -1,0 +1,224 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/pages/home/Header.astro';
+import Footer from '@/components/pages/home/Footer.astro';
+import Portada from '@/components/pages/landing/Portada.tsx';
+---
+
+<BaseLayout title="Landing - Tu San Agust�n">
+  <Header />
+
+<Portada />
+
+  <!-- Features Section -->
+  <section class="landing-features">
+    <div class="container">
+      <h2>Nuestros Servicios</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <i class="fa-solid fa-heart"></i>
+          <h3>Bodas de Destino</h3>
+          <p>Creamos la boda de tus sue�os en los lugares m�s hermosos de Colombia.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fa-solid fa-utensils"></i>
+          <h3>Gastronom�a</h3>
+          <p>Men�s personalizados con los mejores sabores regionales e internacionales.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fa-solid fa-wand-sparkles"></i>
+          <h3>Decoraci�n</h3>
+          <p>Ambientaciones �nicas que reflejan tu estilo y personalidad.</p>
+        </div>
+        <div class="feature-card">
+          <i class="fa-solid fa-map-location-dot"></i>
+          <h3>Lugares Exclusivos</h3>
+          <p>Acceso a las mejores locaciones para eventos en San Agust�n.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="landing-cta">
+    <div class="container">
+      <h2>�Listo para empezar?</h2>
+      <p>Cont�ctanos hoy y comencemos a planificar tu evento perfecto</p>
+      <div class="cta-buttons">
+        <a href="tel:+573168753305" class="btn btn-primary">
+          <i class="fa-solid fa-phone"></i> Llamar Ahora
+        </a>
+        <a
+          href="#"
+          class="btn btn-secondary"
+          onclick="dispatchEvent(new CustomEvent('open-contact'))"
+        >
+          Solicitar Cotizaci�n
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+
+  /* Features Section */
+  .landing-features {
+    padding: 5rem 2rem;
+    background-color: #f9fafb;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .landing-features h2 {
+    text-align: center;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-bottom: 3rem;
+    color: var(--text-color, #1f2937);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .feature-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .feature-card i {
+    font-size: 3rem;
+    color: #5cb3a8;
+    margin-bottom: 1rem;
+  }
+
+  .feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-color, #1f2937);
+  }
+
+  .feature-card p {
+    color: #6b7280;
+    line-height: 1.6;
+  }
+
+  /* CTA Section */
+  .landing-cta {
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, #4a9d93 0%, #5cb3a8 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .landing-cta h2 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-bottom: 1rem;
+  }
+
+  .landing-cta p {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    margin-bottom: 2rem;
+    opacity: 0.95;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+  }
+
+  .btn-primary {
+    background-color: white;
+    color: #5cb3a8;
+  }
+
+  .btn-primary:hover {
+    background-color: #f3f4f6;
+    transform: scale(1.05);
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+  }
+
+  .btn-secondary:hover {
+    background-color: white;
+    color: #5cb3a8;
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .landing-hero {
+      min-height: 60vh;
+    }
+
+    .landing-features,
+    .landing-cta {
+      padding: 3rem 1rem;
+    }
+
+    .features-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btn {
+      width: 100%;
+      max-width: 300px;
+      justify-content: center;
+    }
+  }
+</style>
