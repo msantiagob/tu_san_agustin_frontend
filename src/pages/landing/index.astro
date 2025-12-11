@@ -5,62 +5,546 @@ import Footer from '@/components/pages/home/Footer.astro';
 import Portada from '@/components/pages/landing/Portada.tsx';
 ---
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
+
 <BaseLayout title="Landing - Tu San Agust�n">
   <Header />
-
 <Portada />
+    <section class="hero-section">
+        <h1 class="hero-title">Alimentar con criterio:</h1>
+        <h2 class="hero-subtitle">Salud, energía y rendimiento de alto nivel</h2>
+        
+        <div class="video-container">
+          <iframe 
+            src="https://www.youtube.com/embed/HyHNuVaZJ-k" 
+            title="Video Tu San Agustín"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
 
-  <!-- Features Section -->
-  <section class="landing-features">
-    <div class="container">
-      <h2>Nuestros Servicios</h2>
-      <div class="features-grid">
-        <div class="feature-card">
-          <i class="fa-solid fa-heart"></i>
-          <h3>Bodas de Destino</h3>
-          <p>Creamos la boda de tus sue�os en los lugares m�s hermosos de Colombia.</p>
+        <div class="hero-description">
+            <p>Una empresa que se respeta no improvisa cuando se trata de energía humana. Alimentar a tu equipo no es un detalle operativo: <span class="highlight-turquoise">es una decisión de liderazgo</span>. Y en un entorno corporativo competitivo, la forma en que comes refleja la forma en que lideras.</p>
+            
+            <p>El menú que entregas es el mensaje silencioso que le das a tu equipo: <span class="highlight-turquoise">"te cuido porque te necesito al 100%"</span>. Por eso, los menús corporativos deben ser diseñados desde una lógica nutricional de alto rendimiento, con respaldo profesional y orientación a resultados.</p>
         </div>
-        <div class="feature-card">
-          <i class="fa-solid fa-utensils"></i>
-          <h3>Gastronom�a</h3>
-          <p>Men�s personalizados con los mejores sabores regionales e internacionales.</p>
-        </div>
-        <div class="feature-card">
-          <i class="fa-solid fa-wand-sparkles"></i>
-          <h3>Decoraci�n</h3>
-          <p>Ambientaciones �nicas que reflejan tu estilo y personalidad.</p>
-        </div>
-        <div class="feature-card">
-          <i class="fa-solid fa-map-location-dot"></i>
-          <h3>Lugares Exclusivos</h3>
-          <p>Acceso a las mejores locaciones para eventos en San Agust�n.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- CTA Section -->
-  <section class="landing-cta">
-    <div class="container">
-      <h2>�Listo para empezar?</h2>
-      <p>Cont�ctanos hoy y comencemos a planificar tu evento perfecto</p>
-      <div class="cta-buttons">
-        <a href="tel:+573168753305" class="btn btn-primary">
-          <i class="fa-solid fa-phone"></i> Llamar Ahora
-        </a>
-        <a
-          href="#"
-          class="btn btn-secondary"
-          onclick="dispatchEvent(new CustomEvent('open-contact'))"
-        >
-          Solicitar Cotizaci�n
-        </a>
-      </div>
-    </div>
-  </section>
+        <div class="hero-cta">
+            <p>Aquí te presentamos los tipos de menú que una empresa inteligente, ambiciosa y responsable debe considerar.</p>
+        </div>
 
+        <div class="food-gallery">
+            <div class="food-item" style="background-image: url('')"> <img src="./../../../public/assets/images/landing-empleados/item1.webp" alt="" srcset=""></div>
+            <div class="food-item" style="background-image: url('')"> <img src="./../../../public/assets/images/landing-empleados/item2.webp" alt="" srcset=""></div>
+            <div class="food-item" style="background-image: url('')"> <img src="./../../../public/assets/images/landing-empleados/item3.webp" alt="" srcset=""></div>
+            <div class="food-item" style="background-image: url('')"> <img src="./../../../public/assets/images/landing-empleados/item4.webp" alt="" srcset=""></div>
+            <div class="food-item" style="background-image: url('')"> <img src="./../../../public/assets/images/landing-empleados/item5.webp" alt="" srcset=""></div>
+        </div>
+    </section>
+    <section class="corporate-section">
+
+        <div class="corporate-content">
+            <h2 class="section-title">Alimentación Corporativa con Sentido:</h2>
+            <h3 class="section-subtitle">Diseño de Menús Nutricionales para Empresas</h3>
+
+            <div class="corporate-description">
+                <p>En Tu San Agustín no servimos comida: <span class="highlight-turquoise">servimos energía, salud y compromiso.</span> Diseñamos y operamos <span class="highlight-turquoise">menús nutricionales para empleados</span> que entienden la realidad de tu empresa y responden a los ritmos de tu operación. Ya sea en planta, en oficina o en terreno, alimentamos a tu gente como se alimenta al recurso más valioso de una organización: con estrategia.</p>
+            </div>
+
+            <h4 class="why-section-title">¿Por qué ofrecer un menú</h4>
+            <h3 class="why-section-subtitle">diseñado nutricionalmente?</h3>
+
+            <div class="benefits-list">
+                <p>• Porque mejora la productividad y reduce el ausentismo.</p>
+                <p>• Porque fortalece la cultura organizacional.</p>
+                <p>• Porque te posiciona como un empleador de alto nivel.</p>
+                <p>• Porque la alimentación también es seguridad y salud en el trabajo (ISO 45001).</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="declaration-section">
+        <h2 class="declaration-title">Cada Almuerzo es una declaración.</h2>
+        <h3 class="declaration-subtitle">Nosotros te ayudamos a que ese mensaje sea</h3>
+        
+        <p class="declaration-quote">"aquí cuidamos a las personas".</p>
+
+        <div class="video-container">
+          <iframe 
+            src="https://www.youtube.com/embed/HyHNuVaZJ-k" 
+            title="Video Tu San Agustín"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+    </section>
+
+    <section class="menu-balanceado-section">
+        <div class="food-showcase">
+            <div class="food-showcase-item"><img src="./../../../public/assets/images/landing-empleados/element1.webp" alt="" srcset=""></div>
+            <div class="food-showcase-item"><img src="./../../../public/assets/images/landing-empleados/element2.webp" alt="" srcset=""></div>
+            <div class="food-showcase-item"><img src="./../../../public/assets/images/landing-empleados/element3.webp" alt="" srcset=""></div>
+        </div>
+        <div class="menu-header">
+            <h2 class="menu-main-title">Menús que piensan como tu empresa</h2>
+            <h3 class="menu-type-title">Menú Balanceado Clásico</h3>
+            <p class="menu-description">Ideal para jornadas regulares. Nutrición completa, ligera y variada.</p>
+            
+            <div class="target-audience">
+                <p><strong>Especial para:</strong></p>
+                <div class="target-points-container">
+                    <p>• Empresas de 20 a 1000+ empleados.</p>
+                    <p>• Call centers, plantas, logística, salud, tecnología.</p>
+                    <p>• Comedores corporativos o entrega diaria en porciones individuales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="experience-section">
+            <div class="food-image-large">
+                <img src="./../../../public/assets/images/landing-empleados/item-vertical.webp" alt="" srcset="">
+            </div>
+            <div class="experience-content">
+                <h2>Experiencia San Agustín</h2>
+                <ul>
+                    <li>Asesoría nutricional profesional.</li>
+                    <li>Operación en sitio o servicio tercerizado.</li>
+                    <li>Control de calidad, BPM e higiene certificada.</li>
+                    <li>Logística puntual, eficiente y amigable.</li>
+                </ul>
+
+                <div class="cta-section">
+                    <h3>Solicita tu</h3>
+                    <h4>propuesta personalizada</h4>
+                    <p>Cada empresa es diferente. Por eso, nuestro menú también lo es. Escríbenos hoy y transforma el almuerzo en una experiencia de bienestar y cultura.</p>
+                    
+                    <a href="#contacto" class="cta-button">Descarga nuestro portafolio</a>
+                </div>
+            </div>
+    </section>
+  
   <Footer />
 </BaseLayout>
+
+// Styles for Landing Page
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --turquoise: #5DBDB4;
+            --dark-gray: #3A4147;
+            --light-gray: #E8E8E8;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--dark-gray) 0%, #2a2f34 100%);
+            color: var(--white);
+            padding: 80px 20px;
+            padding-bottom: 0;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--turquoise);
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .hero-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--white);
+            margin-bottom: 60px;
+            font-weight: 300;
+        }
+
+        .video-container {
+            width: 100%;
+            max-width: 700px;
+            height: 395px;
+            margin: 0 auto 40px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .hero-description {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1rem;
+            line-height: 1.8;
+            text-align: left;
+        }
+
+        .hero-description p {
+            margin-bottom: 20px;
+        }
+
+        .highlight-turquoise {
+            color: var(--turquoise);
+            font-weight: 600;
+        }
+
+        .hero-cta {
+            margin-top: 50px;
+            max-width: 800px;
+            text-align: left;
+        }
+
+        .hero-cta p {
+            font-family: 'Lora';
+            font-size: 2.3rem;
+            font-weight: 500;
+        }
+
+        .corporate-section {
+            background: linear-gradient(to bottom, var(--light-gray) 0%, var(--white) 100%);
+            padding: 80px 20px;
+        }
+
+        .food-gallery {
+            width: calc(100% + 40px);
+            margin-left: -20px;
+            margin-right: -20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 5px;
+        }
+
+        .food-item {
+            padding-top: 40px;
+        }
+
+        .food-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            display: block;
+        }
+
+        .corporate-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Lora';
+            font-size: 3.5rem;
+            color: var(--turquoise);
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            font-family: 'Lora';
+            font-size: 3.5rem;
+            color: var(--dark-gray);
+            margin-bottom: 40px;
+        }
+
+        .corporate-description {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 60px;
+            text-align: left;
+        }
+
+        .why-section-title {
+            font-family: 'Lora';
+            font-size: 3.5rem;
+            color: var(--turquoise);
+        }
+
+        .why-section-subtitle {
+            font-family: 'Lora';
+            font-size: 3.5rem;
+            color: var(--dark-gray);
+            margin-bottom: 30px;
+        }
+
+        .benefits-list {
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1rem;
+            line-height: 2;
+        }
+
+        .benefits-list p {
+            padding-left: 20px;
+        }
+
+        .declaration-section {
+            background: var(--light-gray);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .declaration-title {
+            font-family: 'Lora';
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: var(--dark-gray);
+            margin-bottom: 10px;
+        }
+
+        .declaration-subtitle {
+            font-family: 'Lora';
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: var(--dark-gray);
+            margin-bottom: 30px;
+        }
+
+        .declaration-quote {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--turquoise);
+            margin-bottom: 60px;
+        }
+
+        .menu-balanceado-section {
+            background-color: #d8d2cb;
+            padding: 80px 20px;
+        }
+
+        .food-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            margin-bottom: 80px;
+        }
+
+        .food-showcase-item {
+            border-radius: 11%;
+            overflow: hidden;
+        }
+
+        .food-showcase-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            display: block;
+        }
+
+        .menu-section {
+            background: linear-gradient(to bottom, var(--light-gray) 0%, var(--white) 100%);
+            padding: 80px 20px;
+        }
+
+        .menu-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .menu-main-title {
+            font-family: 'Lora';
+            font-size: 3.5rem;
+            color: var(--dark-gray);
+            margin-bottom: 10px;
+        }
+
+        .menu-type-title {
+            font-family: 'Lora';
+            font-size: 3.5rem;
+            color: var(--turquoise);
+            margin-bottom: 20px;
+        }
+
+        .menu-description {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark-gray);
+            margin-bottom: 40px;
+        }
+
+        .target-audience {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--turquoise);
+        }
+
+        .target-audience strong{
+            font-family: 'Lora';
+            font-size: 3.5rem;
+            font-weight: 500;
+            color: var(--dark-gray);
+        }
+
+        .target-points-container{
+            padding-top: 30px;
+            text-align: left;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1rem;
+            line-height: 2;
+        }
+
+        .target-points-container p {
+            font-weight: 600;
+        }
+
+        .experience-section {
+            width: 100%;
+            background: var(--dark-gray);
+            color: var(--white);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        .food-image-large {
+            display: flex;
+            width: 40%;
+            height: auto;
+            border-radius: 10px;
+            align-self: baseline;
+            overflow: hidden;
+            justify-content: flex-end;
+            flex-direction: row;
+            justify-self: end;
+        }
+
+        .food-image-large img {
+            width: 100%;
+            height: auto;
+        }
+
+        .experience-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--turquoise);
+            margin-bottom: 30px;
+        }
+
+        .experience-content ul {
+            list-style: none;
+            margin-bottom: 50px;
+        }
+
+        .experience-content li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .experience-content li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--turquoise);
+            font-weight: bold;
+        }
+
+        .cta-section {
+            margin-top: 50px;
+        }
+
+        .cta-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--turquoise);
+            margin-bottom: 10px;
+        }
+
+        .cta-section h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--turquoise);
+            margin-bottom: 30px;
+        }
+
+        .cta-section p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--turquoise);
+            color: var(--white);
+            padding: 15px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(93, 189, 180, 0.3);
+        }
+
+        .cta-button:hover {
+            background: #4da9a0;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(93, 189, 180, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.8rem;
+            }
+
+            .section-title,
+            .section-subtitle,
+            .menu-type-title {
+                font-size: 1.8rem;
+            }
+
+            .declaration-quote {
+                font-size: 2rem;
+            }
+
+            .experience-section {
+                grid-template-columns: 1fr;
+            }
+
+            .food-gallery {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+    </style>
 
 <style>
 
