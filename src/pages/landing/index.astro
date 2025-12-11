@@ -3,6 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/pages/home/Header.astro';
 import Footer from '@/components/pages/home/Footer.astro';
 import Portada from '@/components/pages/landing/Portada.tsx';
+import Conocenos from '@/components/pages/landing/Conocenos.tsx';
 ---
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -129,7 +130,7 @@ import Portada from '@/components/pages/landing/Portada.tsx';
                 <a href="#contacto" class="cta-button-white">Contáctanos Aquí para Agendar una visita</a>
             </div>
     </section>
-  
+  <Conocenos />
   <Footer />
 </BaseLayout>
 
@@ -169,7 +170,7 @@ import Portada from '@/components/pages/landing/Portada.tsx';
 
         .hero-title {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
+            font-size: clamp(1.75rem, 5vw, 3rem);
             color: var(--turquoise);
             margin-bottom: 10px;
             font-weight: 800;
@@ -177,7 +178,7 @@ import Portada from '@/components/pages/landing/Portada.tsx';
 
         .hero-subtitle {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
             color: var(--white);
             margin-bottom: 60px;
             font-weight: 300;
@@ -186,7 +187,8 @@ import Portada from '@/components/pages/landing/Portada.tsx';
         .video-container {
             width: 100%;
             max-width: 700px;
-            height: 395px;
+            aspect-ratio: 16 / 9;
+            height: auto;
             margin: 0 auto 40px;
             border-radius: 10px;
             overflow: hidden;
@@ -224,7 +226,7 @@ import Portada from '@/components/pages/landing/Portada.tsx';
 
         .hero-cta p {
             font-family: 'Lora';
-            font-size: 2.3rem;
+            font-size: clamp(1.25rem, 3vw, 2.3rem);
             font-weight: 500;
         }
 
@@ -262,14 +264,14 @@ import Portada from '@/components/pages/landing/Portada.tsx';
 
         .section-title {
             font-family: 'Lora';
-            font-size: 3.5rem;
+            font-size: clamp(1.75rem, 5vw, 3.5rem);
             color: var(--turquoise);
             margin-bottom: 10px;
         }
 
         .section-subtitle {
             font-family: 'Lora';
-            font-size: 3.5rem;
+            font-size: clamp(1.75rem, 5vw, 3.5rem);
             color: var(--dark-gray);
             margin-bottom: 40px;
         }
@@ -283,13 +285,13 @@ import Portada from '@/components/pages/landing/Portada.tsx';
 
         .why-section-title {
             font-family: 'Lora';
-            font-size: 3.5rem;
+            font-size: clamp(1.75rem, 5vw, 3.5rem);
             color: var(--turquoise);
         }
 
         .why-section-subtitle {
             font-family: 'Lora';
-            font-size: 3.5rem;
+            font-size: clamp(1.75rem, 5vw, 3.5rem);
             color: var(--dark-gray);
             margin-bottom: 30px;
         }
@@ -314,7 +316,7 @@ import Portada from '@/components/pages/landing/Portada.tsx';
 
         .declaration-title {
             font-family: 'Lora';
-            font-size: 2.5rem;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
             font-weight: 500;
             color: var(--dark-gray);
             margin-bottom: 10px;
@@ -322,7 +324,7 @@ import Portada from '@/components/pages/landing/Portada.tsx';
 
         .declaration-subtitle {
             font-family: 'Lora';
-            font-size: 2.5rem;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
             font-weight: 500;
             color: var(--dark-gray);
             margin-bottom: 30px;
@@ -330,7 +332,7 @@ import Portada from '@/components/pages/landing/Portada.tsx';
 
         .declaration-quote {
             font-family: 'Dancing Script', cursive;
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 700;
             color: var(--turquoise);
             margin-bottom: 60px;
@@ -375,14 +377,14 @@ import Portada from '@/components/pages/landing/Portada.tsx';
 
         .menu-main-title {
             font-family: 'Lora';
-            font-size: 3.5rem;
+            font-size: clamp(1.75rem, 5vw, 3.5rem);
             color: var(--dark-gray);
             margin-bottom: 10px;
         }
 
         .menu-type-title {
             font-family: 'Lora';
-            font-size: 3.5rem;
+            font-size: clamp(1.75rem, 5vw, 3.5rem);
             color: var(--turquoise);
             margin-bottom: 20px;
         }
@@ -402,7 +404,7 @@ import Portada from '@/components/pages/landing/Portada.tsx';
 
         .target-audience strong{
             font-family: 'Lora';
-            font-size: 3.5rem;
+            font-size: clamp(1.75rem, 5vw, 3.5rem);
             font-weight: 500;
             color: var(--dark-gray);
         }
@@ -453,7 +455,7 @@ import Portada from '@/components/pages/landing/Portada.tsx';
 
         .experience-content h2 {
             font-family: 'Lora';
-            font-size: 3.2rem;
+            font-size: clamp(1.75rem, 5vw, 3.2rem);
             color: var(--turquoise);
             margin-top: 50px;
             margin-bottom: 20px;
@@ -473,13 +475,13 @@ import Portada from '@/components/pages/landing/Portada.tsx';
 
         .cta-section h3 {
             font-family: 'Lora';
-            font-size: 3.2rem;
+            font-size: clamp(1.75rem, 5vw, 3.2rem);
             color: var(--turquoise);
         }
 
         .cta-section h4 {
             font-family: 'Lora';
-            font-size: 3.2rem;
+            font-size: clamp(1.75rem, 5vw, 3.2rem);
             color: var(--turquoise);
             margin-bottom: 30px;
         }
@@ -498,7 +500,7 @@ import Portada from '@/components/pages/landing/Portada.tsx';
             margin-top: 40px;
             border-radius: 50px;
             text-decoration: none;
-            font-size: 1.8rem;
+            font-size: clamp(1.1rem, 3vw, 1.8rem);
             font-family: 'Lora';
             font-weight: 500;
             transition: all 0.3s ease;
@@ -515,16 +517,17 @@ import Portada from '@/components/pages/landing/Portada.tsx';
             display: inline-block;
             background: var(--white);
             color: var(--turquoise);
-            margin: 100px -100px;
+            margin: 100px 0;
             margin-bottom: 120px;
-            padding: 10px 100px;
+            padding: 10px 50px;
             border-radius: 50px;
             text-decoration: none;
-            font-size: 1.8rem;
+            font-size: clamp(1.1rem, 3vw, 1.8rem);
             font-family: 'Lora';
             font-weight: 500;
             transition: all 0.3s ease;
             box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+            text-align: center;
         }
 
         .cta-button:hover-white {
@@ -533,31 +536,171 @@ import Portada from '@/components/pages/landing/Portada.tsx';
             box-shadow: 0 8px 25px rgba(243, 255, 254, 0.4);
         }
 
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2rem;
+        /* Tablet */
+        @media (max-width: 1024px) {
+            .hero-section,
+            .corporate-section,
+            .declaration-section,
+            .menu-balanceado-section {
+                padding: 60px 20px;
             }
 
-            .hero-subtitle {
-                font-size: 1.8rem;
-            }
-
-            .section-title,
-            .section-subtitle,
-            .menu-type-title {
-                font-size: 1.8rem;
-            }
-
-            .declaration-quote {
-                font-size: 2rem;
+            .food-showcase {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                margin-bottom: 60px;
             }
 
             .experience-section {
-                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .food-image-large img {
+                width: 220px;
+            }
+
+            .cta-button-white {
+                margin: 60px 0;
+                margin-bottom: 80px;
+                padding: 10px 40px;
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero-section,
+            .corporate-section,
+            .declaration-section,
+            .menu-balanceado-section {
+                padding: 40px 20px;
+            }
+
+            .hero-section {
+                min-height: auto;
+                padding: 60px 20px 40px;
+            }
+
+            .hero-description,
+            .hero-cta {
+                text-align: center;
+            }
+
+            .hero-cta {
+                margin-top: 30px;
+            }
+
+            .video-container {
+                margin: 0 auto 30px;
             }
 
             .food-gallery {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 3px;
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .food-item {
+                padding-top: 20px;
+            }
+
+            .corporate-description,
+            .benefits-list {
+                text-align: center;
+            }
+
+            .benefits-list p {
+                padding-left: 0;
+            }
+
+            .food-showcase {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                margin-bottom: 40px;
+            }
+
+            .experience-section {
+                flex-direction: column;
+                gap: 0;
+                padding: 40px 20px;
+            }
+
+            .food-image-large {
+                width: 100%;
+                justify-content: center;
+                order: 2;
+            }
+
+            .food-image-large img {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .experience-content {
+                width: 100%;
+                order: 1;
+            }
+
+            .experience-content h2 {
+                margin-top: 0;
+            }
+
+            .experience-content ul {
+                padding-left: 20px;
+                margin-bottom: 20px;
+            }
+
+            .cta-section {
+                margin-top: 30px;
+            }
+
+            .cta-button,
+            .cta-button-white {
+                display: block;
+                width: 100%;
+                max-width: 350px;
+                margin-left: auto;
+                margin-right: auto;
+                padding: 12px 30px;
+                text-align: center;
+            }
+
+            .cta-button-white {
+                margin-top: 40px;
+                margin-bottom: 60px;
+            }
+
+            .target-points-container {
+                padding-top: 20px;
+            }
+        }
+
+        /* Small Mobile */
+        @media (max-width: 480px) {
+            .hero-section,
+            .corporate-section,
+            .declaration-section,
+            .menu-balanceado-section {
+                padding: 30px 15px;
+            }
+
+            .food-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-description p,
+            .corporate-description p {
+                font-size: 0.95rem;
+            }
+
+            .benefits-list,
+            .target-points-container {
+                font-size: 0.9rem;
+            }
+
+            .cta-button,
+            .cta-button-white {
+                padding: 10px 25px;
             }
         }
     </style>
