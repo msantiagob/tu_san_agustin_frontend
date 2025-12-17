@@ -43,7 +43,7 @@ export default function Portada() {
 
       <section className="landing-hero">
         <div className="hero-content">
-          <h1>Tipos de Menú pa Empleados desde la Lógica Nutricional</h1>
+          <h1>Tipos de Menú para Empleados desde la Lógica Nutricional</h1>
         </div>
       </section>
     </>
