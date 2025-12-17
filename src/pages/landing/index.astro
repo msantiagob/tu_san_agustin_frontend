@@ -688,6 +688,17 @@ import Conocenos from '@/components/pages/landing/Conocenos.tsx';
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            .food-gallery .food-item:nth-child(5) {
+                grid-column: 1 / -1;
+                max-width: 50%;
+                margin: 0 auto;
+            }
+
+            .food-image-large {
+                width: 200px;
+                margin: auto;
+            }
+
             .hero-description p,
             .corporate-description p {
                 font-size: 0.95rem;
@@ -701,6 +712,10 @@ import Conocenos from '@/components/pages/landing/Conocenos.tsx';
             .cta-button,
             .cta-button-white {
                 padding: 10px 25px;
+            }
+
+            .logo {
+                margin: auto;
             }
         }
     </style>

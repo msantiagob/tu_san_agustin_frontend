@@ -5,9 +5,12 @@ export default function HeaderNav() {
     const mm = window.matchMedia("(max-width: 768px)");
     const drawer = document.getElementById("navSidebar");
     const overlay = document.querySelector<HTMLDivElement>(".nav-overlay");
+    const closeButton = document.querySelector<HTMLButtonElement>(".nav-close");
+    const navLinks = document.querySelectorAll<HTMLAnchorElement>(".nav-sidebar .nav-link");
+    const contactLink = document.querySelector<HTMLAnchorElement>(".nav-sidebar .nav-link-contact");
 
     const open = () => {
-      if (!mm.matches) return;            
+      if (!mm.matches) return;
       drawer?.classList.add("active");    // this CSS opens with .active
       if (overlay) overlay.style.display = "block";
       document.documentElement.style.overflow = "hidden";
@@ -28,11 +31,32 @@ export default function HeaderNav() {
     // Click in overlay to close
     overlay?.addEventListener("click", close);
 
+    // Click on close button (X) to close
+    closeButton?.addEventListener("click", close);
+
+    // Click on nav links to close
+    navLinks.forEach(link => {
+      link.addEventListener("click", close);
+    });
+
+    // Handle contact link - close and trigger contact event
+    const handleContactClick = (e: MouseEvent) => {
+      e.preventDefault();
+      close();
+      dispatchEvent(new CustomEvent('open-contact'));
+    };
+    contactLink?.addEventListener("click", handleContactClick);
+
     // Cleanup
     return () => {
       window.removeEventListener("keydown", onEsc);
       mm.removeEventListener?.("change", onChange);
       overlay?.removeEventListener("click", close);
+      closeButton?.removeEventListener("click", close);
+      navLinks.forEach(link => {
+        link.removeEventListener("click", close);
+      });
+      contactLink?.removeEventListener("click", handleContactClick);
     };
   }, []);
 

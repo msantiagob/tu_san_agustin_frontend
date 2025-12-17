@@ -5,9 +5,7 @@ import "@/styles/header.css";
 ---
 
 <header>
-  <div
-    style="display:flex; justify-content:space-around; width:100vw; align-items:center;"
-  >
+  <div class="header-container">
     <img
       id="logo-white"
       src="/assets/images/Tu-San-Agustin_Logo.png"
@@ -16,11 +14,11 @@ import "@/styles/header.css";
       width="80"
     />
 
-    <a class="social-header" href="tel:+573168753305" style="cursor:pointer;">
+    <a class="social-header phone-link" href="tel:+573168753305">
       Llámanos:(+57) 3168753305
     </a>
 
-    <div class="social-header" style="flex-wrap:wrap;">
+    <div class="social-header social-icons">
       <a
         href="https://www.facebook.com/tusanagustin/"
         target="_blank"
@@ -60,11 +58,11 @@ import "@/styles/header.css";
     </div>
 
     <img
+      class="language-flag"
       src="/assets/images/united-states-of-america.png"
       alt="USA"
       height="30"
       width="30"
-      style="margin-right:10px;"
     />
 
     <!-- Burger button for mobile -->
@@ -75,7 +73,7 @@ import "@/styles/header.css";
   <NavSidebar />
 </header>
 <!-- Desktop Navigation -->
-<nav>
+<nav class="desktop-nav">
   <a href="#">Inicio</a>
   <a href="https://www.tusanagustin.com/sobre-nosotros">Sobre nosotros</a>
   <a href="https://www.tusanagustin.com/servicios">Servicios</a>

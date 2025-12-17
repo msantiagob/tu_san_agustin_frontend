@@ -1,19 +1,19 @@
 ---
 ---
-<div class="nav-overlay" onclick="document.body.classList.remove('nav-open')"></div>
+<div class="nav-overlay"></div>
 <div class="nav-sidebar" id="navSidebar">
-  <button class="nav-close" onclick="document.body.classList.remove('nav-open')">
+  <button class="nav-close" aria-label="Cerrar menú">
     <i class="fas fa-times"></i>
   </button>
 
-  <a href="#" onclick="document.body.classList.remove('nav-open')">Inicio</a>
-  <a href="https://www.tusanagustin.com/sobre-nosotros" onclick="document.body.classList.remove('nav-open')">Sobre nosotros</a>
-  <a href="https://www.tusanagustin.com/servicios" onclick="document.body.classList.remove('nav-open')">Servicios</a>
-  <a href="https://www.tusanagustin.com/galeria" onclick="document.body.classList.remove('nav-open')">Galerías</a>
-  <a href="https://www.tusanagustin.com/lugares" onclick="document.body.classList.remove('nav-open')">Lugares</a>
-  <a href="#" onclick="document.body.classList.remove('nav-open')">Historias</a>
-  <a href="https://www.tusanagustin.com/blog" onclick="document.body.classList.remove('nav-open')">Blog</a>
-  <a href="#" class="btn btn-menu btn-primary" onclick="document.body.classList.remove('nav-open'); dispatchEvent(new CustomEvent('open-contact'));">Contacto</a>
+  <a href="#" class="nav-link">Inicio</a>
+  <a href="https://www.tusanagustin.com/sobre-nosotros" class="nav-link">Sobre nosotros</a>
+  <a href="https://www.tusanagustin.com/servicios" class="nav-link">Servicios</a>
+  <a href="https://www.tusanagustin.com/galeria" class="nav-link">Galerías</a>
+  <a href="https://www.tusanagustin.com/lugares" class="nav-link">Lugares</a>
+  <a href="#" class="nav-link">Historias</a>
+  <a href="https://www.tusanagustin.com/blog" class="nav-link">Blog</a>
+  <a href="#" class="btn btn-menu btn-primary nav-link-contact">Contacto</a>
 
   <div style="display:flex; flex-wrap:wrap;">
     <a href="https://www.facebook.com/tusanagustin/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
