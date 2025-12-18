@@ -1,6 +1,10 @@
 import React from 'react';
 
-export default function Portada() {
+interface PortadaProps {
+  title: string;
+  photo: string;
+}
+export default function Portada({ title, photo }: PortadaProps) {
   return (
     <>
       <style>{`
@@ -9,7 +13,7 @@ export default function Portada() {
           display: flex;
           align-items: center;
           justify-content: center;
-          background-image: url('../../../public/assets/images/landing-empleados/banner-empleados.webp');
+          background-image: url('${photo}');
           background-size: cover;
           background-position: center;
           color: white;
@@ -18,16 +22,23 @@ export default function Portada() {
         }
 
         .hero-content {
-          max-width: 800px;
           animation: fadeInUp 1s ease-out;
+          margin: 0 35px;
         }
 
         .hero-content h1 {
-          font-size: clamp(2rem, 5vw, 3.5rem);
+          width: 100%;
+          font-family: 'Lora';
+          font-size: 5.5rem;
           font-weight: 700;
           margin-bottom: 1rem;
           line-height: 1.2;
         }
+
+        @media (max-width: 480px) {
+          .hero-content h1 {
+          font-size: 2.5rem
+          }
 
         @keyframes fadeInUp {
           from {
@@ -43,7 +54,7 @@ export default function Portada() {
 
       <section className="landing-hero">
         <div className="hero-content">
-          <h1>Tipos de Menú para Empleados desde la Lógica Nutricional</h1>
+          <h1>{title}</h1>
         </div>
       </section>
     </>

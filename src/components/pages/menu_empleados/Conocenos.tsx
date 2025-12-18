@@ -258,6 +258,7 @@ const AboutAwards: React.FC = () => {
 
           .logo {
             width: 150px;
+            margin: auto; 
           }
 
           .award-display {
