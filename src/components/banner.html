@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banner Tu San Agustín - Final</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/heroicons@2.1.1/24/outline/esm/index.js" type="module"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Lato', sans-serif; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+        /* Estilo Enlaces de Texto (Solo Desktop) */
+        .nav-text-link {
+            color: rgba(255, 255, 255, 0.85);
+            font-family: 'Playfair Display', serif;
+            font-size: 0.95rem; font-weight: 500; text-decoration: none;
+            cursor: pointer; transition: all 0.3s ease;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8); white-space: nowrap;
+        }
+        .nav-text-link:hover {
+            color: #ffffff; text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        /* ESTILO SÓLIDO PARA LOS BOTONES DE ACCIÓN */
+        .action-btn {
+            /* El color gris sólido elegante que pediste */
+            background-color: #FDF5E9; 
+            color: black;
+            font-family: 'Playfair Display', serif;
+            font-size: 0.95rem;
+            padding: 12px 24px;
+            border-radius: 25px;
+            border: 1px solid rgba(255,255,255,0.1); /* Borde sutil */
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .action-btn:hover {
+            background-color: #404040; /* Un poco más claro al pasar el mouse */
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        /* Ajuste móvil: Botones anchos */
+        @media (max-width: 768px) {
+            .action-btn { padding: 12px 20px; font-size: 1rem; width: 100%; }
+        }
+
+        /* Paginación Swiper */
+        .swiper-pagination-bullet { background: rgba(255, 255, 255, 0.6); width: 6px; height: 6px; opacity: 1; }
+        .swiper-pagination-bullet-active { background: #d4af37; width: 20px; border-radius: 4px; }
+        .swiper-horizontal>.swiper-pagination-bullets { bottom: 150px; }
+        @media (min-width: 768px) { .swiper-horizontal>.swiper-pagination-bullets { bottom: 110px; } }
+    </style>
+</head>
+<body ">
+
+    <div class="w-full max-w-[1400px] h-[550px] md:h-[650px] relative rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl ring-4 ">
+        
+        <div class="swiper mySwiper w-full h-full">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide relative">
+                    <img src="https://www.tusanagustin.com/assets/media/actualizaciones-home/tu-san-agustin-slider-home-006.png?u=1718403452" class="absolute inset-0 w-full h-full object-cover" alt="Boda">
+                    <div class="absolute inset-0 bg-black/30"></div>
+                    <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 pb-24 md:pb-20">
+                        <h1 class="text-4xl md:text-7xl lg:text-8xl font-medium text-white drop-shadow-lg leading-tight">
+                            Momentos <br> <span class="italic text-yellow-100">Inolvidables</span>
+                        </h1>
+                        <br>
+                      <button class="action-btn w-full md:w-auto ">
+                    Agenda una asesoría
+                </button>
+                    </div>
+                </div>
+                <div class="swiper-slide relative">
+                    <img src="https://www.tusanagustin.com/assets/media/landings-renovadas/001-pagina-banquetes-medellin/banquetes-medellin-tu-san-agustin-foto-decoracion-personalizada.png" class="absolute inset-0 w-full h-full object-cover" alt="Catering">
+                    <div class="absolute inset-0 bg-black/40"></div>
+                    <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 pb-24 md:pb-20">
+                        <h1 class="text-4xl md:text-7xl  text-white drop-shadow-lg">
+                            Expertos en <span class="text-yellow-400">Sabores</span>
+                        </h1> <br>
+                         <button class="action-btn w-full md:w-auto ">
+                    Agenda una asesoría
+                </button>
+                </button>
+                    </div>
+                </div>
+            </div>
+              
+            <div class="swiper-pagination"></div>
+              
+        </div>
+
+        <div class="absolute bottom-0 left-0 right-0 h-56 bg-gradient-to-t from-black via-black/80 to-transparent z-20 pointer-events-none"></div>
+
+        <div class="absolute bottom-0 left-0 right-0 z-30 w-full px-4 py-6 md:px-8 md:py-8 flex flex-col md:flex-row items-end justify-between gap-5">
+            
+            <div class="hidden md:flex flex-1 justify-start gap-6 pb-3">
+                <a class="nav-text-link">Inicio</a>
+                <a class="nav-text-link">Eventos</a>
+                <a class="nav-text-link">Servicios</a>
+            </div>
+
+            <div class="w-full md:w-auto flex flex-col sm:flex-row gap-3 md:gap-4 shrink-0">
+              
+                <button class="action-btn w-full md:w-auto">
+                    Busca por categoría
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 ml-2 opacity-70">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="hidden md:flex flex-1 justify-end gap-6 pb-3">
+                <a class="nav-text-link">Blog</a>
+                <a class="nav-text-link">Nosotros</a>
+                <a class="nav-text-link">Contacto</a>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            spaceBetween: 0,
+            effect: "creative",
+            creativeEffect: {
+                prev: { shadow: true, translate: ["-20%", 0, -1] },
+                next: { translate: ["100%", 0, 0] },
+            },
+            speed: 1000,
+            autoplay: { delay: 6000, disableOnInteraction: false },
+            pagination: { el: ".swiper-pagination", clickable: true },
+        });
+    </script>
+</body>
+</html>

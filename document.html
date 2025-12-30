@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Receipt - Western Oregon University</title>
+    <style>
+        :root {
+            --wou-red: #db0a29;
+            --dark-grey: #333;
+            --light-grey: #f4f4f4;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #e0e0e0;
+            padding: 40px;
+            color: #333;
+            -webkit-print-color-adjust: exact;
+        }
+
+        .invoice-box {
+            max-width: 800px;
+            margin: auto;
+            padding: 30px;
+            border: 1px solid #eee;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+            background-color: white;
+            position: relative;
+        }
+
+        /* Header con Logo y Dirección */
+        .header-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: top;
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--wou-red);
+            padding-bottom: 20px;
+        }
+
+        .logo-area img {
+            width: 250px;
+            height: auto;
+        }
+
+        .university-address {
+            text-align: right;
+            font-size: 12px;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        /* Información del Recibo */
+        .receipt-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .student-vcard h3 {
+            margin: 0 0 10px 0;
+            color: var(--wou-red);
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 100px auto;
+            gap: 5px;
+            font-size: 14px;
+        }
+
+        .label { font-weight: bold; color: #555; }
+
+        .receipt-meta {
+            text-align: right;
+        }
+
+        .receipt-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        /* Tabla de cargos */
+        table {
+            width: 100%;
+            line-height: inherit;
+            text-align: left;
+            border-collapse: collapse;
+        }
+
+        table td {
+            padding: 10px;
+            vertical-align: top;
+            border-bottom: 1px solid #eee;
+        }
+
+        table th {
+            padding: 10px;
+            background-color: var(--light-grey);
+            border-bottom: 2px solid #ddd;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 12px;
+            color: #555;
+        }
+
+        .col-amount {
+            text-align: right;
+            width: 120px;
+        }
+
+        /* Totales */
+        .totals-section {
+            margin-top: 20px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .totals-table {
+            width: 300px;
+            border: 1px solid #ddd;
+        }
+
+        .totals-table td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .grand-total {
+            font-weight: bold;
+            background-color: var(--wou-red);
+            color: white;
+            font-size: 16px;
+        }
+
+        /* Sello de Pagado */
+        .paid-stamp {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-30deg);
+            color: rgba(219, 10, 41, 0.2);
+            font-size: 100px;
+            font-weight: bold;
+            border: 10px solid rgba(219, 10, 41, 0.2);
+            padding: 10px 40px;
+            border-radius: 10px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .transaction-details {
+            margin-top: 40px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            font-size: 12px;
+            border-left: 4px solid #555;
+        }
+
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 11px;
+            color: #999;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+            }
+            .invoice-box {
+                box-shadow: none;
+                border: none;
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="invoice-box">
+        <div class="paid-stamp">PAID</div>
+
+        <div class="header-section">
+            <div class="logo-area">
+                <img src="https://imgs.search.brave.com/_w7GVQWibaN9INQ6pmvb__5Z_tUr-dCT7ZVCcoqSqxo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9kM2U3/b2QwbmEyaWdxYS5j/bG91ZGZyb250Lm5l/dC9tYXJjb20vZmls/ZXMvMjAyNS8wMS9X/T1VfcHJpbWFyeV91/bml2ZXJzaXR5LW5v/VE0ucG5n" alt="WOU Logo">
+            </div>
+            <div class="university-address">
+                <strong>Business Office / Cashier's Office</strong><br>
+                345 Monmouth Ave N.<br>
+                Monmouth, OR 97361<br>
+                Phone: (503) 838-8201<br>
+                Email: businessoffice@wou.edu
+            </div>
+        </div>
+
+        <div class="receipt-info">
+            <div class="student-vcard">
+                <h3>Bill To:</h3>
+                <div class="info-grid">
+                    <span class="label">Student Name:</span> <span>Duvermont Angels</span>
+                    <span class="label">Student ID:</span> <span>V00914522</span>
+                    <span class="label">Term:</span> <span>Winter 2026</span>
+                    <span class="label">Major:</span> <span>Pre-Medicine</span>
+                </div>
+            </div>
+            <div class="receipt-meta">
+                <div class="receipt-title">OFFICIAL RECEIPT</div>
+                <div class="info-grid" style="grid-template-columns: auto auto; justify-content: end; gap: 10px;">
+                    <span class="label">Receipt #:</span> <span>RCT-2025-99402</span>
+                    <span class="label">Date:</span> <span>Dec 30, 2025</span>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Code</th>
+                    <th class="col-amount">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Undergraduate Tuition - Resident (16 Credits)</td>
+                    <td>TUIT-RES</td>
+                    <td class="col-amount">$3,456.00</td>
+                </tr>
+                
+                <tr>
+                    <td>Incidental Fee</td>
+                    <td>FEE-INC</td>
+                    <td class="col-amount">$367.00</td>
+                </tr>
+                <tr>
+                    <td>Health Service Fee</td>
+                    <td>FEE-HLTH</td>
+                    <td class="col-amount">$158.00</td>
+                </tr>
+                <tr>
+                    <td>Student Building Fee</td>
+                    <td>FEE-BLDG</td>
+                    <td class="col-amount">$45.00</td>
+                </tr>
+                <tr>
+                    <td>Student Rec Center Bond Fee</td>
+                    <td>FEE-REC</td>
+                    <td class="col-amount">$42.00</td>
+                </tr>
+                
+                <tr>
+                    <td>Lab Fee: BI 334L (Anatomy)</td>
+                    <td>LAB-SCI</td>
+                    <td class="col-amount">$65.00</td>
+                </tr>
+                <tr>
+                    <td>Lab Fee: CH 335 (Chemistry)</td>
+                    <td>LAB-SCI</td>
+                    <td class="col-amount">$65.00</td>
+                </tr>
+                <tr>
+                    <td>Distance Learning Fee (HE 325)</td>
+                    <td>FEE-ONL</td>
+                    <td class="col-amount">$55.00</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="totals-section">
+            <table class="totals-table">
+                <tr>
+                    <td><strong>Total Charges:</strong></td>
+                    <td class="col-amount"><strong>$4,253.00</strong></td>
+                </tr>
+                <tr>
+                    <td>Payment - Web Credit Card<br><small>Visa ending in 4022</small></td>
+                    <td class="col-amount" style="color: var(--wou-red);">($4,253.00)</td>
+                </tr>
+                <tr class="grand-total">
+                    <td>ACCOUNT BALANCE:</td>
+                    <td class="col-amount">$0.00</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="transaction-details">
+            <strong>Payment Confirmation Details:</strong><br>
+            Transaction ID: 882910442-WOU-PAY<br>
+            Authorization Code: 09921Z<br>
+            Status: <span style="color: green; font-weight: bold;">SUCCESSFUL</span><br>
+            Payer: Duvermont Angels
+        </div>
+
+        <div class="footer">
+            Thank you for your payment. Please retain this document for tax purposes.<br>
+            Western Oregon University is an equal opportunity affirmative action university.
+        </div>
+    </div>
+
+</body>
+</html>

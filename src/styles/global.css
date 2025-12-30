@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Local Fonts */
+@font-face {
+  font-family: 'Alice';
+  src: url('/Alice-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/Poppins-Regular_0.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Swiper Base styles only, modules are imported in components */
+@import 'swiper/css';
+
+@layer base {
+  :root {
+    /* Custom Palette */
+    --color-off-white: #F9F9F9;
+    --color-stone: #D9D3CA;
+    --color-teal: #4EAC9F;
+    --color-charcoal: #333638;
+    --color-cream: #FDF5E9;
+    --color-tan: #D1C1A3;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+  
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    background-color: #FDF5E9;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 { 
+    font-family: 'Alice', serif; 
+  }
+  
+  h1 {
+    font-weight: normal;
+  }
+  
+  /* Spans inside headings should inherit Alice font */
+  h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
+    font-family: inherit;
+  }
+  
+  /* Other text elements use Poppins */
+  p, a, li, td, th {
+    font-family: 'Alice', serif; 
+  }
+  
+  /* Spans outside headings use Poppins */
+  p span, a span, li span, td span, th span, div > span {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+.opciones {
+    font-family: 'Alice', serif; 
+}
+/* Component specific styles have been moved to their respective Astro files */

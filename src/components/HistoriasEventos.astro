@@ -1,0 +1,162 @@
+---
+import TestimonialCard from './TestimonialCard.astro';
+
+const testimonials = [
+    {
+        image: "images/Tu-San-Agustin-Home_img01.webp",
+        text: "Laura & Andrés una historia de amor realizada en nuestro lugar para eventos Fincadool en esta historia se refleja la felicidad y pasión de una pareja que nos dió su entera confianza para capturar momentos que serán recordados para toda la vida.",
+        link: "Laura y Andrés Boda",
+        linkUrl: "#",
+    },
+    {
+        image: "images/Tu-San-Agustin-Home_img02-150x150.webp",
+        text: "Fiesta de 15 años realizada en nuestra alias Fincal Forest en Envigado, ideal para realizar fiestas y celebraciones llenas de magia y diversión, cuenta con este maravilloso lugar y el mejor servicio de San Agustín.",
+        link: "Fiesta de 15 Años Mariam",
+        linkUrl: "#",
+    },
+    {
+        image: "images/Recurso 9-8.webp",
+        text: "Realizamos celebración de los 50 años de Mitsubishi, un evento empresarial en el que ofrecimos un servicio integral en la operación y logística en nuestro lugar para eventos Orquideorama Jardín Botánico.",
+        link: "Mitsubishi",
+        linkUrl: "#",
+    },
+   
+];
+
+// Duplicate for infinite scroll smoothness
+const doubleTestimonials = [...testimonials, ...testimonials];
+---
+
+<section class="bg-[#FDF5E9] py-12 md:py-32 overflow-hidden relative">
+    <div class="max-w-7xl mx-auto px-4 relative">
+        
+        <!-- Título -->
+        <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-10 md:mb-24 tracking-tight font-sans">
+            <span class="text-[#4A9D88]">Historias</span> 
+            <span class="text-[#2D3748]">de eventos reales</span>
+        </h2>
+
+        <!-- Contenedor del Carrusel -->
+        <div class="relative w-full mb-8 md:mb-16 px-4 md:px-12">
+            
+            <!-- Flechas de Navegación -->
+            <button class="swiper-prev-historias absolute left-0 md:left-2 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center text-gray-400 hover:text-[#4A9D88] hover:scale-110 transition-all cursor-pointer outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            
+            <button class="swiper-next-historias absolute right-0 md:right-2 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center text-gray-400 hover:text-[#4A9D88] hover:scale-110 transition-all cursor-pointer outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+
+            <!-- Swiper Container -->
+            <div class="swiper swiperHistorias w-full py-14 md:py-28">
+                <div class="swiper-wrapper">
+                    {doubleTestimonials.map((testimonial) => (
+                        <div class="swiper-slide">
+                            <TestimonialCard {...testimonial} />
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+
+        <!-- Ver testimonios with stars -->
+        <div class="flex flex-col items-center mt-12">
+            <h3 class="text-[#3a3a3a] text-xl font-medium mb-3 italic font-serif">Ver testimonios</h3>
+            <div class="flex gap-1.5">
+                {[1, 2, 3, 4, 5].map(() => (
+                    <svg class="w-7 h-7 text-[#f5a623] fill-current" viewBox="0 0 24 24">
+                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    </svg>
+                ))}
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .swiper {
+        overflow: visible !important; /* Crucial para que el escalado no se recorte */
+    }
+
+    .swiper-wrapper {
+        align-items: center;
+    }
+    
+    .swiper-slide {
+        height: auto;
+        display: flex;
+        justify-content: center;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+        opacity: 0; /* Ocultar por defecto para mostrar solo 3 cards */
+        pointer-events: none;
+        transform: scale(0.6);
+    }
+
+    /* Solo mostrar la anterior, la siguiente y la activa */
+    .swiper-slide-prev, .swiper-slide-next {
+        opacity: 0.9;
+        pointer-events: auto;
+        transform: scale(0.8) !important;
+        z-index: 5;
+    }
+
+    /* Slide activo destacado */
+    .swiper-slide-active {
+        opacity: 1;
+        pointer-events: auto;
+        transform: scale(1.1) !important;
+        z-index: 20;
+    }
+
+    /* Gradiente opcional para suavizar los bordes del carrusel si es necesario */
+    /*.swiper::after, .swiper::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 15%;
+        height: 100%;
+        z-index: 10;
+        pointer-events: none;
+    }
+    .swiper::before { left: 0; background: linear-gradient(to right, #FDF5E9, transparent); }
+    .swiper::after { right: 0; background: linear-gradient(to left, #FDF5E9, transparent); }*/
+</style>
+
+<script>
+    import Swiper from 'swiper';
+    import { Navigation, Autoplay } from 'swiper/modules';
+    import 'swiper/css';
+    import 'swiper/css/navigation';
+
+    const initHistoriasSwiper = () => {
+        new Swiper(".swiperHistorias", {
+            modules: [Navigation, Autoplay],
+            loop: true,
+            centeredSlides: true,
+            slidesPerView: 1.2, // Mayor visibilidad de las de los lados en móvil
+            spaceBetween: -20, // Superposición ligera para efecto de profundidad
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: true,
+            },
+            navigation: {
+                nextEl: ".swiper-next-historias",
+                prevEl: ".swiper-prev-historias",
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: -30
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: -50 // Más juntas en escritorio para notar el escalado
+                }
+            }
+        });
+    };
+
+    initHistoriasSwiper();
+    document.addEventListener('astro:page-load', initHistoriasSwiper);
+</script>

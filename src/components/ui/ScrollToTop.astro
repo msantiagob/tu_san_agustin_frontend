@@ -1,0 +1,62 @@
+---
+---
+
+<button
+  id="scroll-to-top"
+  class="fixed bottom-6 right-6 z-[100] p-4 bg-[#333638] text-white rounded-full shadow-2xl border-2 border-white/20 transform translate-y-20 opacity-0 transition-all duration-500 hover:scale-110 active:scale-95 group cursor-pointer"
+  aria-label="Ir al inicio"
+>
+  <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-[#4BB3A1]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width="24" 
+    height="24" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    stroke-width="2.5" 
+    stroke-linecap="round" 
+    stroke-linejoin="round"
+    class="relative z-10"
+  >
+    <path d="m18 15-6-6-6 6"/>
+  </svg>
+</button>
+
+<script>
+  const setupScrollToTop = () => {
+    const button = document.getElementById('scroll-to-top');
+    if (!button) return;
+
+    const toggleButton = () => {
+      if (window.scrollY > 300) {
+        button.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+        button.classList.add('translate-y-0', 'opacity-100');
+      } else {
+        button.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+        button.classList.remove('translate-y-0', 'opacity-100');
+      }
+    };
+
+    button.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    window.addEventListener('scroll', toggleButton);
+    // Initial check
+    toggleButton();
+  };
+
+  // Run on load and on Astro page transitions
+  setupScrollToTop();
+  document.addEventListener('astro:page-load', setupScrollToTop);
+</script>
+
+<style>
+  #scroll-to-top {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+  }
+</style>

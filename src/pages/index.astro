@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Banner from '../components/Banner.astro';
+import Carousel from '../components/Carousel.astro';
+import Intro from '../components/Intro.astro';
+import Navbar from '../components/Navbar.astro';
+import Eventos from '../components/EventosUnicos.astro';
+import ServiciosDestacados from '../components/ServiciosDestacados.astro';
+import Locaciones from '../components/Locaciones.astro';
+import VideoSection from '../components/VideoSection.astro';
+import ArtistasEspectaculos from '../components/ArtistasEspectaculos.astro';
+import HistoriasEventos from '../components/HistoriasEventos.astro';
+import TurismoBlock from '../components/TurismoBlock.astro';
+import BlogsSection from '../components/BlogsSection.astro';
+import BrandInfo from '../components/BrandInfo.astro';
+import Footer from '../components/Footer.astro';
+
+---
+
+
+
+<Layout title="Home">
+	<Navbar />
+	<main class="min-h-screen">
+		
+		<Banner />
+		<Eventos />
+		<ServiciosDestacados />
+		<Locaciones />
+		<VideoSection />
+		<ArtistasEspectaculos />
+		<HistoriasEventos />
+		
+		<Intro />
+		
+		<div class="md:my-16"></div>
+		<Carousel />
+
+		<div class="md:my-16"></div>
+		<TurismoBlock />
+
+		<div class="md:my-16"></div>
+		<BlogsSection />
+
+
+		<div class="my-0 md:my-10"></div>
+		<BrandInfo />
+		<Footer />
+	</main>
+</Layout>

@@ -1,0 +1,114 @@
+---
+import ServiceCard from './ui/ServiceCard.astro';
+---
+
+<div class="bg-[#FDF5E9] py-8 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 md:px-16">
+        <h2 class="text-4xl md:text-5xl  text-center mb-12">
+            <span class="text-[#4A9D88]">Eventos</span> <span class="text-[#2D3748]">únicos</span>
+        </h2>
+
+        <div class="relative w-full group">
+            
+            <button class="swiper-prev-events absolute left-0 md:-left-14 top-[40%] -translate-y-1/2 z-50 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center hover:bg-gray-50 transition-all border border-gray-100 text-gray-800 cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            
+            <button class="swiper-next-events absolute right-0 md:-right-14 top-[40%] -translate-y-1/2 z-50 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center hover:bg-gray-50 transition-all border border-gray-100 text-gray-800 cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+
+            <div class="swiper mySwiperEvents !p-6">
+                <div class="swiper-wrapper">
+                   <ServiceCard 
+                        title="Bodas" 
+                        image="images/Fotografía.webp"
+                        url="https://www.tusanagustin.com/servicios/bodas"
+                    />
+                    <ServiceCard 
+                        title="15 años" 
+                        image="images/fiestaquinceaños.webp"
+                        url="https://www.tusanagustin.com/servicios/15-anos"
+                    />
+                    <ServiceCard 
+                        title="Eventos empresariales" 
+                        image="images/Recurso 9-8.webp"
+                        url="https://www.tusanagustin.com/servicios/eventos-empresariales"
+                    />
+                    
+                    {/* Duplicates for Loop */}
+                    <ServiceCard 
+                        title="Bodas" 
+                        image="images/Fotografía.webp"
+                        url="https://www.tusanagustin.com/servicios/bodas"
+                    />
+                    <ServiceCard 
+                        title="15 años" 
+                        image="images/fiestaquinceaños.webp"
+                        url="https://www.tusanagustin.com/servicios/15-anos"
+                    />
+                    <ServiceCard 
+                        title="Eventos empresariales" 
+                        image="images/Recurso 9-8.webp"
+                        url="https://www.tusanagustin.com/servicios/eventos-empresariales"
+                    />
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="w-full border-t border-b border-gray-300 mt-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-3 text-center text-sm md:text-base text-gray-500 font-alice opciones">
+            <a href="https://www.tusanagustin.com/servicios" class="py-1 hover:text-[#4A9D88] cursor-pointer">Eventos sociales</a>
+            <a href="https://www.tusanagustin.com/servicios/eventos-empresariales" class="py-1 hover:text-[#4A9D88] cursor-pointer">Eventos empresariales</a>
+            <a href="https://www.tusanagustin.com/servicios/turismo" class="py-1 hover:text-[#4A9D88] cursor-pointer">Servicios institucionales</a>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Forzar que el swiper sea visible y permita arrastre */
+    .swiper { width: 100%; height: auto; }
+    .swiper-slide { height: auto; user-select: none; }
+    
+    /* Si las flechas no aparecen, es por el Z-INDEX */
+    .swiper-prev-events, .swiper-next-events {
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    /* Evita que la imagen bloquee el arrastre del mouse */
+    img { pointer-events: none; }
+</style>
+
+<script>
+    import Swiper from 'swiper';
+    import { Navigation } from 'swiper/modules';
+    import 'swiper/css';
+    import 'swiper/css/navigation';
+
+    const initEventsSwiper = () => {
+        new Swiper(".mySwiperEvents", {
+            modules: [Navigation],
+            slidesPerView: 1,
+            spaceBetween: 50,
+            loop: true,
+            simulateTouch: true,
+            grabCursor: true,
+            navigation: {
+                nextEl: ".swiper-next-events",
+                prevEl: ".swiper-prev-events",
+            },
+            breakpoints: {
+                640: { slidesPerView: 1.5, spaceBetween: 30 },
+                768: { slidesPerView: 2, spaceBetween: 40 },
+                1024: { slidesPerView: 3, spaceBetween: 50 }
+            }
+        });
+    };
+
+    initEventsSwiper();
+    document.addEventListener('astro:page-load', initEventsSwiper);
+</script>

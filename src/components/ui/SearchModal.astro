@@ -1,0 +1,101 @@
+---
+---
+
+<div 
+  id="search-modal" 
+  class="fixed inset-0 z-[150] bg-black/40 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 flex items-center justify-center px-4"
+>
+    <!-- Modal Content -->
+    <div class="bg-white w-full max-w-2xl rounded-[2.5rem] shadow-2xl p-8 md:p-12 transform scale-95 transition-transform duration-300 relative overflow-hidden">
+        
+        <!-- Close Button -->
+        <button id="close-search" class="absolute top-6 right-6 text-gray-400 hover:text-gray-600 transition-colors p-2 z-10">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+
+        <div class="flex flex-col items-center text-center">
+            <!-- Logo -->
+            <img 
+                src="/images/Tu-San-Agustin_Logo_verde-300x156.webp" 
+                alt="San Agustín Logo" 
+                class="h-16 md:h-20 w-auto mb-8 object-contain"
+            />
+
+            <h2 class="text-2xl md:text-3xl font-bold text-[#2D3748] mb-6" style="font-family: 'Poppins', sans-serif;">
+                ¿Qué estás buscando?
+            </h2>
+
+            <!-- Search Form -->
+            <form id="search-form" class="w-full relative group">
+                <input 
+                    type="text" 
+                    id="search-input"
+                    placeholder="Escribe aquí tu búsqueda..."
+                    class="w-full bg-gray-100 border-2 border-transparent focus:border-[#4BB3A1] focus:bg-white text-gray-800 px-8 py-5 rounded-3xl outline-none transition-all text-lg placeholder:text-gray-400 font-normal"
+                    style="font-family: 'Poppins', sans-serif;"
+                />
+                
+                <button type="submit" class="absolute right-4 top-1/2 -translate-y-1/2 bg-[#333638] text-white p-3 rounded-2xl hover:bg-[#4BB3A1] transition-all shadow-lg active:scale-95">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                </button>
+            </form>
+
+            <p class="mt-6 text-gray-400 text-sm font-light italic" style="font-family: 'Poppins', sans-serif;">
+                Presiona Enter para buscar lo mejor para tu próximo evento
+            </p>
+        </div>
+
+        <!-- Decorative background elements -->
+        <div class="absolute -top-24 -left-24 w-48 h-48 bg-[#4BB3A1]/5 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-24 -right-24 w-48 h-48 bg-[#D1C1A3]/10 rounded-full blur-3xl"></div>
+    </div>
+</div>
+
+<script>
+    const setupSearchModal = () => {
+        const modal = document.getElementById('search-modal');
+        const openButtons = document.querySelectorAll('[data-open-search]');
+        const closeButton = document.getElementById('close-search');
+        const form = document.getElementById('search-form') as HTMLFormElement;
+        const input = document.getElementById('search-input') as HTMLInputElement;
+
+        const openModal = () => {
+            modal?.classList.remove('opacity-0', 'pointer-events-none');
+            modal?.classList.add('opacity-100');
+            modal?.querySelector('div')?.classList.remove('scale-95');
+            modal?.querySelector('div')?.classList.add('scale-100');
+            setTimeout(() => input?.focus(), 100);
+            document.body.style.overflow = 'hidden';
+        };
+
+        const closeModal = () => {
+            modal?.classList.add('opacity-0', 'pointer-events-none');
+            modal?.classList.remove('opacity-100');
+            modal?.querySelector('div')?.classList.add('scale-95');
+            modal?.querySelector('div')?.classList.remove('scale-100');
+            document.body.style.overflow = '';
+        };
+
+        openButtons.forEach(btn => btn.addEventListener('click', openModal));
+        closeButton?.addEventListener('click', closeModal);
+        modal?.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        // Close on escape
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        form?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const query = input.value.trim();
+            if (query) {
+                window.location.href = `https://www.tusanagustin.com/?search=${encodeURIComponent(query)}`;
+            }
+        });
+    };
+
+    setupSearchModal();
+    document.addEventListener('astro:page-load', setupSearchModal);
+</script>
