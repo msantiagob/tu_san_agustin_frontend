@@ -4,9 +4,10 @@ import TestimonialCard from './TestimonialCard.astro';
 const testimonials = [
     {
         image: "images/Tu-San-Agustin-Home_img01.webp",
-        text: "Laura & Andrés una historia de amor realizada en nuestro lugar para eventos Fincadool en esta historia se refleja la felicidad y pasión de una pareja que nos dió su entera confianza para capturar momentos que serán recordados para toda la vida.",
+        text: "Laura & Andrés una historia de amor realizada en nuestro lugar para eventos freebad en esta historia se refleja la felicidad y pasión de una pareja que nos dió su entera confianza para capturar momentos que serán recordados para toda la vida.",
         link: "Laura y Andrés Boda",
         linkUrl: "#",
+        noHighlight: true,
     },
     {
         image: "images/Tu-San-Agustin-Home_img02-150x150.webp",
@@ -16,7 +17,7 @@ const testimonials = [
     },
     {
         image: "images/Recurso 9-8.webp",
-        text: "Realizamos celebración de los 50 años de Mitsubishi, un evento empresarial en el que ofrecimos un servicio integral en la operación y logística en nuestro lugar para eventos Orquideorama Jardín Botánico.",
+        text: "Realizamos celebración de los 50 años de Mitsubishi, un evento empresarial en el que ofrecimos un servicio integral en la operación y logística en nuestro lugar para eventos Orquideorama Jardín&nbsp;Botánico.",
         link: "Mitsubishi",
         linkUrl: "#",
     },
@@ -31,7 +32,7 @@ const doubleTestimonials = [...testimonials, ...testimonials];
     <div class="max-w-7xl mx-auto px-4 relative">
         
         <!-- Título -->
-        <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-10 md:mb-24 tracking-tight font-sans">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-10 md:mb-12 tracking-tight font-sans">
             <span class="text-[#4A9D88]">Historias</span> 
             <span class="text-[#2D3748]">de eventos reales</span>
         </h2>
@@ -49,7 +50,7 @@ const doubleTestimonials = [...testimonials, ...testimonials];
             </button>
 
             <!-- Swiper Container -->
-            <div class="swiper swiperHistorias w-full py-14 md:py-28">
+            <div class="swiper swiperHistorias w-full py-8 md:py-12">
                 <div class="swiper-wrapper">
                     {doubleTestimonials.map((testimonial) => (
                         <div class="swiper-slide">
@@ -60,16 +61,18 @@ const doubleTestimonials = [...testimonials, ...testimonials];
             </div>
         </div>
 
-        <!-- Ver testimonios with stars -->
+        <!-- Ver testimonios Button with stars -->
         <div class="flex flex-col items-center mt-12">
-            <h3 class="text-[#3a3a3a] text-xl font-medium mb-3 italic font-serif">Ver testimonios</h3>
-            <div class="flex gap-1.5">
-                {[1, 2, 3, 4, 5].map(() => (
-                    <svg class="w-7 h-7 text-[#f5a623] fill-current" viewBox="0 0 24 24">
-                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                    </svg>
-                ))}
-            </div>
+            <button class="bg-[#333638] text-white px-8 py-4 rounded-full flex items-center gap-4 hover:scale-105 transition-transform shadow-lg">
+                <span class="text-xl font-normal italic font-sans" style="font-family: 'Poppins', sans-serif;">Ver testimonios</span>
+                <div class="flex gap-1">
+                    {[1, 2, 3, 4, 5].map(() => (
+                        <svg class="w-5 h-5 text-[#f5a623] fill-current" viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                    ))}
+                </div>
+            </button>
         </div>
     </div>
 </section>

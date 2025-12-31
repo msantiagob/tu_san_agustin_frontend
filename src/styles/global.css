@@ -114,7 +114,7 @@
   
   /* Other text elements use Poppins */
   p, a, li, td, th {
-    font-family: 'Alice', serif; 
+    font-family: 'Poppins', sans-serif; 
   }
   
   /* Spans outside headings use Poppins */

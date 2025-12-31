@@ -1,0 +1,1 @@
+import{S as i,N as s}from"./navigation.CXhzpW2y.js";import{A as o}from"./autoplay.Bz7MJKcx.js";const e=()=>{new i(".mySwiperServicios",{modules:[s,o],slidesPerView:1,spaceBetween:50,loop:!0,speed:800,navigation:{nextEl:".swiper-next-servicios",prevEl:".swiper-prev-servicios"},autoplay:{delay:1e4,disableOnInteraction:!1}})};e();document.addEventListener("astro:page-load",e);

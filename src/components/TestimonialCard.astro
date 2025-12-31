@@ -4,18 +4,22 @@ interface Props {
   text: string;
   link: string;
   linkUrl: string;
+  noHighlight?: boolean;
 }
 
-const { image, text, link, linkUrl } = Astro.props;
+const { image, text, link, linkUrl, noHighlight = false } = Astro.props;
 
 // Function to highlight specific names
 const highlightNames = (text: string) => {
-  const names = ["Fincadool", "Fincal Forest", "San Agustín", "Orquiderama Jardín Botánico"];
+  if (noHighlight) return text;
+  const names = ["Fincadool", "Fincal Forest", "San Agustín", "Orquideorama"];
   let result = text;
   names.forEach(name => {
     const regex = new RegExp(name, 'g');
     result = result.replace(regex, `<span class="text-[#4a9a8c]">${name}</span>`);
   });
+  // Force specific full phrases together
+  result = result.replace(/Orquideorama Jardín(?:&nbsp;|\s)Botánico/g, '<span class="whitespace-nowrap">Orquideorama Jardín Botánico</span>');
   return result;
 };
 
@@ -34,14 +38,16 @@ const highlightedText = highlightNames(text);
     </div>
   </div>
 
-  <div class="bg-[#c4c4c4] rounded-[30px] px-6 pt-16 pb-10 flex flex-col items-center text-center min-h-[420px] w-full shadow-sm" style="font-family: 'Poppins', sans-serif;">
-    <p class="text-[#3a3a3a] leading-relaxed flex-grow text-sm" set:html={highlightedText} />
+  <div class="bg-[#D9D3CA] rounded-[30px] px-8 pt-24 pb-10 flex flex-col items-center justify-between text-center min-h-[420px] w-full shadow-sm" style="font-family: 'Poppins', sans-serif;">
+    <div class="flex-grow flex items-center justify-center w-full">
+      <p class="text-[#3a3a3a] leading-relaxed italic font-light text-[14px] max-w-[250px]" set:html={highlightedText} />
+    </div>
 
     <div class="mt-6 flex flex-col items-center">
       <!-- Link -->
       <a
         href={linkUrl}
-        class="text-[#4a9a8c] underline underline-offset-4 mb-4 hover:text-[#3d857a] transition-colors text-sm font-medium"
+        class="text-[#4a9a8c] mb-4 hover:text-[#3d857a] transition-colors text-sm font-medium"
       >
         {link}
       </a>

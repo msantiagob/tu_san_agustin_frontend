@@ -13,20 +13,51 @@ const { title } = Astro.props;
 <!doctype html>
 <html lang="en" class="dark">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta charset="UTF-8">
+		<meta name="title" content={`inicio | ${title}`}/>
+		<meta name="description" content="Somos Tu San Agustín una empresa especializada en realizar los mejores eventos sociales, empresariales y de ciudad. Ofrecemos asesor&iacute;a en planeaci&oacute;n, organizaci&oacute;n, log&iacute;stica, alimentaci&oacute;n y decoraci&oacute;n. Tenemos una estructura empresarial s&oacute;lida, que fortalecemos d&iacute;a a d&iacute;a y que es reconocida como una de las mejores en Antioquia. Contamos con el Premio La Toca de Oro, distinci&oacute;n que se entrega a los grandes expertos en sabores y gastronom&iacute;a\n\n&nbsp;"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-        <style>
-            body {
-                font-family: 'Outfit', sans-serif;
-            }
-        </style>
+		
+		<!-- Schema.org para Google+ -->
+		<meta itemprop="name" content="inicio">
+		<meta itemprop="description" content="Somos Tu San Agustín una empresa especializada en realizar los mejores eventos sociales, empresariales y de ciudad. Ofrecemos asesor&iacute;a en planeaci&oacute;n, organizaci&oacute;n, log&iacute;stica, alimentaci&oacute;n y decoraci&oacute;n. Tenemos una estructura empresarial s&oacute;lida, que fortalecemos d&iacute;a a d&iacute;a y que es reconocida como una de las mejores en Antioquia. Contamos con el Premio La Toca de Oro, distinci&oacute;n que se entrega a los grandes expertos en sabores y gastronom&iacute;a\n\n&nbsp;">
+		<meta itemprop="image" content="https://www.tusanagustin.com">
+
+		<!-- Open Graph para Facebook-->
+		<meta property="og:title" content={`inicio | ${title}`}/>
+		<meta property="og:type" content="website"/>
+		<meta property="og:url" content="https://www.tusanagustin.com"/>
+		<meta property="og:image" content="https://www.tusanagustin.com"/>
+		<meta property="og:description" content="Somos Tu San Agustín una empresa especializada en realizar los mejores eventos sociales, empresariales y de ciudad. Ofrecemos asesor&iacute;a en planeaci&oacute;n, organizaci&oacute;n, log&iacute;stica, alimentaci&oacute;n y decoraci&oacute;n. Tenemos una estructura empresarial s&oacute;lida, que fortalecemos d&iacute;a a d&iacute;a y que es reconocida como una de las mejores en Antioquia. Contamos con el Premio La Toca de Oro, distinci&oacute;n que se entrega a los grandes expertos en sabores y gastronom&iacute;a\n\n&nbsp;"/>
+		<meta property="og:site_name" content="Tu San Agustin"/>
+		<meta property="og:locale" content="es_LA">
+		<meta property="fb:app_id" content="290785397747585">
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="Tu San Agustin">
+		<meta name="twitter:title" content={`inicio | ${title}`}>
+		<meta name="twitter:description" content="Somos Tu San Agustín una empresa especializada en realizar los mejores eventos sociales, empresariales y de ciudad. Ofrecemos asesor&iacute;a en planeaci&oacute;n, organizaci&oacute;n, log&iacute;stica, alimentaci&oacute;n y decoraci&oacute;n. Tenemos una estructura empresarial s&oacute;lida, que fortalecemos d&iacute;a a d&iacute;a y que es reconocida como una de las mejores en Antioquia. Contamos con el Premio La Toca de Oro, distinci&oacute;n que se entrega a los grandes expertos en sabores y gastronom&iacute;a\n\n&nbsp;">
+		<meta name="twitter:creator" content="">
+		<meta name="twitter:image:src" content="https://www.tusanagustin.com">
+
+		<meta name="csrf-token" content="khFndeytVoSgIAoY22REFN9cY9su2uy0PnbhtI8Z"/>
+		
+		<title>{`inicio | ${title}`}</title>
+		
+		<link rel="shortcut icon" href="https://www.tusanagustin.com/assets/media/logo-header-new_extraLargeThumb.webp">
+		<link rel="canonical" href="https://www.tusanagustin.com"/>
+		<link media="all" type="text/css" rel="stylesheet" href="https://www.tusanagustin.com/themes/imaginatheme/css/app.css?v=0.0.1">
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<style>
+			body {
+				font-family: 'Outfit', sans-serif;
+			}
+		</style>
 	</head>
 	<body class="min-h-screen font-sans antialiased">
 		<slot />

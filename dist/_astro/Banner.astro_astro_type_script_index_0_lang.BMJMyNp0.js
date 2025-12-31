@@ -1,0 +1,1 @@
+import{S as e,N as a}from"./navigation.CXhzpW2y.js";import{A as t}from"./autoplay.Bz7MJKcx.js";import{E as r}from"./effect-fade.CkcsArXf.js";new e(".mySwiper",{modules:[t,r,a],loop:!0,effect:"fade",fadeEffect:{crossFade:!0},speed:1500,autoplay:{delay:6e3,disableOnInteraction:!1},navigation:{nextEl:".swiper-button-next-banner",prevEl:".swiper-button-prev-banner"}});
