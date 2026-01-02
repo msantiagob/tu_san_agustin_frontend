@@ -4,8 +4,8 @@ const AboutAwards: React.FC = () => {
   const [currentAward, setCurrentAward] = useState(0);
 
   const awards: string[] = [
-    "../../../public/assets/images/awards/latin-american.png",
-    "../../../public/assets/images/awards/camara-comercio.png"
+    "/assets/images/38.png",
+    "/assets/images/comercio.png"
   ];
   const nextAward = () => {
     setCurrentAward((prev) => (prev + 1) % awards.length);
@@ -24,7 +24,7 @@ const AboutAwards: React.FC = () => {
         {/* Sección Izquierda: Conócenos */}
         <div className="about-section">
             <div className="logo-container">
-              <img src="../../../public/assets/images/Tu-San-Agustin_Logo_verde-300x156.png" alt="San Agustín" className="logo" />
+              <img src="/assets/images/Tu-San-Agustin_Logo_verde-300x156.png" alt="San Agustín" className="logo" />
             </div>
           <h2 className="about-title">Conócenos</h2>
           <h3 className="about-subtitle">¿Quiénes somos?</h3>
