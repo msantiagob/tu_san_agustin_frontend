@@ -1,0 +1,80 @@
+---
+import { Image } from 'astro:assets';
+import imgDisney from '../assets/images/disney-castle.webp';
+import imgBeach from '../assets/images/beach-wedding.webp';
+import imgCruise from '../assets/images/cruise-ship.webp';
+---
+
+<section class="bg-[#FDF5E9 ] py-8 md:py-14 px-4 md:px-10 overflow-hidden">
+    <div class="max-w-5xl mx-auto flex flex-col lg:flex-row gap-4 items-end lg:justify-center">
+        
+        <!-- Left Side: Header, Desc and Smaller Images -->
+        <div class="lg:w-auto flex flex-col gap-3 max-w-md">
+            
+            <div class="space-y-1">
+                <h3 class="text-gray-600 text-base md:text-lg font-medium tracking-tight">Conoce Nuestros planes de</h3>
+                <h2 class="text-4xl md:text-7xl font-extrabold flex flex-col leading-[1.05]">
+                    <span class="text-[#4EAC9F]">Turismo</span>
+                    <span class="text-[#D1C1A3]">Especializado</span>
+                </h2>
+            </div>
+
+            <!-- Description Box with Button -->
+            <div class="relative w-full bg-[#D1C1A3] p-6 md:p-7 rounded-[32px] shadow-sm">
+                <p class="text-white text-sm md:text-base leading-relaxed font-light">
+                    Descubre destinos increíbles. Lunas de miel, Excursiones de 15 años y más. Explora nuestros paquetes turísticos ¡Vive la aventura!
+                </p>
+                <div class="absolute -bottom-3 right-4 md:-right-2">
+                    <a href="https://www.tusanagustin.com/servicios/turismo" class="bg-[#333638] text-white px-6 py-2 rounded-full text-xs italic font-light tracking-wide hover:bg-opacity-90 transition-all shadow-xl inline-block">
+                        Ver más
+                    </a>
+                </div>
+            </div>
+
+            <!-- Two Smaller Images Side-by-Side -->
+            <div class="grid grid-cols-2 gap-2 mt-1">
+                <div class="aspect-[4/5] rounded-[32px] overflow-hidden shadow-lg w-full">
+                    <Image 
+                        src={imgDisney} 
+                        alt="Disney Castle" 
+                        class="w-full h-full object-cover"
+                        width={240}
+                        height={300}
+                        loading="lazy"
+                        widths={[240, 480]}
+                        quality={70}
+                    />
+                </div>
+                <div class="aspect-[4/5] rounded-[32px] overflow-hidden shadow-lg w-full">
+                    <Image 
+                        src={imgBeach} 
+                        alt="Beach Wedding" 
+                        class="w-full h-full object-cover"
+                        width={240}
+                        height={300}
+                        loading="lazy"
+                        widths={[240, 480]}
+                        quality={70}
+                    />
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side: Single Large Image -->
+        <div class="lg:w-auto z-10">
+            <div class="w-full max-w-[280px] md:max-w-[320px] aspect-[4/5] lg:aspect-[0.85/1.1] rounded-[48px] overflow-hidden shadow-2xl">
+                <Image 
+                    src={imgCruise} 
+                    alt="Cruise Ship" 
+                    class="w-full h-full object-cover"
+                    width={320}
+                    height={400}
+                    loading="lazy"
+                    widths={[320, 640]}
+                    quality={70}
+                />
+            </div>
+        </div>
+
+    </div>
+</section>

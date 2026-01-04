@@ -1,0 +1,115 @@
+---
+import ServiceCard from './ui/ServiceCard.astro';
+import imgRionegro from '../assets/images/loc-rionegro.webp';
+import imgEnvigado from '../assets/images/loc-envigado.webp';
+import imgMedellin from '../assets/images/loc-medellin.webp';
+---
+
+<div class="bg-[#FDF5E9 ] py-8 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 md:px-16">
+        <h2 class="text-4xl md:text-7xl text-center mb-12">
+            <span class="text-[#4EAC9F]">Locaciones</span> <span class="text-[#2D3748]">Para Tus Eventos</span>
+        </h2>
+
+        <div class="relative w-full group">
+            
+            <button class="swiper-prev-locaciones-fixed absolute left-0 md:-left-14 top-[40%] -translate-y-1/2 z-50 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center hover:bg-gray-50 transition-all border border-gray-100 text-gray-800 cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            
+            <button class="swiper-next-locaciones-fixed absolute right-0 md:-right-14 top-[40%] -translate-y-1/2 z-50 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center hover:bg-gray-50 transition-all border border-gray-100 text-gray-800 cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+
+            <div class="swiper swiperLocacionesFixed !p-6">
+                <div class="swiper-wrapper">
+                    <ServiceCard 
+                        title="Rionegro" 
+                        image={imgRionegro}
+                        url="https://www.tusanagustin.com/lugares/rionegro"
+                    />
+                    <ServiceCard 
+                        title="Envigado" 
+                        image={imgEnvigado}
+                        url="https://www.tusanagustin.com/lugares/envigado"
+                    />
+                    <ServiceCard 
+                        title="Medellín" 
+                        image={imgMedellin}
+                        url="https://www.tusanagustin.com/lugares/medellin"
+                    />
+                    
+                    {/* Duplicates for smooth bidirectional infinite loop */}
+                    <ServiceCard 
+                        title="Rionegro" 
+                        description=""
+                        image={imgRionegro}
+                        url="https://www.tusanagustin.com/lugares/rionegro"
+                    />
+                    <ServiceCard 
+                        title="Envigado" 
+                        description=""
+                        image={imgEnvigado}
+                        url="https://www.tusanagustin.com/lugares/envigado"
+                    />
+                    <ServiceCard 
+                        title="Medellín" 
+                        description=""
+                        image={imgMedellin}
+                        url="https://www.tusanagustin.com/lugares/medellin"
+                    />
+                    
+                    {/* Additional duplicates for bidirectional loop */}
+                    <ServiceCard 
+                        title="Rionegro" 
+                        description=""
+                        image={imgRionegro}
+                        url="https://www.tusanagustin.com/lugares/rionegro"
+                    />
+                    <ServiceCard 
+                        title="Envigado" 
+                        description=""
+                        image={imgEnvigado}
+                        url="https://www.tusanagustin.com/lugares/envigado"
+                    />
+                    <ServiceCard 
+                        title="Medellín" 
+                        description=""
+                        image={imgMedellin}
+                        url="https://www.tusanagustin.com/lugares/medellin"
+                    />
+                </div>
+            </div>
+        </div>
+
+        <div class="flex justify-center mt-8 mb-12">
+            <a href="https://wa.me/573168753305?text=Hola!" class="bg-[#333638] text-white px-10 py-3 rounded-full hover:bg-opacity-90 transition-all font-medium">
+                Quiero Reservar
+            </a>
+        </div>
+    </div>
+
+   
+   
+</div>
+
+<style>
+    .swiper { width: 100%; height: auto; }
+    .swiper-slide { 
+        height: auto; 
+        user-select: none;
+        will-change: transform;
+    }
+    
+    .swiper-prev-locaciones-fixed, .swiper-next-locaciones-fixed {
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        width: 48px;
+        height: 48px;
+    }
+
+    img { pointer-events: none; }
+</style>
+
+<script src="../scripts/slider-locaciones.js"></script>

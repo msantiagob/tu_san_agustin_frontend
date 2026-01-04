@@ -1,0 +1,303 @@
+---
+import { Image } from 'astro:assets';
+
+// Import images
+import imgBoda from '../assets/images/banner-boda.webp';
+import imgQuinceanos from '../assets/images/quince.webp';
+import imgGastronomia from '../assets/images/gastronomia.webp';
+import imgLugares from '../assets/images/lugares-para-eventos.webp';
+import imgFotografia from '../assets/images/fotografia.webp';
+import imgBodas from '../assets/images/bodas.webp';
+---
+
+<div class="w-[calc(100%-8px)]  md:w-[calc(100%-16px)] max-w-[2000px] h-[650px] md:h-[800px] relative rounded-[2rem] md:rounded-[3rem] overflow-hidden mx-auto">
+    
+    <div class="swiper mySwiper w-full h-full">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide relative">
+                <Image 
+                    src={imgBoda} 
+                    class="absolute inset-0 w-full h-full object-cover" 
+                    style="object-position: center 15%;"
+                    alt="Boda"
+                    loading="eager"
+                    fetchpriority="high"
+                    width={1600}
+                    height={900}
+                    widths={[480, 768, 1024, 1280, 1600]}
+                    quality={70}
+                />
+                <div class="absolute inset-0 bg-black/30"></div>
+                <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 pb-24 md:pb-20">
+                    <h1 class="text-3xl md:text-5xl lg:text-6xl font-medium text-white drop-shadow-lg leading-tight">
+                        Momentos para toda la vida
+                    </h1>
+                    <br>
+                  <a href="https://wa.me/573168753305?text=Hola!" class="action-btn w-full md:w-auto ">
+                Agenda una asesoría
+            </a>
+                </div>
+            </div>
+            <div class="swiper-slide relative">
+                <Image 
+                    src={imgQuinceanos} 
+                    class="absolute inset-0 w-full h-full object-cover" 
+                    style="object-position: center 15%;"
+                    alt="Catering"
+                    loading="lazy"
+                    width={1600}
+                    height={900}
+                    widths={[480, 768, 1024, 1280, 1600]}
+                    quality={70}
+                    decoding="async"
+                />
+                <div class="absolute inset-0 bg-black/40"></div>
+                <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 pb-24 md:pb-20">
+                    <h1 class="text-4xl md:text-7xl text-white drop-shadow-lg">
+                        Fiesta de quince años
+                    </h1> <br>
+                    <a href="https://wa.me/573168753305?text=Hola!" class="action-btn w-full md:w-auto">
+                        Agenda una asesoría
+                    </a>
+                </div>
+            </div>
+
+            <!-- Gastronomía -->
+            <div class="swiper-slide relative">
+                <Image 
+                    src={imgGastronomia} 
+                    class="absolute inset-0 w-full h-full object-cover" 
+                    style="object-position: center 15%;"
+                    alt="Gastronomía"
+                    loading="lazy"
+                    width={1600}
+                    height={900}
+                    widths={[480, 768, 1024, 1280, 1600]}
+                    quality={70}
+                    decoding="async"
+                />
+                <div class="absolute inset-0 bg-black/40"></div>
+                <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 pb-24 md:pb-20">
+                    <h1 class="text-4xl md:text-7xl text-white drop-shadow-lg">
+                        Gastronomía
+                    </h1> <br>
+                    <a href="https://wa.me/573168753305?text=Hola!" class="action-btn w-full md:w-auto">
+                        Agenda una asesoría
+                    </a>
+                </div>
+            </div>
+
+            <!-- Lugares para eventos -->
+            <div class="swiper-slide relative">
+                <Image 
+                    src={imgLugares} 
+                    class="absolute inset-0 w-full h-full object-cover" 
+                    style="object-position: center 15%;"
+                    alt="Lugares para eventos"
+                    loading="lazy"
+                    width={1600}
+                    height={900}
+                    widths={[480, 768, 1024, 1280, 1600]}
+                    quality={70}
+                    decoding="async"
+                />
+                <div class="absolute inset-0 bg-black/40"></div>
+                <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 pb-24 md:pb-20">
+                    <h1 class="text-4xl md:text-7xl text-white drop-shadow-lg">
+                        Lugares para eventos
+                    </h1> <br>
+                    <a href="https://wa.me/573168753305?text=Hola!" class="action-btn w-full md:w-auto">
+                        Agenda una asesoría
+                    </a>
+                </div>
+            </div>
+
+            <!-- Fotografía -->
+            <div class="swiper-slide relative">
+                <Image 
+                    src={imgFotografia} 
+                    class="absolute inset-0 w-full h-full object-cover" 
+                    style="object-position: center 15%;"
+                    alt="Fotografía"
+                    loading="lazy"
+                    width={1600}
+                    height={900}
+                    widths={[480, 768, 1024, 1280, 1600]}
+                    quality={70}
+                    decoding="async"
+                />
+                <div class="absolute inset-0 bg-black/40"></div>
+                <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 pb-24 md:pb-20">
+                    <h1 class="text-4xl md:text-7xl text-white drop-shadow-lg">
+                        Fotografía
+                    </h1> <br>
+                    <a href="https://wa.me/573168753305?text=Hola!" class="action-btn w-full md:w-auto">
+                        Agenda una asesoría
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bodas -->
+            <div class="swiper-slide relative">
+                <Image 
+                    src={imgBodas} 
+                    class="absolute inset-0 w-full h-full object-cover" 
+                    style="object-position: center 15%;"
+                    alt="Bodas"
+                    loading="lazy"
+                    width={1600}
+                    height={900}
+                    widths={[480, 768, 1024, 1280, 1600]}
+                    quality={70}
+                    decoding="async"
+                />
+                <div class="absolute inset-0 bg-black/40"></div>
+                <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 pb-24 md:pb-20">
+                    <h1 class="text-4xl md:text-7xl text-white drop-shadow-lg">
+                        Bodas
+                    </h1> <br>
+                    <a href="https://wa.me/573168753305?text=Hola!" class="action-btn w-full md:w-auto">
+                        Agenda una asesoría
+                    </a>
+                </div>
+            </div>
+        </div>
+          
+        <!-- Navigation Arrows -->
+        <div class="swiper-button-prev-banner absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-50 text-white/70 hover:text-white cursor-pointer transition-all hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        </div>
+        <div class="swiper-button-next-banner absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-50 text-white/70 hover:text-white cursor-pointer transition-all hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </div>
+          
+    </div>
+
+
+
+    <div class="absolute bottom-0 left-0 right-0 z-30 w-full px-4 py-6 md:px-8 md:py-8 flex flex-col md:flex-row items-center md:items-end justify-between gap-5">
+        
+        <div class="hidden md:flex flex-1 justify-start gap-6 pb-3">
+    <a href="https://www.tusanagustin.com/" class="nav-text-link">Inicio</a>
+    <a href="https://www.tusanagustin.com/eventos" class="nav-text-link">Eventos</a>
+    <a href="https://www.tusanagustin.com/servicios" class="nav-text-link">Servicios</a>
+</div>
+
+        <div class="w-full md:w-auto flex justify-center shrink-0">
+          
+            <button data-open-search class="action-btn w-auto min-w-[200px]">
+                Busca por categoría
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 ml-2 opacity-70">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>
+            </button>
+        </div>
+
+       <div class="hidden md:flex flex-1 justify-end gap-6 pb-3">
+    <a href="https://www.tusanagustin.com/blog" class="nav-text-link">Blog</a>
+    <a href="https://www.tusanagustin.com/quienes-somos" class="nav-text-link">Nosotros</a>
+    <a href="https://www.tusanagustin.com/contacto" class="nav-text-link">Contacto</a>
+</div>
+    </div>
+</div>
+
+<style>
+    /* Estilo Enlaces de Texto (Solo Desktop) */
+    .nav-text-link {
+        color: rgba(255, 255, 255, 0.85);
+        font-family: 'Playfair Display', serif;
+        font-size: 0.95rem; font-weight: 500; text-decoration: none;
+        cursor: pointer; transition: all 0.3s ease;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.8); white-space: nowrap;
+    }
+    .nav-text-link:hover {
+        color: #ffffff; text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+
+    /* ESTILO SÓLIDO PARA LOS BOTONES DE ACCIÓN */
+    .action-btn {
+        /* El color gris sólido elegante que pediste */
+        background-color: #FDF5E9; 
+        color: black;
+        font-family: 'Playfair Display', serif;
+        font-size: 0.95rem;
+        padding: 12px 24px;
+        border-radius: 25px;
+        border: 1px solid rgba(255,255,255,0.1); /* Borde sutil */
+        transition: all 0.3s ease;
+        cursor: pointer;
+        text-align: center;
+        display: flex; align-items: center; justify-content: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .action-btn:hover {
+        background-color: #404040; /* Un poco más claro al pasar el mouse */
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        color: white;
+    }
+
+    /* Ajuste móvil: Botones centrados y mejor tamaño */
+    @media (max-width: 768px) {
+        .action-btn { 
+            padding: 10px 22px; 
+            font-size: 0.9rem; 
+            width: auto;
+            max-width: 240px;
+        }
+    }
+</style>
+
+<style is:global>
+    /* Elegant Fade & Zoom Transition - Scoped to .mySwiper */
+    .mySwiper .swiper-slide {
+        opacity: 0 !important;
+        transition: opacity 1.2s ease-in-out !important;
+        will-change: opacity, transform; /* Performance hint */
+    }
+    .mySwiper .swiper-slide-active {
+        opacity: 1 !important;
+    }
+    
+    .mySwiper .swiper-slide img {
+        transform: scale(1.1);
+        transition: transform 8s ease-in-out !important;
+    }
+    
+    .mySwiper .swiper-slide-active img {
+        transform: scale(1);
+    }
+</style>
+
+<script>
+    import Swiper from 'swiper';
+    import { Autoplay, EffectFade, Navigation } from 'swiper/modules';
+    import 'swiper/css';
+    import 'swiper/css/navigation';
+    import 'swiper/css/effect-fade';
+
+    // Defer initialization to avoid forced reflow
+    requestAnimationFrame(() => {
+        const swiper = new Swiper(".mySwiper", {
+            modules: [Autoplay, EffectFade, Navigation],
+            loop: true,
+            effect: "fade",
+            fadeEffect: {
+                crossFade: true
+            },
+            speed: 1500,
+            autoplay: { 
+                delay: 6000, 
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next-banner",
+                prevEl: ".swiper-button-prev-banner",
+            },
+            observer: true,
+            observeParents: true,
+            updateOnWindowResize: true,
+        });
+    });
+</script>

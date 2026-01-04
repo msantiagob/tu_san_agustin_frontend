@@ -1,0 +1,55 @@
+---
+import '../styles/global.css';
+import ScrollToTop from '../components/ui/ScrollToTop.astro';
+import SearchModal from '../components/ui/SearchModal.astro';
+import { getImage } from 'astro:assets';
+import imgLCP from '../assets/images/fotografia.webp';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+const optimizedLCP = await getImage({ src: imgLCP, width: 800, quality: 80, format: 'webp' });
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="generator" content={Astro.generator} />
+		
+		<title>{`inicio | ${title}`}</title>
+		<meta name="description" content="Somos Tu San Agustín, una empresa especializada en realizar los mejores eventos sociales, empresariales y de ciudad. Ofrecemos asesoría en planeación, organización, logística, alimentación y decoración."/>
+		
+		<!-- Preload Critical Fonts -->
+		<link rel="preload" href="./Alice-Regular.ttf" as="font" type="font/ttf" crossorigin>
+		<link rel="preload" href="./Poppins-Regular_0.ttf" as="font" type="font/ttf" crossorigin>
+
+		<!-- Preload LCP Image -->
+		{title === "Home" && <link rel="preload" as="image" href={optimizedLCP.src} fetchpriority="high" />}
+
+		<!-- Open Graph / SEO -->
+		<meta property="og:title" content={`inicio | ${title}`}/>
+		<meta property="og:type" content="website"/>
+		<meta property="og:url" content="https://www.tusanagustin.com"/>
+		<meta property="og:image" content="https://www.tusanagustin.com/assets/media/logo-header-new_extraLargeThumb.webp"/>
+		<meta property="og:description" content="Especialistas en la planeación y organización de eventos sociales y empresariales en Antioquia."/>
+		<meta property="og:site_name" content="Tu San Agustín"/>
+		<meta property="og:locale" content="es_LA">
+
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:title" content={`inicio | ${title}`}>
+		<meta name="twitter:description" content="Especialistas en la planeación y organización de eventos sociales y empresariales en Antioquia.">
+		
+		<link rel="shortcut icon" href="https://www.tusanagustin.com/assets/media/logo-header-new_extraLargeThumb.webp">
+		<link rel="canonical" href="https://www.tusanagustin.com"/>
+	</head>
+	<body class="min-h-screen font-sans antialiased">
+		<slot />
+        <ScrollToTop />
+        <SearchModal />
+	</body>
+</html>

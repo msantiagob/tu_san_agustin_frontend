@@ -1,0 +1,321 @@
+---
+import { Image } from 'astro:assets';
+import imgJBalvin from '../assets/images/jbalvin.webp';
+import imgKarolG from '../assets/images/2-8.webp';
+import imgMaluma from '../assets/images/1-8.webp';
+---
+
+<div class="bg-[#FDF5E9 ] py-8 md:py-16 overflow-hidden relative">
+    <div class="max-w-7xl mx-auto px-4 md:px-10 relative">
+        
+        <h2 class="text-4xl md:text-7xl font-extrabold text-center mb-12 tracking-tight">
+            <span class="text-[#4EAC9F]">Artistas</span> 
+            <span class="text-[#2D3748]">& Espectáculos</span>
+        </h2>
+
+        <div class="relative w-full mb-8 md:mb-16 px-8 md:px-12">
+            
+            <button class="swiper-prev-artistas absolute left-0 top-1/2 -translate-y-[60%] z-20 w-10 h-10 flex items-center justify-center text-gray-400 hover:text-[#4EAC9F] hover:scale-110 transition-all cursor-pointer outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            
+            <button class="swiper-next-artistas absolute right-0 top-1/2 -translate-y-[60%] z-20 w-10 h-10 flex items-center justify-center text-gray-400 hover:text-[#4EAC9F] hover:scale-110 transition-all cursor-pointer outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+
+            <div class="swiper swiperArtistas w-full">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="flex flex-col items-center justify-center group cursor-pointer">
+                            <div class="relative w-48 h-48 md:w-56 md:h-56 rounded-full border-[6px] border-[#C5B391] p-1 mb-5 transition-transform duration-300 group-hover:scale-105 bg-white shadow-sm">
+                                <Image 
+                                    src={imgJBalvin} 
+                                    class="w-full h-full object-cover rounded-full" 
+                                    style="object-position: center 25%;"
+                                    alt="J Balvin"
+                                    width={240}
+                                    height={240}
+                                    loading="lazy"
+                                    quality={70}
+                                />
+                            </div>
+                            <h3 class="text-xl md:text-2xl  text-[#2D3748] mb-2 font-serif">J Balvin</h3>
+                            <a href="https://www.tusanagustin.com/artistas" class="bg-[#333638] text-white px-8 py-1.5 rounded-full text-xs font-semibold tracking-wide hover:bg-[#4EAC9F] transition-colors shadow-md text-center inline-block">
+                                Ver más
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="flex flex-col items-center justify-center group cursor-pointer">
+                            <div class="relative w-48 h-48 md:w-56 md:h-56 rounded-full border-[6px] border-[#C5B391] p-1 mb-5 transition-transform duration-300 group-hover:scale-105 bg-white shadow-sm">
+                                <Image 
+                                    src={imgKarolG} 
+                                    class="w-full h-full object-cover rounded-full" 
+                                    style="object-position: center 30%;"
+                                    alt="Karol G"
+                                    width={240}
+                                    height={240}
+                                    loading="lazy"
+                                    quality={70}
+                                />
+                            </div>
+                            <h3 class="text-xl md:text-2xl  text-[#2D3748] mb-2 font-serif">Karol G</h3>
+                            <a href="https://www.tusanagustin.com/artistas" class="bg-[#2D3748] text-white px-8 py-1.5 rounded-full text-xs font-semibold tracking-wide hover:bg-[#4EAC9F] transition-colors shadow-md text-center inline-block">
+                                Ver más
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="flex flex-col items-center justify-center group cursor-pointer">
+                            <div class="relative w-48 h-48 md:w-56 md:h-56 rounded-full border-[6px] border-[#C5B391] p-1 mb-5 transition-transform duration-300 group-hover:scale-105 bg-white shadow-sm">
+                                <Image 
+                                    src={imgMaluma} 
+                                    class="w-full h-full object-cover rounded-full" 
+                                    alt="Maluma"
+                                    width={240}
+                                    height={240}
+                                    loading="lazy"
+                                    quality={70}
+                                />
+                            </div>
+                            <h3 class="text-xl md:text-2xl  text-[#2D3748] mb-2 font-serif">Maluma</h3>
+                            <a href="https://www.tusanagustin.com/artistas" class="bg-[#2D3748] text-white px-8 py-1.5 rounded-full text-xs font-semibold tracking-wide hover:bg-[#4EAC9F] transition-colors shadow-md text-center inline-block">
+                                Ver más
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="flex flex-col items-center justify-center group cursor-pointer">
+                            <div class="relative w-48 h-48 md:w-56 md:h-56 rounded-full border-[6px] border-[#C5B391] p-1 mb-5 transition-transform duration-300 group-hover:scale-105 bg-white shadow-sm">
+                                <Image 
+                                    src={imgJBalvin} 
+                                    class="w-full h-full object-cover rounded-full" 
+                                    style="object-position: center 25%;"
+                                    alt="J Balvin"
+                                    width={240}
+                                    height={240}
+                                    loading="lazy"
+                                    quality={70}
+                                />
+                            </div>
+                            <h3 class="text-xl md:text-2xl  text-[#2D3748] mb-2 font-serif">J Balvin</h3>
+                            <a href="https://www.tusanagustin.com/artistas" class="bg-[#2D3748] text-white px-8 py-1.5 rounded-full text-xs font-semibold tracking-wide hover:bg-[#4EAC9F] transition-colors shadow-md text-center inline-block">
+                                Ver más
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="flex flex-col items-center justify-center group cursor-pointer">
+                            <div class="relative w-48 h-48 md:w-56 md:h-56 rounded-full border-[6px] border-[#C5B391] p-1 mb-5 transition-transform duration-300 group-hover:scale-105 bg-white shadow-sm">
+                                <Image 
+                                    src={imgKarolG} 
+                                    class="w-full h-full object-cover rounded-full" 
+                                    style="object-position: center 30%;"
+                                    alt="Karol G"
+                                    width={240}
+                                    height={240}
+                                    loading="lazy"
+                                    quality={70}
+                                />
+                            </div>
+                            <h3 class="text-xl md:text-2xl  text-[#2D3748] mb-2 font-serif">Karol G</h3>
+                            <a href="https://www.tusanagustin.com/artistas" class="bg-[#2D3748] text-white px-8 py-1.5 rounded-full text-xs font-semibold tracking-wide hover:bg-[#4EAC9F] transition-colors shadow-md text-center inline-block">
+                                Ver más
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="flex flex-col items-center justify-center group cursor-pointer">
+                            <div class="relative w-48 h-48 md:w-56 md:h-56 rounded-full border-[6px] border-[#C5B391] p-1 mb-5 transition-transform duration-300 group-hover:scale-105 bg-white shadow-sm">
+                                <Image 
+                                    src={imgMaluma} 
+                                    class="w-full h-full object-cover rounded-full" 
+                                    alt="Maluma"
+                                    width={240}
+                                    height={240}
+                                    loading="lazy"
+                                    quality={70}
+                                />
+                            </div>
+                            <h3 class="text-xl md:text-2xl  text-[#2D3748] mb-2 font-serif">Maluma</h3>
+                            <a href="https://www.tusanagustin.com/artistas" class="bg-[#2D3748] text-white px-8 py-1.5 rounded-full text-xs font-semibold tracking-wide hover:bg-[#4EAC9F] transition-colors shadow-md text-center inline-block">
+                                Ver más
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="flex flex-col items-center justify-center group cursor-pointer">
+                            <div class="relative w-48 h-48 md:w-56 md:h-56 rounded-full border-[6px] border-[#C5B391] p-1 mb-5 transition-transform duration-300 group-hover:scale-105 bg-white shadow-sm">
+                                <Image 
+                                    src={imgJBalvin} 
+                                    class="w-full h-full object-cover rounded-full" 
+                                    style="object-position: center 25%;"
+                                    alt="J Balvin"
+                                    width={240}
+                                    height={240}
+                                    loading="lazy"
+                                    quality={70}
+                                />
+                            </div>
+                            <h3 class="text-xl md:text-2xl  text-[#2D3748] mb-2 font-serif">J Balvin</h3>
+                            <a href="https://www.tusanagustin.com/artistas" class="bg-[#2D3748] text-white px-8 py-1.5 rounded-full text-xs font-semibold tracking-wide hover:bg-[#4EAC9F] transition-colors shadow-md text-center inline-block">
+                                Ver más
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="flex flex-col items-center justify-center group cursor-pointer">
+                            <div class="relative w-48 h-48 md:w-56 md:h-56 rounded-full border-[6px] border-[#C5B391] p-1 mb-5 transition-transform duration-300 group-hover:scale-105 bg-white shadow-sm">
+                                <Image 
+                                    src={imgKarolG} 
+                                    class="w-full h-full object-cover rounded-full" 
+                                    style="object-position: center 30%;"
+                                    alt="Karol G"
+                                    width={240}
+                                    height={240}
+                                    loading="lazy"
+                                    quality={70}
+                                />
+                            </div>
+                            <h3 class="text-xl md:text-2xl  text-[#2D3748] mb-2 font-serif">Karol G</h3>
+                            <a href="https://www.tusanagustin.com/artistas" class="bg-[#2D3748] text-white px-8 py-1.5 rounded-full text-xs font-semibold tracking-wide hover:bg-[#4EAC9F] transition-colors shadow-md text-center inline-block">
+                                Ver más
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="flex flex-col items-center justify-center group cursor-pointer">
+                            <div class="relative w-48 h-48 md:w-56 md:h-56 rounded-full border-[6px] border-[#C5B391] p-1 mb-5 transition-transform duration-300 group-hover:scale-105 bg-white shadow-sm">
+                                <Image 
+                                    src={imgMaluma} 
+                                    class="w-full h-full object-cover rounded-full" 
+                                    alt="Maluma"
+                                    width={240}
+                                    height={240}
+                                    loading="lazy"
+                                    quality={70}
+                                />
+                            </div>
+                            <h3 class="text-xl md:text-2xl  text-[#2D3748] mb-2 font-serif">Maluma</h3>
+                            <a href="https://www.tusanagustin.com/artistas" class="bg-[#2D3748] text-white px-8 py-1.5 rounded-full text-xs font-semibold tracking-wide hover:bg-[#4EAC9F] transition-colors shadow-md text-center inline-block">
+                                Ver más
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div><div class="w-full border-t border-b border-[#2D3748]/20 py-1.5 mb-8 md:mb-16 opciones" >
+        <div class="max-w-5xl mx-auto flex flex-wrap justify-center md:justify-between items-center text-[#2D3748] text-sm md:text-lg font-alice tracking-wide gap-4 md:gap-0">
+            <a href="https://www.tusanagustin.com/artistas?orderBy=recently&filter[categoriesIntersected][0]=73" class="px-2 hover:text-[#4EAC9F] transition-colors">Cantantes</a>
+            <a href="https://www.tusanagustin.com/artistas?orderBy=recently&filter[categoriesIntersected][0]=122" class="px-2 hover:text-[#4EAC9F] transition-colors">Imitadores</a>
+            <a href="https://www.tusanagustin.com/artistas?orderBy=recently&filter[categoriesIntersected][0]=78" class="px-2 hover:text-[#4EAC9F] transition-colors">Orquestas</a>
+            <a href="https://www.tusanagustin.com/artistas?orderBy=recently&filter[categoriesIntersected][0]=121" class="px-2 hover:text-[#4EAC9F] transition-colors">Grupos</a>
+            <a href="https://www.tusanagustin.com/artistas?orderBy=recently&filter[categoriesIntersected][0]=92" class="px-2 hover:text-[#4EAC9F] transition-colors">Música Popular</a>
+            <a href="https://www.tusanagustin.com/artistas?orderBy=recently&filter[categoriesIntersected][0]=80" class="px-2 hover:text-[#4EAC9F] transition-colors">Shows</a>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 md:px-10 relative">
+        <div class="flex justify-center pb-4 md:pb-8">
+            <a href="https://www.tusanagustin.com/artistas" class="bg-[#333638] text-white px-8 md:px-12 py-3 md:py-4 rounded-full hover:bg-opacity-90 transition-all text-base md:text-lg italic font-light tracking-wide shadow-xl transform hover:-translate-y-1 inline-block text-center" style="font-family: 'Poppins', sans-serif;">
+                Ingresa a la sección de Artistas y Espectáculos
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .swiper-wrapper {
+        align-items: center; 
+    }
+    
+    .swiper-slide {
+        display: flex;
+        justify-content: center;
+        height: auto;
+        /* Opacidad eliminada, se verán al 100% */
+        transition: transform 0.3s ease;
+        transform: scale(0.9); /* Ligeramente más pequeños los lados para dar profundidad */
+        will-change: transform;
+    }
+    
+    .swiper-slide-active {
+        transform: scale(1); /* El del centro se ve tamaño completo */
+        z-index: 10;
+    }
+    
+    .swiper-prev-artistas, .swiper-next-artistas {
+        width: 40px;
+        height: 40px;
+    }
+</style>
+
+<script>
+    import Swiper from 'swiper';
+    import { Navigation, Autoplay } from 'swiper/modules';
+    import 'swiper/css';
+    import 'swiper/css/navigation';
+
+    const initArtistasSwiper = () => {
+        requestAnimationFrame(() => {
+            const swiper = new Swiper(".swiperArtistas", {
+                modules: [Navigation, Autoplay],
+                loop: true,                
+                loopedSlides: 3,          // Necesario para loop infinito con 3 slides
+                loopAdditionalSlides: 3,  // Slides adicionales para loop suave en ambas direcciones
+                centeredSlides: true,     
+                slidesPerView: 3,         // Siempre mostrar 3 slides
+                spaceBetween: 0,
+                initialSlide: 1,          // Iniciar en el segundo slide
+                autoplay: {
+                    delay: 3500,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true
+                },
+                navigation: {
+                    nextEl: ".swiper-next-artistas",
+                    prevEl: ".swiper-prev-artistas",
+                },
+                observer: false,
+                observeParents: false,
+                breakpoints: {
+                    // En móviles mostrar 1 slide
+                    0: { 
+                        slidesPerView: 1, 
+                        spaceBetween: 20,
+                        loopedSlides: 3,
+                        loopAdditionalSlides: 3
+                    },
+                    // En tablets mostrar 2 slides
+                    640: { 
+                        slidesPerView: 2, 
+                        spaceBetween: 30,
+                        loopedSlides: 3,
+                        loopAdditionalSlides: 3
+                    },
+                    // En desktop mostrar 3 slides
+                    1024: { 
+                        slidesPerView: 3, 
+                        spaceBetween: 0,
+                        loopedSlides: 3,
+                        loopAdditionalSlides: 3
+                    }
+                },
+            });
+        });
+    };
+
+    initArtistasSwiper();
+    document.addEventListener('astro:page-load', initArtistasSwiper);
+</script>

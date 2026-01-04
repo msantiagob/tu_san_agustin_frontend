@@ -1,0 +1,53 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+    title: string;
+    image: string | any;
+    url?: string;
+    width?: number;
+    height?: number;
+}
+
+const { 
+    title, 
+    image, 
+    url = "#",
+    width = 500,
+    height = 700
+} = Astro.props;
+
+const isAsset = typeof image !== 'string';
+---
+
+<div class="group relative overflow-hidden rounded-[40px] aspect-[4/5] w-full shadow-lg transition-transform duration-300 hover:scale-[1.02]">
+    {isAsset ? (
+        <Image 
+            src={image} 
+            alt={title}
+            width={width}
+            height={height}
+            class="w-full h-full object-cover"
+            loading="lazy"
+            quality={80}
+            widths={[400, 800]}
+        />
+    ) : (
+        <img 
+            src={image} 
+            alt={title}
+            class="w-full h-full object-cover"
+            loading="lazy"
+        />
+    )}
+    
+    <!-- Title Label -->
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10">
+        <div class="bg-[#FDF5E9 ]/80 backdrop-blur-sm text-white px-6 py-1.5 rounded-full text-sm md:text-base font-medium italic tracking-wide whitespace-nowrap border border-white/10 shadow-xl">
+            {title}
+        </div>
+    </div>
+
+    <!-- Overlay on hover -->
+    <a href={url} class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20"></a>
+</div>

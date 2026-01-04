@@ -1,0 +1,155 @@
+---
+import TestimonialCard from './TestimonialCard.astro';
+import imgTestimonial1 from '../assets/images/home-img01.webp';
+import imgTestimonial2 from '../assets/images/home-img02.webp';
+import imgTestimonial3 from '../assets/images/testimonial.webp';
+
+const testimonials = [
+    {
+        image: imgTestimonial1,
+        text: "Laura & Andrés una historia de amor realizada en nuestro lugar para eventos freebad en esta historia se refleja la felicidad y pasión de una pareja que nos dió su entera confianza para capturar momentos que serán recordados para toda la vida.",
+        link: "Laura y Andrés Boda",
+        linkUrl: "https://www.tusanagustin.com/historias-de-eventos-reales/fizebad//laura-andres-boda",
+        noHighlight: true,
+    },
+    {
+        image: imgTestimonial2,
+        text: "Fiesta de 15 años realizada en nuestra alias Fincal Forest en Envigado, ideal para realizar fiestas y celebraciones llenas de magia y diversión, cuenta con este maravilloso lugar y el mejor servicio de San Agustín.",
+        link: "Fiesta de 15 Años Mariam",
+        linkUrl: "https://www.tusanagustin.com/historias-de-eventos-reales/fiesta-de-quince-anos-mariam-forest",
+    },
+    {
+        image: imgTestimonial3,
+        text: "Realizamos celebración de los 50 años de Mitsubishi, un evento empresarial en el que ofrecimos un servicio integral en la operación y logística en nuestro lugar para eventos Orquideorama Jardín&nbsp;Botánico.",
+        link: "Mitsubishi",
+        linkUrl: "https://www.tusanagustin.com/historias-de-eventos-reales/mitsubishi-evento-empresarial",
+    },
+    
+];
+
+// Duplicate for infinite scroll smoothness
+const doubleTestimonials = [...testimonials, ...testimonials];
+---
+
+<section class="bg-[#FDF5E9 ] py-12 md:py-32 overflow-hidden relative">
+    <div class="max-w-7xl mx-auto px-4 relative">
+        
+        <h2 class="text-4xl md:text-7xl font-extrabold text-center mb-10 md:mb-12 tracking-tight">
+            <span class="text-[#4EAC9F]">Historias</span> 
+            <span class="text-[#2D3748]">De Eventos Reales</span>
+        </h2>
+
+        <div class="relative w-full mb-8 md:mb-16 px-4 md:px-12">
+            
+            <button class="swiper-prev-historias absolute left-0 md:left-2 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center text-gray-400 hover:text-[#4EAC9F] hover:scale-110 transition-all cursor-pointer outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            
+            <button class="swiper-next-historias absolute right-0 md:right-2 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center text-gray-400 hover:text-[#4EAC9F] hover:scale-110 transition-all cursor-pointer outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+
+            <div class="swiper swiperHistorias w-full py-8 md:py-12">
+                <div class="swiper-wrapper">
+                    {doubleTestimonials.map((testimonial) => (
+                        <div class="swiper-slide">
+                            <TestimonialCard {...testimonial} />
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col items-center mt-12">
+            <a href="https://www.tusanagustin.com/testimonios class="bg-[#333638] text-white px-8 py-4 rounded-full flex items-center gap-4 hover:scale-105 transition-transform shadow-lg group">
+                <span class="text-xl font-normal italic font-sans" style="font-family: 'Poppins', sans-serif;">Ver testimonios</span>
+                <div class="flex gap-1 group-hover:scale-110 transition-transform">
+                    {[1, 2, 3, 4, 5].map(() => (
+                        <svg class="w-5 h-5 text-[#f5a623] fill-current" viewBox="0 0 24 24">
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                    ))}
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<style>
+    .swiper {
+        overflow: visible !important; /* Crucial para que el escalado no se recorte */
+    }
+
+    .swiper-wrapper {
+        align-items: center;
+    }
+    
+    .swiper-slide {
+        height: auto;
+        display: flex;
+        justify-content: center;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+        opacity: 0; /* Ocultar por defecto para mostrar solo 3 cards */
+        pointer-events: none;
+        transform: scale(0.6);
+        will-change: transform, opacity;
+    }
+
+    /* Solo mostrar la anterior, la siguiente y la activa */
+    .swiper-slide-prev, .swiper-slide-next {
+        opacity: 0.9;
+        pointer-events: auto;
+        transform: scale(0.8) !important;
+        z-index: 5;
+    }
+
+    /* Slide activo destacado */
+    .swiper-slide-active {
+        opacity: 1;
+        pointer-events: auto;
+        transform: scale(1.1) !important;
+        z-index: 20;
+    }
+</style>
+
+<script>
+    import Swiper from 'swiper';
+    import { Navigation, Autoplay } from 'swiper/modules';
+    import 'swiper/css';
+    import 'swiper/css/navigation';
+
+    const initHistoriasSwiper = () => {
+        requestAnimationFrame(() => {
+            new Swiper(".swiperHistorias", {
+                modules: [Navigation, Autoplay],
+                loop: true,
+                centeredSlides: true,
+                slidesPerView: 1.2, // Mayor visibilidad de las de los lados en móvil
+                spaceBetween: -20, // Superposición ligera para efecto de profundidad
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-next-historias",
+                    prevEl: ".swiper-prev-historias",
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: -30
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: -50 // Más juntas en escritorio para notar el escalado
+                    }
+                },
+                observer: false,
+                observeParents: false,
+            });
+        });
+    };
+
+    initHistoriasSwiper();
+    document.addEventListener('astro:page-load', initHistoriasSwiper);
+</script>

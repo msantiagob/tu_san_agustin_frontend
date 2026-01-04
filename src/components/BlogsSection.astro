@@ -1,0 +1,140 @@
+---
+import ServiceCard from './ui/ServiceCard.astro';
+import imgBlog1 from '../assets/images/home-47.webp';
+import imgBlog2 from '../assets/images/home-50.webp';
+import imgBlog3 from '../assets/images/home-53.webp';
+
+const blogs = [
+    {
+        title: "Bodas Destino",
+        description: "El Destino Perfecto para tu Boda de Ensueño",
+        image: imgBlog1,
+        url: "https://www.tusanagustin.com/blog/medellin-te-espera-dile-si-quiero-en-la-ciudad-de-la-eterna-primavera"
+    },
+    {
+        title: "Mejores lugares para eventos",
+        description: "¡Descubre los 20 Mejores Lugares para Eventos en Medellín!",
+        image: imgBlog2,
+        url: "https://www.tusanagustin.com/blog/descubre-los-20-mejores-lugares-para-eventos-en-medellin"
+    },
+    {
+        title: "Alimentación Hospitalaria",
+        description: "Alimentación Hospitalaria: Un Pilar Fundamental en la Recuperación y Bienestar del Paciente.",
+        image: imgBlog3,
+        url: "https://www.tusanagustin.com/blog/alimentacion-hospitalaria"
+    }
+];
+
+// Duplicate for smoother infinite loop feeling
+const infiniteBlogs = [...blogs, ...blogs];
+---
+
+<section class="bg-[#FDF5E9 ] pt-10 pb-4 md:py-20 px-4 md:px-10">
+    <div class="max-w-[1400px] mx-auto space-y-12">
+        
+        <!-- Heading -->
+        <h2 class="text-4xl md:text-7xl font-extrabold flex flex-col leading-[1.05] max-w-6xl mx-auto">
+            <span class="text-[#4EAC9F]">Blog, Ideas Y</span>
+            <span class="text-[#D1C1A3]">Consejos</span>
+        </h2>
+
+        <div class="relative group">
+            <!-- Navigation Buttons -->
+            <button class="swiper-prev-blogs absolute left-0 md:-left-12 top-[40%] md:top-[35%] -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center hover:bg-gray-50 transition-all border border-gray-100 text-gray-800 cursor-pointer duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <button class="swiper-next-blogs absolute right-0 md:-right-12 top-[40%] md:top-[35%] -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center hover:bg-gray-50 transition-all border border-gray-100 text-gray-800 cursor-pointer duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+
+            <!-- Swiper Carousel -->
+            <div class="swiper mySwiperBlogs !pb-12 !px-4">
+                <div class="swiper-wrapper">
+                    {infiniteBlogs.map((blog, index) => (
+                        <div class="swiper-slide">
+                            <ServiceCard 
+                                variant="blog" 
+                                title={blog.title} 
+                                description={blog.description}
+                                image={blog.image} 
+                                url={blog.url} 
+                            />
+                        </div>
+                    ))}
+                </div>
+                
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    import Swiper from 'swiper';
+    import { Pagination, Autoplay, Navigation } from 'swiper/modules';
+    import 'swiper/css';
+    import 'swiper/css/pagination';
+    import 'swiper/css/navigation';
+
+    // Initialize Swiper
+    const initBlogsSwiper = () => {
+        requestAnimationFrame(() => {
+            new Swiper(".mySwiperBlogs", {
+                modules: [Pagination, Autoplay, Navigation],
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                grabCursor: true,
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                },
+               
+                navigation: {
+                    nextEl: ".swiper-next-blogs",
+                    prevEl: ".swiper-prev-blogs",
+                },
+                observer: false,
+                observeParents: false,
+                breakpoints: {
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 30,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 40,
+                    },
+                },
+            });
+        });
+    };
+
+    // Run on load and on Astro page transitions
+    initBlogsSwiper();
+    document.addEventListener('astro:page-load', initBlogsSwiper);
+</script>
+
+<style>
+    .swiper-slide {
+        will-change: transform;
+    }
+    
+    .swiper-prev-blogs, .swiper-next-blogs {
+        width: 48px;
+        height: 48px;
+    }
+    
+    :global(.mySwiperBlogs .swiper-pagination-bullet) {
+        background-color: #CBD5E0;
+        opacity: 1;
+        width: 10px;
+        height: 10px;
+        transition: all 0.3s ease;
+    }
+    :global(.mySwiperBlogs .swiper-pagination-bullet-active) {
+        background-color: #4EAC9F;
+        width: 30px;
+        border-radius: 5px;
+    }
+</style>

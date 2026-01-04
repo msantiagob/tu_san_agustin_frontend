@@ -1,0 +1,342 @@
+---
+import { Image } from 'astro:assets';
+import imgLaura from '../assets/images/productora-de-eventos-laura.webp';
+import imgAdriana from '../assets/images/planner-adriana.webp';
+import imgCamilo from '../assets/images/planner-camilo.webp';
+
+// We'll pass these as props or just use them in the script
+---
+
+<section class="py-16 bg-[#FCF4E7] overflow-hidden min-h-[700px] flex flex-col items-center justify-center gap-8">
+    
+    <div class="container mx-auto px-4 text-center">
+        <div class="mb-12">
+            <h2 class="text-5xl md:text-6xl font-bold italic tracking-tight leading-tight mb-2">
+                <span style="color: #333638;">Equipo</span> <span style="color: #4EAC9F;">San Agustín</span>
+            </h2>
+            <p class="text-gray-600 text-lg md:text-xl font-medium max-w-2xl mx-auto">
+                Las mentes que convierten ideas en experiencias
+            </p>
+        </div>
+
+        <div class="carousel-wrapper"> 
+            <button class="nav-arrow left-2 md:-left-16 carousel-prev" aria-label="Previous">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                </svg>              
+            </button>
+
+            <!-- Only one container needed, content will be swapped via JS -->
+            <div class="carousel-container">
+                <!-- 5 Cards structure -->
+                {Array.from({ length: 5 }).map((_, i) => (
+                    <div class={`card pos-${i + 1}`} data-index={i}>
+                        <img src="" alt={`Card ${i + 1}`} loading="lazy">
+                        <div class="card-overlay">
+                            <h4 class="card-title text-white text-lg"></h4>
+                            <p class="card-desc text-gray-200 text-xs mt-1 mb-3"></p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <button class="nav-arrow right-2 md:-right-16 carousel-next" aria-label="Next">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- CATEGORY TABS -->
+        <div class="flex justify-center gap-6 mt-12 bg-white px-8 py-3 rounded-full shadow-lg inline-flex mx-auto border border-gray-100">
+            <button id="btn-momentos" class="category-btn active flex items-center gap-2 text-sm uppercase tracking-wider text-brandGreen transition-all">
+                <span>Planners</span>
+            </button>
+            <div class="w-px h-6 bg-gray-300"></div>
+            <button id="btn-opiniones" class="category-btn flex items-center gap-2 text-sm uppercase tracking-wider text-gray-400 hover:text-gray-600 transition-all">
+                <span>Nuestros Expertos</span>
+            </button>
+        </div>
+
+
+    </div>
+
+</section>
+
+<!-- Pass image sources to JS via data attributes -->
+<div 
+    id="carousel-data" 
+    data-img-laura={imgLaura.src}
+    data-img-adriana={imgAdriana.src}
+    data-img-camilo={imgCamilo.src}
+    hidden
+></div>
+
+<style>
+    /* Estilos específicos del carrusel */
+    .carousel-font {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .category-btn {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .category-btn.active {
+        color: #333638; /* Dark text for active */
+        transform: scale(1.05);
+    }
+    
+    .carousel-wrapper {
+        position: relative;
+        width: 100%;
+        max-width: 1000px; /* Ancho máximo del área interactiva */
+        height: 350px; /* Altura fija necesaria para el posicionamiento absoluto */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto; /* Centrar horizontalmente */
+    }
+
+    .carousel-container {
+        perspective: 1000px;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card {
+        position: absolute;
+        transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        
+        /* TAMAÑO (Pequeño como pediste) */
+        width: 180px;  
+        height: 220px; 
+        
+        border-radius: 1.5rem; 
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end; /* Align content to bottom */
+        align-items: center;
+        overflow: hidden;
+        background-color: black; /* Dark background as base */
+    }
+    
+    .card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0; left: 0;
+        z-index: 10;
+        transition: opacity 0.4s ease; /* Smooth image swap */
+    }
+
+    /* Dark Overlay for Text Visibility */
+    .card::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
+        z-index: 15;
+    }
+
+    .card-overlay {
+        position: relative;
+        z-index: 20;
+        width: 100%;
+        padding: 1rem;
+        text-align: center;
+        opacity: 0; /* Hidden by default */
+        transform: translateY(20px);
+        transition: all 0.3s ease 0.1s;
+    }
+    
+    /* Show details only on center card (pos-3) */
+    .pos-3 .card-overlay {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* --- POSICIONES --- */
+    
+    /* Centro */
+    .pos-3 {
+        transform: translateX(0) translateY(-20px) scale(1.1);
+        z-index: 30;
+        opacity: 1;
+    }
+
+    /* Izquierda Visible */
+    .pos-2 {
+        transform: translateX(-260px) translateY(20px) rotate(-10deg) scale(0.9);
+        z-index: 20;
+        opacity: 1;
+        cursor: pointer;
+    }
+    /* Dim inactive cards */
+    .pos-2::before, .pos-4::before {
+        content: ''; position: absolute; inset:0; background-color: rgba(0, 0, 0, 0.4); z-index: 25; border-radius: 1.5rem;
+    }
+
+    /* Derecha Visible */
+    .pos-4 {
+        transform: translateX(260px) translateY(20px) rotate(10deg) scale(0.9);
+        z-index: 20;
+        opacity: 1;
+        cursor: pointer;
+    }
+
+    /* Izquierda Invisible */
+    .pos-1 {
+        transform: translateX(-450px) translateY(80px) rotate(-30deg) scale(0.6);
+        z-index: 10;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    /* Derecha Invisible */
+    .pos-5 {
+        transform: translateX(450px) translateY(80px) rotate(30deg) scale(0.6);
+        z-index: 10;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .nav-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(255, 255, 255, 0.9);
+        color: #4EAC9F;
+        border-radius: 50%;
+        padding: 0.8rem;
+        z-index: 50;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+    }
+    .nav-arrow:hover {
+        background-color: #4EAC9F;
+        color: white;
+        box-shadow: 0 10px 25px rgba(45, 212, 191, 0.4);
+    }
+</style>
+
+<script>
+    const dataEl = document.getElementById('carousel-data');
+    const imgLaura = dataEl?.dataset.imgLaura;
+    const imgAdriana = dataEl?.dataset.imgAdriana;
+    const imgCamilo = dataEl?.dataset.imgCamilo;
+
+    // Data Sources
+    const data = {
+        planners: {
+            subtitle: "EQUIPO",
+            titleStart: "Nuestros",
+            titleHighlight: "Planners",
+            items: [
+                { img: imgLaura, title: "Laura", desc: "Productora de Eventos" },
+                { img: imgAdriana, title: "Adriana", desc: "Event Planner" },
+                { img: imgCamilo, title: "Camilo", desc: "Event Planner" },
+                { img: imgLaura, title: "Laura", desc: "Productora de Eventos" },
+                { img: imgAdriana, title: "Adriana", desc: "Event Planner" }
+            ]
+        },
+        expertos: {
+            subtitle: "EXPERTOS",
+            titleStart: "Nuestros",
+            titleHighlight: "Expertos",
+            items: [
+                { img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80", title: "Chef Executivo", desc: "Sabor y excelencia." },
+                { img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=400&q=80", title: "Decoradora", desc: "Detalles impecables." },
+                { img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80", title: "Coordinador", desc: "Logística perfecta." },
+                { img: "https://images.unsplash.com/photo-1531123414780-f74242c2b052?auto=format&fit=crop&w=400&q=80", title: "Sumiller", desc: "Maridaje ideal." },
+                { img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80", title: "Hostess", desc: "Atención premium." }
+            ]
+        }
+    };
+
+    const wrapper = document.querySelector('.carousel-wrapper');
+    const cards = document.querySelectorAll('.card');
+    const prevBtn = document.querySelector('.carousel-prev');
+    const nextBtn = document.querySelector('.carousel-next');
+
+    const btnMomentos = document.getElementById('btn-momentos');
+    const btnOpiniones = document.getElementById('btn-opiniones');
+    let currentCategory = 'planners';
+    let positions = ['pos-1', 'pos-2', 'pos-3', 'pos-4', 'pos-5'];
+
+    // Initialize content
+    loadContent(currentCategory);
+
+    function loadContent(category) {
+        const catData = data[category];
+        if (!catData) return;
+
+        // Update Cards
+        cards.forEach((card, index) => {
+            const item = catData.items[index % catData.items.length];
+            const img = card.querySelector('img');
+            const title = card.querySelector('.card-title');
+            const desc = card.querySelector('.card-desc');
+
+            if(img && item.img) img.src = item.img;
+            if(title) title.textContent = item.title;
+            if(desc) desc.textContent = item.desc;
+        });
+    }
+
+    function toggleCategory(cat) {
+        if (currentCategory === cat) return;
+        currentCategory = cat;
+
+        // Toggle Buttons
+        if (cat === 'planners') {
+            btnMomentos?.classList.add('active', 'text-black');
+            btnMomentos?.classList.remove('text-gray-400');
+            btnOpiniones?.classList.remove('active', 'text-black');
+            btnOpiniones?.classList.add('text-gray-400');
+        } else {
+            btnOpiniones?.classList.add('active', 'text-black');
+            btnOpiniones?.classList.remove('text-gray-400');
+            btnMomentos?.classList.remove('active', 'text-black');
+            btnMomentos?.classList.add('text-gray-400');
+        }
+
+        loadContent(cat);
+    }
+
+    btnMomentos?.addEventListener('click', () => toggleCategory('planners'));
+    btnOpiniones?.addEventListener('click', () => toggleCategory('expertos'));
+
+    function updateCards() {
+        cards.forEach((card, index) => {
+            card.classList.remove('pos-1', 'pos-2', 'pos-3', 'pos-4', 'pos-5');
+            card.classList.add(positions[index]);
+        });
+    }
+
+    function rotate(direction) {
+        if (direction === 'left') {
+            positions.unshift(positions.pop()); 
+        } else {
+            positions.push(positions.shift()); 
+        }
+        updateCards();
+    }
+
+    prevBtn?.addEventListener('click', () => rotate('right'));
+    nextBtn?.addEventListener('click', () => rotate('left'));
+    
+    cards.forEach((card) => {
+        card.addEventListener('click', () => {
+            if (card.classList.contains('pos-2')) rotate('right');
+            if (card.classList.contains('pos-4')) rotate('left');
+        });
+    });
+</script>
