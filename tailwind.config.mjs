@@ -37,8 +37,14 @@ export default {
 					DEFAULT: "hsl(var(--card))",
 					foreground: "hsl(var(--card-foreground))",
 				},
-				// Custom colors from components
-				brandGreen: '#B4D6A4',
+				// Brand colors
+				brand: {
+					green: '#4EAC9F',      // Main brand green
+					cream: '#FDF5E9',      // Background cream/beige
+					darkGray: '#2D3748',   // Dark text
+				},
+				// Legacy support (keep for now)
+				brandGreen: '#4EAC9F',
 				cardText: '#333638',
 				subText: '#6B7280',
 			},

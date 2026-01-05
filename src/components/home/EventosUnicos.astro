@@ -1,87 +1,107 @@
 ---
-import ServiceCard from './ui/ServiceCard.astro';
-import imgBodasUnique from '../assets/images/fotografia.webp';
-import imgQuinceUnique from '../assets/images/fiesta-quince.webp';
-import imgEmpresarialesUnique from '../assets/images/0j8a0641.webp';
+import ServiceCard from '../ui/ServiceCard.astro';
+import imgBodasUnique from '../../assets/images/fotografia.webp';
+import imgQuinceUnique from '../../assets/images/fiesta-quince.webp';
+import imgEmpresarialesUnique from '../../assets/images/0j8a0641.webp';
+import { SITE_CONFIG, getAbsoluteUrl } from '../../config/site';
+import { useTranslations } from '../../i18n/utils';
+
+interface Props {
+  lang?: 'es' | 'en';
+}
+
+const { lang = 'es' } = Astro.props;
+const t = useTranslations(lang);
+
+// Service cards data
+const services = [
+    {
+        title: t('services.weddings'),
+        image: imgBodasUnique,
+        url: getAbsoluteUrl(SITE_CONFIG.routes.weddings)
+    },
+    {
+        title: t('services.quinceañeras'),
+        image: imgQuinceUnique,
+        url: getAbsoluteUrl(SITE_CONFIG.routes.quinceañeras)
+    },
+    {
+        title: t('services.corporate'),
+        image: imgEmpresarialesUnique,
+        url: getAbsoluteUrl(SITE_CONFIG.routes.corporate)
+    }
+];
 ---
 
-<div class="bg-[#FDF5E9 ] py-8 md:py-16">
+<section class="bg-brand-cream py-8 md:py-16">
     <div class="max-w-7xl mx-auto px-4 md:px-16">
         <h2 class="text-4xl md:text-7xl text-center mb-12">
-            <span class="text-[#4EAC9F]">Eventos</span> <span class="text-[#2D3748]">Únicos</span>
+            <span class="text-brand-green">{t('home.uniqueEvents.title1')}</span>
+            <span class="text-brand-darkGray">{t('home.uniqueEvents.title2')}</span>
         </h2>
 
         <div class="relative w-full group">
-            
-            <button class="swiper-prev-events absolute left-0 md:-left-14 top-[40%] -translate-y-1/2 z-50 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center hover:bg-gray-50 transition-all border border-gray-100 text-gray-800 cursor-pointer">
+
+            <button
+                class="swiper-prev-events absolute left-0 md:-left-14 top-[40%] -translate-y-1/2 z-50 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center hover:bg-gray-50 transition-all border border-gray-100 text-gray-800 cursor-pointer"
+                aria-label={t('common.ariaLabels.prevSlide')}
+            >
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
             </button>
-            
-            <button class="swiper-next-events absolute right-0 md:-right-14 top-[40%] -translate-y-1/2 z-50 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center hover:bg-gray-50 transition-all border border-gray-100 text-gray-800 cursor-pointer">
+
+            <button
+                class="swiper-next-events absolute right-0 md:-right-14 top-[40%] -translate-y-1/2 z-50 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center hover:bg-gray-50 transition-all border border-gray-100 text-gray-800 cursor-pointer"
+                aria-label={t('common.ariaLabels.nextSlide')}
+            >
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
             </button>
 
             <div class="swiper mySwiperEvents !p-6">
                 <div class="swiper-wrapper">
-                   <ServiceCard 
-                        title="Bodas" 
-                        image={imgBodasUnique}
-                        url="https://www.tusanagustin.com/servicios/bodas"
-                        loading="eager"
-                        fetchpriority="high"
-                    />
-                    <ServiceCard 
-                        title="15 años" 
-                        image={imgQuinceUnique}
-                        url="https://www.tusanagustin.com/servicios/15-anos"
-                    />
-                    <ServiceCard 
-                        title="Eventos empresariales" 
-                        image={imgEmpresarialesUnique}
-                        url="https://www.tusanagustin.com/servicios/eventos-empresariales"
-                    />
-                    
-                    {/* Duplicates for Loop */}
-                    <ServiceCard 
-                        title="Bodas" 
-                        image={imgBodasUnique}
-                        url="https://www.tusanagustin.com/servicios/bodas"
-                    />
-                    <ServiceCard 
-                        title="15 años" 
-                        image={imgQuinceUnique}
-                        url="https://www.tusanagustin.com/servicios/15-anos"
-                    />
-                    <ServiceCard 
-                        title="Eventos empresariales" 
-                        image={imgEmpresarialesUnique}
-                        url="https://www.tusanagustin.com/servicios/eventos-empresariales"
-                    />
+                   {services.map((service, index) => (
+                       <ServiceCard
+                           title={service.title}
+                           image={service.image}
+                           url={service.url}
+                           loading={index === 0 ? "eager" : "lazy"}
+                           fetchpriority={index === 0 ? "high" : undefined}
+                       />
+                   ))}
                 </div>
             </div>
         </div>
 
     </div>
 
-    <div class="w-full border-t border-b border-gray-300 mt-6">
-        <div class="max-w-7xl mx-auto grid grid-cols-3 text-center text-sm md:text-base text-gray-500 font-alice opciones">
-            <a href="https://www.tusanagustin.com/servicios" class="py-1 hover:text-[#4EAC9F] cursor-pointer">Eventos sociales</a>
-            <a href="https://www.tusanagustin.com/servicios/eventos-empresariales" class="py-1 hover:text-[#4EAC9F] cursor-pointer">Eventos empresariales</a>
-            <a href="https://www.tusanagustin.com/servicios/turismo" class="py-1 hover:text-[#4EAC9F] cursor-pointer">Servicios institucionales</a>
+    <nav class="w-full border-t border-b border-gray-300 mt-6" aria-label={t('common.navigation.services')}>
+        <div class="max-w-7xl mx-auto grid grid-cols-3 text-center text-sm md:text-base text-gray-500 font-alice">
+            <a href={getAbsoluteUrl(SITE_CONFIG.routes.services)} class="py-1 hover:text-brand-green cursor-pointer transition-colors">
+                {t('services.social')}
+            </a>
+            <a href={getAbsoluteUrl(SITE_CONFIG.routes.corporate)} class="py-1 hover:text-brand-green cursor-pointer transition-colors">
+                {t('services.corporate')}
+            </a>
+            <a href={getAbsoluteUrl(SITE_CONFIG.routes.tourism)} class="py-1 hover:text-brand-green cursor-pointer transition-colors">
+                {t('services.institutional')}
+            </a>
         </div>
-    </div>
-</div>
+    </nav>
+</section>
 
 <style>
-    /* Forzar que el swiper sea visible y permita arrastre */
-    .swiper { width: 100%; height: auto; }
-    .swiper-slide { 
-        height: auto; 
+    /* Swiper configuration */
+    .swiper {
+        width: 100%;
+        height: auto;
+    }
+
+    .swiper-slide {
+        height: auto;
         user-select: none;
         will-change: transform;
     }
-    
-    /* Si las flechas no aparecen, es por el Z-INDEX */
+
+    /* Navigation buttons */
     .swiper-prev-events, .swiper-next-events {
         display: flex !important;
         opacity: 1 !important;
@@ -90,8 +110,10 @@ import imgEmpresarialesUnique from '../assets/images/0j8a0641.webp';
         height: 48px;
     }
 
-    /* Evita que la imagen bloquee el arrastre del mouse */
-    img { pointer-events: none; }
+    /* Prevent image from blocking touch/mouse events */
+    img {
+        pointer-events: none;
+    }
 </style>
 
 <script>

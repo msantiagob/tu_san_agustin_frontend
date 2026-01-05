@@ -80,6 +80,11 @@
   "services": {
     "title": "Featured",
     "titleHighlight": "Services",
+    "weddings": "Weddings",
+    "quinceañeras": "Quince Años",
+    "corporate": "Corporate Events",
+    "social": "Social Events",
+    "institutional": "Institutional Services",
     "decoration": {
       "title": "Decoration",
       "description": "Every event is an opportunity to express the needs, tastes, and feelings of our clients through every detail, each wonderful space decorated finely and beautifully so you can live experiences full of magic, joy, and fun.",
@@ -97,6 +102,12 @@
       "weddingPlanner": "Wedding Planner",
       "photoVideo": "Photography and Video",
       "furnitureRental": "Furniture Rental"
+    }
+  },
+  "home": {
+    "uniqueEvents": {
+      "title1": "Unique",
+      "title2": "Events"
     }
   },
   "locations": {

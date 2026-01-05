@@ -1,16 +1,17 @@
 ---
 import { Image } from 'astro:assets';
 import Sidebar from './Sidebar.astro';
-import flagColombia from '../assets/images/colombia.webp';
-import iconFb from '../assets/images/icon-facebook.webp';
-import iconIg from '../assets/images/icon-instagram.webp';
-import iconTk from '../assets/images/icon-tiktok.webp';
-import iconLi from '../assets/images/icon-linkedin.webp';
-import iconYt from '../assets/images/icon-youtube.webp';
-import iconWa from '../assets/images/icon-whatsapp.webp';
-import logoVerde from '../assets/images/logo-verde.webp';
-import iconPh from '../assets/images/icon-phone.webp';
-import { useTranslations } from '../i18n/utils';
+import flagColombia from '../../assets/images/colombia.webp';
+import iconFb from '../../assets/images/icon-facebook.webp';
+import iconIg from '../../assets/images/icon-instagram.webp';
+import iconTk from '../../assets/images/icon-tiktok.webp';
+import iconLi from '../../assets/images/icon-linkedin.webp';
+import iconYt from '../../assets/images/icon-youtube.webp';
+import iconWa from '../../assets/images/icon-whatsapp.webp';
+import logoVerde from '../../assets/images/logo-verde.webp';
+import iconPh from '../../assets/images/icon-phone.webp';
+import { useTranslations } from '../../i18n/utils';
+import { SITE_CONFIG } from '../../config/site';
 
 interface Props {
   lang?: 'es' | 'en';
@@ -20,7 +21,7 @@ const { lang = 'es' } = Astro.props;
 const t = useTranslations(lang);
 ---
 
-<nav class="w-full bg-[#FDF5E9] border-b border-gray-100 py-2 sm:py-3 relative z-30 font-['Poppins']">
+<nav class="w-full bg-brand-cream border-b border-gray-100 py-2 sm:py-3 relative z-30 font-['Poppins']">
     <div class="max-w-[1400px] mx-auto px-4 md:px-8 flex items-center justify-between">
         
         <!-- Left Section: Language & Socials (Hidden on mobile) -->
@@ -46,12 +47,12 @@ const t = useTranslations(lang);
             <div class="h-4 w-px bg-gray-300"></div>
 
             <div class="flex items-center gap-3">
-                <a href="https://www.facebook.com/tusanagustineventos/" class="hover:scale-110 transition-transform"><Image src={iconFb} alt="Facebook" class="h-4 w-4 object-contain text-[#4EAC9F]" width={16} height={16} loading="eager" /></a>
-                <a href="https://www.instagram.com/tusanagustin/" class="hover:scale-110 transition-transform"><Image src={iconIg} alt="Instagram" class="h-4 w-4 object-contain text-[#4EAC9F]" width={16} height={16} loading="eager" /></a>
-                <a href="https://www.tiktok.com/@tusanagustin" class="hover:scale-110 transition-transform"><Image src={iconTk} alt="TikTok" class="h-4 w-4 object-contain text-[#4EAC9F]" width={16} height={16} loading="eager" /></a> 
-                <a href="https://www.linkedin.com/company/tusanagustin/" class="hover:scale-110 transition-transform"><Image src={iconLi} alt="LinkedIn" class="h-4 w-4 object-contain text-[#4EAC9F]" width={16} height={16} loading="eager" /></a>
-                <a href="https://www.youtube.com/@tusanagustin" class="hover:scale-110 transition-transform"><Image src={iconYt} alt="YouTube" class="h-4 w-4 object-contain text-[#4EAC9F]" width={16} height={16} loading="eager" /></a>
-                <a href="https://wa.me/573168753305?text=Hola!" class="hover:scale-110 transition-transform"><Image src={iconWa} alt="WhatsApp" class="h-4 w-4 object-contain text-[#4EAC9F]" width={16} height={16} loading="eager" /></a>
+                <a href={SITE_CONFIG.social.facebook} class="hover:scale-110 transition-transform"><Image src={iconFb} alt="Facebook" class="h-4 w-4 object-contain text-brand-green" width={16} height={16} loading="eager" /></a>
+                <a href={SITE_CONFIG.social.instagram} class="hover:scale-110 transition-transform"><Image src={iconIg} alt="Instagram" class="h-4 w-4 object-contain text-brand-green" width={16} height={16} loading="eager" /></a>
+                <a href={SITE_CONFIG.social.tiktok} class="hover:scale-110 transition-transform"><Image src={iconTk} alt="TikTok" class="h-4 w-4 object-contain text-brand-green" width={16} height={16} loading="eager" /></a>
+                <a href={SITE_CONFIG.social.linkedin} class="hover:scale-110 transition-transform"><Image src={iconLi} alt="LinkedIn" class="h-4 w-4 object-contain text-brand-green" width={16} height={16} loading="eager" /></a>
+                <a href={SITE_CONFIG.social.youtube} class="hover:scale-110 transition-transform"><Image src={iconYt} alt="YouTube" class="h-4 w-4 object-contain text-brand-green" width={16} height={16} loading="eager" /></a>
+                <a href={SITE_CONFIG.contact.whatsapp.url} class="hover:scale-110 transition-transform"><Image src={iconWa} alt="WhatsApp" class="h-4 w-4 object-contain text-brand-green" width={16} height={16} loading="eager" /></a>
             </div>
         </div>
 
@@ -65,9 +66,9 @@ const t = useTranslations(lang);
              <!-- Contact (Hidden mobile) -->
             <div class="hidden md:flex items-center gap-2 md:gap-4 mr-4">
                 <div class="bg-[#e0f2fe] p-1.5 rounded-full hover:scale-110 transition-transform">
-                     <a href="https://wa.me/573168753305?text=Hola!"><Image src={iconPh} alt="Phone" class="h-4 w-4 object-contain" width={16} height={16} loading="eager" /></a>
+                     <a href="{SITE_CONFIG.contact.whatsapp.getUrl()}"><Image src={iconPh} alt="Phone" class="h-4 w-4 object-contain" width={16} height={16} loading="eager" /></a>
                 </div>
-                <a href="https://wa.me/573168753305?text=Hola!" class="flex flex-row items-center gap-2 hover:opacity-80 transition-opacity">
+                <a href="{SITE_CONFIG.contact.whatsapp.getUrl()}" class="flex flex-row items-center gap-2 hover:opacity-80 transition-opacity">
                     <span class="text-gray-800 text-sm md:text-lg font-medium whitespace-nowrap font-['Poppins']">{t('navbar.phone')}</span>
                     <span class="text-xs text-[#4EAC9F] font-semibold uppercase tracking-wider shrink-0 font-['Poppins']">{t('navbar.callUs')}</span>
                 </a>

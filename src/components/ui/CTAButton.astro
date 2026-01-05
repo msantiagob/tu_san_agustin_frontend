@@ -1,0 +1,70 @@
+---
+import { SITE_CONFIG } from '../../config/site';
+
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'whatsapp';
+  size?: 'sm' | 'md' | 'lg';
+  fullWidth?: boolean;
+  class?: string;
+  ariaLabel?: string;
+  message?: string; // For WhatsApp variant
+}
+
+const {
+  href,
+  variant = 'primary',
+  size = 'md',
+  fullWidth = false,
+  class: className = '',
+  ariaLabel,
+  message
+} = Astro.props;
+
+// Determine href based on variant
+const buttonHref = variant === 'whatsapp'
+  ? SITE_CONFIG.contact.whatsapp.getUrl(message)
+  : href;
+
+// Size classes
+const sizeClasses = {
+  sm: 'px-4 py-2 text-sm',
+  md: 'px-6 py-3 text-base',
+  lg: 'px-8 py-4 text-lg'
+};
+
+// Variant classes
+const variantClasses = {
+  primary: 'bg-brand-cream text-black hover:bg-gray-700 hover:text-white border-white/10',
+  secondary: 'bg-brand-green text-white hover:bg-brand-green/90 border-brand-green/20',
+  whatsapp: 'bg-brand-cream text-black hover:bg-gray-700 hover:text-white border-white/10'
+};
+
+const baseClasses = `
+  inline-flex items-center justify-center gap-2
+  font-['Playfair_Display',_serif]
+  rounded-[25px] border
+  transition-all duration-300 ease-in-out
+  cursor-pointer text-center
+  shadow-[0_4px_10px_rgba(0,0,0,0.3)]
+  hover:shadow-[0_8px_20px_rgba(0,0,0,0.4)]
+  hover:-translate-y-0.5
+  ${sizeClasses[size]}
+  ${variantClasses[variant]}
+  ${fullWidth ? 'w-full' : 'w-auto'}
+  ${className}
+`;
+---
+
+<a href={buttonHref} class={baseClasses} aria-label={ariaLabel}>
+  <slot />
+</a>
+
+<style>
+  /* Additional responsive adjustments */
+  @media (max-width: 768px) {
+    a {
+      max-width: 240px;
+    }
+  }
+</style>
