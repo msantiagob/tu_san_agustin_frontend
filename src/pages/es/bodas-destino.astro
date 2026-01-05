@@ -1,0 +1,91 @@
+---
+import Layout from '../../layouts/Layout.astro';
+// Layout components
+import Navbar from '../../components/layout/Navbar.astro';
+import Footer from '../../components/layout/Footer.astro';
+
+// Home components
+import Banner from '../../components/wedding-destination/Banner.astro';
+import Eventos from '../../components/home/EventosUnicos.astro';
+import ServiciosDestacados from '../../components/home/ServiciosDestacados.astro';
+import Locaciones from '../../components/home/Locaciones.astro';
+import VideoSection from '../../components/home/VideoSection.astro';
+import ArtistasEspectaculos from '../../components/home/ArtistasEspectaculos.astro';
+import HistoriasEventos from '../../components/home/HistoriasEventos.astro';
+import Intro from '../../components/home/Intro.astro';
+import TurismoBlock from '../../components/home/TurismoBlock.astro';
+import BlogsSection from '../../components/home/BlogsSection.astro';
+import BrandInfo from '../../components/home/BrandInfo.astro';
+
+// Shared components
+import Carousel from '../../components/shared/Carousel.astro';
+
+const lang = 'es';
+---
+
+<Layout title="Home" lang={lang}>
+	<Navbar lang={lang} />
+	<main class="min-h-screen">
+		<!-- Hero Section -->
+		<section aria-label="Banner principal">
+			<Banner lang={lang} />
+		</section>
+
+		<!-- Events Section -->
+		<section aria-label="Eventos únicos" class="my-8 md:my-12">
+			<Eventos lang={lang} />
+		</section>
+
+		<!-- Services Section -->
+		<section aria-label="Servicios destacados" class="my-8 md:my-12">
+			<ServiciosDestacados lang={lang} />
+		</section>
+
+		<!-- Locations Section -->
+		<section aria-label="Locaciones" class="my-8 md:my-12">
+			<Locaciones lang={lang} />
+		</section>
+
+		<!-- Video Section -->
+		<section aria-label="Video" class="my-8 md:my-12">
+			<VideoSection lang={lang} />
+		</section>
+
+		<!-- Artists Section -->
+		<section aria-label="Artistas y espectáculos" class="my-8 md:my-12">
+			<ArtistasEspectaculos lang={lang} />
+		</section>
+
+		<!-- Testimonials Section -->
+		<section aria-label="Historias de eventos" class="my-8 md:my-12">
+			<HistoriasEventos lang={lang} />
+		</section>
+
+		<!-- Intro Section -->
+		<section aria-label="Introducción" class="my-8 md:my-12">
+			<Intro lang={lang} />
+		</section>
+
+		<!-- Team Carousel Section -->
+		<section aria-label="Nuestro equipo" class="my-8 md:my-16">
+			<Carousel lang={lang} />
+		</section>
+
+		<!-- Tourism Section -->
+		<section aria-label="Turismo" class="my-8 md:my-16">
+			<TurismoBlock lang={lang} />
+		</section>
+
+		<!-- Blog Section -->
+		<section aria-label="Blog" class="my-8 md:my-16">
+			<BlogsSection lang={lang} />
+		</section>
+
+		<!-- Brand Info Section -->
+		<section aria-label="Información de marca" class="my-8 md:my-10">
+			<BrandInfo lang={lang} />
+		</section>
+	</main>
+
+	<Footer lang={lang} />
+</Layout>

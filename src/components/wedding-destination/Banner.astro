@@ -1,0 +1,94 @@
+---
+import { Image } from 'astro:assets';
+import { useTranslations, getTranslations } from '../../i18n/utils';
+import {
+  SITE_CONFIG,
+  getAbsoluteUrl,
+  getLocalizedRoute,
+} from '../../config/site';
+import CTAButton from '../ui/CTAButton.astro';
+import Menu from '../shared/menu.astro';
+// Import images
+import imgBoda from '../../assets/images/wedding-destination.webp';
+
+interface Props {
+  lang?: 'es' | 'en';
+}
+
+const { lang = 'es' } = Astro.props;
+const t = useTranslations(lang);
+const translations = getTranslations(lang);
+---
+
+<div
+  class='w-[calc(100%-8px)] md:w-[calc(100%-16px)] max-w-[2000px] h-[650px] md:h-[800px] relative rounded-[2rem] md:rounded-[3rem] overflow-hidden mx-auto'
+>
+
+  <div class='swiper mySwiper w-full h-full'>
+    <div class='swiper-wrapper'>
+      <div class='swiper-slide relative'>
+
+        <Image
+          src={imgBoda}
+          class='absolute inset-0 w-full h-full object-cover'
+          style='object-position: bottom 15%;'
+          alt={translations.banner.slides[0].alt}
+          loading='eager'
+          fetchpriority='high'
+          width={1600}
+          height={900}
+          widths={[480, 768, 1024, 1280, 1600]}
+          quality={70}
+        />
+        <div class='absolute inset-0 bg-black/30'></div>
+        <div
+          class='relative z-10 h-full flex flex-col items-center justify-center text-center px-4 pb-24 md:pb-20'
+        >
+          <h1
+            class='text-3xl md:text-5xl lg:text-6xl font-medium text-white drop-shadow-lg leading-tight'
+          >
+            Invitados, Vuelos y Etiqueta
+          </h1>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <button
+      class='swiper-button-prev-banner absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-50 text-white/70 hover:text-white cursor-pointer transition-all hover:scale-110'
+      aria-label={t('common.ariaLabels.prevSlide')}
+    >
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        width='30'
+        height='30'
+        viewBox='0 0 24 24'
+        fill='none'
+        stroke='currentColor'
+        stroke-width='2.5'
+        stroke-linecap='round'
+        stroke-linejoin='round'><path d='m15 18-6-6 6-6'></path></svg
+      >
+    </button>
+    <button
+      class='swiper-button-next-banner absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-50 text-white/70 hover:text-white cursor-pointer transition-all hover:scale-110'
+      aria-label={t('common.ariaLabels.nextSlide')}
+    >
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        width='30'
+        height='30'
+        viewBox='0 0 24 24'
+        fill='none'
+        stroke='currentColor'
+        stroke-width='2.5'
+        stroke-linecap='round'
+        stroke-linejoin='round'><path d='m9 18 6-6-6-6'></path></svg
+      >
+    </button>
+
+    <Menu/>
+  </div>
+</div>
+

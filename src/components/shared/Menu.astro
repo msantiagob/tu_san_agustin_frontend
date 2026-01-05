@@ -1,0 +1,148 @@
+---
+import { useTranslations, getTranslations } from '../../i18n/utils';
+import { SITE_CONFIG, getAbsoluteUrl } from '../../config/site';
+
+interface Props {
+  lang?: 'es' | 'en';
+}
+
+const { lang = 'es' } = Astro.props;
+const t = useTranslations(lang);
+const translations = getTranslations(lang);
+---
+
+<div
+  class='absolute bottom-0 left-0 right-0 z-30 w-full px-4 py-6 md:px-8 md:py-8 flex flex-col md:flex-row items-center md:items-end justify-between gap-5'
+>
+  <div class='hidden md:flex flex-1 justify-start gap-6 pb-3'>
+    <a href={getAbsoluteUrl(SITE_CONFIG.routes.home)} class='nav-text-link'
+      >{t('common.navigation.home')}</a
+    >
+    <a href={getAbsoluteUrl(SITE_CONFIG.routes.events)} class='nav-text-link'
+      >{t('common.navigation.events')}</a
+    >
+    <a href={getAbsoluteUrl(SITE_CONFIG.routes.services)} class='nav-text-link'
+      >{t('common.navigation.services')}</a
+    >
+  </div>
+
+  <div class='hidden md:flex flex-1 justify-end gap-6 pb-3'>
+    <a href={getAbsoluteUrl(SITE_CONFIG.routes.blog)} class='nav-text-link'
+      >{t('common.navigation.blog')}</a
+    >
+    <a href={getAbsoluteUrl(SITE_CONFIG.routes.about)} class='nav-text-link'
+      >{t('common.navigation.about')}</a
+    >
+    <a href={getAbsoluteUrl(SITE_CONFIG.routes.contact)} class='nav-text-link'
+      >{t('common.navigation.contact')}</a
+    >
+  </div>
+</div>
+
+<style>
+  /* Estilo Enlaces de Texto (Solo Desktop) */
+  .nav-text-link {
+    color: rgba(255, 255, 255, 0.85);
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    white-space: nowrap;
+  }
+  .nav-text-link:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  }
+
+  /* ESTILO SÓLIDO PARA LOS BOTONES DE ACCIÓN */
+  .action-btn {
+    /* El color gris sólido elegante que pediste */
+    background-color: #fdf5e9;
+    color: black;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    padding: 12px 24px;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .action-btn:hover {
+    background-color: #404040; /* Un poco más claro al pasar el mouse */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    color: white;
+  }
+
+  /* Ajuste móvil: Botones centrados y mejor tamaño */
+  @media (max-width: 768px) {
+    .action-btn {
+      padding: 10px 22px;
+      font-size: 0.9rem;
+      width: auto;
+      max-width: 240px;
+    }
+  }
+</style>
+
+<style is:global>
+  /* Elegant Fade & Zoom Transition - Scoped to .mySwiper */
+  .mySwiper .swiper-slide {
+    opacity: 0 !important;
+    transition: opacity 1.2s ease-in-out !important;
+    will-change: opacity, transform; /* Performance hint */
+  }
+  .mySwiper .swiper-slide-active {
+    opacity: 1 !important;
+  }
+
+  .mySwiper .swiper-slide img {
+    transform: scale(1.1);
+    transition: transform 8s ease-in-out !important;
+  }
+
+  .mySwiper .swiper-slide-active img {
+    transform: scale(1);
+  }
+</style>
+
+<script>
+  import Swiper from 'swiper';
+  import { Autoplay, EffectFade, Navigation } from 'swiper/modules';
+  import 'swiper/css';
+  import 'swiper/css/navigation';
+  import 'swiper/css/effect-fade';
+
+  // Defer initialization to avoid forced reflow
+  requestAnimationFrame(() => {
+    const swiper = new Swiper('.mySwiper', {
+      modules: [Autoplay, EffectFade, Navigation],
+      loop: true,
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true,
+      },
+      speed: 1500,
+      autoplay: {
+        delay: 6000,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next-banner',
+        prevEl: '.swiper-button-prev-banner',
+      },
+      observer: true,
+      observeParents: true,
+      updateOnWindowResize: true,
+    });
+  });
+</script>
