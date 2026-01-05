@@ -4,10 +4,17 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  base: '.',
+  base: '/',
   integrations: [tailwind(), react()],
   compressHTML: true,
   prefetch: true,
+  image: {
+    domains: ['images.unsplash.com'],
+    remotePatterns: [{ protocol: 'https' }],
+    service: {
+      entrypoint: 'astro/assets/services/sharp'
+    }
+  },
   build: {
     assets: "_astro",
     inlineStylesheets: "always",

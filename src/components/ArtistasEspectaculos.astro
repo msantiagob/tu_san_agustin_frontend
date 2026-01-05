@@ -14,12 +14,12 @@ import imgMaluma from '../assets/images/1-8.webp';
         </h2>
 
         <div class="relative w-full mb-8 md:mb-16 px-8 md:px-12">
-            
-            <button class="swiper-prev-artistas absolute left-0 top-1/2 -translate-y-[60%] z-20 w-10 h-10 flex items-center justify-center text-gray-400 hover:text-[#4EAC9F] hover:scale-110 transition-all cursor-pointer outline-none">
+
+            <button class="swiper-prev-artistas absolute left-0 top-1/2 -translate-y-[60%] z-20 w-10 h-10 flex items-center justify-center text-gray-400 hover:text-[#4EAC9F] hover:scale-110 transition-all cursor-pointer outline-none" aria-label="Artista anterior">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
             </button>
-            
-            <button class="swiper-next-artistas absolute right-0 top-1/2 -translate-y-[60%] z-20 w-10 h-10 flex items-center justify-center text-gray-400 hover:text-[#4EAC9F] hover:scale-110 transition-all cursor-pointer outline-none">
+
+            <button class="swiper-next-artistas absolute right-0 top-1/2 -translate-y-[60%] z-20 w-10 h-10 flex items-center justify-center text-gray-400 hover:text-[#4EAC9F] hover:scale-110 transition-all cursor-pointer outline-none" aria-label="Artista siguiente">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
             </button>
 
@@ -271,13 +271,13 @@ import imgMaluma from '../assets/images/1-8.webp';
         requestAnimationFrame(() => {
             const swiper = new Swiper(".swiperArtistas", {
                 modules: [Navigation, Autoplay],
-                loop: true,                
-                loopedSlides: 3,          // Necesario para loop infinito con 3 slides
-                loopAdditionalSlides: 3,  // Slides adicionales para loop suave en ambas direcciones
-                centeredSlides: true,     
-                slidesPerView: 3,         // Siempre mostrar 3 slides
+                loop: true,
+                loopedSlides: 3,
+                loopAdditionalSlides: 3,
+                centeredSlides: true,
+                slidesPerView: 3,
                 spaceBetween: 0,
-                initialSlide: 1,          // Iniciar en el segundo slide
+                initialSlide: 1,
                 autoplay: {
                     delay: 3500,
                     disableOnInteraction: false,
@@ -290,23 +290,20 @@ import imgMaluma from '../assets/images/1-8.webp';
                 observer: false,
                 observeParents: false,
                 breakpoints: {
-                    // En móviles mostrar 1 slide
-                    0: { 
-                        slidesPerView: 1, 
+                    0: {
+                        slidesPerView: 1,
                         spaceBetween: 20,
                         loopedSlides: 3,
                         loopAdditionalSlides: 3
                     },
-                    // En tablets mostrar 2 slides
-                    640: { 
-                        slidesPerView: 2, 
+                    640: {
+                        slidesPerView: 2,
                         spaceBetween: 30,
                         loopedSlides: 3,
                         loopAdditionalSlides: 3
                     },
-                    // En desktop mostrar 3 slides
-                    1024: { 
-                        slidesPerView: 3, 
+                    1024: {
+                        slidesPerView: 3,
                         spaceBetween: 0,
                         loopedSlides: 3,
                         loopAdditionalSlides: 3

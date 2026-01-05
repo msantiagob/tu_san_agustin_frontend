@@ -3,14 +3,14 @@ import '../styles/global.css';
 import ScrollToTop from '../components/ui/ScrollToTop.astro';
 import SearchModal from '../components/ui/SearchModal.astro';
 import { getImage } from 'astro:assets';
-import imgLCP from '../assets/images/fotografia.webp';
+import imgLCP from '../assets/images/banner-boda.webp';
 
 interface Props {
 	title: string;
 }
 
 const { title } = Astro.props;
-const optimizedLCP = await getImage({ src: imgLCP, width: 800, quality: 80, format: 'webp' });
+const optimizedLCP = await getImage({ src: imgLCP, width: 1600, quality: 70, format: 'webp' });
 ---
 
 <!doctype html>

@@ -40,12 +40,12 @@ const doubleTestimonials = [...testimonials, ...testimonials];
         </h2>
 
         <div class="relative w-full mb-8 md:mb-16 px-4 md:px-12">
-            
-            <button class="swiper-prev-historias absolute left-0 md:left-2 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center text-gray-400 hover:text-[#4EAC9F] hover:scale-110 transition-all cursor-pointer outline-none">
+
+            <button class="swiper-prev-historias absolute left-0 md:left-2 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center text-gray-400 hover:text-[#4EAC9F] hover:scale-110 transition-all cursor-pointer outline-none" aria-label="Historia de evento anterior">
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
             </button>
-            
-            <button class="swiper-next-historias absolute right-0 md:right-2 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center text-gray-400 hover:text-[#4EAC9F] hover:scale-110 transition-all cursor-pointer outline-none">
+
+            <button class="swiper-next-historias absolute right-0 md:right-2 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center text-gray-400 hover:text-[#4EAC9F] hover:scale-110 transition-all cursor-pointer outline-none" aria-label="Historia de evento siguiente">
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
             </button>
 
@@ -61,7 +61,7 @@ const doubleTestimonials = [...testimonials, ...testimonials];
         </div>
 
         <div class="flex flex-col items-center mt-12">
-            <a href="https://www.tusanagustin.com/testimonios class="bg-[#333638] text-white px-8 py-4 rounded-full flex items-center gap-4 hover:scale-105 transition-transform shadow-lg group">
+            <a href="https://www.tusanagustin.com/testimonios" class="bg-[#333638] text-white px-8 py-4 rounded-full flex items-center gap-4 hover:scale-105 transition-transform shadow-lg group">
                 <span class="text-xl font-normal italic font-sans" style="font-family: 'Poppins', sans-serif;">Ver testimonios</span>
                 <div class="flex gap-1 group-hover:scale-110 transition-transform">
                     {[1, 2, 3, 4, 5].map(() => (
@@ -124,8 +124,8 @@ const doubleTestimonials = [...testimonials, ...testimonials];
                 modules: [Navigation, Autoplay],
                 loop: true,
                 centeredSlides: true,
-                slidesPerView: 1.2, // Mayor visibilidad de las de los lados en móvil
-                spaceBetween: -20, // Superposición ligera para efecto de profundidad
+                slidesPerView: 1.2,
+                spaceBetween: -20,
                 autoplay: {
                     delay: 5000,
                     disableOnInteraction: true,
@@ -141,7 +141,7 @@ const doubleTestimonials = [...testimonials, ...testimonials];
                     },
                     1024: {
                         slidesPerView: 3,
-                        spaceBetween: -50 // Más juntas en escritorio para notar el escalado
+                        spaceBetween: -50
                     }
                 },
                 observer: false,

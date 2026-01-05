@@ -19,11 +19,11 @@ import imgCamilo from '../assets/images/planner-camilo.webp';
             </p>
         </div>
 
-        <div class="carousel-wrapper"> 
-            <button class="nav-arrow left-2 md:-left-16 carousel-prev" aria-label="Previous">
+        <div class="carousel-wrapper">
+            <button class="nav-arrow left-2 md:-left-16 carousel-prev" aria-label="Miembro del equipo anterior">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                </svg>              
+                </svg>
             </button>
 
             <!-- Only one container needed, content will be swapped via JS -->
@@ -31,7 +31,7 @@ import imgCamilo from '../assets/images/planner-camilo.webp';
                 <!-- 5 Cards structure -->
                 {Array.from({ length: 5 }).map((_, i) => (
                     <div class={`card pos-${i + 1}`} data-index={i}>
-                        <img src="" alt={`Card ${i + 1}`} loading="lazy">
+                        <img src="" alt={`Miembro del equipo ${i + 1}`} loading="lazy">
                         <div class="card-overlay">
                             <h4 class="card-title text-white text-lg"></h4>
                             <p class="card-desc text-gray-200 text-xs mt-1 mb-3"></p>
@@ -40,7 +40,7 @@ import imgCamilo from '../assets/images/planner-camilo.webp';
                 ))}
             </div>
 
-            <button class="nav-arrow right-2 md:-right-16 carousel-next" aria-label="Next">
+            <button class="nav-arrow right-2 md:-right-16 carousel-next" aria-label="Miembro del equipo siguiente">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                 </svg>
