@@ -1,0 +1,185 @@
+{
+  "common": {
+    "cta": {
+      "scheduleConsultation": "Agenda una asesoría",
+      "viewMore": "Ver más",
+      "reserve": "Quiero Reservar",
+      "search": "Busca por categoría"
+    },
+    "navigation": {
+      "home": "Inicio",
+      "events": "Eventos",
+      "services": "Servicios",
+      "blog": "Blog",
+      "about": "Nosotros",
+      "contact": "Contacto"
+    },
+    "language": {
+      "spanish": "Español",
+      "english": "English",
+      "changeLang": "Cambiar idioma",
+      "languageLabel": "Idioma"
+    },
+    "ariaLabels": {
+      "prevSlide": "Slide anterior del banner",
+      "nextSlide": "Slide siguiente del banner",
+      "closeMenu": "Cerrar menú",
+      "openMenu": "Abrir menú",
+      "search": "Buscar"
+    }
+  },
+  "navbar": {
+    "callUs": "Llámanos",
+    "phone": "(+57) 316 875 33 05"
+  },
+  "sidebar": {
+    "followUs": "Síguenos"
+  },
+  "banner": {
+    "slides": [
+      {
+        "title": "Momentos para toda la vida",
+        "alt": "Boda"
+      },
+      {
+        "title": "Fiesta de quince años",
+        "alt": "Fiesta de quince años"
+      },
+      {
+        "title": "Gastronomía",
+        "alt": "Gastronomía"
+      },
+      {
+        "title": "Lugares para eventos",
+        "alt": "Lugares para eventos"
+      },
+      {
+        "title": "Fotografía",
+        "alt": "Fotografía"
+      },
+      {
+        "title": "Bodas",
+        "alt": "Bodas"
+      }
+    ]
+  },
+  "events": {
+    "title": "Eventos",
+    "titleHighlight": "Únicos",
+    "types": {
+      "weddings": "Bodas",
+      "fifteenYears": "15 años",
+      "corporate": "Eventos empresariales"
+    },
+    "categories": {
+      "social": "Eventos sociales",
+      "corporate": "Eventos empresariales",
+      "institutional": "Servicios institucionales"
+    }
+  },
+  "services": {
+    "title": "Servicios",
+    "titleHighlight": "Destacados",
+    "decoration": {
+      "title": "Decoración",
+      "description": "Cada evento es una oportunidad para expresar las necesidades, gustos y sentimientos de nuestros clientes a través de cada detalle, cada maravilloso espacio decorado fina y hermosamente para que vivas experiencias llenas de magia, alegría y diversión.",
+      "alt": "Decoración"
+    },
+    "gastronomy": {
+      "title": "Gastronomía",
+      "description": "Somos una empresa líder en el sector gastronómico y Catering de Medellín. Desde nuestra fundación hemos llevado la bandera de la excelencia que se refleja en nuestra cocina llena de inspiración y sabor. De esta manera ofrecemos nuestra experiencia en la preparación de platos fuertes, entradas, canapés, brunch, desayunos, parrilladas, buffet internacional, catering industrial, coctelería, entre otros.",
+      "alt": "Gastronomía"
+    },
+    "footer": {
+      "gastronomy": "Gastronomía",
+      "decoration": "Decoración",
+      "eventPlanner": "Event Planner",
+      "weddingPlanner": "Wedding Planner",
+      "photoVideo": "Fotografía y video",
+      "furnitureRental": "Alquiler de Mobiliario"
+    }
+  },
+  "locations": {
+    "title": "Locaciones",
+    "titleHighlight": "Para Tus Eventos",
+    "cities": {
+      "rionegro": "Rionegro",
+      "envigado": "Envigado",
+      "medellin": "Medellín"
+    }
+  },
+  "artists": {
+    "title": "Artistas",
+    "titleHighlight": "& Espectáculos"
+  },
+  "stories": {
+    "title": "Historias",
+    "titleHighlight": "De Eventos Reales"
+  },
+  "intro": {
+    "fifteenYears": "Fiestas de 15 años",
+    "celebrations": "Celebraciones",
+    "eventWeddingPlanner": "Event & wedding planner"
+  },
+  "tourism": {
+    "title": "Conoce Nuestros planes de",
+    "titleHighlight1": "Turismo",
+    "titleHighlight2": "Especializado",
+    "description": "Descubre destinos increíbles. Lunas de miel, Excursiones de 15 años y más. Explora nuestros paquetes turísticos ¡Vive la aventura!"
+  },
+  "blog": {
+    "title": "Blog, Ideas Y",
+    "titleHighlight": "Consejos",
+    "posts": [
+      {
+        "title": "Bodas Destino",
+        "description": "El Destino Perfecto para tu Boda de Ensueño"
+      },
+      {
+        "title": "Mejores lugares para eventos",
+        "description": "¡Descubre los 20 Mejores Lugares para Eventos en Medellín!"
+      },
+      {
+        "title": "Alimentación Hospitalaria",
+        "description": "Alimentación Hospitalaria: Un Pilar Fundamental en la Recuperación y Bienestar del Paciente."
+      }
+    ]
+  },
+  "brandInfo": {
+    "aboutTitle": "Conócenos",
+    "aboutSubtitle": "¿Quiénes Somos?",
+    "aboutDescription": "Somos Tu San Agustín, la empresa líder en operación de eventos...",
+    "awardsTitle": "Premios Y Certificaciones",
+    "contactTitle": "Contáctanos",
+    "newsletterTitle": "Descubre más de",
+    "newsletterHighlight": "Tu San Agustín",
+    "newsletterSubtitle": "Suscríbete al boletín",
+    "form": {
+      "name": "Nombre y Apellido*",
+      "whatsapp": "Whatsapp*",
+      "email": "Email*",
+      "eventType": "Tipo de Evento",
+      "message": "Mensaje",
+      "subscribe": "Suscribirme",
+      "enterEmail": "Escribe tu correo*",
+      "eventTypes": {
+        "wedding": "Boda",
+        "fifteenYears": "Quince Años",
+        "corporate": "Corporativo"
+      }
+    },
+    "badges": {
+      "annualRating": "Calificación Anual",
+      "tourismRegistry": "Registro Nacional de Turismo",
+      "commercialAccreditation": "Acreditación Mercantil"
+    }
+  },
+  "footer": {
+    "aboutUs": "¿Quiénes Somos?",
+    "followUs": "Síguenos @tusanagustin",
+    "contactUs": "Contáctanos",
+    "awards": "Premios Y Certificaciones",
+    "paymentMethods": "Medios de Pago",
+    "knowUs": "Conócenos"
+  }
+}

@@ -8,6 +8,14 @@ import iconTk from '../assets/images/icon-tiktok.webp';
 import iconLi from '../assets/images/icon-linkedin.webp';
 import iconYt from '../assets/images/icon-youtube.webp';
 import iconWa from '../assets/images/icon-whatsapp.webp';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang?: 'es' | 'en';
+}
+
+const { lang = 'es' } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-40 opacity-0 pointer-events-none transition-opacity duration-300"></div>
@@ -17,7 +25,7 @@ import iconWa from '../assets/images/icon-whatsapp.webp';
     <!-- Header with Close Button -->
     <div class="flex items-center justify-between p-6 border-b border-gray-100">
         <Image src={logoVerde} alt="San Agustín Logo" class="h-10 w-auto object-contain" width={150} height={78} loading="lazy" />
-        <button id="close-sidebar" class="p-2 rounded-full hover:bg-gray-100 transition-colors group" aria-label="Cerrar menú">
+        <button id="close-sidebar" class="p-2 rounded-full hover:bg-gray-100 transition-colors group" aria-label={t('common.ariaLabels.closeMenu')}>
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400 group-hover:text-[#4EAC9F] transition-colors"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
         </button>
     </div>
@@ -27,28 +35,28 @@ import iconWa from '../assets/images/icon-whatsapp.webp';
         
         <!-- Navigation Links -->
        <nav class="flex flex-col space-y-6">
-    <a href="https://www.tusanagustin.com/" class="text-3xl font-serif text-[#333638] hover:text-[#4EAC9F] hover:pl-4 transition-all duration-300 cursor-pointer">Inicio</a>
-    
-    <a href="https://www.tusanagustin.com/servicios" class="text-3xl font-serif text-[#333638] hover:text-[#4EAC9F] hover:pl-4 transition-all duration-300 cursor-pointer">Eventos</a>
-    
-    <a href="https://www.tusanagustin.com/servicios" class="text-3xl font-serif text-[#333638] hover:text-[#4EAC9F] hover:pl-4 transition-all duration-300 cursor-pointer">Servicios</a>
-    
-    <a href="https://www.tusanagustin.com/blog" class="text-3xl font-serif text-[#333638] hover:text-[#4EAC9F] hover:pl-4 transition-all duration-300 cursor-pointer">Blog</a>
-    
-    <a href="https://www.tusanagustin.com/quienes-somos" class="text-3xl font-serif text-[#333638] hover:text-[#4EAC9F] hover:pl-4 transition-all duration-300 cursor-pointer">Nosotros</a>
-    
-    <a href="https://www.tusanagustin.com/contacto" class="text-3xl font-serif text-[#333638] hover:text-[#4EAC9F] hover:pl-4 transition-all duration-300 cursor-pointer">Contacto</a>
+    <a href="https://www.tusanagustin.com/" class="text-3xl font-serif text-[#333638] hover:text-[#4EAC9F] hover:pl-4 transition-all duration-300 cursor-pointer">{t('common.navigation.home')}</a>
+
+    <a href="https://www.tusanagustin.com/servicios" class="text-3xl font-serif text-[#333638] hover:text-[#4EAC9F] hover:pl-4 transition-all duration-300 cursor-pointer">{t('common.navigation.events')}</a>
+
+    <a href="https://www.tusanagustin.com/servicios" class="text-3xl font-serif text-[#333638] hover:text-[#4EAC9F] hover:pl-4 transition-all duration-300 cursor-pointer">{t('common.navigation.services')}</a>
+
+    <a href="https://www.tusanagustin.com/blog" class="text-3xl font-serif text-[#333638] hover:text-[#4EAC9F] hover:pl-4 transition-all duration-300 cursor-pointer">{t('common.navigation.blog')}</a>
+
+    <a href="https://www.tusanagustin.com/quienes-somos" class="text-3xl font-serif text-[#333638] hover:text-[#4EAC9F] hover:pl-4 transition-all duration-300 cursor-pointer">{t('common.navigation.about')}</a>
+
+    <a href="https://www.tusanagustin.com/contacto" class="text-3xl font-serif text-[#333638] hover:text-[#4EAC9F] hover:pl-4 transition-all duration-300 cursor-pointer">{t('common.navigation.contact')}</a>
 </nav>
 
         <hr class="border-gray-100">
 
         <!-- Language Selector -->
         <div class="space-y-4">
-            <p class="text-sm uppercase tracking-widest text-gray-400 font-medium">Idioma</p>
+            <p class="text-sm uppercase tracking-widest text-gray-400 font-medium">{t('common.language.languageLabel')}</p>
             <div class="flex items-center gap-4">
                 <button class="lang-btn active group flex items-center gap-3 px-4 py-2 rounded-full border border-gray-200 hover:border-[#4EAC9F] transition-all bg-white shadow-sm" data-lang="es">
                     <Image src={flagColombia} alt="Colombia" class="w-6 h-6 object-cover rounded-full shadow-sm" width={24} height={24} loading="lazy" />
-                    <span class="text-sm font-medium text-gray-600 group-hover:text-[#4EAC9F]">Español</span>
+                    <span class="text-sm font-medium text-gray-600 group-hover:text-[#4EAC9F]">{t('common.language.spanish')}</span>
                 </button>
                 <button class="lang-btn group flex items-center gap-3 px-4 py-2 rounded-full border border-transparent hover:bg-white hover:shadow-sm hover:border-gray-200 transition-all opacity-50 hover:opacity-100" data-lang="en">
                     <!-- USA Flag SVG since local image might not exist, ensuring visual consistency -->
@@ -59,14 +67,14 @@ import iconWa from '../assets/images/icon-whatsapp.webp';
                             <path fill="#192f5d" d="M0 0h364.8v258.5H0"/>
                         </svg>
                     </div>
-                    <span class="text-sm font-medium text-gray-600 group-hover:text-[#4EAC9F]">English</span>
+                    <span class="text-sm font-medium text-gray-600 group-hover:text-[#4EAC9F]">{t('common.language.english')}</span>
                 </button>
             </div>
         </div>
 
         <!-- Social Media -->
         <div class="space-y-4">
-             <p class="text-sm uppercase tracking-widest text-gray-400 font-medium">Síguenos</p>
+             <p class="text-sm uppercase tracking-widest text-gray-400 font-medium">{t('sidebar.followUs')}</p>
              <div class="flex gap-4 flex-wrap">
                 <a href="https://www.facebook.com/tusanagustineventos/" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-[#4EAC9F] hover:bg-[#4EAC9F] hover:text-white transition-all shadow-sm">
                     <Image src={iconFb} alt="Facebook" class="h-5 w-5 object-contain" width={20} height={20} />
@@ -118,17 +126,20 @@ import iconWa from '../assets/images/icon-whatsapp.webp';
 
     // Language Toggle Logic
     const langBtns = document.querySelectorAll('.lang-btn');
+    const currentPath = window.location.pathname;
+    const currentLang = currentPath.startsWith('/en') ? 'en' : 'es';
+
+    // Mark active button
     langBtns.forEach(btn => {
+        const btnLang = btn.getAttribute('data-lang');
+        if (btnLang === currentLang) {
+            btn.classList.add('active', 'bg-white', 'border-gray-200', 'shadow-sm');
+            btn.classList.remove('border-transparent', 'opacity-50');
+        }
+
         btn.addEventListener('click', () => {
-             // Reset all
-             langBtns.forEach(b => {
-                b.classList.remove('active', 'bg-white', 'border-gray-200', 'shadow-sm');
-                b.classList.add('border-transparent', 'opacity-50');
-             });
-             
-             // Activate clicked
-             btn.classList.add('active', 'bg-white', 'border-gray-200', 'shadow-sm');
-             btn.classList.remove('border-transparent', 'opacity-50');
+            const targetLang = btn.getAttribute('data-lang');
+            window.location.href = targetLang === 'es' ? '/' : '/en/';
         });
     });
 </script>

@@ -1,0 +1,185 @@
+{
+  "common": {
+    "cta": {
+      "scheduleConsultation": "Schedule a Consultation",
+      "viewMore": "View More",
+      "reserve": "I Want to Reserve",
+      "search": "Search by Category"
+    },
+    "navigation": {
+      "home": "Home",
+      "events": "Events",
+      "services": "Services",
+      "blog": "Blog",
+      "about": "About Us",
+      "contact": "Contact"
+    },
+    "language": {
+      "spanish": "Español",
+      "english": "English",
+      "changeLang": "Change language",
+      "languageLabel": "Language"
+    },
+    "ariaLabels": {
+      "prevSlide": "Previous banner slide",
+      "nextSlide": "Next banner slide",
+      "closeMenu": "Close menu",
+      "openMenu": "Open menu",
+      "search": "Search"
+    }
+  },
+  "navbar": {
+    "callUs": "Call Us",
+    "phone": "(+57) 316 875 33 05"
+  },
+  "sidebar": {
+    "followUs": "Follow Us"
+  },
+  "banner": {
+    "slides": [
+      {
+        "title": "Moments for a Lifetime",
+        "alt": "Wedding"
+      },
+      {
+        "title": "Quinceañera Party",
+        "alt": "Quinceañera Party"
+      },
+      {
+        "title": "Gastronomy",
+        "alt": "Gastronomy"
+      },
+      {
+        "title": "Event Venues",
+        "alt": "Event Venues"
+      },
+      {
+        "title": "Photography",
+        "alt": "Photography"
+      },
+      {
+        "title": "Weddings",
+        "alt": "Weddings"
+      }
+    ]
+  },
+  "events": {
+    "title": "Unique",
+    "titleHighlight": "Events",
+    "types": {
+      "weddings": "Weddings",
+      "fifteenYears": "Quince Años",
+      "corporate": "Corporate Events"
+    },
+    "categories": {
+      "social": "Social Events",
+      "corporate": "Corporate Events",
+      "institutional": "Institutional Services"
+    }
+  },
+  "services": {
+    "title": "Featured",
+    "titleHighlight": "Services",
+    "decoration": {
+      "title": "Decoration",
+      "description": "Every event is an opportunity to express the needs, tastes, and feelings of our clients through every detail, each wonderful space decorated finely and beautifully so you can live experiences full of magic, joy, and fun.",
+      "alt": "Decoration"
+    },
+    "gastronomy": {
+      "title": "Gastronomy",
+      "description": "We are a leading company in the gastronomic and Catering sector in Medellín. Since our foundation, we have carried the flag of excellence that is reflected in our cuisine full of inspiration and flavor. In this way, we offer our experience in preparing main courses, appetizers, canapés, brunch, breakfasts, barbecues, international buffet, industrial catering, cocktails, among others.",
+      "alt": "Gastronomy"
+    },
+    "footer": {
+      "gastronomy": "Gastronomy",
+      "decoration": "Decoration",
+      "eventPlanner": "Event Planner",
+      "weddingPlanner": "Wedding Planner",
+      "photoVideo": "Photography and Video",
+      "furnitureRental": "Furniture Rental"
+    }
+  },
+  "locations": {
+    "title": "Locations",
+    "titleHighlight": "For Your Events",
+    "cities": {
+      "rionegro": "Rionegro",
+      "envigado": "Envigado",
+      "medellin": "Medellín"
+    }
+  },
+  "artists": {
+    "title": "Artists",
+    "titleHighlight": "& Shows"
+  },
+  "stories": {
+    "title": "Stories",
+    "titleHighlight": "From Real Events"
+  },
+  "intro": {
+    "fifteenYears": "Quince Años Parties",
+    "celebrations": "Celebrations",
+    "eventWeddingPlanner": "Event & Wedding Planner"
+  },
+  "tourism": {
+    "title": "Discover Our",
+    "titleHighlight1": "Specialized",
+    "titleHighlight2": "Tourism Plans",
+    "description": "Discover incredible destinations. Honeymoons, Quinceañera Excursions and more. Explore our tour packages. Live the adventure!"
+  },
+  "blog": {
+    "title": "Blog, Ideas And",
+    "titleHighlight": "Tips",
+    "posts": [
+      {
+        "title": "Destination Weddings",
+        "description": "The Perfect Destination for Your Dream Wedding"
+      },
+      {
+        "title": "Best Event Venues",
+        "description": "Discover the 20 Best Event Venues in Medellín!"
+      },
+      {
+        "title": "Hospital Food Services",
+        "description": "Hospital Food Services: A Fundamental Pillar in Patient Recovery and Well-being."
+      }
+    ]
+  },
+  "brandInfo": {
+    "aboutTitle": "Know Us",
+    "aboutSubtitle": "Who We Are?",
+    "aboutDescription": "We are Tu San Agustín, the leading event management company...",
+    "awardsTitle": "Awards And Certifications",
+    "contactTitle": "Contact Us",
+    "newsletterTitle": "Discover more about",
+    "newsletterHighlight": "Tu San Agustín",
+    "newsletterSubtitle": "Subscribe to the newsletter",
+    "form": {
+      "name": "Full Name*",
+      "whatsapp": "WhatsApp*",
+      "email": "Email*",
+      "eventType": "Event Type",
+      "message": "Message",
+      "subscribe": "Subscribe",
+      "enterEmail": "Enter your email*",
+      "eventTypes": {
+        "wedding": "Wedding",
+        "fifteenYears": "Quince Años",
+        "corporate": "Corporate"
+      }
+    },
+    "badges": {
+      "annualRating": "Annual Rating",
+      "tourismRegistry": "National Tourism Registry",
+      "commercialAccreditation": "Commercial Accreditation"
+    }
+  },
+  "footer": {
+    "aboutUs": "Who We Are?",
+    "followUs": "Follow Us @tusanagustin",
+    "contactUs": "Contact Us",
+    "awards": "Awards And Certifications",
+    "paymentMethods": "Payment Methods",
+    "knowUs": "Know Us"
+  }
+}

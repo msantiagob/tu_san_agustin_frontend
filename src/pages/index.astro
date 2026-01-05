@@ -15,36 +15,37 @@ import BlogsSection from '../components/BlogsSection.astro';
 import BrandInfo from '../components/BrandInfo.astro';
 import Footer from '../components/Footer.astro';
 
+const lang = 'es';
 ---
 
 
 
-<Layout title="Home">
-	<Navbar />
+<Layout title="Home" lang={lang}>
+	<Navbar lang={lang} />
 	<main class="min-h-screen">
-		
-		<Banner />
-		<Eventos />
-		<ServiciosDestacados />
-		<Locaciones />
-		<VideoSection />
-		<ArtistasEspectaculos />
-		<HistoriasEventos />
-		
-		<Intro />
-		
-		<div class="md:my-16"></div>
-		<Carousel />
+
+		<Banner lang={lang} />
+		<Eventos lang={lang} />
+		<ServiciosDestacados lang={lang} />
+		<Locaciones lang={lang} />
+		<VideoSection lang={lang} />
+		<ArtistasEspectaculos lang={lang} />
+		<HistoriasEventos lang={lang} />
+
+		<Intro lang={lang} />
 
 		<div class="md:my-16"></div>
-		<TurismoBlock />
+		<Carousel lang={lang} />
 
 		<div class="md:my-16"></div>
-		<BlogsSection />
+		<TurismoBlock lang={lang} />
+
+		<div class="md:my-16"></div>
+		<BlogsSection lang={lang} />
 
 
 		<div class="my-0 md:my-10"></div>
-		<BrandInfo />
-		<Footer />
+		<BrandInfo lang={lang} />
+		<Footer lang={lang} />
 	</main>
 </Layout>

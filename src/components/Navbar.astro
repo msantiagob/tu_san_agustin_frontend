@@ -10,6 +10,14 @@ import iconYt from '../assets/images/icon-youtube.webp';
 import iconWa from '../assets/images/icon-whatsapp.webp';
 import logoVerde from '../assets/images/logo-verde.webp';
 import iconPh from '../assets/images/icon-phone.webp';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang?: 'es' | 'en';
+}
+
+const { lang = 'es' } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <nav class="w-full bg-[#FDF5E9] border-b border-gray-100 py-2 sm:py-3 relative z-30 font-['Poppins']">
@@ -18,7 +26,7 @@ import iconPh from '../assets/images/icon-phone.webp';
         <!-- Left Section: Language & Socials (Hidden on mobile) -->
         <div class="hidden md:flex items-center gap-4 sm:gap-6 flex-1 justify-start">
             <!-- Language Toggle Desktop -->
-            <button id="lang-toggle-desktop" class="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity group relative" aria-label="Cambiar idioma">
+            <button id="lang-toggle-desktop" class="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity group relative" aria-label={t('common.language.changeLang')}>
                 <div class="relative w-7 h-7 rounded-full overflow-hidden border border-gray-200 shadow-sm group-hover:shadow-md transition-all">
                     <!-- Colombia Flag (Default) -->
                     <Image id="flag-col" src={flagColombia} alt="Colombia" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 opacity-100" width={28} height={28} loading="eager" />
@@ -60,18 +68,18 @@ import iconPh from '../assets/images/icon-phone.webp';
                      <a href="https://wa.me/573168753305?text=Hola!"><Image src={iconPh} alt="Phone" class="h-4 w-4 object-contain" width={16} height={16} loading="eager" /></a>
                 </div>
                 <a href="https://wa.me/573168753305?text=Hola!" class="flex flex-row items-center gap-2 hover:opacity-80 transition-opacity">
-                    <span class="text-gray-800 text-sm md:text-lg font-medium whitespace-nowrap font-['Poppins']">(+57) 316 875 33 05</span>
-                    <span class="text-xs text-[#4EAC9F] font-semibold uppercase tracking-wider shrink-0 font-['Poppins']">Llámanos</span>
+                    <span class="text-gray-800 text-sm md:text-lg font-medium whitespace-nowrap font-['Poppins']">{t('navbar.phone')}</span>
+                    <span class="text-xs text-[#4EAC9F] font-semibold uppercase tracking-wider shrink-0 font-['Poppins']">{t('navbar.callUs')}</span>
                 </a>
             </div>
 
             <!-- Search Button -->
-            <button data-open-search class="p-2 rounded-full hover:bg-gray-100 transition-colors group" aria-label="Buscar">
+            <button data-open-search class="p-2 rounded-full hover:bg-gray-100 transition-colors group" aria-label={t('common.ariaLabels.search')}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-700 group-hover:text-[#4EAC9F] transition-colors"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
             </button>
 
             <!-- Hamburger Button (Mobile Only) -->
-            <button id="menu-toggle" class="md:hidden p-2 rounded-full hover:bg-gray-100 transition-colors group" aria-label="Abrir menú">
+            <button id="menu-toggle" class="md:hidden p-2 rounded-full hover:bg-gray-100 transition-colors group" aria-label={t('common.ariaLabels.openMenu')}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-gray-700 group-hover:text-[#4EAC9F] transition-colors"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
             </button>
         </div>
@@ -79,7 +87,7 @@ import iconPh from '../assets/images/icon-phone.webp';
     </div>
 </nav>
 
-<Sidebar />
+<Sidebar lang={lang} />
 
 <script>
     // Sidebar Logic
@@ -87,37 +95,32 @@ import iconPh from '../assets/images/icon-phone.webp';
         document.dispatchEvent(new CustomEvent('open-sidebar'));
     });
 
-    // Desktop Language Toggle Logic
+    // Language Toggle - Navigate to correct URL
     const langToggle = document.getElementById('lang-toggle-desktop');
+    const currentPath = window.location.pathname;
+
+    // Detect current language
+    const currentLang = currentPath.startsWith('/en') ? 'en' : 'es';
+
+    // Update initial display
     const flagCol = document.getElementById('flag-col');
     const flagUsa = document.getElementById('flag-usa');
     const langText = document.getElementById('lang-text');
-    
-    let currentLang = 'es';
 
+    if (currentLang === 'en') {
+        flagCol?.classList.remove('opacity-100');
+        flagCol?.classList.add('opacity-0');
+        flagUsa?.classList.remove('opacity-0');
+        flagUsa?.classList.add('opacity-100');
+        if (langText) langText.textContent = 'EN';
+    }
+
+    // Click handler - navigate to the other language version
     langToggle?.addEventListener('click', () => {
         if (currentLang === 'es') {
-            // Switch to EN
-            flagCol?.classList.remove('opacity-100');
-            flagCol?.classList.add('opacity-0');
-            
-            flagUsa?.classList.remove('opacity-0');
-            flagUsa?.classList.add('opacity-100');
-            
-            if (langText) langText.textContent = 'EN';
-            
-            currentLang = 'en';
+            window.location.href = '/en/';
         } else {
-            // Switch to ES
-            flagCol?.classList.remove('opacity-0');
-            flagCol?.classList.add('opacity-100');
-            
-            flagUsa?.classList.remove('opacity-100');
-            flagUsa?.classList.add('opacity-0');
-            
-            if (langText) langText.textContent = 'ES';
-            
-            currentLang = 'es';
+            window.location.href = '/';
         }
     });
 </script>

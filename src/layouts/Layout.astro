@@ -7,22 +7,38 @@ import imgLCP from '../assets/images/banner-boda.webp';
 
 interface Props {
 	title: string;
+	lang?: 'es' | 'en';
 }
 
-const { title } = Astro.props;
+const { title, lang = 'es' } = Astro.props;
 const optimizedLCP = await getImage({ src: imgLCP, width: 1600, quality: 70, format: 'webp' });
+
+const descriptions = {
+	es: "Somos Tu San Agustín, una empresa especializada en realizar los mejores eventos sociales, empresariales y de ciudad. Ofrecemos asesoría en planeación, organización, logística, alimentación y decoración.",
+	en: "We are Tu San Agustín, a company specialized in creating the best social, corporate and city events. We offer consulting in planning, organization, logistics, catering and decoration."
+};
+
+const ogDescriptions = {
+	es: "Especialistas en la planeación y organización de eventos sociales y empresariales en Antioquia.",
+	en: "Specialists in planning and organizing social and corporate events in Antioquia."
+};
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang={lang} class="dark">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="generator" content={Astro.generator} />
-		
+
 		<title>{`inicio | ${title}`}</title>
-		<meta name="description" content="Somos Tu San Agustín, una empresa especializada en realizar los mejores eventos sociales, empresariales y de ciudad. Ofrecemos asesoría en planeación, organización, logística, alimentación y decoración."/>
-		
+		<meta name="description" content={descriptions[lang]}/>
+
+		<!-- Hreflang for SEO -->
+		<link rel="alternate" hreflang="es" href="https://www.tusanagustin.com/" />
+		<link rel="alternate" hreflang="en" href="https://www.tusanagustin.com/en/" />
+		<link rel="alternate" hreflang="x-default" href="https://www.tusanagustin.com/" />
+
 		<!-- Preload Critical Fonts -->
 		<link rel="preload" href="./Alice-Regular.ttf" as="font" type="font/ttf" crossorigin>
 		<link rel="preload" href="./Poppins-Regular_0.ttf" as="font" type="font/ttf" crossorigin>
@@ -33,19 +49,19 @@ const optimizedLCP = await getImage({ src: imgLCP, width: 1600, quality: 70, for
 		<!-- Open Graph / SEO -->
 		<meta property="og:title" content={`inicio | ${title}`}/>
 		<meta property="og:type" content="website"/>
-		<meta property="og:url" content="https://www.tusanagustin.com"/>
+		<meta property="og:url" content={lang === 'es' ? 'https://www.tusanagustin.com/' : 'https://www.tusanagustin.com/en/'}/>
 		<meta property="og:image" content="https://www.tusanagustin.com/assets/media/logo-header-new_extraLargeThumb.webp"/>
-		<meta property="og:description" content="Especialistas en la planeación y organización de eventos sociales y empresariales en Antioquia."/>
+		<meta property="og:description" content={ogDescriptions[lang]}/>
 		<meta property="og:site_name" content="Tu San Agustín"/>
-		<meta property="og:locale" content="es_LA">
+		<meta property="og:locale" content={lang === 'es' ? 'es_LA' : 'en_US'}>
 
 		<!-- Twitter -->
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:title" content={`inicio | ${title}`}>
-		<meta name="twitter:description" content="Especialistas en la planeación y organización de eventos sociales y empresariales en Antioquia.">
-		
+		<meta name="twitter:description" content={ogDescriptions[lang]}>
+
 		<link rel="shortcut icon" href="https://www.tusanagustin.com/assets/media/logo-header-new_extraLargeThumb.webp">
-		<link rel="canonical" href="https://www.tusanagustin.com"/>
+		<link rel="canonical" href={lang === 'es' ? 'https://www.tusanagustin.com/' : 'https://www.tusanagustin.com/en/'}/>
 	</head>
 	<body class="min-h-screen font-sans antialiased">
 		<slot />
