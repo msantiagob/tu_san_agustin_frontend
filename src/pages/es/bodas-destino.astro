@@ -19,16 +19,16 @@ const lang = 'es';
     </section>
 
     <!-- Guia Section -->
-    <section aria-label='Eventos únicos' class='my-32 md:my-32'>
+    <section aria-label='Eventos únicos' class='my-16 md:my-32'>
       <div
-        class='max-w-7xl mx-auto px-4 flex justify-between items-center flex-col md:flex-row gap-8 grid-cols-2'
+        class='max-w-7xl mx-auto px-4 flex justify-between items-center flex-col md:flex-row gap-8 md:gap-12'
       >
-        <div class='w-1/2'>
-          <h2 class='text-4xl md:text-5xl mb-12'>
+        <div class='w-full md:w-1/2'>
+          <h2 class='text-3xl md:text-4xl lg:text-5xl mb-8 md:mb-12'>
             <span class='text-[#bba882] block font-extrabold'
               >La Guía Realista y Estética</span
             >
-            <span class='text-[#49ac9d] text-4xl md:text-4xl font-black'
+            <span class='text-[#49ac9d] text-2xl md:text-3xl lg:text-4xl font-black'
               >para una Destination Wedding con Logística Impecable</span
             >
           </h2>
@@ -64,75 +64,78 @@ const lang = 'es';
             sea para aterrizar en algo inolvidable.
           </p>
         </div>
-        <iframe
-          width='560'
-          height='315'
-          src='https://www.youtube.com/embed/izm011a5e54?si=gMpdVONt-Rz51oTW'
-          title='YouTube video player'
-          frameborder='0'
-          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-          referrerpolicy='strict-origin-when-cross-origin'
-          allowfullscreen></iframe>
+        <div class='w-full md:w-auto aspect-video'>
+          <iframe
+            class='w-full h-full'
+            src='https://www.youtube.com/embed/izm011a5e54?si=gMpdVONt-Rz51oTW'
+            title='YouTube video player'
+            frameborder='0'
+            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+            referrerpolicy='strict-origin-when-cross-origin'
+            allowfullscreen></iframe>
+        </div>
       </div>
     </section>
 
     <!-- Quien Section -->
-    <section aria-label='¿Quién paga qué?' class='my-22 md:my-32'>
+    <section aria-label='¿Quién paga qué?' class='my-16 md:my-32'>
       <div
         class='max-w-7xl mx-auto px-4 flex justify-between items-center flex-col md:flex-col gap-8 grid-cols-2'
       >
         <div>
           <h2
-            class='text-4xl md:text-5xl text-[#bba882] block font-extrabold text-center'
+            class='text-3xl md:text-4xl lg:text-5xl text-[#bba882] block font-extrabold text-center'
           >
             ¿Quién paga qué?
           </h2>
           <h3
-            class='text-[#49ac9d] text-4xl md:text-4xl font-black text-center'
+            class='text-2xl md:text-3xl lg:text-4xl text-[#49ac9d] font-black text-center mt-2'
           >
             Una regla editorial (y matemática)
           </h3>
         </div>
-        <p class='text-center w-4/12 m-auto'>
+        <p class='text-center w-full md:w-8/12 lg:w-6/12 mx-auto px-4'>
           No, no estás obligada a cubrir el vuelo y el hotel de 80 personas.
           Pero tampoco puedes enviar una invitación sin instrucciones claras y
           pretender que todos sonrían desde el avión. Aquí va una fórmula
           básica:
         </p>
 
-        <table border='1' class='m-auto'>
-          <thead class='bg-[#49ac9d] text-third rounded-full px-5'>
-            <tr>
-              <th>Concepto</th>
-              <th>Valor estimado por persona (USD)</th>
-            </tr>
-          </thead>
-          <tbody class='bg-[#333638] text-third rounded-full px-5 text-center font-extrabold'>
-            <tr>
-              <td>Vuelo desde Miami</td>
-              <td>$320</td>
-            </tr>
-            <tr>
-              <td>Hotel 3 noches</td>
-              <td>$240</td>
-            </tr>
-            <tr>
-              <td>Alimentación parcial</td>
-              <td>$100</td>
-            </tr>
-            <tr>
-              <td>Traslados & extras</td>
-              <td>$40</td>
-            </tr>
-          </tbody>
-          <tfoot class='bg-[#49ac9d] text-third rounded-full px-5'>
-            <tr>
-              <th>Total por invitado</th>
-              <th>$700 USD</th>
-            </tr>
-          </tfoot>
-        </table>
-        <p class='text-center w-4/12 m-auto'>
+        <div class='overflow-x-auto px-4'>
+          <table border='1' class='mx-auto min-w-[500px] md:min-w-0'>
+            <thead class='bg-[#49ac9d] text-third rounded-full px-5'>
+              <tr>
+                <th class='px-4 py-3'>Concepto</th>
+                <th class='px-4 py-3'>Valor estimado por persona (USD)</th>
+              </tr>
+            </thead>
+            <tbody class='bg-[#333638] text-third rounded-full px-5 text-center font-extrabold'>
+              <tr>
+                <td class='px-4 py-2'>Vuelo desde Miami</td>
+                <td class='px-4 py-2'>$320</td>
+              </tr>
+              <tr>
+                <td class='px-4 py-2'>Hotel 3 noches</td>
+                <td class='px-4 py-2'>$240</td>
+              </tr>
+              <tr>
+                <td class='px-4 py-2'>Alimentación parcial</td>
+                <td class='px-4 py-2'>$100</td>
+              </tr>
+              <tr>
+                <td class='px-4 py-2'>Traslados & extras</td>
+                <td class='px-4 py-2'>$40</td>
+              </tr>
+            </tbody>
+            <tfoot class='bg-[#49ac9d] text-third rounded-full px-5'>
+              <tr>
+                <th class='px-4 py-3'>Total por invitado</th>
+                <th class='px-4 py-3'>$700 USD</th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <p class='text-center w-full md:w-8/12 lg:w-6/12 mx-auto px-4'>
           Ahora multiplícalo por 2 si vienen en pareja:<span
             class='text-[#49ac9d]'
           >
@@ -141,32 +144,32 @@ const lang = 'es';
             planifica como si fueras un hotel boutique con agenda cultural.
           </span>
         </p>
-        <iframe
-          class='m-auto'
-          width='560'
-          height='315'
-          src='https://www.youtube.com/embed/izm011a5e54?si=gMpdVONt-Rz51oTW'
-          title='YouTube video player'
-          frameborder='0'
-          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-          referrerpolicy='strict-origin-when-cross-origin'
-          allowfullscreen></iframe>
+        <div class='w-full md:w-auto aspect-video mx-auto'>
+          <iframe
+            class='w-full h-full'
+            src='https://www.youtube.com/embed/izm011a5e54?si=gMpdVONt-Rz51oTW'
+            title='YouTube video player'
+            frameborder='0'
+            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+            referrerpolicy='strict-origin-when-cross-origin'
+            allowfullscreen></iframe>
+        </div>
       </div>
     </section>
 
     <!-- Estrategias Section -->
-    <section aria-label='Estrategias logística' class='my-22 md:my-32'>
+    <section aria-label='Estrategias logística' class='my-16 md:my-32'>
       <div
         class='max-w-7xl mx-auto px-4 flex justify-between items-center flex-col md:flex-col gap-8 grid-cols-2'
       >
         <div>
           <h2
-            class='text-4xl md:text-5xl text-[#bba882] block font-extrabold text-center'
+            class='text-3xl md:text-4xl lg:text-5xl text-[#bba882] block font-extrabold text-center'
           >
             Estrategias logística
           </h2>
           <h3
-            class='text-[#49ac9d] text-4xl md:text-4xl font-black text-center'
+            class='text-2xl md:text-3xl lg:text-4xl text-[#49ac9d] font-black text-center mt-2'
           >
             Elegantes y Sensatas
           </h3>
@@ -174,9 +177,9 @@ const lang = 'es';
         <div
           class='max-w-7xl mx-auto px-4 flex justify-between items-center flex-col md:flex-row gap-8 grid-cols-2'
         >
-          <div class='flex'>
-            <div class='w-1/2'>
-              <h4 class='text-[#49ac9d] text-4xl md:text-4xl font-black'>
+          <div class='flex flex-col md:flex-row gap-8'>
+            <div class='w-full md:w-1/2'>
+              <h4 class='text-2xl md:text-3xl lg:text-4xl text-[#49ac9d] font-black mb-4'>
                 Bloqueos de hotel: tu mejor carta
               </h4>
               <p>
@@ -186,15 +189,16 @@ const lang = 'es';
               </p>
             </div>
 
-            <iframe
-              width='560'
-              height='315'
-              src='https://www.youtube.com/embed/izm011a5e54?si=gMpdVONt-Rz51oTW'
-              title='YouTube video player'
-              frameborder='0'
-              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-              referrerpolicy='strict-origin-when-cross-origin'
-              allowfullscreen></iframe>
+            <div class='w-full md:w-auto aspect-video'>
+              <iframe
+                class='w-full h-full'
+                src='https://www.youtube.com/embed/izm011a5e54?si=gMpdVONt-Rz51oTW'
+                title='YouTube video player'
+                frameborder='0'
+                allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+                referrerpolicy='strict-origin-when-cross-origin'
+                allowfullscreen></iframe>
+            </div>
           </div>
         </div>
       </div>
@@ -203,38 +207,38 @@ const lang = 'es';
     <!-- Debo pagarle Section -->
     <section
       aria-label='¿Debo pagarle algo a mis invitados?'
-      class='my-22 md:my-32'
+      class='my-16 md:my-32'
     >
       <div
         class='max-w-7xl mx-auto px-4 flex flex-col md:flex-col gap-8 grid-cols-2'
       >
         <div>
-          <h2 class='text-4xl md:text-5xl text-[#bba882] block font-extrabold'>
+          <h2 class='text-3xl md:text-4xl lg:text-5xl text-[#bba882] block font-extrabold'>
             ¿Debo pagarle algo a mis invitados?
           </h2>
-          <h3 class='text-[#49ac9d] text-4xl md:text-4xl font-black'>
+          <h3 class='text-2xl md:text-3xl lg:text-4xl text-[#49ac9d] font-black mt-2'>
             La regla no escrita es esta:
           </h3>
         </div>
         <div
-          class='bg-[#333638] text-third w-1/2 p-5 rounded-l-lg rounded-br-lg'
+          class='bg-[#333638] text-third w-full md:w-10/12 lg:w-1/2 p-5 rounded-l-lg rounded-br-lg'
         >
-          <h4 class='text-[#49ac9d] font-extrabold'>Si debes cubrir:</h4>
-          <ul class='list-disc ml-5'>
+          <h4 class='text-[#49ac9d] font-extrabold text-lg md:text-xl'>Si debes cubrir:</h4>
+          <ul class='list-disc ml-5 space-y-1'>
             <li>Welcome kit (regalo de llegada)</li>
             <li>Transporte al lugar del evento</li>
             <li>Alimentación durante la boda (cóctel, cena, after)</li>
             <li>Actividades si son parte del evento principal</li>
           </ul>
         </div>
-        <div class='flex justify-end'>
+        <div class='flex justify-start md:justify-end'>
           <div
-            class='bg-[#333638] text-third w-1/2 p-5 rounded-l-lg rounded-br-lg'
+            class='bg-[#333638] text-third w-full md:w-10/12 lg:w-1/2 p-5 rounded-l-lg rounded-br-lg'
           >
-            <h4 class='text-[#49ac9d] font-extrabold'>
+            <h4 class='text-[#49ac9d] font-extrabold text-lg md:text-xl'>
               Puedes considerar cubrir (si son pocos):
             </h4>
-            <ul class='list-disc ml-5'>
+            <ul class='list-disc ml-5 space-y-1'>
               <li>
                 Alojamiento parcial de invitados clave (padres, abuelos,
                 padrinos)
@@ -244,23 +248,23 @@ const lang = 'es';
           </div>
         </div>
         <div
-          class='bg-[#333638] text-third w-1/2 p-5 rounded-l-lg rounded-br-lg'
+          class='bg-[#333638] text-third w-full md:w-10/12 lg:w-1/2 p-5 rounded-l-lg rounded-br-lg'
         >
-          <h4 class='text-[#49ac9d] font-extrabold'>
+          <h4 class='text-[#49ac9d] font-extrabold text-lg md:text-xl'>
             No estás obligad@ a cubrir:
           </h4>
-          <ul class='list-disc ml-5'>
+          <ul class='list-disc ml-5 space-y-1'>
             <li>Vuelos</li>
             <li>Alimentación fuera del evento</li>
             <li>Gastos personales</li>
           </ul>
         </div>
-        <div class='flex justify-end'>
+        <div class='flex justify-start md:justify-end'>
           <div
-            class='bg-[#333638] text-third w-1/2 p-5 rounded-l-lg rounded-br-lg'
+            class='bg-[#333638] text-third w-full md:w-10/12 lg:w-1/2 p-5 rounded-l-lg rounded-br-lg'
           >
-            <h4 class='text-[#49ac9d] font-extrabold'>Ejemplo elegante:</h4>
-            <ul class='list-disc ml-5'>
+            <h4 class='text-[#49ac9d] font-extrabold text-lg md:text-xl'>Ejemplo elegante:</h4>
+            <ul class='list-disc ml-5 space-y-1'>
               <li>
                 Tienes 50 invitados. Decides apoyar con una noche de hotel para
                 10 personas clave.
@@ -271,16 +275,16 @@ const lang = 'es';
             </ul>
           </div>
         </div>
-        <iframe
-          class='m-auto'
-          width='560'
-          height='315'
-          src='https://www.youtube.com/embed/izm011a5e54?si=gMpdVONt-Rz51oTW'
-          title='YouTube video player'
-          frameborder='0'
-          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-          referrerpolicy='strict-origin-when-cross-origin'
-          allowfullscreen></iframe>
+        <div class='w-full md:w-auto aspect-video mx-auto'>
+          <iframe
+            class='w-full h-full'
+            src='https://www.youtube.com/embed/izm011a5e54?si=gMpdVONt-Rz51oTW'
+            title='YouTube video player'
+            frameborder='0'
+            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+            referrerpolicy='strict-origin-when-cross-origin'
+            allowfullscreen></iframe>
+        </div>
       </div>
     </section>
   </main>
@@ -288,52 +292,52 @@ const lang = 'es';
   <!-- Cómo comunicarlo Section -->
   <section
     aria-label='¿Cómo comunicarlo sin parecer brusc@?'
-    class='my-22 md:my-32'
+    class='my-16 md:my-32'
   >
     <div
       class='max-w-7xl mx-auto px-4 flex justify-between items-center flex-col md:flex-col gap-8 grid-cols-2'
     >
       <h2
-        class='text-4xl md:text-5xl text-[#bba882] block font-extrabold text-center'
+        class='text-3xl md:text-4xl lg:text-5xl text-[#bba882] block font-extrabold text-center'
       >
         ¿Cómo comunicarlo sin
-        <span class='text-[#49ac9d] font-black text-center block'
+        <span class='text-[#49ac9d] font-black text-center block mt-2'
           >parecer brusc@?</span
         >
       </h2>
-      <p class='text-center w-4/12 m-auto'>
+      <p class='text-center w-full md:w-8/12 lg:w-6/12 mx-auto px-4'>
         Aquí un ejemplo de texto editorialmente correcto para tu Save the Date
         digital:
       </p>
       <p
-        class='text-center w-4/12 m-auto bg-[#333638] text-third p-5 rounded-3xl font-extrabold'
+        class='text-center w-full md:w-8/12 lg:w-6/12 mx-auto px-4 md:px-8 py-5 bg-[#333638] text-third rounded-3xl font-extrabold'
       >
-        “Estamos felices de contar contigo para un fin de semana inolvidable en
+        "Estamos felices de contar contigo para un fin de semana inolvidable en
         el corazón del Eje Cafetero. Hemos reservado un cupo de habitaciones a
         tarifa especial en hoteles aliados. Una guía completa te será enviada
-        pronto para que disfrutes sin preocupaciones.”
+        pronto para que disfrutes sin preocupaciones."
       </p>
 
-      <p class='text-center w-4/12 m-auto'>
+      <p class='text-center w-full md:w-8/12 lg:w-6/12 mx-auto px-4'>
         Luego, en la guía de logística, puedes detallar que el viaje y hospedaje
         corren por cuenta de cada asistente, pero que tendrás actividades
         especiales, transporte al evento y detalles de cortesía incluidos.
       </p>
-      <iframe
-        class='m-auto'
-        width='560'
-        height='315'
-        src='https://www.youtube.com/embed/izm011a5e54?si=gMpdVONt-Rz51oTW'
-        title='YouTube video player'
-        frameborder='0'
-        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-        referrerpolicy='strict-origin-when-cross-origin'
-        allowfullscreen></iframe>
+      <div class='w-full md:w-auto aspect-video mx-auto'>
+        <iframe
+          class='w-full h-full'
+          src='https://www.youtube.com/embed/izm011a5e54?si=gMpdVONt-Rz51oTW'
+          title='YouTube video player'
+          frameborder='0'
+          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+          referrerpolicy='strict-origin-when-cross-origin'
+          allowfullscreen></iframe>
+      </div>
     </div>
   </section>
-  <div class='flex justify-center'>
+  <div class='flex justify-center px-4 my-12 md:my-16'>
     <button
-      class='bg-[#333638] hover:bg-[#49ac9d] text-third p-5 font-extrabold rounded-3xl'
+      class='bg-[#333638] hover:bg-[#49ac9d] text-third px-6 py-4 md:px-8 md:py-5 font-extrabold rounded-3xl text-sm md:text-base transition-colors'
       >Contáctanos para más asesoría</button
     >
   </div>
