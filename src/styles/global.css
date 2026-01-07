@@ -22,17 +22,15 @@
   font-display: swap;
 }
 
-
-
 @layer base {
   :root {
     /* Custom Palette */
-    --color-off-white: #F9F9F9;
-    --color-stone: #D9D3CA;
-    --color-teal: #4EAC9F;
+    --color-off-white: #f9f9f9;
+    --color-stone: #d9d3ca;
+    --color-teal: #4eac9f;
     --color-charcoal: #333638;
-    --color-cream: #FDF5E9;
-    --color-tan: #D1C1A3;
+    --color-cream: #fdf5e9;
+    --color-tan: #d1c1a3;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -45,6 +43,9 @@
 
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --third: 35 71% 95.3%;
+    --third-foreground: 222.2 47.4% 11.2%; 
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -63,8 +64,6 @@
   }
 
   .dark {
-  
-
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
 
@@ -97,35 +96,54 @@
     @apply border-border;
   }
   body {
-    background-color: #FDF5E9 !important;
+    background-color: #fdf5e9 !important;
     font-family: 'Poppins', sans-serif;
   }
-  
-  h1, h2, h3, h4, h5, h6 { 
-    font-family: 'Alice', serif; 
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Alice', serif;
   }
-  
+
   h1 {
     font-weight: normal;
   }
-  
+
   /* Spans inside headings should inherit Alice font */
-  h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
+  h1 span,
+  h2 span,
+  h3 span,
+  h4 span,
+  h5 span,
+  h6 span {
     font-family: inherit;
   }
-  
+
   /* Other text elements use Poppins */
-  p, a, li, td, th {
-    font-family: 'Poppins', sans-serif; 
+  p,
+  a,
+  li,
+  td,
+  th {
+    font-family: 'Poppins', sans-serif;
   }
-  
+
   /* Spans outside headings use Poppins */
-  p span, a span, li span, td span, th span, div > span {
+  p span,
+  a span,
+  li span,
+  td span,
+  th span,
+  div > span {
     font-family: 'Poppins', sans-serif;
   }
 }
 
 .opciones {
-    font-family: 'Alice', serif; 
+  font-family: 'Alice', serif;
 }
 /* Component specific styles have been moved to their respective Astro files */

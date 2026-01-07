@@ -6,86 +6,260 @@ import Footer from '../../components/layout/Footer.astro';
 
 // Home components
 import Banner from '../../components/wedding-destination/Banner.astro';
-import Eventos from '../../components/home/EventosUnicos.astro';
-import ServiciosDestacados from '../../components/home/ServiciosDestacados.astro';
-import Locaciones from '../../components/home/Locaciones.astro';
-import VideoSection from '../../components/home/VideoSection.astro';
-import ArtistasEspectaculos from '../../components/home/ArtistasEspectaculos.astro';
-import HistoriasEventos from '../../components/home/HistoriasEventos.astro';
-import Intro from '../../components/home/Intro.astro';
-import TurismoBlock from '../../components/home/TurismoBlock.astro';
-import BlogsSection from '../../components/home/BlogsSection.astro';
-import BrandInfo from '../../components/home/BrandInfo.astro';
-
-// Shared components
-import Carousel from '../../components/shared/Carousel.astro';
 
 const lang = 'es';
 ---
 
-<Layout title="Home" lang={lang}>
-	<Navbar lang={lang} />
-	<main class="min-h-screen">
-		<!-- Hero Section -->
-		<section aria-label="Banner principal">
-			<Banner lang={lang} />
-		</section>
+<Layout title='Home' lang={lang}>
+  <Navbar lang={lang} />
+  <main class='min-h-screen'>
+    <!-- Hero Section -->
+    <section aria-label='Banner principal'>
+      <Banner lang={lang} />
+    </section>
 
-		<!-- Events Section -->
-		<section aria-label="Eventos únicos" class="my-8 md:my-12">
-			<Eventos lang={lang} />
-		</section>
+    <!-- Events Section -->
+    <section aria-label='Eventos únicos' class='my-8 md:my-12'>
+      <div
+        class='max-w-7xl mx-auto px-4 flex justify-between items-center flex-col md:flex-row gap-8 grid-cols-2'
+      >
+        <div class='w-1/2'>
+          <h2 class='text-4xl md:text-5xl mb-12'>
+            <span class='text-[#bba882] block font-extrabold'
+              >La Guía Realista y Estética</span
+            >
+            <span class='text-[#49ac9d] text-4xl md:text-4xl font-black'
+              >para una Destination Wedding con Logística Impecable</span
+            >
+          </h2>
+          <p class=''>
+            Hay bodas. Y luego están <span class='text-[#49ac9d]'
+              >las bodas que importan</span
+            > . Las que no solo celebran el amor, sino que lo visten, lo ambientan,
+            lo sirven con cócteles de autor y lo cierran con una ovación. Si vas a
+            cruzar fronteras para casarte, que sea para crear algo digno de ser recordado
+            —y fotografiado— por razones correctas. Estas no son simples ideas. Son
+            mandamientos para la pareja que entiende que una boda de destino es mucho
+            más que elegir un lugar exótico y esperar que el atardecer haga el trabajo.
+            <span class='text-[#49ac9d]'
+              >No basta con estar enamorados. También hay que tener gusto.</span
+            >
+            Empezamos:
+          </p>
+          <br />
+          <p>
+            En una boda de destino, la cortesía y la logística bailan juntas con
+            delicadeza. ¿Los invitados deben costear su viaje? Sí, si la
+            experiencia lo vale. La clave está en <span class='text-[#49ac9d]'
+              >ofrecer claridad desde el primer correo:
+            </span> detalla fechas, itinerario y tarifas sugeridas desde el inicio.
+            No es obligatorio pagar por todos, pero sí es tu deber <span
+              class='text-[#49ac9d]'
+              >facilitarlo todo al nivel de un concierge de hotel cinco
+              estrellas.</span
+            > Negocia bloqueos en hoteles con tarifas preferenciales, propone paquetes
+            cerrados y acompaña cada mensaje con una promesa: “Tu única tarea será
+            celebrar”. Y si tienes invitados esenciales con presupuesto limitado,
+            ahí sí: subsidia, sorprende o apoya. Porque si van a volar por ti... que
+            sea para aterrizar en algo inolvidable.
+          </p>
+        </div>
+        <iframe
+          width='560'
+          height='315'
+          src='https://www.youtube.com/embed/izm011a5e54?si=gMpdVONt-Rz51oTW'
+          title='YouTube video player'
+          frameborder='0'
+          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+          referrerpolicy='strict-origin-when-cross-origin'
+          allowfullscreen></iframe>
+      </div>
+    </section>
 
-		<!-- Services Section -->
-		<section aria-label="Servicios destacados" class="my-8 md:my-12">
-			<ServiciosDestacados lang={lang} />
-		</section>
+    <!-- Services Section -->
+    <section aria-label='¿Quién paga qué?' class='my-8 md:my-12'>
+      <h2
+        class='text-4xl md:text-5xl text-[#bba882] block font-extrabold text-center'
+      >
+        ¿Quién paga qué?
+      </h2>
+      <h3 class='text-[#49ac9d] text-4xl md:text-4xl font-black text-center'>
+        Una regla editorial (y matemática)
+      </h3>
+      <p class='text-center w-4/12 m-auto'>
+        No, no estás obligada a cubrir el vuelo y el hotel de 80 personas. Pero
+        tampoco puedes enviar una invitación sin instrucciones claras y
+        pretender que todos sonrían desde el avión. Aquí va una fórmula básica:
+      </p>
 
-		<!-- Locations Section -->
-		<section aria-label="Locaciones" class="my-8 md:my-12">
-			<Locaciones lang={lang} />
-		</section>
+      <table border='1' class='m-auto'>
+        <thead class='bg-[#49ac9d] text-white rounded-full px-5'>
+          <tr>
+            <th>Concepto</th>
+            <th>Valor estimado por persona (USD)</th>
+          </tr>
+        </thead>
+        <tbody class='bg-[#333638] text-white rounded-full px-5 text-center'>
+          <tr>
+            <td>Vuelo desde Miami</td>
+            <td>$320</td>
+          </tr>
+          <tr>
+            <td>Hotel 3 noches</td>
+            <td>$240</td>
+          </tr>
+          <tr>
+            <td>Alimentación parcial</td>
+            <td>$100</td>
+          </tr>
+          <tr>
+            <td>Traslados & extras</td>
+            <td>$40</td>
+          </tr>
+        </tbody>
+        <tfoot class='bg-[#49ac9d] text-white rounded-full px-5'>
+          <tr>
+            <th>Total por invitado</th>
+            <th>$700 USD</th>
+          </tr>
+        </tfoot>
+      </table>
+      <p class='text-center w-4/12 m-auto'>
+        Ahora multiplícalo por 2 si vienen en pareja:<span
+          class='text-[#49ac9d]'
+        >
+          $1.400 USD.
+        </span>Es un gasto considerable. Por eso,<span class='text-[#49ac9d]'>
+          planifica como si fueras un hotel boutique con agenda cultural.
+        </span>
+      </p>
+      <iframe
+        class='m-auto'
+        width='560'
+        height='315'
+        src='https://www.youtube.com/embed/izm011a5e54?si=gMpdVONt-Rz51oTW'
+        title='YouTube video player'
+        frameborder='0'
+        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+        referrerpolicy='strict-origin-when-cross-origin'
+        allowfullscreen></iframe>
+    </section>
 
-		<!-- Video Section -->
-		<section aria-label="Video" class="my-8 md:my-12">
-			<VideoSection lang={lang} />
-		</section>
+    <!-- Locations Section -->
+    <section aria-label='Estrategias logística' class='my-8 md:my-12'>
+      <h2>Estrategias logística</h2>
+      <h3>Elegantes y Sensatas</h3>
+      <div>
+        <section>
+          <h4>Bloqueos de hotel: tu mejor carta</h4>
+          <p>
+            Negocia tarifas grupales con 2 o 3 hoteles cercanos (de diferentes
+            categorías). Asegúrate de incluir desayuno, traslado al evento y
+            late checkout. Es un gesto elegante y práctico
+          </p>
+        </section>
+        <iframe
+          width='560'
+          height='315'
+          src='https://www.youtube.com/embed/izm011a5e54?si=gMpdVONt-Rz51oTW'
+          title='YouTube video player'
+          frameborder='0'
+          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+          referrerpolicy='strict-origin-when-cross-origin'
+          allowfullscreen></iframe>
+      </div>
+    </section>
 
-		<!-- Artists Section -->
-		<section aria-label="Artistas y espectáculos" class="my-8 md:my-12">
-			<ArtistasEspectaculos lang={lang} />
-		</section>
+    <!-- Video Section -->
+    <section
+      aria-label='¿Debo pagarle algo a mis invitados?'
+      class='my-8 md:my-12'
+    >
+      <h2>¿Debo pagarle algo a mis invitados?</h2>
+      <h3>La regla no escrito es esta:</h3>
+      <div>
+        <h4>Si debes cubrir:</h4>
+        <ul>
+          <li>Welcome kit (regalo de llegada)</li>
+          <li>Transporte al lugar del evento</li>
+          <li>Alimentación durante la boda (cóctel, cena, after)</li>
+          <li>Actividades si son parte del evento principal</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Puedes considerar cubrir (si son pocos):</h4>
+        <ul>
+          <li>
+            Alojamiento parcial de invitados clave (padres, abuelos, padrinos)
+          </li>
+          <li>Un almuerzo extra o brunch al día siguiente</li>
+        </ul>
+      </div>
+      <div>
+        <h4>No estás obligad@ a cubrir:</h4>
+        <ul>
+          <li>Vuelos</li>
+          <li>Alimentación fuera del evento</li>
+          <li>Gastos personales</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ejemplo elegante:</h4>
+        <ul>
+          <li>
+            Tienes 50 invitados. Decides apoyar con una noche de hotel para 10
+            personas clave.
+          </li>
+          <li>Costo por noche por habitación doble: $80 USD.</li>
+          <li>Total: 10 habitaciones x $80 = $800 USD</li>
+          <li>Un gesto que vale oro... pero no arruina tu presupuesto.</li>
+        </ul>
+      </div>
+      <iframe
+        width='560'
+        height='315'
+        src='https://www.youtube.com/embed/izm011a5e54?si=gMpdVONt-Rz51oTW'
+        title='YouTube video player'
+        frameborder='0'
+        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+        referrerpolicy='strict-origin-when-cross-origin'
+        allowfullscreen></iframe>
+    </section>
+  </main>
 
-		<!-- Testimonials Section -->
-		<section aria-label="Historias de eventos" class="my-8 md:my-12">
-			<HistoriasEventos lang={lang} />
-		</section>
+  <!-- Artists Section -->
+  <section
+    aria-label='¿Cómo comunicarlo sin parecer brusc@?'
+    class='my-8 md:my-12'
+  >
+    <h2>¿Cómo comunicarlo sin</h2>
+    <h3>parecer brusc@?</h3>
+    <p>
+      Aquí un ejemplo de texto editorialmente correcto para tu Save the Date
+      digital:
+    </p>
+    <span
+      >“Estamos felices de contar contigo para un fin de semana inolvidable en
+      el corazón del Eje Cafetero. Hemos reservado un cupo de habitaciones a
+      tarifa especial en hoteles aliados. Una guía completa te será enviada
+      pronto para que disfrutes sin preocupaciones.”</span
+    >
+    <p>
+      Luego, en la guía de logística, puedes detallar que el viaje y hospedaje
+      corren por cuenta de cada asistente, pero que tendrás actividades
+      especiales, transporte al evento y detalles de cortesía incluidos.
+    </p>
+    <iframe
+      width='560'
+      height='315'
+      src='https://www.youtube.com/embed/izm011a5e54?si=gMpdVONt-Rz51oTW'
+      title='YouTube video player'
+      frameborder='0'
+      allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+      referrerpolicy='strict-origin-when-cross-origin'
+      allowfullscreen></iframe>
+    <button>Contáctanos para más asesoría</button>
+  </section>
 
-		<!-- Intro Section -->
-		<section aria-label="Introducción" class="my-8 md:my-12">
-			<Intro lang={lang} />
-		</section>
-
-		<!-- Team Carousel Section -->
-		<section aria-label="Nuestro equipo" class="my-8 md:my-16">
-			<Carousel lang={lang} />
-		</section>
-
-		<!-- Tourism Section -->
-		<section aria-label="Turismo" class="my-8 md:my-16">
-			<TurismoBlock lang={lang} />
-		</section>
-
-		<!-- Blog Section -->
-		<section aria-label="Blog" class="my-8 md:my-16">
-			<BlogsSection lang={lang} />
-		</section>
-
-		<!-- Brand Info Section -->
-		<section aria-label="Información de marca" class="my-8 md:my-10">
-			<BrandInfo lang={lang} />
-		</section>
-	</main>
-
-	<Footer lang={lang} />
+  <Footer lang={lang} />
 </Layout>
