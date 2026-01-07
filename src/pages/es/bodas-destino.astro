@@ -101,39 +101,44 @@ const lang = 'es';
           básica:
         </p>
 
-        <div class='overflow-x-auto px-4'>
-          <table border='1' class='mx-auto min-w-[500px] md:min-w-0'>
-            <thead class='bg-[#49ac9d] text-third rounded-full px-5'>
-              <tr>
-                <th class='px-4 py-3'>Concepto</th>
-                <th class='px-4 py-3'>Valor estimado por persona (USD)</th>
-              </tr>
-            </thead>
-            <tbody class='bg-[#333638] text-third rounded-full px-5 text-center font-extrabold'>
-              <tr>
-                <td class='px-4 py-2'>Vuelo desde Miami</td>
-                <td class='px-4 py-2'>$320</td>
-              </tr>
-              <tr>
-                <td class='px-4 py-2'>Hotel 3 noches</td>
-                <td class='px-4 py-2'>$240</td>
-              </tr>
-              <tr>
-                <td class='px-4 py-2'>Alimentación parcial</td>
-                <td class='px-4 py-2'>$100</td>
-              </tr>
-              <tr>
-                <td class='px-4 py-2'>Traslados & extras</td>
-                <td class='px-4 py-2'>$40</td>
-              </tr>
-            </tbody>
-            <tfoot class='bg-[#49ac9d] text-third rounded-full px-5'>
-              <tr>
-                <th class='px-4 py-3'>Total por invitado</th>
-                <th class='px-4 py-3'>$700 USD</th>
-              </tr>
-            </tfoot>
-          </table>
+        <div class='w-full flex justify-center px-4'>
+          <div class='overflow-x-auto max-w-full'>
+            <table class='border-collapse overflow-hidden rounded-lg shadow-lg w-full md:min-w-[600px]'>
+              <thead class='bg-[#49ac9d] text-third'>
+                <tr>
+                  <th class='px-3 md:px-6 py-3 md:py-4 text-left font-extrabold text-sm md:text-base'>Concepto</th>
+                  <th class='px-3 md:px-6 py-3 md:py-4 text-left font-extrabold text-xs md:text-base leading-tight md:leading-normal'>
+                    <span class='hidden md:inline'>Valor estimado por persona (USD)</span>
+                    <span class='md:hidden'>Valor por persona (USD)</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody class='bg-[#333638] text-third'>
+                <tr class='border-b border-[#49ac9d]/20'>
+                  <td class='px-3 md:px-6 py-2 md:py-3 text-sm md:text-base'>Vuelo desde Miami</td>
+                  <td class='px-3 md:px-6 py-2 md:py-3 font-extrabold text-sm md:text-base'>$320</td>
+                </tr>
+                <tr class='border-b border-[#49ac9d]/20'>
+                  <td class='px-3 md:px-6 py-2 md:py-3 text-sm md:text-base'>Hotel 3 noches</td>
+                  <td class='px-3 md:px-6 py-2 md:py-3 font-extrabold text-sm md:text-base'>$240</td>
+                </tr>
+                <tr class='border-b border-[#49ac9d]/20'>
+                  <td class='px-3 md:px-6 py-2 md:py-3 text-sm md:text-base'>Alimentación parcial</td>
+                  <td class='px-3 md:px-6 py-2 md:py-3 font-extrabold text-sm md:text-base'>$100</td>
+                </tr>
+                <tr>
+                  <td class='px-3 md:px-6 py-2 md:py-3 text-sm md:text-base'>Traslados & extras</td>
+                  <td class='px-3 md:px-6 py-2 md:py-3 font-extrabold text-sm md:text-base'>$40</td>
+                </tr>
+              </tbody>
+              <tfoot class='bg-[#49ac9d] text-third'>
+                <tr>
+                  <th class='px-3 md:px-6 py-3 md:py-4 text-left font-extrabold text-sm md:text-base'>Total por invitado</th>
+                  <th class='px-3 md:px-6 py-3 md:py-4 text-left font-extrabold text-lg md:text-xl'>$700 USD</th>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
         </div>
         <p class='text-center w-full md:w-8/12 lg:w-6/12 mx-auto px-4'>
           Ahora multiplícalo por 2 si vienen en pareja:<span
