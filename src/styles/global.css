@@ -106,14 +106,14 @@
   h4,
   h5,
   h6 {
-    font-family: 'Alice', serif;
+    font-family: 'Poppins', sans-serif;
   }
 
   h1 {
-    font-weight: normal;
+    font-weight: 600;
   }
 
-  /* Spans inside headings should inherit Alice font */
+  /* Spans inside headings should inherit Poppins font */
   h1 span,
   h2 span,
   h3 span,
@@ -144,6 +144,6 @@
 }
 
 .opciones {
-  font-family: 'Alice', serif;
+  font-family: 'Poppins', sans-serif;
 }
 /* Component specific styles have been moved to their respective Astro files */
