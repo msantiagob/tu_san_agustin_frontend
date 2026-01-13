@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { X } from 'lucide-react';
 import {
   Dialog,
   DialogContent,
@@ -19,6 +20,15 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { authService } from '@/lib/auth';
+import VenueImagesManager from './VenueImagesManager';
+
+interface VenueImage {
+  id?: number;
+  url: string;
+  titulo: string;
+  es_portada: boolean;
+  orden: number;
+}
 
 interface Venue {
   id: number;
@@ -43,6 +53,8 @@ interface Venue {
   conexion_120v?: boolean;
   conexion_220v?: boolean;
   url_video_youtube?: string;
+  imagenes?: VenueImage[];
+  imagen_portada?: VenueImage;
 }
 
 interface VenueFormDialogProps {
@@ -86,8 +98,8 @@ export default function VenueFormDialog({
     nombre: '',
     descripcion: '',
     ubicacion: '',
-    capacidad_minima: 0,
-    capacidad_maxima: 0,
+    capacidad_minima: 1,
+    capacidad_maxima: 1,
     tipo_lugar: 'Salón',
     is_active: true,
     is_destacado: false,
@@ -101,11 +113,29 @@ export default function VenueFormDialog({
   });
 
   const [loading, setLoading] = useState(false);
+  const [venueImages, setVenueImages] = useState<VenueImage[]>([]);
+  const [pendingFiles, setPendingFiles] = useState<File[]>([]);
   const API_BASE_URL = import.meta.env.PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+
+  const fetchVenueImages = async (venueId: number) => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/venues/${venueId}`);
+      if (response.ok) {
+        const data = await response.json();
+        setVenueImages(data.imagenes || []);
+      }
+    } catch (error) {
+      console.error('Error fetching venue images:', error);
+    }
+  };
 
   useEffect(() => {
     if (venue) {
       setFormData(venue);
+      setVenueImages(venue.imagenes || []);
+      if (venue.id) {
+        fetchVenueImages(venue.id);
+      }
     } else {
       setFormData({
         nombre: '',
@@ -124,8 +154,55 @@ export default function VenueFormDialog({
         conexion_120v: false,
         conexion_220v: false,
       });
+      setVenueImages([]);
+      setPendingFiles([]);
     }
   }, [venue, open]);
+
+  const uploadPendingImages = async (venueId: number) => {
+    if (pendingFiles.length === 0) return;
+
+    try {
+      // 1. Subir archivos al servidor
+      const formData = new FormData();
+      pendingFiles.forEach(file => {
+        formData.append('files', file);
+      });
+
+      const uploadResponse = await fetch(`${API_BASE_URL}/upload/images?optimize=true`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${authService.getToken()}`,
+        },
+        body: formData,
+      });
+
+      if (!uploadResponse.ok) {
+        throw new Error('Error al subir las imágenes');
+      }
+
+      const uploadData = await uploadResponse.json();
+
+      // 2. Asociar cada imagen con el venue
+      let orden = 1;
+      for (const result of uploadData.results) {
+        if (result.success) {
+          await fetch(`${API_BASE_URL}/venues/${venueId}/images`, {
+            method: 'POST',
+            headers: authService.getAuthHeaders(),
+            body: JSON.stringify({
+              url: result.url,
+              titulo: result.original_filename,
+              es_portada: orden === 1,
+              orden: orden++,
+            }),
+          });
+        }
+      }
+    } catch (error) {
+      console.error('Error uploading pending images:', error);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -145,6 +222,13 @@ export default function VenueFormDialog({
       });
 
       if (response.ok) {
+        const savedVenue = await response.json();
+
+        // Si es un nuevo venue y hay imágenes pendientes, subirlas
+        if (!venue && pendingFiles.length > 0) {
+          await uploadPendingImages(savedVenue.id);
+        }
+
         onSave();
       } else if (response.status === 401) {
         alert('Sesión expirada. Por favor inicia sesión nuevamente.');
@@ -484,6 +568,80 @@ export default function VenueFormDialog({
                 <span className="text-sm font-medium">Destacado</span>
               </label>
             </div>
+          </div>
+
+          {/* Imágenes */}
+          <div className="border-t pt-6">
+            {venue ? (
+              <VenueImagesManager
+                venueId={venue.id}
+                images={venueImages}
+                onImagesChange={() => {
+                  if (venue.id) {
+                    fetchVenueImages(venue.id);
+                  }
+                }}
+              />
+            ) : (
+              <div className="space-y-4">
+                <h4 className="font-semibold">Imágenes del Lugar</h4>
+                <p className="text-sm text-muted-foreground">
+                  Selecciona las imágenes que se subirán al crear el lugar. Las imágenes se optimizarán automáticamente.
+                </p>
+
+                <div>
+                  <Label htmlFor="pendingImages" className="text-xs">
+                    Seleccionar imágenes (máx. 10)
+                  </Label>
+                  <Input
+                    id="pendingImages"
+                    type="file"
+                    accept="image/*"
+                    multiple
+                    onChange={(e) => {
+                      const files = Array.from(e.target.files || []);
+                      if (files.length > 10) {
+                        alert('Máximo 10 imágenes');
+                        return;
+                      }
+                      setPendingFiles(files);
+                    }}
+                    className="text-sm"
+                  />
+                  <p className="text-xs text-muted-foreground mt-1">
+                    JPG, PNG, WEBP, GIF (máx. 10MB cada una)
+                  </p>
+                </div>
+
+                {pendingFiles.length > 0 && (
+                  <div>
+                    <p className="text-sm font-medium mb-2">
+                      {pendingFiles.length} imagen(es) seleccionada(s)
+                    </p>
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+                      {pendingFiles.map((file, index) => (
+                        <div key={index} className="relative border rounded-lg p-2">
+                          <div className="aspect-video bg-muted rounded flex items-center justify-center">
+                            <span className="text-xs text-muted-foreground text-center px-2">
+                              {file.name}
+                            </span>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setPendingFiles(prev => prev.filter((_, i) => i !== index));
+                            }}
+                            className="absolute -top-2 -right-2 bg-destructive text-destructive-foreground rounded-full p-1 hover:bg-destructive/90"
+                          >
+                            <X className="h-3 w-3" />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
 
           <DialogFooter>

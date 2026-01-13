@@ -1,4 +1,4 @@
-import { Edit, Trash2, MapPin, Users, DollarSign } from 'lucide-react';
+import { Edit, Trash2, MapPin, Users, DollarSign, Image } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Table,
@@ -8,6 +8,14 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+
+interface VenueImage {
+  id: number;
+  url: string;
+  titulo: string;
+  es_portada: boolean;
+  orden: number;
+}
 
 interface Venue {
   id: number;
@@ -21,6 +29,8 @@ interface Venue {
   is_destacado: boolean;
   precio_desde?: number;
   moneda?: string;
+  imagen_portada?: VenueImage;
+  imagenes?: VenueImage[];
 }
 
 interface VenuesTableProps {
@@ -45,6 +55,7 @@ export default function VenuesTable({ venues, onEdit, onDelete }: VenuesTablePro
       <Table>
         <TableHeader>
           <TableRow>
+            <TableHead className="w-20">Imagen</TableHead>
             <TableHead>Nombre</TableHead>
             <TableHead>Ubicación</TableHead>
             <TableHead>Tipo</TableHead>
@@ -57,6 +68,19 @@ export default function VenuesTable({ venues, onEdit, onDelete }: VenuesTablePro
         <TableBody>
           {venues.map((venue) => (
             <TableRow key={venue.id}>
+              <TableCell>
+                {venue.imagen_portada ? (
+                  <img
+                    src={venue.imagen_portada.url}
+                    alt={venue.imagen_portada.titulo || venue.nombre}
+                    className="w-16 h-16 object-cover rounded-md"
+                  />
+                ) : (
+                  <div className="w-16 h-16 bg-muted rounded-md flex items-center justify-center">
+                    <Image className="h-6 w-6 text-muted-foreground" />
+                  </div>
+                )}
+              </TableCell>
               <TableCell className="font-medium">
                 <div className="flex flex-col">
                   <span>{venue.nombre}</span>

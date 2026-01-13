@@ -7,6 +7,14 @@ import VenueFormDialog from './VenueFormDialog';
 import LoginForm from './LoginForm';
 import { authService } from '@/lib/auth';
 
+interface VenueImage {
+  id: number;
+  url: string;
+  titulo: string;
+  es_portada: boolean;
+  orden: number;
+}
+
 interface Venue {
   id: number;
   nombre: string;
@@ -19,6 +27,9 @@ interface Venue {
   is_destacado: boolean;
   precio_desde?: number;
   moneda?: string;
+  imagen_portada?: VenueImage;
+  imagenes?: VenueImage[];
+  galeria?: VenueImage[];
 }
 
 export default function VenuesDashboard() {
