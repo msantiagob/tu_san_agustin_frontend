@@ -43,10 +43,17 @@ export default {
 				},
 				// Brand colors
 				brand: {
-					green: '#4EAC9F',      // Main brand green
+					teal: '#4EAC9F',       // Main brand teal/green
+					green: '#4EAC9F',      // Alias for teal
 					cream: '#FDF5E9',      // Background cream/beige
 					darkGray: '#2D3748',   // Dark text
+					charcoal: '#333638',   // Charcoal/dark gray
+					gold: '#BBA882',       // Gold/tan color
 				},
+				// Direct color utilities
+				teal: '#4EAC9F',
+				charcoal: '#333638',
+				gold: '#BBA882',
 				// Legacy support (keep for now)
 				brandGreen: '#4EAC9F',
 				cardText: '#333638',
