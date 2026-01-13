@@ -6,6 +6,7 @@ import Footer from '../components/layout/Footer.astro';
 
 // Home components
 import Banner from '../components/wedding-destination/Banner.astro';
+import imgBoda from '../assets/images/wedding-destination.webp';
 
 const lang = 'es';
 ---
@@ -15,7 +16,12 @@ const lang = 'es';
   <main class='min-h-screen'>
     <!-- Hero Section -->
     <section aria-label='Banner principal'>
-      <Banner lang={lang} />
+      <Banner
+        lang={lang}
+        bannerImage={imgBoda}
+        title="Invitados, Vuelos"
+        subtitle="y Etiqueta"
+      />
     </section>
 
     <!-- Guia Section -->

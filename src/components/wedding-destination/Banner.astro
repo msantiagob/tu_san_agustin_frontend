@@ -2,14 +2,21 @@
 import { Image } from 'astro:assets';
 import { useTranslations, getTranslations } from '../../i18n/utils';
 import Menu from '../shared/Menu.astro';
-// Import images
-import imgBoda from '../../assets/images/wedding-destination.webp';
+import type { ImageMetadata } from 'astro';
 
 interface Props {
   lang?: 'es' | 'en';
+  bannerImage?: ImageMetadata;
+  title?: string;
+  subtitle?: string;
 }
 
-const { lang = 'es' } = Astro.props;
+const {
+  lang = 'es',
+  bannerImage,
+  title = 'Invitados, Vuelos',
+  subtitle = 'y Etiqueta'
+} = Astro.props;
 const t = useTranslations(lang);
 const translations = getTranslations(lang);
 ---
@@ -22,18 +29,20 @@ const translations = getTranslations(lang);
     <div class='swiper-wrapper'>
       <div class='swiper-slide relative'>
 
-        <Image
-          src={imgBoda}
-          class='absolute inset-0 w-full h-full object-cover'
-          style='object-position: bottom 15%;'
-          alt={translations.banner.slides[0].alt}
-          loading='eager'
-          fetchpriority='high'
-          width={1600}
-          height={900}
-          widths={[480, 768, 1024, 1280, 1600]}
-          quality={70}
-        />
+        {bannerImage && (
+          <Image
+            src={bannerImage}
+            class='absolute inset-0 w-full h-full object-cover'
+            style='object-position: bottom 15%;'
+            alt={translations.banner.slides[0].alt}
+            loading='eager'
+            fetchpriority='high'
+            width={1600}
+            height={900}
+            widths={[480, 768, 1024, 1280, 1600]}
+            quality={70}
+          />
+        )}
         <div class='absolute inset-0 bg-black/30'></div>
         <div
           class='relative z-10 h-full flex flex-col items-center justify-center text-center px-4 pb-24 md:pb-20'
@@ -41,7 +50,7 @@ const translations = getTranslations(lang);
           <h1
             class='text-5xl md:text-5xl lg:text-8xl font-extrabold text-third drop-shadow-lg leading-tight'
           >
-            Invitados, Vuelos <span class="block italic">y Etiqueta</span>
+            Invitados, Vuelos <span class="block ">y Etiqueta</span>
           </h1>
 
         </div>

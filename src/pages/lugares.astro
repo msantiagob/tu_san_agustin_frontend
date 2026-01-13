@@ -6,13 +6,16 @@ import { Image } from 'astro:assets';
 
 import Banner from '../components/wedding-destination/Banner.astro';
 
-import Slider from '../components/lugares/Slider.astro';
-// Home components
+import Carrousel from '../components/lugares/Slider.astro';
+
 import icono1 from '../assets/images/lugares/icono-1.webp';
 import icono2 from '../assets/images/lugares/icono-2.webp';
 import icono3 from '../assets/images/lugares/icono-3.webp';
 import icono4 from '../assets/images/lugares/icono-4.webp';
 import imgArticle from '../assets/images/lugares/tu_san_agustin_lugares_para_eventos_haciendasyfincasparabodas_018.webp';
+import bannerLugares from '../assets/images/lugares/tu_san_agustin_lugares_para_eventos_banner_001.webp';
+import footerBg from '../assets/images/lugares/footer-bg.webp';
+
 import logo from '../assets/images/logo-verde.webp';
 const lang = 'es';
 
@@ -24,7 +27,12 @@ const repeat = Array.from({ length: 9 });
   <main class='min-h-screen'>
     <!-- Hero Section -->
     <section aria-label='Banner principal'>
-      <Banner lang={lang} />
+      <Banner
+        lang={lang}
+        bannerImage={bannerLugares}
+        title='Lugares y Locaciones'
+        subtitle='Para Eventos'
+      />
     </section>
 
     <!-- Guia Section -->
@@ -92,29 +100,41 @@ const repeat = Array.from({ length: 9 });
       }
     </section>
 
-    <Slider lang={lang} />
+    <Carrousel lang={lang} />
   </main>
-  <footer class='flex flex-col justify-center gap-10 bg-white py-32'>
-    <div class="flex justify-center gap-5">
+  <footer class='relative flex flex-col justify-center gap-10 bg-white py-32 overflow-hidden'>
+    <Image
+      src={footerBg}
+      class='absolute inset-0 w-full h-full object-cover'
+      style='object-position: bottom 15%;'
+      alt=''
+      loading='eager'
+      fetchpriority='high'
+      width={1600}
+      height={900}
+      widths={[480, 768, 1024, 1280, 1600]}
+      quality={70}
+    />
+    <div class='relative z-10 flex justify-center gap-5'>
       <h2
         class='text-3xl md:text-4xl lg:text-6xl text-[#49ac9d] block text-center font-[1000]'
       >
         Se Parte de
       </h2>
-      <Image src={logo} width={150} alt=''  />
+      <Image src={logo} width={150} alt='' />
     </div>
-    <p class='w-1/2 mx-auto'>
+    <p class='relative z-10 w-1/2 mx-auto'>
       Si eres un profesional, tienes una empresa de eventos, tienes un lugar o
       eres un artista puedes aparecer en San Agustín, ofrecer servicios y
       productos.
     </p>
     <h3
-      class='text-3xl md:text-4xl lg:text-5xl text-[#49ac9d] block  text-center'
+      class='relative z-10 text-3xl md:text-4xl lg:text-5xl text-[#49ac9d] block text-center'
     >
       Haz crecer tu negocio
     </h3>
     <button
-      class='bg-[#323436] px-5 rounded-full text-2xl italic text-white mx-auto'
+      class='relative z-10 bg-[#323436] px-5 rounded-full text-2xl italic text-white mx-auto'
       >Registrate Gratis</button
     >
   </footer>
