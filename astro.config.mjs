@@ -33,6 +33,11 @@ export default defineConfig({
   },
   vite: {
     base: '',
+    resolve: {
+      alias: {
+        '@': '/src'
+      }
+    },
     build: {
       rollupOptions: {
         output: {

@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+// Layout components
+import Navbar from '../components/layout/Navbar.astro';
+import { Image } from 'astro:assets';
+
+import Banner from '../components/wedding-destination/Banner.astro';
+import Button from '../components/shared/Button.astro';
+import JoinUsFooter from '../components/shared/JoinUsFooter.astro';
+
+import Carrousel from '../components/lugares/Slider.astro';
+
+import icono1 from '../assets/images/lugares/icono-1.webp';
+import icono2 from '../assets/images/lugares/icono-2.webp';
+import icono3 from '../assets/images/lugares/icono-3.webp';
+import icono4 from '../assets/images/lugares/icono-4.webp';
+import imgArticle from '../assets/images/lugares/tu_san_agustin_lugares_para_eventos_haciendasyfincasparabodas_018.webp';
+import bannerLugares from '../assets/images/lugares/tu_san_agustin_lugares_para_eventos_banner_001.webp';
+import footerBg from '../assets/images/lugares/footer-bg.webp';
+
+const lang = 'es';
+
+const repeat = Array.from({ length: 9 });
+---
+
+<Layout title='Home' lang={lang}>
+  <Navbar lang={lang} />
+  <main class='min-h-screen'>
+    <!-- Hero Section -->
+    <section aria-label='Banner principal'>
+      <Banner
+        lang={lang}
+        bannerImage={bannerLugares}
+        title='Lugares y Locaciones'
+        subtitle='Para Eventos'
+      />
+    </section>
+
+    <!-- Guia Section -->
+    <section aria-label='Eventos únicos' class='my-16 md:my-32'>
+      <div
+        class='max-w-7xl mx-auto px-4 flex justify-between items-center flex-col md:flex-col gap-8 md:gap-12'
+      >
+        <h2
+          class='text-3xl md:text-4xl lg:text-5xl text-teal block font-extrabold text-center'
+        >
+          Categorías
+        </h2>
+        <div class='flex gap-36'>
+          <div>
+            <h5 class='text-charcoal font-bold'>Cantidad de Personas</h5>
+            <Image src={icono1} alt='' />
+          </div>
+          <div>
+            <h5 class='text-charcoal font-bold'>Ciudades</h5>
+            <Image src={icono2} alt='' />
+          </div>
+          <div>
+            <h5 class='text-charcoal font-bold'>Tipo de Evento</h5>
+            <Image src={icono3} alt='' />
+          </div>
+          <div>
+            <h5 class='text-charcoal font-bold'>Tipo de Lugar</h5>
+            <Image src={icono4} alt='' />
+          </div>
+        </div>
+        <div class='flex gap-16'>
+          <Button variant='primary' size='md'>Filtrar</Button>
+          <Button variant='secondary' size='md'>Borrar</Button>
+        </div>
+      </div>
+    </section>
+
+    <section class='max-w-7xl mx-auto px-4
+    gap-8 md:gap-12 grid grid-cols-3'>
+      {
+        repeat.map((_, index) => (
+          <article class='flex flex-col justify-center gap-5 m-10'>
+            <h4 class='text-charcoal font-bold text-center'>
+              Centro de Eventos <br /> Villa Celeste
+            </h4>
+
+            <Image
+              src={imgArticle}
+              alt='Descripción clara y real de la imagen'
+              loading='lazy'
+              class='mx-auto'
+            />
+
+            <div class='mx-auto'>
+              <Button variant='primary' size='md' href='/pagina-destino'>
+                Ver mas
+              </Button>
+            </div>
+          </article>
+        ))
+      }
+    </section>
+
+    <Carrousel lang={lang} />
+  </main>
+  <JoinUsFooter backgroundImage={footerBg} showBackground={true} />
+</Layout>

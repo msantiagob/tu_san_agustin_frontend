@@ -31,15 +31,15 @@ import award10 from '../../assets/images/home_tusanagustin-41.webp';
 const awards = [award1, award2, award3, award4, award5, award6, award7, award8, award9, award10];
 ---
 
-<section class="bg-[#FDF5E9 ] py-10 md:py-20 px-4 md:px-10">
+<section class="bg-brand-cream py-10 md:py-20 px-4 md:px-10">
     <div class="max-w-7xl mx-auto space-y-12 md:space-y-24">
         
         <!-- TOP SECTION: CONÓCENOS / QUIÉNES SOMOS -->
         <div class="flex flex-col lg:flex-row justify-between items-start gap-12">
             <div class="space-y-6 flex-1">
                 <div class="space-y-2">
-                    <h3 class="text-2xl md:text-3xl font-extrabold text-[#4EAC9F] tracking-tight">Conócenos</h3>
-                    <h2 class="text-4xl md:text-7xl font-extrabold text-[#2D3748] leading-none">¿Quiénes Somos?</h2>
+                    <h3 class="text-2xl md:text-3xl font-extrabold text-teal tracking-tight">Conócenos</h3>
+                    <h2 class="text-4xl md:text-7xl font-extrabold text-brand-darkGray leading-none">¿Quiénes Somos?</h2>
                 </div>
 
                 <!-- Description Box (Wider but Thinner) -->
@@ -57,11 +57,11 @@ const awards = [award1, award2, award3, award4, award5, award6, award7, award8, 
 
             <!-- Awards Carousel with Arrows -->
             <div class="lg:w-1/3 w-full flex flex-col items-center gap-6 mt-6 md:mt-12">
-                <p class="text-lg font-bold tracking-widest text-[#4EAC9F] text-center">Premios Y Certificaciones</p>
+                <p class="text-lg font-bold tracking-widest text-teal text-center">Premios Y Certificaciones</p>
                 
                 <div class="relative w-80 mx-auto flex items-center justify-center">
                     <!-- Custom Arrows (Absolutely positioned relative to this centered box) -->
-                    <div class="swiper-button-prev-awards absolute left-0 z-10 text-[#4EAC9F] cursor-pointer hover:scale-110 transition-transform">
+                    <div class="swiper-button-prev-awards absolute left-0 z-10 text-teal cursor-pointer hover:scale-110 transition-transform">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
                     </div>
 
@@ -77,7 +77,7 @@ const awards = [award1, award2, award3, award4, award5, award6, award7, award8, 
                         </div>
                     </div>
 
-                    <div class="swiper-button-next-awards absolute right-0 z-10 text-[#4EAC9F] cursor-pointer hover:scale-110 transition-transform">
+                    <div class="swiper-button-next-awards absolute right-0 z-10 text-teal cursor-pointer hover:scale-110 transition-transform">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                     </div>
                 </div>
@@ -86,25 +86,25 @@ const awards = [award1, award2, award3, award4, award5, award6, award7, award8, 
 
         <!-- MIDDLE SECTION: CONTACT FORM -->
         <div class="flex flex-col items-center space-y-12">
-            <h3 class="text-[#4EAC9F] text-4xl md:text-7xl font-extrabold mb-6 md:mb-12">Contáctanos</h3>
+            <h3 class="text-teal text-4xl md:text-7xl font-extrabold mb-6 md:mb-12">Contáctanos</h3>
             
             <form class="w-full max-w-xl space-y-4">
                 <div class="space-y-4">
-                    <input type="text" placeholder="Nombre y Apellido*" class="w-full bg-[#333638] text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium" />
-                    <input type="tel" placeholder="Whatsapp*" class="w-full bg-[#333638] text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium" />
-                    <input type="email" placeholder="Email*" class="w-full bg-[#333638] text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium" />
-                    <select required class="w-full bg-[#333638] text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 appearance-none font-medium" aria-label="Tipo de Evento">
+                    <input type="text" placeholder="Nombre y Apellido*" class="w-full bg-charcoal text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium" />
+                    <input type="tel" placeholder="Whatsapp*" class="w-full bg-charcoal text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium" />
+                    <input type="email" placeholder="Email*" class="w-full bg-charcoal text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium" />
+                    <select required class="w-full bg-charcoal text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 appearance-none font-medium" aria-label="Tipo de Evento">
                         <option value="" disabled selected hidden>Tipo de Evento</option>
                         <option>Boda</option>
                         <option>Quince Años</option>
                         <option>Corporativo</option>
                         <option>Otro</option>
                     </select>
-                    <textarea placeholder="Mensaje" rows="1" class="w-full bg-[#333638] text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium"></textarea>
+                    <textarea placeholder="Mensaje" rows="1" class="w-full bg-charcoal text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium"></textarea>
                 </div>
                 
                 <div class="flex justify-center pt-4">
-                    <button type="submit" class="bg-[#4EAC9F] text-white px-16 py-3 rounded-xl text-lg  hover:bg-opacity-90 transition-all shadow-xl">
+                    <button type="submit" class="bg-teal text-white px-16 py-3 rounded-xl text-lg  hover:bg-opacity-90 transition-all shadow-xl">
                         Enviar
                     </button>
                 </div>
@@ -115,7 +115,7 @@ const awards = [award1, award2, award3, award4, award5, award6, award7, award8, 
     </div>
 </section>
 
-<footer class="bg-[#333638] text-white py-10 md:py-20 px-4 md:px-10">
+<footer class="bg-charcoal text-white py-10 md:py-20 px-4 md:px-10">
     <div class="max-w-7xl mx-auto">
         <!-- BOTTOM SECTION: BRANDING & LINKS -->
         <div class="pt-20 border-t border-white/5 flex flex-col lg:flex-row gap-16 lg:gap-24">
@@ -127,7 +127,7 @@ const awards = [award1, award2, award3, award4, award5, award6, award7, award8, 
                 </div>
 
                 <div class="space-y-4">
-                    <p class="text-[#4EAC9F] text-xl font-bold italic tracking-tight">Síguenos @tusanagustin</p>
+                    <p class="text-teal text-xl font-bold italic tracking-tight">Síguenos @tusanagustin</p>
                     <div class="flex gap-4">
                         <a href="https://www.facebook.com/tusanagustineventos/" class="hover:scale-110 transition-transform"><Image src={iconFb} alt="Facebook" class="h-5 w-5 object-contain invert brightness-0" loading="lazy" /></a>
                         <a href="https://www.instagram.com/tusanagustin/" class="hover:scale-110 transition-transform"><Image src={iconIg} alt="Instagram" class="h-5 w-5 object-contain invert brightness-0" loading="lazy" /></a>
@@ -140,7 +140,7 @@ const awards = [award1, award2, award3, award4, award5, award6, award7, award8, 
                 </div>
 
                 <div class="space-y-4">
-                    <p class="text-[#4EAC9F] text-lg font-bold">Contáctanos</p>
+                    <p class="text-teal text-lg font-bold">Contáctanos</p>
                     <div class="space-y-4">
                         <div class="flex items-center gap-3 group cursor-pointer">
                             <Image src={iconPh} alt="Phone" class="h-6 w-6 object-contain invert brightness-0 group-hover:scale-110 transition-transform" loading="lazy" />
@@ -168,8 +168,8 @@ const awards = [award1, award2, award3, award4, award5, award6, award7, award8, 
                             { name: 'Historias', url: 'https://www.tusanagustin.com/historias' },
                             { name: 'Blog', url: 'https://www.tusanagustin.com/blog' }
                         ].map((link) => (
-                            <li><a href={link.url} class="text-gray-300 hover:text-[#4EAC9F] flex items-center gap-2 text-base font-medium transition-colors" style="font-family: 'Poppins', sans-serif;">
-                                <span class="w-1.5 h-1.5 rounded-full bg-[#4EAC9F]"></span> {link.name}
+                            <li><a href={link.url} class="text-gray-300 hover:text-teal flex items-center gap-2 text-base font-medium transition-colors" style="font-family: 'Poppins', sans-serif;">
+                                <span class="w-1.5 h-1.5 rounded-full bg-teal"></span> {link.name}
                             </a></li>
                         ))}
                     </ul>
@@ -185,8 +185,8 @@ const awards = [award1, award2, award3, award4, award5, award6, award7, award8, 
                             { name: 'Consentimiento de cookies', url: 'https://www.tusanagustin.com/cookies' },
                             { name: 'Mapa del sitio', url: 'https://www.tusanagustin.com/mapa-del-sitio' }
                         ].map((link) => (
-                            <li><a href={link.url} class="text-gray-300 hover:text-[#4EAC9F] flex items-center gap-2 text-base font-medium transition-colors" style="font-family: 'Poppins', sans-serif;">
-                                <span class="w-1.5 h-1.5 rounded-full bg-[#4EAC9F]"></span> {link.name}
+                            <li><a href={link.url} class="text-gray-300 hover:text-teal flex items-center gap-2 text-base font-medium transition-colors" style="font-family: 'Poppins', sans-serif;">
+                                <span class="w-1.5 h-1.5 rounded-full bg-teal"></span> {link.name}
                             </a></li>
                         ))}
                     </ul>
@@ -200,8 +200,8 @@ const awards = [award1, award2, award3, award4, award5, award6, award7, award8, 
                             { name: 'Lugares para eventos', url: 'https://www.tusanagustin.com/lugares-eventos' },
                             { name: 'Proveedores', url: 'https://www.tusanagustin.com/proveedores' }
                         ].map((link) => (
-                            <li><a href={link.url} class="text-gray-300 hover:text-[#4EAC9F] flex items-center gap-2 text-base font-medium transition-colors" style="font-family: 'Poppins', sans-serif;">
-                                <span class="w-1.5 h-1.5 rounded-full bg-[#4EAC9F]"></span> {link.name}
+                            <li><a href={link.url} class="text-gray-300 hover:text-teal flex items-center gap-2 text-base font-medium transition-colors" style="font-family: 'Poppins', sans-serif;">
+                                <span class="w-1.5 h-1.5 rounded-full bg-teal"></span> {link.name}
                             </a></li>
                         ))}
                     </ul>
@@ -212,7 +212,7 @@ const awards = [award1, award2, award3, award4, award5, award6, award7, award8, 
         <!-- PAYMENT METHODS -->
       <div class="flex flex-col items-end w-full mt-10 pr-4">
         <div class="flex flex-col items-center space-y-2">
-            <p class="text-[#4EAC9F] text-lg italic font-medium opacity-90">Medios de Pago</p>
+            <p class="text-teal text-lg italic font-medium opacity-90">Medios de Pago</p>
             <div class="bg-[#E5E0D8] px-8 py-3 rounded-2xl flex flex-wrap justify-center items-center gap-6 shadow-md">
                 
                 <Image src={imgVisa} 
