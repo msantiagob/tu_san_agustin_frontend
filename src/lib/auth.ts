@@ -70,4 +70,22 @@ export const authService = {
       'Content-Type': 'application/json',
     };
   },
+
+  async getCurrentUser(): Promise<any> {
+    const API_BASE_URL = import.meta.env.PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/users/me`, {
+        headers: this.getAuthHeaders(),
+      });
+
+      if (response.ok) {
+        return await response.json();
+      }
+      return null;
+    } catch (error) {
+      console.error('Error fetching current user:', error);
+      return null;
+    }
+  },
 };

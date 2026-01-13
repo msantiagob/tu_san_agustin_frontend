@@ -1,4 +1,4 @@
-import { Edit, Trash2, MapPin, Users, DollarSign, Image } from 'lucide-react';
+import { Edit, Trash2, MapPin, Users, DollarSign, Image, Power } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   Table,
@@ -37,9 +37,10 @@ interface VenuesTableProps {
   venues: Venue[];
   onEdit: (venue: Venue) => void;
   onDelete: (venueId: number) => void;
+  onToggleActive: (venueId: number, currentStatus: boolean) => void;
 }
 
-export default function VenuesTable({ venues, onEdit, onDelete }: VenuesTableProps) {
+export default function VenuesTable({ venues, onEdit, onDelete, onToggleActive }: VenuesTableProps) {
   if (venues.length === 0) {
     return (
       <div className="text-center py-12 bg-card rounded-lg border">
@@ -131,6 +132,19 @@ export default function VenuesTable({ venues, onEdit, onDelete }: VenuesTablePro
               </TableCell>
               <TableCell className="text-right">
                 <div className="flex justify-end gap-2">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => onToggleActive(venue.id, venue.is_active)}
+                    className={`h-8 w-8 p-0 ${
+                      venue.is_active
+                        ? 'text-green-600 hover:text-green-700'
+                        : 'text-gray-400 hover:text-gray-600'
+                    }`}
+                    title={venue.is_active ? 'Desactivar' : 'Activar'}
+                  >
+                    <Power className="h-4 w-4" />
+                  </Button>
                   <Button
                     variant="ghost"
                     size="sm"

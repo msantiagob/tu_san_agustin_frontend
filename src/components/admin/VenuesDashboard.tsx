@@ -32,8 +32,13 @@ interface Venue {
   galeria?: VenueImage[];
 }
 
-export default function VenuesDashboard() {
+interface VenuesDashboardProps {
+  hideHeader?: boolean;
+}
+
+export default function VenuesDashboard({ hideHeader = false }: VenuesDashboardProps) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [currentUser, setCurrentUser] = useState<any>(null);
   const [venues, setVenues] = useState<Venue[]>([]);
   const [filteredVenues, setFilteredVenues] = useState<Venue[]>([]);
   const [loading, setLoading] = useState(true);
@@ -44,13 +49,20 @@ export default function VenuesDashboard() {
   const API_BASE_URL = import.meta.env.PUBLIC_API_URL || 'http://localhost:8000/api/v1';
 
   useEffect(() => {
-    setIsAuthenticated(authService.isAuthenticated());
+    const checkAuth = async () => {
+      if (authService.isAuthenticated()) {
+        setIsAuthenticated(true);
+        const user = await authService.getCurrentUser();
+        setCurrentUser(user);
+      }
+    };
+    checkAuth();
   }, []);
 
   const fetchVenues = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`${API_BASE_URL}/venues/`);
+      const response = await fetch(`${API_BASE_URL}/venues/?only_active=false`);
       const data = await response.json();
       setVenues(data);
       setFilteredVenues(data);
@@ -82,6 +94,35 @@ export default function VenuesDashboard() {
   const handleEditVenue = (venue: Venue) => {
     setEditingVenue(venue);
     setIsDialogOpen(true);
+  };
+
+  const handleToggleActive = async (venueId: number, currentStatus: boolean) => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/venues/${venueId}`, {
+        method: 'PUT',
+        headers: {
+          ...authService.getAuthHeaders(),
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          is_active: !currentStatus,
+        }),
+      });
+
+      if (response.ok) {
+        fetchVenues();
+      } else if (response.status === 401) {
+        alert('Sesión expirada. Por favor inicia sesión nuevamente.');
+        handleLogout();
+      } else {
+        const errorData = await response.json();
+        console.error('Error response:', errorData);
+        alert(`Error al cambiar el estado del lugar: ${errorData.detail || 'Error desconocido'}`);
+      }
+    } catch (error) {
+      console.error('Error toggling venue status:', error);
+      alert('Error al cambiar el estado del lugar: ' + error);
+    }
   };
 
   const handleDeleteVenue = async (venueId: number) => {
@@ -131,21 +172,42 @@ export default function VenuesDashboard() {
   }
 
   return (
-    <div className="container mx-auto py-8 px-4">
-      <div className="mb-8 flex justify-between items-start">
-        <div>
-          <h1 className="text-4xl font-bold text-foreground mb-2">
-            Dashboard de Lugares
-          </h1>
-          <p className="text-muted-foreground">
-            Gestiona todos los lugares disponibles para eventos
-          </p>
+    <div className={hideHeader ? "" : "container mx-auto py-8 px-4"}>
+      {!hideHeader && (
+        <div className="mb-8 flex justify-between items-start">
+          <div>
+            <h1 className="text-4xl font-bold text-foreground mb-2">
+              Dashboard de Lugares
+            </h1>
+            <p className="text-muted-foreground">
+              Gestiona todos los lugares disponibles para eventos
+            </p>
+            {currentUser && (
+              <div className="mt-2 flex items-center gap-2">
+                <span className="text-sm text-muted-foreground">
+                  {currentUser.username}
+                </span>
+                {currentUser.roles && currentUser.roles.length > 0 && (
+                  <div className="flex gap-1">
+                    {currentUser.roles.map((role: any) => (
+                      <span
+                        key={role.id}
+                        className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
+                      >
+                        {role.name}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+          <Button variant="outline" onClick={handleLogout} className="gap-2">
+            <LogOut className="h-4 w-4" />
+            Cerrar Sesión
+          </Button>
         </div>
-        <Button variant="outline" onClick={handleLogout} className="gap-2">
-          <LogOut className="h-4 w-4" />
-          Cerrar Sesión
-        </Button>
-      </div>
+      )}
 
       <div className="flex flex-col sm:flex-row gap-4 mb-6">
         <div className="relative flex-1">
@@ -172,6 +234,7 @@ export default function VenuesDashboard() {
           venues={filteredVenues}
           onEdit={handleEditVenue}
           onDelete={handleDeleteVenue}
+          onToggleActive={handleToggleActive}
         />
       )}
 

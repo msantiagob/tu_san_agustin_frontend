@@ -1,13 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import VenuesDashboard from '../components/admin/VenuesDashboard';
+import AdminDashboard from '../components/admin/AdminDashboard';
 ---
 
 <Layout
 	title="Admin Dashboard - Tu San Agustín"
 	description="Panel de administración para gestionar lugares y eventos"
 >
-	<div class="min-h-screen bg-background">
-		<VenuesDashboard client:load />
-	</div>
+	<AdminDashboard client:load />
 </Layout>
