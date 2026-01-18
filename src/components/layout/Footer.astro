@@ -87,24 +87,27 @@ const awards = [award1, award2, award3, award4, award5, award6, award7, award8, 
         <!-- MIDDLE SECTION: CONTACT FORM -->
         <div class="flex flex-col items-center space-y-12">
             <h3 class="text-teal text-4xl md:text-7xl font-extrabold mb-6 md:mb-12">Contáctanos</h3>
-            
-            <form class="w-full max-w-xl space-y-4">
+
+            <form id="contact-form" class="w-full max-w-xl space-y-4">
                 <div class="space-y-4">
-                    <input type="text" placeholder="Nombre y Apellido*" class="w-full bg-charcoal text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium" />
-                    <input type="tel" placeholder="Whatsapp*" class="w-full bg-charcoal text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium" />
-                    <input type="email" placeholder="Email*" class="w-full bg-charcoal text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium" />
-                    <select required class="w-full bg-charcoal text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 appearance-none font-medium" aria-label="Tipo de Evento">
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre y Apellido*" required class="w-full bg-charcoal text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium" />
+                    <input type="tel" id="whatsapp" name="whatsapp" placeholder="Whatsapp*" required class="w-full bg-charcoal text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium" />
+                    <input type="email" id="email" name="email" placeholder="Email*" required class="w-full bg-charcoal text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium" />
+                    <select id="tipo_evento" name="tipo_evento" required class="w-full bg-charcoal text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 appearance-none font-medium" aria-label="Tipo de Evento">
                         <option value="" disabled selected hidden>Tipo de Evento</option>
-                        <option>Boda</option>
-                        <option>Quince Años</option>
-                        <option>Corporativo</option>
-                        <option>Otro</option>
+                        <option value="Boda">Boda</option>
+                        <option value="Quince Años">Quince Años</option>
+                        <option value="Corporativo">Corporativo</option>
+                        <option value="Otro">Otro</option>
                     </select>
-                    <textarea placeholder="Mensaje" rows="1" class="w-full bg-charcoal text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium"></textarea>
+                    <textarea id="mensaje" name="mensaje" placeholder="Mensaje" rows="1" class="w-full bg-charcoal text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium"></textarea>
                 </div>
-                
+
+                <!-- Mensaje de estado -->
+                <div id="form-message" class="hidden text-center py-2 px-4 rounded-lg"></div>
+
                 <div class="flex justify-center pt-4">
-                    <button type="submit" class="bg-teal text-white px-16 py-3 rounded-xl text-lg  hover:bg-opacity-90 transition-all shadow-xl">
+                    <button type="submit" id="submit-btn" class="bg-teal text-white px-16 py-3 rounded-xl text-lg hover:bg-opacity-90 transition-all shadow-xl disabled:opacity-50 disabled:cursor-not-allowed">
                         Enviar
                     </button>
                 </div>
@@ -274,6 +277,75 @@ const awards = [award1, award2, award3, award4, award5, award6, award7, award8, 
 
     initAwardsSwiper();
     document.addEventListener('astro:page-load', initAwardsSwiper);
+
+    // Contact Form Handler
+    const API_URL = import.meta.env.PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+
+    const initContactForm = () => {
+        const form = document.getElementById('contact-form') as HTMLFormElement;
+        const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+        const formMessage = document.getElementById('form-message') as HTMLDivElement;
+
+        if (!form) return;
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Deshabilitar botón mientras se envía
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Enviando...';
+
+            // Ocultar mensaje previo
+            formMessage.classList.add('hidden');
+
+            // Recoger datos del formulario
+            const formData = {
+                nombre: (document.getElementById('nombre') as HTMLInputElement).value,
+                whatsapp: (document.getElementById('whatsapp') as HTMLInputElement).value,
+                email: (document.getElementById('email') as HTMLInputElement).value,
+                tipo_evento: (document.getElementById('tipo_evento') as HTMLSelectElement).value,
+                mensaje: (document.getElementById('mensaje') as HTMLTextAreaElement).value || ''
+            };
+
+            try {
+                const response = await fetch(`${API_URL}/contact/submit`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.success) {
+                    // Éxito
+                    formMessage.textContent = result.message;
+                    formMessage.className = 'text-center py-2 px-4 rounded-lg bg-green-600 text-white';
+                    formMessage.classList.remove('hidden');
+                    form.reset();
+                } else {
+                    // Error del servidor
+                    formMessage.textContent = result.detail || 'Error al enviar el formulario. Por favor intente nuevamente.';
+                    formMessage.className = 'text-center py-2 px-4 rounded-lg bg-red-600 text-white';
+                    formMessage.classList.remove('hidden');
+                }
+            } catch (error) {
+                // Error de conexión
+                formMessage.textContent = 'Error de conexión. Por favor verifique su conexión a internet.';
+                formMessage.className = 'text-center py-2 px-4 rounded-lg bg-red-600 text-white';
+                formMessage.classList.remove('hidden');
+                console.error('Error:', error);
+            } finally {
+                // Rehabilitar botón
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Enviar';
+            }
+        });
+    };
+
+    initContactForm();
+    document.addEventListener('astro:page-load', initContactForm);
 </script>
 
 <style>
