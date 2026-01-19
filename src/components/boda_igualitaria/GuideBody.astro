@@ -1,0 +1,265 @@
+---
+import { Image } from 'astro:assets';
+
+// Import images from the folder we found
+import img1 from '../../assets/images/boda_igualitaria/0J8A0745.webp';
+import img2 from '../../assets/images/boda_igualitaria/0J8A4978.webp'; // For video thumb background if needed or section 2
+import img3 from '../../assets/images/boda_igualitaria/0J8A0786.webp';
+import img4 from '../../assets/images/boda_igualitaria/0J8A4840.webp';
+import img5 from '../../assets/images/boda_igualitaria/0J8A0774.webp';
+import img6 from '../../assets/images/boda_igualitaria/0J8A5026.webp';
+import img7 from '../../assets/images/boda_igualitaria/003_boda_igualitaria_jardin_botanico_tu_san_agustin_lugares_para_eventos.webp'; // Reuse banner img if needed
+import imgLocaciones from '../../assets/images/boda_igualitaria/0J8A4978.webp';
+
+// Helper component for the "01.", "03." numbers if they are styled specifically
+// Using standard HTML/CSS for now based on image.
+---
+
+<div class="bg-[#FDF5E9] w-full overflow-hidden pb-20">
+    <div class="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24 space-y-24 md:space-y-32">
+
+        <!-- SECTION 1: Intro -->
+        <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+            <div class="w-full md:w-1/2 text-[#D1C1A3] space-y-6">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-poppins font-bold text-[#D1C1A3] leading-tight italic">
+                    <span class="text-[#D1C1A3]">¿Como planear una boda igualitaria</span>
+                    <br>
+                    <span class="text-[#4EAC9F]">de destino en Colombia y hacerla inolvidable?</span>
+                </h2>
+                <div class="text-[#333638] space-y-4 font-poppins text-lg leading-relaxed">
+                    <p>
+                        Casarse no es solo un acto legal. Es una afirmación. Una declaración de amor, de identidad y, en muchos casos, de resistencia. Una boda igualitaria de destino no es diferente a cualquier otra en esencia, pero sí en alma: se construye con intención, libertad y un estilo que celebra lo auténtico.
+                    </p>
+                    <p>
+                        Colombia moderna, vibrante, diversa se ha convertido en un destino privilegiado para parejas LGBTQ+ que buscan un lugar donde el amor no necesita permiso. Aquí te mostramos cómo planear una boda que no solo sea legal sino inolvidable.
+                    </p>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2">
+                <div class="rounded-t-full overflow-hidden shadow-xl   max-w-sm mx-auto">
+                    <Image src={img1} alt="Boda igualitaria" class="w-full h-auto aspect-[3/4] object-cover" />
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 2: 01. Legalidad -->
+        <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+            <div class="w-full md:w-1/2 order-1 text-[#D1C1A3] space-y-6">
+                 <div>
+                     <h3 class="text-2xl md:text-3xl font-poppins font-bold text-[#D1C1A3] italic mb-1">Legalidad clara</h3>
+                     <h3 class="text-2xl md:text-3xl font-poppins font-bold text-[#D1C1A3] italic mb-2">amor sin fronteras.</h3>
+                     <span class="text-6xl md:text-7xl font-bold text-[#4EAC9F] italic">01.</span>
+                 </div>
+                <div class="text-[#333638] space-y-4 font-poppins text-lg leading-relaxed">
+                    <p>
+                        Desde 2016, Colombia reconoce legalmente el matrimonio entre personas del mismo sexo. ¿Lo mejor? El proceso es ágil y transparente.
+                    </p>
+                    <p>Documentos básicos para una boda legal entre personas del mismo sexo:</p>
+                    <ul class="list-disc list-inside space-y-2 marker:text-[#D1C1A3]">
+                        <li>Pasaporte vigente (para extranjeros)</li>
+                        <li>Acta de nacimiento apostillada y traducida</li>
+                        <li>Certificado de soltería, divorcio o defunción (si aplica)</li>
+                        <li>No se requiere visa especial: visa de turista es suficiente</li>
+                    </ul>
+                    <p>Con esto en orden, el resto es diseño, emoción y planificación con alma.</p>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 order-2 relative flex justify-center">
+                <!-- YouTube Video -->
+                <div class="rounded-[2rem] overflow-hidden shadow-xl max-w-[500px] w-full mx-auto aspect-video border-4 /50">
+                    <iframe
+                        width="100%"
+                        height="100%"
+                        src="https://www.youtube.com/embed/NixnWPwebWQ?si=yqlUVGeM0YeSRKfw"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen
+                        class="w-full h-full object-cover"
+                    ></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 2.5: 02. Locaciones -->
+        <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+            <div class="w-full md:w-1/2 order-2 md:order-1">
+                 <div class="rounded-t-full overflow-hidden shadow-xl   max-w-sm mx-auto md:ml-0">
+                    <Image src={imgLocaciones} alt="Locaciones que celebran la diferencia" class="w-full h-auto aspect-[3/4] object-cover" />
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 order-1 md:order-2 text-[#D1C1A3] space-y-6">
+                <div>
+                     <h3 class="text-2xl md:text-3xl font-poppins font-bold text-[#D1C1A3] italic mb-1">Locaciones que</h3>
+                     <h3 class="text-2xl md:text-3xl font-poppins font-bold text-[#D1C1A3] italic mb-2">celebran la diferencia.</h3>
+                     <span class="text-6xl md:text-7xl font-bold text-[#4EAC9F] italic">02.</span>
+                </div>
+                <div class="text-[#333638] space-y-4 font-poppins text-lg leading-relaxed">
+                    <p>
+                        Olvida el salón tradicional con sillas cubiertas en blanco. Elige escenarios que tengan personalidad:
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 marker:text-[#D1C1A3]">
+                        <li>Una casa colonial restaurada en Barichara</li>
+                        <li>Un rooftop cosmopolita en Medellín</li>
+                        <li>Un jardín secreto en el Eje Cafetero</li>
+                        <li>Una finca artística en el Valle del Cauca</li>
+                        <li>Una playa dorada y privada en el Caribe</li>
+                    </ul>
+                     <p>Recuerda: tu historia merece un escenario que le haga justicia.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3: 03. Ceremonias -->
+        <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+            <div class="w-full md:w-1/2 order-1 md:order-1 text-[#D1C1A3] space-y-6">
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-poppins font-bold text-[#D1C1A3] italic mb-1">Ceremonias simbólicas</h3>
+                    <h3 class="text-2xl md:text-3xl font-poppins font-bold text-[#D1C1A3] italic mb-2">llenas de alma.</h3>
+                    <span class="text-6xl md:text-7xl font-bold text-[#4EAC9F] italic">03.</span>
+                </div>
+                <div class="text-[#333638] space-y-4 font-poppins text-lg leading-relaxed">
+                    <p>
+                        Más allá del acto civil, está el momento legalmente; muchas parejas optan por una ceremonia simbólica. Donde el ritual habla de su historia. Algunas ideas:
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 marker:text-[#D1C1A3]">
+                        <li>Lectura a dos voces de su historia</li>
+                        <li>Ritual con hilos de colores o velas dobles</li>
+                        <li>Incluir a una figura significativa (madre, amiga, maestra) como 'oficiante del amor'</li>
+                        <li>Intercambio de cartas antes de verse por primera vez.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 order-2 md:order-2">
+                <div class="rounded-t-full overflow-hidden shadow-xl   max-w-sm mx-auto">
+                    <Image src={img3} alt="Ceremonia Simbólica" class="w-full h-auto aspect-[3/4] object-cover" />
+                </div>
+            </div>
+        </div>
+
+
+        <!-- SECTION 4: 04. Celebración -->
+        <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+            <div class="w-full md:w-1/2 order-2 md:order-1">
+                 <div class="rounded-t-full overflow-hidden shadow-xl   max-w-sm mx-auto md:ml-0">
+                    <Image src={img4} alt="Celebración que representa" class="w-full h-auto aspect-[3/4] object-cover" />
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 order-1 md:order-2 text-[#D1C1A3] space-y-6">
+                <div>
+                     <h3 class="text-2xl md:text-3xl font-poppins font-bold text-[#D1C1A3] italic mb-1">Una celebración que</h3>
+                     <h3 class="text-2xl md:text-3xl font-poppins font-bold text-[#D1C1A3] italic mb-2">sí representa.</h3>
+                     <span class="text-6xl md:text-7xl font-bold text-[#4EAC9F] italic">04.</span>
+                </div>
+                <div class="text-[#333638] space-y-4 font-poppins text-lg leading-relaxed">
+                    <p>
+                        No tienes que encajar en el molde. No hay moldes. Esta es tu boda, así que rompe con las etiquetas:
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 marker:text-[#D1C1A3]">
+                        <li>Sin roles impuestos: adiós al "padrino" y "dama". ¡Hola, "mi tribu!</li>
+                        <li>Moda fluida: tuxedos, transparencias, perlas, faldas. Que cada quien vista su versión más radiante.</li>
+                        <li>Shows y música que representen: desde un cuarteto de cuerdas hasta un DJ queer o performance en vivo.</li>
+                        <li>El lujo no está en el protocolo, está en el mensaje.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- SECTION 5: 05. Invitados -->
+        <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+            <div class="w-full md:w-1/2 order-1 md:order-1 text-[#D1C1A3] space-y-6">
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-poppins font-bold text-[#D1C1A3] italic mb-1">¿Cómo cuidar la</h3>
+                    <h3 class="text-2xl md:text-3xl font-poppins font-bold text-[#D1C1A3] italic mb-2">experiencia de tus invitados?</h3>
+                    <span class="text-6xl md:text-7xl font-bold text-[#4EAC9F] italic">05.</span>
+                </div>
+                <div class="text-[#333638] space-y-4 font-poppins text-lg leading-relaxed">
+                     <p>
+                        Una destination wedding igualitaria debe también ser un entorno seguro, respetuoso y memorable para todos los asistentes. ¿Cómo lograrlo?
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 marker:text-[#D1C1A3]">
+                        <li>Brief a todos los proveedores sobre lenguaje inclusivo y cero tolerancia a actitudes excluyentes.</li>
+                        <li>Welcome kit con mensaje claro: esta es una boda para celebrar el amor, la diversidad y la alegría.</li>
+                        <li>Actividades previas y posteriores: una cena bajo las estrellas, un brunch relajado o un paseo cultural por la ciudad.</li>
+                    </ul>
+                </div>
+            </div>
+             <div class="w-full md:w-1/2 order-2 md:order-2">
+                <div class="rounded-t-full overflow-hidden shadow-xl   max-w-sm mx-auto">
+                    <Image src={img5} alt="Experiencia Invitados" class="w-full h-auto aspect-[3/4] object-cover" />
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 6: 05. Resistencia (Arch Left) -->
+         <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+             <div class="w-full md:w-1/2 order-2 md:order-1">
+                 <div class="rounded-t-full overflow-hidden shadow-xl   max-w-sm mx-auto">
+                    <Image src={img6} alt="Resistencia y elegancia" class="w-full h-auto aspect-[3/4] object-cover" />
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 order-1 md:order-2 text-[#D1C1A3] space-y-6">
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-poppins font-bold text-[#D1C1A3] italic mb-1">¿Y si hay resistencia?</h3>
+                    <h3 class="text-2xl md:text-3xl font-poppins font-bold text-[#D1C1A3] italic mb-2">Elegancia y límites.</h3>
+                    <span class="text-6xl md:text-7xl font-bold text-[#4EAC9F] italic">06.</span>
+                </div>
+                <div class="text-[#333638] space-y-4 font-poppins text-lg leading-relaxed">
+                    <p>
+                        No todos los familiares entienden, no todos los invitados están listos. ¿Qué hacer?
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 marker:text-[#D1C1A3]">
+                        <li>Comunicación previa: habla con tu entorno de antemano y marca límites, estableciendo tu posición.</li>
+                        <li>Día libre de estrés: ten profesionales encargados de que tengas tranquilidad.</li>
+                        <li>Protocolo definido: para cualquier situación de tensión, una respuesta para ti mismo.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+       <div class="text-center pt-10">
+            <h3 class="text-2xl md:text-3xl font-poppins text-[#4EAC9F]">No necesitas aprobación.</h3>
+            <h3 class="text-2xl md:text-3xl font-poppins text-[#4EAC9F] italic mt-2">Solo autenticidad.</h3>
+        </div>
+         <!-- SECTION 7: Conclusion (Arch Left) -->
+         <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+             <div class="w-full md:w-1/2 order-2 md:order-1">
+                 <div class="rounded-t-full overflow-hidden shadow-xl   max-w-sm mx-auto">
+                    <Image src={img7} alt="Conclusión" class="w-full h-auto aspect-[3/4] object-cover" />
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 order-1 md:order-2 text-[#D1C1A3] space-y-6">
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-poppins font-bold text-[#D1C1A3] italic mb-4">
+                        Conclusión: El amor sin etiquetas también merece lujo, belleza y ritual.
+                    </h3>
+                </div>
+                <div class="text-[#333638] space-y-4 font-poppins text-lg leading-relaxed">
+                    <p>
+                        Tu boda igualitaria no necesita ser diferente para ser especial. Quien te entiende de amor y de lujo. Que todo sea como tú lo deseas: elegante, memorable y auténtico. Tu historia merece ser contada con la misma grandeza que cualquier otra historia de amor.
+                    </p>
+                    <p>
+                        Que planear sea tan placer como el día de tu boda, y que, al final, se respire amor.
+                    </p>
+                </div>
+
+                 <div class="pt-6">
+                    <a href="https://wa.me/573168753305?text=Hola! quisiera asesoria para mi boda igualitaria" class="inline-block bg-[#333638] text-[#FDF5E9] px-8 py-4 rounded-full font-poppins font-medium hover:bg-[#4EAC9F] transition-colors shadow-lg">
+                        Contáctanos para más asesoría
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Quote -->
+
+
+    </div>
+</div>
+
+<style>
+    /* Ensure font classes are working if global not sufficient */
+    .font-alice { font-family: 'Alice', serif; }
+    .font-poppins { font-family: 'Poppins', sans-serif; }
+</style>
