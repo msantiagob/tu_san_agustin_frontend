@@ -1,0 +1,374 @@
+---
+import { Image } from 'astro:assets';
+
+// Import images
+import imgHero from '../../assets/images/gourmet-wedding/bodas_de_destino_tusanagustin_003.webp'; // Couple / Toasting
+import imgMenu from '../../assets/images/gourmet-wedding/0J8A2335.webp'; // Plate
+import imgStations from '../../assets/images/gourmet-wedding/018-Página-3-gourmet-wedding-catering_estaciones_interactivas.webp'; // Drinks/Stations
+import imgPlating from '../../assets/images/gourmet-wedding/tusanagustin_gourmet_wedding_catering_carrusel_001.webp'; // Plated Food
+import imgGallery1 from '../../assets/images/gourmet-wedding/0J8A2290.webp';
+import imgGallery2 from '../../assets/images/gourmet-wedding/tusanagustin_gourmet_wedding_catering_carrusel_002.webp'; // Cocktail
+import imgGallery3 from '../../assets/images/gourmet-wedding/tusanagustin_gourmet_wedding_catering_carrusel_005.webp'; // Sushi/Appetizer
+import imgGallery4 from '../../assets/images/gourmet-wedding/0J8A2112 (1).webp'; // Added for gallery
+import imgGallery5 from '../../assets/images/gourmet-wedding/0J8A2290.webp'; // Added for gallery
+import imgTestimonial from '../../assets/images/gourmet-wedding/bodas_de_destino_tusanagustin_003.webp'; // Another couple or similar
+
+---
+
+<div class="bg-[#FDF5E9] w-full overflow-hidden pb-20">
+    <div class="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24 space-y-24 md:space-y-32">
+
+        <!-- SECTION 1: Sabores que Enamoran (Arched Image Left) -->
+        <div class="flex flex-col md:flex-row items-stretch gap-4">
+            <div class="w-full md:w-1/2 relative">
+                 <!-- Arched Image Shape: rounded-t-full -->
+                 <!-- Align right on desktop to be closer to text -->
+                <div class="rounded-t-[10rem] md:rounded-t-[15rem] rounded-b-none overflow-hidden shadow-xl max-w-sm mx-auto md:mr-0 h-[450px] md:h-[550px] relative group cursor-pointer video-container">
+                    <video
+                        class="w-full h-full object-cover"
+                        playsinline
+                        poster={imgHero.src}
+                    >
+                        <source src="/video-catering.mp4" type="video/mp4" />
+                        Tu navegador no soporta el tag de video.
+                    </video>
+                    <!-- Play Overlay -->
+                    <div class="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center play-overlay">
+                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-24 h-24 text-[#FDF5E9] drop-shadow-xl filter group-hover:scale-110 transition-transform duration-300">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 flex flex-col">
+                <!-- Wrapper to match image height and distribute content -->
+                 <!-- Mobile: auto height + small gap. Desktop: fixed height + justify-between -->
+                 <div class="flex flex-col gap-2 md:gap-0 md:justify-between h-auto md:h-[550px]">
+                    <div>
+                        <h2 class="text-2xl md:text-3xl lg:text-4xl font-poppins font-bold text-[#D1C1A3] leading-tight italic">
+                            <span class="block">Sabores que Enamoran</span>
+                            <span class="text-[#4EAC9F] not-italic">en tu Boda de Destino</span>
+                        </h2>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl md:text-2xl font-poppins font-bold text-[#D1C1A3] italic">
+                            Mucho más que comida
+                        </h3>
+                    </div>
+
+                    <div class="text-[#333638] font-poppins text-base leading-relaxed">
+                        <p>
+                            En una boda de destino, la comida no solo alimenta: cuenta una historia. Nuestro servicio de gourmet wedding catering está diseñado para transformar cada momento en una experiencia sensorial única. Desde el cóctel de bienvenida hasta el último bocado del postre, cada plato está pensado para enamorar.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- "¿Qué incluye nuestro Catering Gourmet?" Title below Section 1 -->
+         <div class="text-center">
+            <h3 class="text-2xl md:text-3xl font-poppins font-bold text-[#D1C1A3]">
+                ¿Qué incluye nuestro
+            </h3>
+            <h3 class="text-3xl md:text-4xl font-poppins font-bold text-[#4EAC9F]">
+                Catering Gourmet?
+            </h3>
+        </div>
+
+        <!-- SECTION 2: Menús personalizados (Text Left, Image Right) -->
+        <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+            <div class="w-full md:w-1/2 order-1 text-[#D1C1A3] space-y-4">
+                 <h3 class="text-2xl md:text-3xl font-poppins font-bold text-[#D1C1A3] italic leading-tight">
+                    Menús personalizados<br>
+                    por temporada y locación.
+                 </h3>
+                <div class="text-[#333638] space-y-4 font-poppins text-lg leading-relaxed">
+                    <p>
+                        En una boda de destino, la comida no solo alimenta: cuenta una historia. Nuestro servicio de gourmet wedding catering está diseñado para transformar cada momento en una experiencia sensorial única. Desde el cóctel de bienvenida hasta el último bocado del postre, cada plato está pensado para enamorar.
+                    </p>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 order-2">
+                <div class="rounded-[3rem] overflow-hidden shadow-lg shadow-[#D1C1A3]/30 max-w-lg mx-auto md:ml-auto">
+                    <Image src={imgMenu} alt="Plato Gourmet" class="w-full h-auto aspect-[4/3] object-cover" />
+                </div>
+            </div>
+        </div>
+
+         <!-- SECTION 3: Estaciones interactivas (Image Left, Text Right) -->
+         <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+            <div class="w-full md:w-1/2 order-2 md:order-1">
+                <div class="rounded-[3rem] overflow-hidden shadow-lg shadow-[#D1C1A3]/30 max-w-lg mx-auto md:mr-auto">
+                    <Image src={imgStations} alt="Estaciones de coctelería" class="w-full h-auto aspect-[4/3] object-cover" />
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 order-1 md:order-2 text-[#D1C1A3] space-y-4">
+                 <h3 class="text-2xl md:text-3xl font-poppins font-bold text-[#D1C1A3] italic leading-tight">
+                    Estaciones interactivas<br>
+                    y coctelería de autor.
+                 </h3>
+                <div class="text-[#333638] space-y-4 font-poppins text-lg leading-relaxed">
+                    <p>
+                        Dale a tus invitados una experiencia inolvidable con estaciones de ceviches, barras de charcutería, postres al fuego o mixología&nbsp;personalizada.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 4: Emplatado artístico (Text Left, Image Right) -->
+        <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+            <div class="w-full md:w-1/2 order-1 text-[#D1C1A3] space-y-4">
+                 <h3 class="text-2xl md:text-3xl font-poppins font-bold text-[#D1C1A3] italic leading-tight">
+                    Emplatado artístico<br>
+                    y servicio impecable.
+                 </h3>
+                <div class="text-[#333638] space-y-4 font-poppins text-lg leading-relaxed">
+                    <p>
+                        Más que comida: arte comestible. Nuestro equipo cuida cada detalle para lograr presentaciones dignas de fotografía&nbsp;editorial.
+                    </p>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 order-2">
+                <div class="rounded-[3rem] overflow-hidden shadow-lg shadow-[#D1C1A3]/30 max-w-lg mx-auto md:ml-auto">
+                    <Image src={imgPlating} alt="Emplatado artístico" class="w-full h-auto aspect-[4/3] object-cover" />
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 5: Gallery (3 Top, 2 Bottom) -->
+        <div class="space-y-6">
+            <!-- Top Row: 3 Images -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                 <div class="rounded-[3rem] overflow-hidden shadow-lg">
+                    <Image src={imgGallery1} alt="Plato detalle 1" class="w-full h-64 object-cover" />
+                 </div>
+                 <div class="rounded-[3rem] overflow-hidden shadow-lg">
+                    <Image src={imgGallery2} alt="Plato detalle 2" class="w-full h-64 object-cover" />
+                 </div>
+                 <div class="rounded-[3rem] overflow-hidden shadow-lg">
+                    <Image src={imgGallery3} alt="Plato detalle 3" class="w-full h-64 object-cover" />
+                 </div>
+            </div>
+            <!-- Bottom Row: 2 Images (Centered) -->
+            <div class="flex flex-col md:flex-row justify-center gap-6">
+                 <div class="w-full md:w-1/3 rounded-[3rem] overflow-hidden shadow-lg">
+                    <Image src={imgGallery4} alt="Plato detalle 4" class="w-full h-64 object-cover" />
+                 </div>
+                 <div class="w-full md:w-1/3 rounded-[3rem] overflow-hidden shadow-lg">
+                    <Image src={imgGallery5} alt="Plato detalle 5" class="w-full h-64 object-cover" />
+                 </div>
+            </div>
+        </div>
+
+        <!-- SECTION 6: Options + Video -->
+        <div class="space-y-12 text-center">
+             <div>
+                <h3 class="text-3xl md:text-4xl font-poppins font-bold text-[#D1C1A3]">
+                    Opciones para todos los
+                </h3>
+                <h3 class="text-3xl md:text-4xl font-poppins font-bold text-[#4EAC9F]">
+                    gustos y necesidades.
+                </h3>
+                <p class="max-w-2xl mx-auto mt-6 text-[#333638] text-lg">
+                    Ofrecemos alternativas vegetarianas, veganas, kosher y sin gluten, manteniendo siempre el estándar gourmet.
+                </p>
+            </div>
+
+            <div class="rounded-[3rem] overflow-hidden shadow-xl max-w-2xl mx-auto aspect-video relative group">
+                 <iframe
+                    width="100%"
+                    height="100%"
+                    src="https://www.youtube.com/embed/rxp0AQ8aGk0?si=VGAtanK4b2DHVukq"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                    class="w-full h-full object-cover"
+                ></iframe>
+            </div>
+        </div>
+
+        <!-- SECTION 6.5: Destination Weddings (Text Left, Video Right) -->
+        <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+            <div class="w-full md:w-1/2 text-[#D1C1A3] space-y-6">
+                <div>
+                     <h3 class="text-2xl md:text-3xl font-poppins font-bold text-[#D1C1A3] italic mb-1">Ideal para</h3>
+                     <h2 class="text-4xl md:text-5xl font-poppins font-bold text-[#4EAC9F] leading-tight">
+                        Destination Weddings<br>en Colombia
+                     </h2>
+                </div>
+                <div class="text-[#333638] space-y-4 font-poppins text-lg leading-relaxed">
+                    <p>
+                        Si planeas tu boda con un <span class="text-[#4EAC9F]">Wedding Planner en Medellín</span> o buscas una experiencia completa en el país, nuestro equipo está alineado con la logística integral de bodas de destino.
+                    </p>
+                </div>
+
+                 <div class="space-y-4">
+                    <h3 class="text-3xl font-poppins font-bold text-[#4EAC9F] italic">Nos encargamos de:</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-[#333638] font-poppins text-lg">
+                            <span class="w-2 h-2 rounded-full bg-[#D1C1A3]"></span>
+                            Coordinación con el venue
+                        </li>
+                        <li class="flex items-center gap-3 text-[#333638] font-poppins text-lg">
+                             <span class="w-2 h-2 rounded-full bg-[#D1C1A3]"></span>
+                            Montaje de estaciones móviles o cocina in situ
+                        </li>
+                        <li class="flex items-center gap-3 text-[#333638] font-poppins text-lg">
+                             <span class="w-2 h-2 rounded-full bg-[#D1C1A3]"></span>
+                            Staff capacitado bilingüe
+                        </li>
+                         <li class="flex items-center gap-3 text-[#333638] font-poppins text-lg">
+                             <span class="w-2 h-2 rounded-full bg-[#D1C1A3]"></span>
+                            Degustaciones presenciales o virtuales
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+             <div class="w-full md:w-1/2">
+                <div class="rounded-[3rem] overflow-hidden shadow-xl max-w-lg mx-auto aspect-video relative group">
+                     <iframe
+                        width="100%"
+                        height="100%"
+                        src="https://www.youtube.com/embed/9ikUiXRqblo?si=Ryv8Dn0oV46gQvVT"
+                        title="Destination Weddings Video"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen
+                        class="w-full h-full object-cover"
+                    ></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 7: Testimonios / Call To Action (Arched Image Left) -->
+         <div class="flex flex-col md:flex-row items-center gap-10 md:gap-24 relative">
+
+            <div class="w-full md:w-1/2 relative space-y-6">
+                 <!-- Centered Heading above image -->
+                 <div class="text-center">
+                     <h3 class="text-3xl md:text-4xl font-poppins font-bold text-[#D1C1A3] italic">Testimonios Reales.</h3>
+                 </div>
+
+                <!-- Arched Image Shape -->
+                <div class="rounded-t-[10rem] md:rounded-t-[15rem] rounded-b-none overflow-hidden shadow-xl max-w-sm mx-auto h-[450px] md:h-[550px] relative group cursor-pointer video-container">
+                    <video
+                        class="w-full h-full object-cover"
+                        playsinline
+                        poster={imgTestimonial.src}
+                    >
+                        <source src="/video.mp4" type="video/mp4" />
+                        Tu navegador no soporta el tag de video.
+                    </video>
+                    <!-- Play Overlay -->
+                    <div class="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center play-overlay">
+                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-24 h-24 text-[#FDF5E9] drop-shadow-xl filter group-hover:scale-110 transition-transform duration-300">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full md:w-1/2 text-center space-y-8">
+                 <div>
+                    <h3 class="text-3xl md:text-4xl font-poppins font-bold text-[#D1C1A3]">
+                        ¿Quieres probar
+                    </h3>
+                    <h3 class="text-3xl md:text-4xl font-poppins font-bold text-[#D1C1A3]">
+                        antes de decidir?
+                    </h3>
+                </div>
+                <div class="text-[#333638] text-lg leading-relaxed">
+                    <p>
+                        Solicita una degustación virtual o presencial con nuestro chef ejecutivo y arma el menú de tus sueños.
+                    </p>
+                </div>
+
+                <div class="pt-4">
+                    <a href="https://wa.me/573168753305?text=Hola! quisiera agendar una degustación" class="inline-block bg-[#333638] text-[#FDF5E9] px-8 py-3 rounded-full font-poppins font-medium hover:bg-[#4EAC9F] transition-colors shadow-lg italic">
+                        Agenda tu degustación ahora
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<script>
+    document.addEventListener('astro:page-load', () => {
+        const containers = document.querySelectorAll('.video-container');
+
+        containers.forEach(container => {
+            const video = container.querySelector('video');
+            const overlay = container.querySelector('.play-overlay');
+
+            if (!video || !overlay) return;
+
+            // Toggle play/pause on click
+            container.addEventListener('click', () => {
+                if (video.paused) {
+                    video.play();
+                    overlay.classList.add('opacity-0', 'pointer-events-none');
+                } else {
+                    video.pause();
+                    overlay.classList.remove('opacity-0', 'pointer-events-none');
+                }
+            });
+
+            // Show overlay again if video ends
+
+            video.addEventListener('ended', () => {
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+                video.load();
+            });
+        });
+    });
+
+    // Fallback for non-ViewTransitions if astro:page-load isn't firing immediately on first load
+    // (Optional, but good practice since I don't see ViewTransitions explicitly on/off, but standard script works too)
+    // Actually, simple DOMContentLoaded or immediate execution for the script is safer if not using ViewTransitions.
+    // Given the previous script was inline, I'll use a standard self-executing logic or just add the listener.
+
+    function initVideos() {
+        const containers = document.querySelectorAll('.video-container');
+        containers.forEach(container => {
+            const video = container.querySelector('video');
+            const overlay = container.querySelector('.play-overlay');
+
+            if (!video || !overlay) return;
+
+            container.addEventListener('click', () => {
+                if (video.paused) {
+                    video.play();
+                    overlay.classList.add('opacity-0', 'pointer-events-none');
+                } else {
+                    video.pause();
+                    overlay.classList.remove('opacity-0', 'pointer-events-none');
+                }
+            });
+
+            video.addEventListener('ended', () => {
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+                video.load();
+            });
+        });
+    }
+
+    // Run on load
+    initVideos();
+
+    // Also support Astro View Transitions if later added
+    document.addEventListener('astro:after-swap', initVideos);
+</script>
+
+
+
+<style>
+    .font-poppins { font-family: 'Poppins', sans-serif; }
+</style>
