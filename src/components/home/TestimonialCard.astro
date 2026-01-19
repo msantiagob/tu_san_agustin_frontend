@@ -1,0 +1,89 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  image: string | any;
+  text: string;
+  link: string;    // Texto del título (ej: Mitsubishi)
+  linkUrl: string; // URL de destino
+  noHighlight?: boolean;
+}
+
+const { image, text, link, linkUrl, noHighlight = false } = Astro.props;
+
+// Function to highlight specific names
+const highlightNames = (text: string) => {
+  if (noHighlight) return text;
+  const names = ["Fincadool", "Fincal Forest", "San Agustín", "Orquideorama"];
+  let result = text;
+  names.forEach(name => {
+    const regex = new RegExp(name, 'g');
+    result = result.replace(regex, `<span class="text-[#4a9a8c]">${name}</span>`);
+  });
+  // Force specific full phrases together
+  result = result.replace(/Orquideorama Jardín(?:&nbsp;|\s)Botánico/g, '<span class="whitespace-nowrap">Orquideorama Jardín Botánico</span>');
+  return result;
+};
+
+const highlightedText = highlightNames(text);
+// Verificación extra para evitar errores si la imagen viene vacía
+const isAsset = image && typeof image !== 'string';
+---
+
+<div class="testimonial-card flex flex-col items-center transition-all w-full max-w-[280px]">
+  <div class="relative z-10 mb-[-70px]">
+    <div class="rounded-full overflow-hidden border-4 border-[#f5f0e6] w-[140px] h-[140px] shadow-md bg-white">
+      {image ? (
+        isAsset ? (
+          <Image
+            src={image}
+            alt={link}
+            width={140}
+            height={140}
+            class="object-cover w-full h-full"
+            loading="lazy"
+            quality={70}
+            widths={[140, 280]}
+          />
+        ) : (
+          <img
+            src={image}
+            alt={link}
+            class="object-cover w-full h-full"
+            loading="lazy"
+          />
+        )
+      ) : (
+         /* Placeholder si no hay imagen */
+         <div class="w-full h-full bg-gray-200 flex items-center justify-center text-gray-400">Sin img</div>
+      )}
+    </div>
+  </div>
+
+  <div class="bg-[#D9D3CA] rounded-[30px] px-8 pt-24 pb-10 flex flex-col items-center justify-between text-center min-h-[420px] w-full shadow-sm" style="font-family: 'Poppins', sans-serif;">
+    <div class="flex-grow flex items-center justify-center w-full">
+      <p class="text-[#3a3a3a] leading-relaxed italic font-light text-[14px] max-w-[250px]" set:html={highlightedText} />
+    </div>
+
+    <div class="mt-6 flex flex-col items-center">
+      <h3
+        class="text-[#4a9a8c] mb-4 text-sm font-medium"
+      >
+        {link}
+      </h3>
+
+      <a
+        href={linkUrl}
+        class="bg-[#009688] text-white rounded-full px-8 py-2.5 hover:bg-[#00796b] transition-colors text-sm font-semibold shadow-sm inline-block cursor-pointer"
+      >
+        Ver más
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .testimonial-card {
+    /* Base style for non-centered slides is handled by Swiper/Parent */
+  }
+</style>

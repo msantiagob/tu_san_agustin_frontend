@@ -1,0 +1,48 @@
+---
+import '../styles/global.css';
+import ScrollToTop from '../components/ui/ScrollToTop.astro';
+import SearchModal from '../components/ui/SearchModal.astro';
+import { getImage } from 'astro:assets';
+
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+	<head>
+ <meta charset="UTF-8">
+      <meta name="description"
+      content="En una boda de destino, la comida no solo alimenta: cuenta una historia. Nuestro servicio de gourmet wedding catering está diseñado para transformar cada momento en una experiencia sensorial única">
+<!-- Schema.org para Google+ -->
+
+<meta itemprop="name" content="Gourmet Wedding">
+<meta itemprop="description"
+      content="En una boda de destino, la comida no solo alimenta: cuenta una historia. Nuestro servicio de gourmet wedding catering está diseñado para transformar cada momento en una experiencia sensorial única">
+<meta itemprop="image" content=" https://www.tusanagustin.com/assets/media/blog/bodas-igualitarias-en-medellin/272.jpg">
+<!-- Open Graph para Facebook-->
+<meta property="og:title" content="BODAS IGUALITARIAS EN MEDELLÍN"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://www.tusanagustin.com/blog/bodas-igualitarias-en-medellin"/>
+<meta property="og:image" content="https://www.tusanagustin.com/assets/media/blog/bodas-igualitarias-en-medellin/272.jpg"/>
+<meta property="og:description"
+      content="En una boda de destino, la comida no solo alimenta: cuenta una historia. Nuestro servicio de gourmet wedding catering está diseñado para transformar cada momento en una experiencia sensorial única"/>
+<meta property="og:site_name" content="Tu San Agustin"/>
+<meta property="og:locale" content="es_LA">
+	</head>
+
+	<meta name="keywords" content="Gourmet Wedding, Boda de destino, Catering gourmet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="Sn6woLackUqYanWzaUZGKRRqVT9twqtK2XgC4UVm"/>
+    <title> LEGALIDAD SIN DRAMA - TU SAN AGUSTÍN</title>
+	<body class="min-h-screen font-sans antialiased">
+		<slot />
+        <ScrollToTop />
+        <SearchModal />
+	</body>
+</html>

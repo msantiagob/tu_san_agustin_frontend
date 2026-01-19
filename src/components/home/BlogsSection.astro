@@ -1,8 +1,8 @@
 ---
-import ServiceCard from '../ui/ServiceCard.astro';
-import imgBlog1 from '../../assets/images/home-47.webp';
-import imgBlog2 from '../../assets/images/home-50.webp';
-import imgBlog3 from '../../assets/images/home-53.webp';
+import ServiceCard from '../ui/home/ServiceCard.astro';
+import imgBlog1 from '../../assets/images/home/DSC_6916-_1_.webp';
+import imgBlog2 from '../../assets/images/home/MPYV9834.webp';
+import imgBlog3 from '../../assets/images/home/home-53.webp';
 
 const blogs = [
     {
@@ -29,13 +29,13 @@ const blogs = [
 const infiniteBlogs = [...blogs, ...blogs];
 ---
 
-<section class="bg-brand-cream pt-10 pb-4 md:py-20 px-4 md:px-10">
+<section class="bg-[#FDF5E9 ] pt-10 pb-4 md:py-20 px-4 md:px-10">
     <div class="max-w-[1400px] mx-auto space-y-12">
-        
+
         <!-- Heading -->
         <h2 class="text-4xl md:text-7xl font-extrabold flex flex-col leading-[1.05] max-w-6xl mx-auto">
-            <span class="text-teal">Blog, Ideas Y</span>
-            <span class="text-tan">Consejos</span>
+            <span class="text-[#4EAC9F]">Blog, Ideas Y</span>
+            <span class="text-[#D1C1A3]">Consejos</span>
         </h2>
 
         <div class="relative group">
@@ -52,17 +52,17 @@ const infiniteBlogs = [...blogs, ...blogs];
                 <div class="swiper-wrapper">
                     {infiniteBlogs.map((blog, index) => (
                         <div class="swiper-slide">
-                            <ServiceCard 
-                                variant="blog" 
-                                title={blog.title} 
+                            <ServiceCard
+                                variant="blog"
+                                title={blog.title}
                                 description={blog.description}
-                                image={blog.image} 
-                                url={blog.url} 
+                                image={blog.image}
+                                url={blog.url}
                             />
                         </div>
                     ))}
                 </div>
-                
+
                 <div class="swiper-pagination"></div>
             </div>
         </div>
@@ -89,7 +89,7 @@ const infiniteBlogs = [...blogs, ...blogs];
                     delay: 4000,
                     disableOnInteraction: false,
                 },
-               
+
                 navigation: {
                     nextEl: ".swiper-next-blogs",
                     prevEl: ".swiper-prev-blogs",
@@ -119,12 +119,12 @@ const infiniteBlogs = [...blogs, ...blogs];
     .swiper-slide {
         will-change: transform;
     }
-    
+
     .swiper-prev-blogs, .swiper-next-blogs {
         width: 48px;
         height: 48px;
     }
-    
+
     :global(.mySwiperBlogs .swiper-pagination-bullet) {
         background-color: #CBD5E0;
         opacity: 1;

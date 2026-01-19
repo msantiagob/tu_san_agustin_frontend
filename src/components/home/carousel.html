@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section Carousel Component</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos específicos del carrusel */
+        .carousel-font {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 1000px; /* Ancho máximo del área interactiva */
+            height: 350px; /* Altura fija necesaria para el posicionamiento absoluto */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto; /* Centrar horizontalmente */
+        }
+
+        .carousel-container {
+            perspective: 1000px;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            position: absolute;
+            transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+            
+            /* TAMAÑO (Pequeño como pediste) */
+            width: 180px;  
+            height: 220px; 
+            
+            border-radius: 1.5rem; 
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            overflow: hidden;
+            background-color: white;
+        }
+
+        .card-decoration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 75%;
+            background-color: #4EAC9F; 
+            border-radius: 1.5rem;
+            z-index: 0;
+        }
+        
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+            z-index: 10;
+            border-radius: 1.5rem;
+        }
+
+        /* --- POSICIONES (Separadas como pediste) --- */
+        
+        /* Centro */
+        .pos-3 {
+            transform: translateX(0) translateY(-20px) scale(1.1);
+            z-index: 30;
+            opacity: 1;
+        }
+
+        /* Izquierda Visible */
+        .pos-2 {
+            transform: translateX(-260px) translateY(20px) rotate(-10deg) scale(0.9);
+            z-index: 20;
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        /* Derecha Visible */
+        .pos-4 {
+            transform: translateX(260px) translateY(20px) rotate(10deg) scale(0.9);
+            z-index: 20;
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        /* Izquierda Invisible */
+        .pos-1 {
+            transform: translateX(-450px) translateY(80px) rotate(-30deg) scale(0.6);
+            z-index: 10;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Derecha Invisible */
+        .pos-5 {
+            transform: translateX(450px) translateY(80px) rotate(30deg) scale(0.6);
+            z-index: 10;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #4EAC9F;
+            border-radius: 50%;
+            padding: 0.8rem;
+            z-index: 50;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        .nav-arrow:hover {
+            background-color: #4EAC9F;
+            color: white;
+            box-shadow: 0 10px 25px rgba(45, 212, 191, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    
+
+    <section class="w-full relative overflow-hidden py-16 carousel-font" style="background: linear-gradient(to bottom, #FFFBF2 0%, #A6A6A6 50%, #2D2D2D 100%);">
+        
+        <div class="container mx-auto px-4">
+            
+            <div class="text-center mb-10 relative z-10">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-[#2D2D2D]">
+                    Conoce a nuestros <span class="text-[#4EAC9F] italic">Planners</span>
+                </h2>
+            </div>
+
+           <div class="carousel-wrapper relative z-50"> <button class="nav-arrow left-2 md:-left-16" onclick="rotate('right')">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+        </svg>              
+    </button>
+
+    <div class="carousel-container">
+        
+        <div class="card pos-1">
+            <div class="card-decoration"></div>
+            <img src="http://nepruebas.space/uploads/Tu-San-Agustin-Home_planner2.png" alt="Planner A">
+        </div>
+        <div class="card pos-2" onclick="rotate('right')">
+            <div class="card-decoration"></div>
+            <img src="http://nepruebas.space/uploads/Tu-San-Agustin-Home_planner1.png" alt="Planner B">
+        </div>
+        <div class="card pos-3">
+            <div class="card-decoration"></div>
+            <img src="http://nepruebas.space/uploads/Tu-San-Agustin-Home_planner3.png" alt="Planner C">
+        </div>
+        <div class="card pos-4" onclick="rotate('left')">
+            <div class="card-decoration"></div>
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Planner D">
+        </div>
+        <div class="card pos-5">
+            <div class="card-decoration"></div>
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Planner E">
+        </div>
+
+    </div>
+
+    <button class="nav-arrow right-2 md:-right-16" onclick="rotate('left')">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+        </svg>
+    </button>
+</div>
+
+        </div>
+    </section>
+  
+
+    <script>
+        // Lógica Javascript
+        const cards = document.querySelectorAll('.card');
+        let positions = ['pos-1', 'pos-2', 'pos-3', 'pos-4', 'pos-5'];
+
+        function updateCards() {
+            cards.forEach((card, index) => {
+                card.classList.remove('pos-1', 'pos-2', 'pos-3', 'pos-4', 'pos-5');
+                card.classList.add(positions[index]);
+            });
+        }
+
+        function rotate(direction) {
+            if (direction === 'left') {
+                positions.unshift(positions.pop());
+            } else {
+                positions.push(positions.shift());
+            }
+            updateCards();
+        }
+    </script>
+</body>
+</html>

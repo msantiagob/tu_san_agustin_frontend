@@ -1,27 +1,27 @@
 ---
-import ServiceCard from '../ui/ServiceCard.astro';
-import imgQuince from '../../assets/images/quince.webp';
-import imgCelebraciones from '../../assets/images/home-18.webp';
-import imgPlanner from '../../assets/images/home-01.webp';
+import ServiceCard from '../ui/home/ServiceCard.astro';
+import imgQuince from '../../assets/images/home/quince.webp';
+import imgCelebraciones from '../../assets/images/home/home-18.webp';
+import imgPlanner from '../../assets/images/home/home-01.webp';
 ---
 
 <div class="w-full max-w-7xl relative mx-auto px-4 md:px-16 py-10">
-    
+
     <button class="swiper-prev-custom absolute left-0 top-[40%] -translate-y-1/2 z-50 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center hover:bg-gray-50 transition-all border border-gray-100 text-gray-800 cursor-pointer" aria-label="Anterior">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
     </button>
-    
+
     <button class="swiper-next-custom absolute right-0 top-[40%] -translate-y-1/2 z-50 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center hover:bg-gray-50 transition-all border border-gray-100 text-gray-800 cursor-pointer" aria-label="Siguiente">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
     </button>
 
     <div class="swiper mySwiperIntro !p-6">
         <div class="swiper-wrapper">
-            
+
             {/* Original Slides */}
             <div class="swiper-slide pb-12">
-                <ServiceCard 
-                    title="Fiestas de 15 años" 
+                <ServiceCard
+                    title="Fiestas de 15 años"
                     image={imgQuince}
                     url="https://www.tusanagustin.com/servicios/15-anos"
                     width={500}
@@ -29,16 +29,16 @@ import imgPlanner from '../../assets/images/home-01.webp';
                 />
             </div>
             <div class="swiper-slide pb-12">
-                <ServiceCard 
-                    title="Celebraciones" 
+                <ServiceCard
+                    title="Celebraciones"
                     image={imgCelebraciones}
                     width={500}
                     height={700}
                 />
             </div>
             <div class="swiper-slide pb-12">
-                <ServiceCard 
-                    title="Event & wedding planner" 
+                <ServiceCard
+                    title="Event & wedding planner"
                     image={imgPlanner}
                     url="https://www.tusanagustin.com/servicios/event-planner"
                     width={500}
@@ -48,8 +48,8 @@ import imgPlanner from '../../assets/images/home-01.webp';
 
             {/* Duplicates for Loop */}
             <div class="swiper-slide pb-12">
-                <ServiceCard 
-                    title="Fiestas de 15 años" 
+                <ServiceCard
+                    title="Fiestas de 15 años"
                     image={imgQuince}
                     url="https://www.tusanagustin.com/servicios/15-anos"
                     width={500}
@@ -57,16 +57,16 @@ import imgPlanner from '../../assets/images/home-01.webp';
                 />
             </div>
             <div class="swiper-slide pb-12">
-                <ServiceCard 
-                    title="Celebraciones" 
+                <ServiceCard
+                    title="Celebraciones"
                     image={imgCelebraciones}
                     width={500}
                     height={700}
                 />
             </div>
             <div class="swiper-slide pb-12">
-                <ServiceCard 
-                    title="Event & wedding planner" 
+                <ServiceCard
+                    title="Event & wedding planner"
                     image={imgPlanner}
                     url="https://www.tusanagustin.com/servicios/event-planner"
                     width={500}
@@ -79,7 +79,7 @@ import imgPlanner from '../../assets/images/home-01.webp';
 
     <!-- CTA Button -->
     <div class="flex justify-center mt-8">
-        <button class="bg-charcoal text-white px-12 py-3 rounded-full text-lg italic font-light tracking-wide hover:bg-opacity-90 transition-all shadow-lg">
+        <button class="bg-[#333638] text-white px-12 py-3 rounded-full text-lg italic font-light tracking-wide hover:bg-opacity-90 transition-all shadow-lg">
             Ver más
         </button>
     </div>
@@ -88,12 +88,12 @@ import imgPlanner from '../../assets/images/home-01.webp';
 <style>
     /* Forzar que el swiper sea visible y permita arrastre */
     .swiper { width: 100%; height: auto; }
-    .swiper-slide { 
-        height: auto; 
+    .swiper-slide {
+        height: auto;
         user-select: none;
         will-change: transform; /* Performance hint for browser */
     }
-    
+
     /* Si las flechas no aparecen, es por el Z-INDEX */
     .swiper-prev-custom, .swiper-next-custom {
         display: flex !important;
@@ -141,7 +141,7 @@ import imgPlanner from '../../assets/images/home-01.webp';
 
     // Ejecutar al cargar la página
     initIntroSwiper();
-    
+
     // Soporte para View Transitions de Astro
     document.addEventListener('astro:page-load', initIntroSwiper);
 </script>
