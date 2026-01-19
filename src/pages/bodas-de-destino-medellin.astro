@@ -1,0 +1,281 @@
+---
+// src/pages/bodas-destino.astro
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import ServiceCardDescription from '../components/ui/ServiceCardDescription.astro';
+import TurismoBlock from '../components/home/TurismoBlock.astro';
+import Banner from '../components/wedding-destination/Banner.astro';
+import { Image } from 'astro:assets';
+import LocacionesCarrousel from '../components/ui/LocacionesCarrousel.astro';
+
+// Importaciones de imágenes existentes
+import imgBoda from '../assets/images/boda-destinos/MPYV8199.jpg';
+import imgParty from '../assets/images/boda-destinos/Captura de pantalla 2025-12-23 171052.png';
+import videoParty from '../assets/images/boda-destinos/video.mp4';
+import img1 from '../assets/images/boda-destinos/MPYV8094.jpg';
+import img2 from '../assets/images/boda-destinos/the-now-time-MA2A-5pRnsU-unsplash.jpg';
+import img3 from '../assets/images/boda-destinos/MPYV8243.jpg';
+
+// IMPORTANTE: Importa las imágenes para los servicios
+import imgNot from '../assets/images/boda-destinos/not.png';
+
+const lang = 'es';
+
+// Ahora usa las imágenes importadas en lugar de strings
+const services = [
+  {
+    image: imgNot, // Objeto ImageMetadata, no string
+    title: 'Gastronomía',
+    subtitle: 'Expertos en Sabadores',
+    description: 'Nuestra fuerte gastronómica se concentra la creatividad y diseño al fusionar sabores de alta cocina en platos de autor, buffet internacional, canapés, postres, parrilladas menú criollo, catering empresarial, bebidas y cócteles, entre otros.'
+  },
+  {
+    image: imgNot, // Objeto ImageMetadata, no string
+    title: 'Decoración',
+    subtitle: 'Expertas en Tendencias',
+    description: 'Somos especialistas en decoraciones. Contamos con un equipo de especialistas, con gran experiencia en el diseño, preparación y realización de decoraciones especiales, llenas de detalles y sentimientos.'
+  },
+  {
+    image: imgNot, // Objeto ImageMetadata, no string
+    title: 'Lugares para eventos',
+    subtitle: 'Tenemos más de 90 lugares para ti',
+    description: 'Tenemos para ti los Mejores Lugares para tus Eventos. Sedes campestres, salones, hoteles, centros de convenciones, haciendas, clubes.'
+  }
+];
+---
+
+<Layout title='Bodas de Destino' lang={lang}>
+  <Navbar lang={lang} />
+  <main class='min-h-screen'>
+    <section aria-label='Banner principal'>
+      <Banner
+        lang={lang}
+        bannerImage={imgBoda}
+        title="Bodas de Destino"
+        subtitle="Medellín"
+      />
+    </section>
+
+    <section class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-16">
+      <div class="flex flex-col items-start space-y-6 text-left order-2 lg:order-1 px-4 lg:px-0">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl text-[#C5A880] leading-tight italic">
+          Cásate en Medellín, Colombia
+        </h1>
+        
+        <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-teal italic">
+          Boda y luna de miel, dos en uno
+        </h2>
+        
+        <p class="text-gray-600 text-lg leading-relaxed max-w-lg">
+          Las bodas destino son celebraciones íntimas en un lugar lejano al de residencia de la pareja y sus invitados. Ofrecemos una experiencia inolvidable y vacacional en escenarios maravillosos para festejar el amor.
+        </p>
+        
+        <div class="pt-4">
+          <button class="bg-[#2D2D2D] text-white px-8 py-3 rounded-full hover:bg-black transition-colors duration-300 font-medium text-sm md:text-base shadow-lg cursor-pointer">
+            Agenda una cita con un especialista
+          </button>
+        </div>
+      </div>
+
+      <div class="relative order-1 lg:order-2 flex justify-center lg:justify-end">
+        <div class="relative w-full max-w-md lg:max-w-full aspect-[4/5] lg:aspect-[3/4] overflow-hidden rounded-t-[150px] lg:rounded-t-[300px] shadow-xl">
+           <img
+            src={imgParty.src}
+            alt="Pareja bailando en su boda" 
+            class="w-full h-full object-cover"
+           />
+           <div class="absolute inset-0 bg-orange-900/10 pointer-events-none"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative w-full h-[125vh] overflow-hidden">
+      <div class="absolute inset-0 flex flex-col justify-center items-center pointer-events-none">
+        <h2 class="text-[#D4C5A0] font-serif text-[100px] md:text-[150px] lg:text-[160px] leading-none opacity-40">
+          Bodas Destino
+        </h2>
+        <h2 class="text-[#D4C5A0] font-serif text-[100px] md:text-[150px] lg:text-[160px] leading-none opacity-40 my-5">
+          Bodas Destino
+        </h2>
+        <h2 class="text-[#D4C5A0] font-serif text-[100px] md:text-[150px] lg:text-[160px] leading-none opacity-40 my-5">
+          Bodas Destino
+        </h2>
+      </div>
+
+      <div class="absolute inset-0 flex items-center justify-center p-4 md:p-8">
+        <div class="relative w-full max-w-3xl aspect-video bg-black rounded-lg shadow-2xl overflow-hidden z-10">
+          <iframe 
+            class="w-full h-full"
+            src="https://www.youtube.com/embed/-GnMP4u3zWM?autoplay=0&controls=1"
+            title="Bodas Destino San Agustín"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-16">
+    <!-- YouTube Shorts Video -->
+    <div class="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto">
+    <div class="relative aspect-[9/16] overflow-hidden rounded-t-[100px] sm:rounded-t-[120px] lg:rounded-t-[180px] shadow-xl bg-black">
+      <iframe
+        class="absolute inset-0 w-full h-full"
+        src="https://www.youtube.com/embed/XNP22FN4Bas?feature=share"
+        title="Bodas de Destino"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        referrerpolicy="strict-origin-when-cross-origin"
+      ></iframe>
+      <!-- Overlay para ocultar elementos de YouTube -->
+      <div class="absolute inset-0 pointer-events-none z-10">
+        <!-- Oculta la parte superior (nombre del canal) -->
+        <div class="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-black/80 to-transparent"></div>
+        <!-- Oculta la parte inferior (botón suscribirse) -->
+        <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/80 to-transparent"></div>
+        <!-- Overlay sutil de color -->
+        <div class="absolute inset-0 bg-orange-900/10"></div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Contenido de Ventajas -->
+    <div class="flex flex-col items-start space-y-6 text-left order-2 lg:order-2 px-4 lg:px-0">
+      <h1 class="text-3xl md:text-4xl font-serif text-[#C5A880] leading-tight italic">
+        Bodas de Destino.
+      </h1>
+      
+      <h2 class="text-2xl md:text-3xl font-serif font-bold text-teal">
+        Ventajas
+      </h2>
+      
+      <ul class="space-y-4 text-gray-700">
+        <li class="flex items-start gap-3">
+          <span class="text-[#C5A880] mt-1">●</span>
+          <span>Tendrás una boda única entre todas.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-[#C5A880] mt-1">●</span>
+          <span>Tendrás solamente a los invitados más especiales</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-[#C5A880] mt-1">●</span>
+          <span>Te ahorras dinero.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-[#C5A880] mt-1">●</span>
+          <span>Pasarás tiempo de calidad con tus invitados.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-[#C5A880] mt-1">●</span>
+          <span>Tendrás las fotografías más épicas.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-[#C5A880] mt-1">●</span>
+          <span>Saldrás de la rutina.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-[#C5A880] mt-1">●</span>
+          <span>Puedes empezar tu luna de miel con más tiempo.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-[#C5A880] mt-1">●</span>
+          <span>Visitarás lugares encantadores.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="text-[#C5A880] mt-1">●</span>
+          <span>Disfrutarás de una oferta gastronómica de primer nivel.</span>
+        </li>
+      </ul>
+      
+      <div class="pt-4">
+        <button class="bg-[#2D2D2D] text-white px-6 py-2 rounded-full hover:bg-black transition-colors duration-300 font-medium text-sm shadow-lg cursor-pointer">
+          Ver más
+        </button>
+      </div>
+    </div>
+  </section> 
+
+    <section class="w-full py-16 px-4">
+      <div class="mx-[10vw]">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="relative group overflow-hidden rounded-[50px] shadow-lg">
+            <div class="aspect-[4/3] w-full">
+              <img 
+                src={img1.src}
+                alt="Salón de eventos con decoración elegante"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+            </div>
+          </div>
+
+          <div class="relative group overflow-hidden rounded-[50px] shadow-lg">
+            <div class="aspect-[4/3] w-full">
+              <img 
+                src={img2.src}
+                alt="Ceremonia de boda al aire libre con vista al mar"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+            </div>
+          </div>
+
+          <div class="relative group overflow-hidden rounded-[50px] shadow-lg">
+            <div class="aspect-[4/3] w-full">
+              <img 
+                src={img3.src}
+                alt="Pareja de novios con vista panorámica de la ciudad"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="w-full py-16 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col items-start text-left space-y-6">
+          <h2 class="text-3xl md:text-4xl lg:text-5xl font-serif leading-tight">
+            <span class="text-[#C5A880]">Planifica tu boda de</span><br />
+            <span class="text-teal font-bold">Ensueño</span>
+          </h2>
+          
+          <p class="text-gray-700 text-base md:text-lg leading-relaxed max-w-2xl">
+            Una boda destino en Medellín puede ser asequible con opciones todo incluido que incluyen el equipo especializado como el DJ, la banda musical, el fotógrafo y el planificador. Además, podrás anexar el valor de los vuelos de los asistentes y la luna de miel y actividades al aire libre.
+          </p>
+          
+          <div class="pt-4">
+            <button class="bg-[#2D2D2D] text-white px-6 py-3 rounded-full hover:bg-black transition-colors duration-300 font-medium text-sm shadow-lg cursor-pointer">
+              Agenda una cita con un especialista
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Turismo" class="my-8 md:my-16">
+      <TurismoBlock lang={lang} />
+    </section>
+
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map(service => (
+            <ServiceCardDescription
+              image={service.image}
+              title={service.title}
+              subtitle={service.subtitle}
+              description={service.description}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <LocacionesCarrousel />
+
+  </main>
+  <Footer lang={lang} />
+</Layout>

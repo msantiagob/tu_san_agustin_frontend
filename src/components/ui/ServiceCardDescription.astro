@@ -1,0 +1,40 @@
+---
+// src/components/ui/ServiceCardDescription.astro
+import { Image } from 'astro:assets';
+
+interface Props {
+  image: ImageMetadata;
+  title: string;
+  subtitle: string;
+  description: string;
+}
+
+const { image, title, subtitle, description } = Astro.props;
+---
+
+<div class="relative group">
+  <div class="overflow-hidden rounded-3xl">
+    <Image 
+      src={image} 
+      alt={title}
+      class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+      width={400}
+      height={256}
+    />
+  </div>
+  
+  <button 
+    class="absolute top-4 right-4 bg-slate-800 hover:bg-slate-900 text-white rounded-full p-3 transition-colors duration-200"
+    aria-label="Ver más"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10" />
+    </svg>
+  </button>
+
+  <div class="mt-4 text-center">
+    <h3 class="text-teal-500 font-semibold text-lg">{title}</h3>
+    <p class="text-teal-400 text-sm italic mb-2">{subtitle}</p>
+    <p class="text-gray-700 text-sm leading-relaxed">{description}</p>
+  </div>
+</div>

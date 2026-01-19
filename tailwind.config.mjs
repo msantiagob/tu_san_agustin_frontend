@@ -3,6 +3,10 @@ export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		extend: {
+			fontFamily: {
+				'serif': ['Lora', 'serif'], // Reemplaza la fuente serif por defecto
+				'lora': ['Lora', 'serif'],  // O crea una clase específica
+			},
 			colors: {
 				border: "hsl(var(--border))",
 				input: "hsl(var(--input))",
