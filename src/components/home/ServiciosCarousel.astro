@@ -1,0 +1,99 @@
+---
+import ServiceCardLabeled from './ui/home/ServiceCardLabeled.astro';
+import imgQuince from '../../assets/images/home/quince.webp';
+import imgCelebraciones from '../../assets/images/home/home-18.webp';
+import imgPlanner from '../../assets/images/home/home-01.webp';
+import imgBodas from '../../assets/images/home/bodas.webp';
+
+const services = [
+    {
+        title: "Fiestas de 15 años",
+        image: imgQuince,
+    },
+    {
+        title: "Celebraciones",
+        image: imgCelebraciones,
+    },
+    {
+        title: "Event & wedding planner",
+        image: imgPlanner,
+    },
+    {
+        title: "Bodas",
+        image: imgBodas,
+    }
+];
+---
+
+<section class="bg-[#FDF5E9 ] py-16 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 relative">
+
+        <div class="relative w-full mb-12 px-8 md:px-14">
+
+            <!-- Flechas -->
+            <button class="swiper-prev-services absolute left-0 top-1/2 -translate-y-1/2 z-20 text-gray-400 hover:text-[#4EAC9F] transition-all cursor-pointer" aria-label="Anterior">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+
+            <button class="swiper-next-services absolute right-0 top-1/2 -translate-y-1/2 z-20 text-gray-400 hover:text-[#4EAC9F] transition-all cursor-pointer" aria-label="Siguiente">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+
+            <!-- Swiper -->
+            <div class="swiper swiperServices">
+                <div class="swiper-wrapper">
+                    {services.map((service) => (
+                        <div class="swiper-slide">
+                            <ServiceCardLabeled {...service} />
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+
+        <!-- Botón Ver más -->
+        <div class="flex justify-center">
+            <button class="bg-[#333638] text-white px-10 py-2.5 rounded-full text-lg italic font-light tracking-wide hover:bg-opacity-90 transition-all shadow-md">
+                Ver más
+            </button>
+        </div>
+    </div>
+</section>
+
+<style>
+    .swiper-slide {
+        display: flex;
+        justify-content: center;
+        transition: transform 0.3s ease;
+    }
+</style>
+
+<script>
+    import Swiper from 'swiper';
+    import { Navigation, Autoplay } from 'swiper/modules';
+    import 'swiper/css';
+    import 'swiper/css/navigation';
+
+    const initServicesSwiper = () => {
+        new Swiper(".swiperServices", {
+            modules: [Navigation, Autoplay],
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 20,
+            autoplay: {
+                delay: 4000,
+            },
+            navigation: {
+                nextEl: ".swiper-next-services",
+                prevEl: ".swiper-prev-services",
+            },
+            breakpoints: {
+                640: { slidesPerView: 2, spaceBetween: 30 },
+                1024: { slidesPerView: 3, spaceBetween: 40 }
+            }
+        });
+    };
+
+    initServicesSwiper();
+    document.addEventListener('astro:page-load', initServicesSwiper);
+</script>
