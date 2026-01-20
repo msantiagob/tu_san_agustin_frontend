@@ -50,9 +50,14 @@ const {
     </div>
 
     <!-- Navigation Bar (Top) -->
-    <div class="absolute top-0 left-0 right-0 z-30 w-full px-4 py-8 md:px-12 md:py-10 flex flex-col md:flex-row items-start justify-between gap-5 bg-gradient-to-b from-black/90 via-black/40 to-transparent">
+    <div class="absolute top-0 left-0 right-0 z-30 w-full px-4 py-6 md:px-12 md:py-10 flex flex-row items-center justify-between bg-gradient-to-b from-black/90 via-black/40 to-transparent">
 
-        <!-- Left Menu -->
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-toggle" class="md:hidden p-2 rounded-full hover:bg-white/10 transition-colors" aria-label="Abrir menú">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
+        </button>
+
+        <!-- Left Menu (Desktop) -->
         <div class="hidden md:flex flex-1 justify-start gap-8 pb-1 items-center">
             <a href="https://www.tusanagustin.com/" class="nav-text-link">Inicio</a>
 
@@ -93,12 +98,15 @@ const {
         </div>
 
 
-        <!-- Right Menu -->
+        <!-- Right Menu (Desktop) -->
         <div class="hidden md:flex flex-1 justify-end gap-8 pb-1 items-center">
              <a href="https://www.tusanagustin.com/blog" class="nav-text-link">Blog</a>
              <a href="https://www.tusanagustin.com/bodas-destino" class="nav-text-link">Bodas de Destino</a>
              <a href="https://www.tusanagustin.com/quienes-somos" class="nav-text-link">Nosotros</a>
         </div>
+
+        <!-- Empty spacer for mobile balance -->
+        <div class="md:hidden w-10"></div>
     </div>
 </div>
 
@@ -137,4 +145,130 @@ const {
     }
 
     .font-poppins { font-family: 'Poppins', sans-serif; }
+
+    /* Mobile Sidebar */
+    .mobile-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 100;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .mobile-sidebar.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .mobile-sidebar-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 80%;
+        max-width: 320px;
+        height: 100%;
+        background: #FDF5E9;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        overflow-y: auto;
+    }
+
+    .mobile-sidebar.active .mobile-sidebar-content {
+        transform: translateX(0);
+    }
+
+    .mobile-nav-link {
+        display: block;
+        padding: 1rem 1.5rem;
+        color: #333638;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1rem;
+        font-weight: 500;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        transition: all 0.2s ease;
+    }
+
+    .mobile-nav-link:hover {
+        background: #4EAC9F;
+        color: white;
+    }
+
+    .mobile-nav-section {
+        padding: 0.75rem 1.5rem;
+        color: #4EAC9F;
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
 </style>
+
+<!-- Mobile Sidebar -->
+<div id="mobile-sidebar" class="mobile-sidebar">
+    <div class="mobile-sidebar-content">
+        <!-- Close Button -->
+        <div class="flex justify-end p-4">
+            <button id="mobile-menu-close" class="p-2 hover:bg-gray-100 rounded-full transition-colors" aria-label="Cerrar menú">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-700"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="pb-8">
+            <a href="https://www.tusanagustin.com/" class="mobile-nav-link">Inicio</a>
+
+            <div class="mobile-nav-section">Eventos</div>
+            <a href="https://www.tusanagustin.com/eventos/bodas" class="mobile-nav-link">Bodas</a>
+            <a href="https://www.tusanagustin.com/eventos/bodas-destino" class="mobile-nav-link">Bodas Destino</a>
+            <a href="https://www.tusanagustin.com/eventos/15-anos" class="mobile-nav-link">Quinces Años</a>
+            <a href="https://www.tusanagustin.com/eventos/corporativos" class="mobile-nav-link">Corporativos</a>
+            <a href="https://www.tusanagustin.com/eventos/sociales" class="mobile-nav-link">Sociales</a>
+
+            <div class="mobile-nav-section">Servicios</div>
+            <a href="https://www.tusanagustin.com/servicios/catering" class="mobile-nav-link">Catering</a>
+            <a href="https://www.tusanagustin.com/servicios/decoracion" class="mobile-nav-link">Decoración</a>
+            <a href="https://www.tusanagustin.com/servicios/event-wedding-planner" class="mobile-nav-link">Event & Wedding Planner</a>
+            <a href="https://www.tusanagustin.com/servicios/lugares" class="mobile-nav-link">Lugares para eventos</a>
+            <a href="https://www.tusanagustin.com/servicios/artistas" class="mobile-nav-link">Artistas y espectáculos</a>
+            <a href="https://www.tusanagustin.com/servicios/fotografia" class="mobile-nav-link">Fotografía y video</a>
+            <a href="https://www.tusanagustin.com/servicios/audiovisuales" class="mobile-nav-link">Ayudas audiovisuales</a>
+            <a href="https://www.tusanagustin.com/servicios/carros-antiguos" class="mobile-nav-link">Carros antiguos</a>
+
+            <div class="mobile-nav-section">Más</div>
+            <a href="https://www.tusanagustin.com/historias-de-eventos-reales" class="mobile-nav-link">Historias</a>
+            <a href="https://www.tusanagustin.com/blog" class="mobile-nav-link">Blog</a>
+            <a href="https://www.tusanagustin.com/bodas-destino" class="mobile-nav-link">Bodas de Destino</a>
+            <a href="https://www.tusanagustin.com/quienes-somos" class="mobile-nav-link">Nosotros</a>
+        </nav>
+    </div>
+</div>
+
+<script>
+    const menuToggle = document.getElementById('mobile-menu-toggle');
+    const menuClose = document.getElementById('mobile-menu-close');
+    const sidebar = document.getElementById('mobile-sidebar');
+
+    menuToggle?.addEventListener('click', () => {
+        sidebar?.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+
+    menuClose?.addEventListener('click', () => {
+        sidebar?.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+
+    sidebar?.addEventListener('click', (e) => {
+        if (e.target === sidebar) {
+            sidebar.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+</script>
