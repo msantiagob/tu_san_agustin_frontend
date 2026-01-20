@@ -1,0 +1,305 @@
+---
+import Layout from '../layouts/Layout.astro';
+// Layout components
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+
+// Home components
+import Banner from '../components/wedding-destination/Banner.astro';
+import imgBoda from '../assets/images/wedding-destination.webp';
+
+const lang = 'es';
+---
+
+<Layout title='Home' lang={lang}>
+  <Navbar lang={lang} />
+  <!-- Hero Section -->
+  <section aria-label='Banner principal'>
+    <Banner
+      lang={lang}
+      bannerImage={imgBoda}
+      title="Invitados, Vuelos"
+      subtitle="y Etiqueta"
+    />
+  </section>
+
+  <main class='bg-[#FDF5E9] w-full overflow-hidden pb-20'>
+    <div class='max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24 space-y-24'>
+
+    <!-- Guia Section -->
+    <section aria-label='Eventos únicos' class='flex flex-col md:flex-row items-center gap-10 md:gap-16'>
+        <div class='w-full md:w-1/2 space-y-6'>
+          <div>
+            <h3 class='text-2xl md:text-3xl font-poppins font-bold text-[#D1C1A3] italic mb-2'>
+              La Guía Realista y Estética
+            </h3>
+            <h3 class='text-3xl md:text-4xl font-poppins font-bold text-[#D1C1A3] italic'>
+              para una Destination Wedding con <span class='text-[#4EAC9F] not-italic'>Logística Impecable</span>
+            </h3>
+          </div>
+          <div class='text-[#333638] font-poppins text-lg leading-relaxed space-y-4'>
+            <p>
+              Hay bodas. Y luego están <span class='text-[#4EAC9F]'>las bodas que importan</span>. Las que no solo celebran el amor, sino que lo visten, lo ambientan, lo sirven con cócteles de autor y lo cierran con una ovación. Si vas a cruzar fronteras para casarte, que sea para crear algo digno de ser recordado —y fotografiado— por razones correctas.
+            </p>
+            <p>
+              Estas no son simples ideas. Son mandamientos para la pareja que entiende que una boda de destino es mucho más que elegir un lugar exótico y esperar que el atardecer haga el trabajo. <span class='text-[#4EAC9F]'>No basta con estar enamorados. También hay que tener gusto.</span>
+            </p>
+            <p>
+              En una boda de destino, la cortesía y la logística bailan juntas con delicadeza. ¿Los invitados deben costear su viaje? Sí, si la experiencia lo vale. La clave está en <span class='text-[#4EAC9F]'>ofrecer claridad desde el primer correo:</span> detalla fechas, itinerario y tarifas sugeridas desde el inicio.
+            </p>
+            <p>
+              No es obligatorio pagar por todos, pero sí es tu deber <span class='text-[#4EAC9F]'>facilitarlo todo al nivel de un concierge de hotel cinco estrellas.</span> Negocia bloqueos en hoteles con tarifas preferenciales, propone paquetes cerrados y acompaña cada mensaje con una promesa: "Tu única tarea será celebrar". Y si tienes invitados esenciales con presupuesto limitado, ahí sí: subsidia, sorprende o apoya. Porque si van a volar por ti... que sea para aterrizar en algo inolvidable.
+            </p>
+          </div>
+        </div>
+        <div class='w-full md:w-1/2'>
+          <div class='rounded-[2rem] overflow-hidden shadow-xl aspect-video w-full bg-black'>
+            <iframe
+              width='100%'
+              height='100%'
+              src='https://www.youtube.com/embed/izm011a5e54?si=gMpdVONt-Rz51oTW'
+              title='YouTube video player'
+              frameborder='0'
+              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+              referrerpolicy='strict-origin-when-cross-origin'
+              allowfullscreen></iframe>
+          </div>
+        </div>
+    </section>
+
+    <!-- Quien Section -->
+    <section aria-label='¿Quién paga qué?' class='space-y-16'>
+      <div class='text-center space-y-4'>
+        <h3 class='text-3xl md:text-5xl font-poppins font-bold text-[#D1C1A3] italic'>
+          ¿Quién paga qué?
+        </h3>
+        <h4 class='text-2xl md:text-3xl font-poppins font-bold text-[#4EAC9F]'>
+          Una regla editorial (y matemática)
+        </h4>
+      </div>
+
+      <p class='text-center max-w-3xl mx-auto text-[#333638] font-poppins text-lg leading-relaxed'>
+        No, no estás obligada a cubrir el vuelo y el hotel de 80 personas.
+        Pero tampoco puedes enviar una invitación sin instrucciones claras y
+        pretender que todos sonrían desde el avión. Aquí va una fórmula básica:
+      </p>
+
+      <div class='flex justify-center'>
+        <div class='w-full max-w-2xl'>
+          <table class='w-full rounded-[1.5rem] overflow-hidden shadow-2xl'>
+            <thead>
+              <tr class='bg-gradient-to-r from-[#4EAC9F] to-[#3d9487]'>
+                <th class='px-6 md:px-8 py-5 text-left font-poppins font-bold text-white text-base md:text-lg'>Concepto</th>
+                <th class='px-6 md:px-8 py-5 text-right font-poppins font-bold text-white text-base md:text-lg'>Valor (USD)</th>
+              </tr>
+            </thead>
+            <tbody class='bg-[#333638]'>
+              <tr class='border-b border-[#4EAC9F]/20 hover:bg-[#3d4144] transition-colors'>
+                <td class='px-6 md:px-8 py-4 font-poppins text-white text-base md:text-lg'>Vuelo desde Miami</td>
+                <td class='px-6 md:px-8 py-4 font-poppins font-bold text-[#4EAC9F] text-right text-base md:text-lg'>$320</td>
+              </tr>
+              <tr class='border-b border-[#4EAC9F]/20 hover:bg-[#3d4144] transition-colors'>
+                <td class='px-6 md:px-8 py-4 font-poppins text-white text-base md:text-lg'>Hotel 3 noches</td>
+                <td class='px-6 md:px-8 py-4 font-poppins font-bold text-[#4EAC9F] text-right text-base md:text-lg'>$240</td>
+              </tr>
+              <tr class='border-b border-[#4EAC9F]/20 hover:bg-[#3d4144] transition-colors'>
+                <td class='px-6 md:px-8 py-4 font-poppins text-white text-base md:text-lg'>Alimentación parcial</td>
+                <td class='px-6 md:px-8 py-4 font-poppins font-bold text-[#4EAC9F] text-right text-base md:text-lg'>$100</td>
+              </tr>
+              <tr class='hover:bg-[#3d4144] transition-colors'>
+                <td class='px-6 md:px-8 py-4 font-poppins text-white text-base md:text-lg'>Traslados & extras</td>
+                <td class='px-6 md:px-8 py-4 font-poppins font-bold text-[#4EAC9F] text-right text-base md:text-lg'>$40</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr class='bg-gradient-to-r from-[#D1C1A3] to-[#c4b396]'>
+                <td class='px-6 md:px-8 py-5 font-poppins font-bold text-[#333638] text-base md:text-lg'>Total por invitado</td>
+                <td class='px-6 md:px-8 py-5 font-poppins font-black text-[#333638] text-right text-xl md:text-2xl'>$700</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+
+      <p class='text-center max-w-3xl mx-auto text-[#333638] font-poppins text-lg leading-relaxed'>
+        Ahora multiplícalo por 2 si vienen en pareja: <span class='text-[#4EAC9F] font-bold'>$1.400 USD.</span> Es un gasto considerable. Por eso, <span class='text-[#4EAC9F] font-bold'>planifica como si fueras un hotel boutique con agenda cultural.</span>
+      </p>
+        <div class='w-full md:w-1/2 mx-auto'>
+          <div class='rounded-[2rem] overflow-hidden shadow-xl aspect-video w-full bg-black'>
+            <iframe
+              width='100%'
+              height='100%'
+              src='https://www.youtube.com/embed/izm011a5e54?si=gMpdVONt-Rz51oTW'
+              title='YouTube video player'
+              frameborder='0'
+              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+              referrerpolicy='strict-origin-when-cross-origin'
+              allowfullscreen></iframe>
+          </div>
+        </div>
+    </section>
+
+    <!-- Estrategias Section -->
+    <section aria-label='Estrategias logística' class='space-y-16'>
+      <div class='text-center space-y-4'>
+        <h3 class='text-3xl md:text-5xl font-poppins font-bold text-[#D1C1A3] italic'>
+          Estrategias logística
+        </h3>
+        <h4 class='text-2xl md:text-3xl font-poppins font-bold text-[#4EAC9F]'>
+          Elegantes y Sensatas
+        </h4>
+      </div>
+
+      <div class='flex flex-col md:flex-row items-center gap-10 md:gap-16'>
+        <div class='w-full md:w-1/2 space-y-6'>
+          <h4 class='text-2xl md:text-3xl font-poppins font-bold text-[#4EAC9F] italic'>
+            Bloqueos de hotel: tu mejor carta
+          </h4>
+          <p class='text-[#333638] font-poppins text-lg leading-relaxed'>
+            Negocia tarifas grupales con 2 o 3 hoteles cercanos (de diferentes categorías). Asegúrate de incluir desayuno, traslado al evento y late checkout. Es un gesto elegante y práctico.
+          </p>
+        </div>
+        <div class='w-full md:w-1/2'>
+          <div class='rounded-[2rem] overflow-hidden shadow-xl aspect-video w-full bg-black'>
+            <iframe
+              width='100%'
+              height='100%'
+              src='https://www.youtube.com/embed/izm011a5e54?si=gMpdVONt-Rz51oTW'
+              title='YouTube video player'
+              frameborder='0'
+              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+              referrerpolicy='strict-origin-when-cross-origin'
+              allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Debo pagarle Section -->
+    <section aria-label='¿Debo pagarle algo a mis invitados?' class='space-y-16'>
+      <div class='space-y-4'>
+        <h3 class='text-3xl md:text-5xl font-poppins font-bold text-[#D1C1A3] italic'>
+          ¿Debo pagarle algo a mis invitados?
+        </h3>
+        <h4 class='text-2xl md:text-3xl font-poppins font-bold text-[#4EAC9F]'>
+          La regla no escrita es esta:
+        </h4>
+      </div>
+
+      <div class='flex flex-col gap-16 max-w-6xl mx-auto w-full'>
+        <!-- Card 1: Left -->
+        <div class='bg-[#333638] text-white w-full md:max-w-2xl p-6 md:p-8 rounded-[1.5rem] shadow-xl self-start'>
+          <h4 class='text-[#4EAC9F] font-poppins font-bold text-xl md:text-2xl mb-4'>Si debes cubrir:</h4>
+          <ul class='list-disc ml-6 space-y-2 font-poppins text-lg'>
+            <li>Welcome kit (regalo de llegada)</li>
+            <li>Transporte al lugar del evento</li>
+            <li>Alimentación durante la boda (cóctel, cena, after)</li>
+            <li>Actividades si son parte del evento principal</li>
+          </ul>
+        </div>
+
+        <!-- Card 2: Right -->
+        <div class='bg-[#333638] text-white w-full md:max-w-2xl p-6 md:p-8 rounded-[1.5rem] shadow-xl self-end'>
+          <h4 class='text-[#4EAC9F] font-poppins font-bold text-xl md:text-2xl mb-4'>
+            Puedes considerar cubrir (si son pocos):
+          </h4>
+          <ul class='list-disc ml-6 space-y-2 font-poppins text-lg'>
+            <li>Alojamiento parcial de invitados clave (padres, abuelos, padrinos)</li>
+            <li>Un almuerzo extra o brunch al día siguiente</li>
+          </ul>
+        </div>
+
+        <!-- Card 3: Left -->
+        <div class='bg-[#333638] text-white w-full md:max-w-2xl p-6 md:p-8 rounded-[1.5rem] shadow-xl self-start'>
+          <h4 class='text-[#4EAC9F] font-poppins font-bold text-xl md:text-2xl mb-4'>
+            No estás obligad@ a cubrir:
+          </h4>
+          <ul class='list-disc ml-6 space-y-2 font-poppins text-lg'>
+            <li>Vuelos</li>
+            <li>Alimentación fuera del evento</li>
+            <li>Gastos personales</li>
+          </ul>
+        </div>
+
+        <!-- Card 4: Right -->
+        <div class='bg-[#333638] text-white w-full md:max-w-2xl p-6 md:p-8 rounded-[1.5rem] shadow-xl self-end'>
+          <h4 class='text-[#4EAC9F] font-poppins font-bold text-xl md:text-2xl mb-4'>Ejemplo elegante:</h4>
+          <ul class='list-disc ml-6 space-y-2 font-poppins text-lg'>
+            <li>Tienes 50 invitados. Decides apoyar con una noche de hotel para 10 personas clave.</li>
+            <li>Costo por noche por habitación doble: $80 USD.</li>
+            <li>Total: 10 habitaciones x $80 = $800 USD</li>
+            <li>Un gesto que vale oro... pero no arruina tu presupuesto.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class='w-full md:w-1/2 mx-auto'>
+        <div class='rounded-[2rem] overflow-hidden shadow-xl aspect-video w-full bg-black'>
+          <iframe
+            width='100%'
+            height='100%'
+            src='https://www.youtube.com/embed/izm011a5e54?si=gMpdVONt-Rz51oTW'
+            title='YouTube video player'
+            frameborder='0'
+            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+            referrerpolicy='strict-origin-when-cross-origin'
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cómo comunicarlo Section -->
+    <section aria-label='¿Cómo comunicarlo sin parecer brusc@?' class='space-y-16'>
+      <div class='text-center space-y-4'>
+        <h3 class='text-3xl md:text-5xl font-poppins font-bold text-[#D1C1A3] italic'>
+          ¿Cómo comunicarlo sin
+        </h3>
+        <h4 class='text-2xl md:text-3xl font-poppins font-bold text-[#4EAC9F]'>
+          parecer brusc@?
+        </h4>
+      </div>
+
+      <p class='text-center max-w-3xl mx-auto text-[#333638] font-poppins text-lg leading-relaxed'>
+        Aquí un ejemplo de texto editorialmente correcto para tu Save the Date digital:
+      </p>
+
+      <div class='max-w-3xl mx-auto bg-[#333638] text-white px-6 md:px-10 py-8 rounded-[1.5rem] shadow-xl'>
+        <p class='text-center font-poppins text-lg md:text-xl leading-relaxed italic'>
+          "Estamos felices de contar contigo para un fin de semana inolvidable en el corazón del Eje Cafetero. Hemos reservado un cupo de habitaciones a tarifa especial en hoteles aliados. Una guía completa te será enviada pronto para que disfrutes sin preocupaciones."
+        </p>
+      </div>
+
+      <p class='text-center max-w-3xl mx-auto text-[#333638] font-poppins text-lg leading-relaxed'>
+        Luego, en la guía de logística, puedes detallar que el viaje y hospedaje corren por cuenta de cada asistente, pero que tendrás actividades especiales, transporte al evento y detalles de cortesía incluidos.
+      </p>
+
+      <div class='w-full md:w-1/2 mx-auto'>
+        <div class='rounded-[2rem] overflow-hidden shadow-xl aspect-video w-full bg-black'>
+          <iframe
+            width='100%'
+            height='100%'
+            src='https://www.youtube.com/embed/izm011a5e54?si=gMpdVONt-Rz51oTW'
+            title='YouTube video player'
+            frameborder='0'
+            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+            referrerpolicy='strict-origin-when-cross-origin'
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <div class='text-center pt-12'>
+      <a href='https://wa.me/573168753305?text=Hola! quisiera más asesoría' class='inline-block bg-[#333638] text-[#FDF5E9] px-10 py-4 rounded-full font-poppins text-xl font-medium hover:bg-[#4EAC9F] transition-colors shadow-xl italic transform hover:scale-105 duration-300'>
+        Contáctanos para más asesoría
+      </a>
+    </div>
+
+    </div>
+  </main>
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  .font-poppins { font-family: 'Poppins', sans-serif; }
+</style>
