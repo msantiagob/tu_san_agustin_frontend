@@ -10,9 +10,20 @@ import Button from '../components/shared/Button.astro';
 import imgBoda from '../assets/images/wedding-destination.webp';
 
 const lang = 'es';
+
+const seo = {
+	title: 'Guía de Invitados para Bodas de Destino',
+	description: 'Todo lo que necesitas saber sobre invitados, vuelos y etiqueta para tu boda de destino. Guía práctica con presupuestos, logística y consejos de expertos.',
+	keywords: 'invitados boda destino, vuelos boda, etiqueta bodas, logística invitados, presupuesto boda destino'
+};
 ---
 
-<Layout title='Home' lang={lang}>
+<Layout
+	title={seo.title}
+	description={seo.description}
+	keywords={seo.keywords}
+	lang={lang}
+>
   <Navbar lang={lang} />
   <main class='min-h-screen'>
     <!-- Hero Section -->

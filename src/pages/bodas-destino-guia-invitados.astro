@@ -9,9 +9,20 @@ import Banner from '../components/wedding-destination/Banner.astro';
 import imgBoda from '../assets/images/wedding-destination.webp';
 
 const lang = 'es';
+
+const seo = {
+	title: 'Guía Bodas Destino: Invitados, Vuelos y Etiqueta',
+	description: 'Guía completa para organizar tu boda de destino en Colombia. Aprende sobre logística de invitados, vuelos, hospedaje, etiqueta y presupuestos. Consejos de expertos en destination wedding.',
+	keywords: 'bodas destino Colombia, destination wedding, guía invitados boda, logística bodas, etiqueta bodas destino, presupuesto boda destino'
+};
 ---
 
-<Layout title='Home' lang={lang}>
+<Layout
+	title={seo.title}
+	description={seo.description}
+	keywords={seo.keywords}
+	lang={lang}
+>
 	<Navbar />
   <!-- Hero Section -->
   <section aria-label='Banner principal'>

@@ -5,16 +5,21 @@ import GuideBody from '../components/boda_igualitaria/GuideBody.astro';
 
 import Navbar from '../components/boda_igualitaria/Navbar.astro';
 
-
-
 import BrandInfo from '../components/boda_igualitaria/BrandInfo.astro';
 import Footer from '../components/boda_igualitaria/Footer.astro';
 
+const seo = {
+	title: 'Bodas Igualitarias en Medellín - Amor Sin Etiquetas',
+	description: 'Organizamos bodas LGBTQ+ en Medellín y Colombia. Celebra tu amor sin etiquetas con la misma dedicación y elegancia. Wedding planner especializado en matrimonios igualitarios.',
+	keywords: 'bodas igualitarias Medellín, bodas LGBTQ Colombia, matrimonio igualitario, bodas gay Medellín, wedding planner LGBTQ'
+};
 ---
 
-
-
-<Layout title="Home">
+<Layout
+	title={seo.title}
+	description={seo.description}
+	keywords={seo.keywords}
+>
 	<Navbar />
 	<main class="min-h-screen">
 

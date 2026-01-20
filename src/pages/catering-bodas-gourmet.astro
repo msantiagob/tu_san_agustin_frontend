@@ -5,16 +5,21 @@ import GuideBody from '../components/gourmet-wedding/GuideBody.astro';
 
 import Navbar from '../components/gourmet-wedding/Navbar.astro';
 
-
-
 import BrandInfo from '../components/gourmet-wedding/BrandInfo.astro';
 import Footer from '../components/gourmet-wedding/Footer.astro';
 
+const seo = {
+	title: 'Catering Gourmet para Bodas de Destino',
+	description: 'Servicio de catering gourmet para bodas de destino en Medellín y Colombia. Menús de autor, estaciones interactivas y experiencias gastronómicas únicas para tu boda.',
+	keywords: 'catering bodas Medellín, gourmet wedding catering, menú bodas Colombia, catering eventos, gastronomía bodas destino'
+};
 ---
 
-
-
-<Layout title="Home">
+<Layout
+	title={seo.title}
+	description={seo.description}
+	keywords={seo.keywords}
+>
 	<Navbar />
 	<main class="min-h-screen">
 

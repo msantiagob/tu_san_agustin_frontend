@@ -20,10 +20,21 @@ import footerBg from '../assets/images/lugares/footer-bg.webp';
 
 const lang = 'es';
 
+const seo = {
+	title: 'Lugares para Bodas y Eventos en Medellín',
+	description: 'Encuentra los mejores lugares para bodas y eventos en Medellín y Antioquia. Haciendas, fincas, salones, hoteles y centros de convenciones. Más de 90 locaciones exclusivas.',
+	keywords: 'lugares bodas Medellín, fincas para bodas, haciendas eventos Antioquia, salones matrimonios, locaciones bodas Colombia'
+};
+
 const repeat = Array.from({ length: 9 });
 ---
 
-<Layout title='Home' lang={lang}>
+<Layout
+	title={seo.title}
+	description={seo.description}
+	keywords={seo.keywords}
+	lang={lang}
+>
   <Navbar lang={lang} />
   <main class='min-h-screen'>
     <!-- Hero Section -->

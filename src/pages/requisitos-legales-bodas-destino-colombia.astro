@@ -5,16 +5,21 @@ import GuideBody from '../components/legalidad/GuideBody.astro';
 
 import Navbar from '../components/legalidad/Navbar.astro';
 
-
-
 import BrandInfo from '../components/legalidad/BrandInfo.astro';
 import Footer from '../components/legalidad/Footer.astro';
 
+const seo = {
+	title: 'Requisitos Legales para Bodas Destino en Colombia',
+	description: 'Guía completa de requisitos legales para casarse en Colombia. Documentación necesaria, trámites notariales y pasos para bodas de destino. Legalidad sin dramas.',
+	keywords: 'requisitos legales bodas Colombia, documentos matrimonio Colombia, casarse en Colombia extranjeros, trámites boda destino, notaría matrimonio'
+};
 ---
 
-
-
-<Layout title="Home">
+<Layout
+	title={seo.title}
+	description={seo.description}
+	keywords={seo.keywords}
+>
 	<Navbar />
 	<main class="min-h-screen">
 
