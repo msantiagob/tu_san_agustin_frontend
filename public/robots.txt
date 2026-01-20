@@ -1,4 +1,22 @@
+# Robots.txt para Tu San Agustín
+# https://www.tusanagustin.com
+
 User-agent: *
+Allow: /
+
+# Bloquear páginas de administración y recursos
+Disallow: /admin
+Disallow: /api/
+Disallow: /_astro/
+
+# Permitir crawlers de redes sociales
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
 Allow: /
 
 # Sitemap

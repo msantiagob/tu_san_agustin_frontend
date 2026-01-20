@@ -7,21 +7,35 @@ import imgLCP from '../assets/images/banner-boda.webp';
 
 interface Props {
 	title: string;
+	description?: string;
+	canonical?: string;
+	ogImage?: string;
+	ogType?: string;
+	keywords?: string;
 	lang?: 'es' | 'en';
 }
 
-const { title, lang = 'es' } = Astro.props;
+const {
+	title,
+	description,
+	canonical,
+	ogImage = 'https://www.tusanagustin.com/assets/media/logo-header-new_extraLargeThumb.webp',
+	ogType = 'website',
+	keywords,
+	lang = 'es'
+} = Astro.props;
+
 const optimizedLCP = await getImage({ src: imgLCP, width: 1600, quality: 70, format: 'webp' });
 
-const descriptions = {
-	es: "Somos Tu San Agustín, una empresa especializada en realizar los mejores eventos sociales, empresariales y de ciudad. Ofrecemos asesoría en planeación, organización, logística, alimentación y decoración.",
-	en: "We are Tu San Agustín, a company specialized in creating the best social, corporate and city events. We offer consulting in planning, organization, logistics, catering and decoration."
+const defaultDescriptions = {
+	es: "Somos Tu San Agustín, empresa especializada en bodas destino, eventos sociales y corporativos en Medellín y Antioquia. Planeación, catering gourmet, decoración y logística.",
+	en: "We are Tu San Agustín, a company specialized in destination weddings, social and corporate events in Medellín and Antioquia. Planning, gourmet catering, decoration and logistics."
 };
 
-const ogDescriptions = {
-	es: "Especialistas en la planeación y organización de eventos sociales y empresariales en Antioquia.",
-	en: "Specialists in planning and organizing social and corporate events in Antioquia."
-};
+const metaDescription = description || defaultDescriptions[lang];
+const baseUrl = 'https://www.tusanagustin.com';
+const currentPath = Astro.url.pathname;
+const canonicalUrl = canonical || `${baseUrl}${currentPath}`;
 ---
 
 <!doctype html>
@@ -31,8 +45,9 @@ const ogDescriptions = {
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="generator" content={Astro.generator} />
 
-		<title>{`inicio | ${title}`}</title>
-		<meta name="description" content={descriptions[lang]}/>
+		<title>{title} | Tu San Agustín</title>
+		<meta name="description" content={metaDescription}/>
+		{keywords && <meta name="keywords" content={keywords}/>}
 
 		<!-- Google Fonts - Lora -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,9 +55,9 @@ const ogDescriptions = {
 		<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
 		<!-- Hreflang for SEO -->
-		<link rel="alternate" hreflang="es" href="https://www.tusanagustin.com/" />
-		<link rel="alternate" hreflang="en" href="https://www.tusanagustin.com/en/" />
-		<link rel="alternate" hreflang="x-default" href="https://www.tusanagustin.com/" />
+		<link rel="alternate" hreflang="es" href={`${baseUrl}${currentPath}`} />
+		<link rel="alternate" hreflang="en" href={`${baseUrl}/en${currentPath}`} />
+		<link rel="alternate" hreflang="x-default" href={`${baseUrl}${currentPath}`} />
 
 		<!-- Preload Critical Fonts -->
 		<link rel="preload" href="./Alice-Regular.ttf" as="font" type="font/ttf" crossorigin>
@@ -52,21 +67,22 @@ const ogDescriptions = {
 		{title === "Home" && <link rel="preload" as="image" href={optimizedLCP.src} fetchpriority="high" />}
 
 		<!-- Open Graph / SEO -->
-		<meta property="og:title" content={`inicio | ${title}`}/>
-		<meta property="og:type" content="website"/>
-		<meta property="og:url" content={lang === 'es' ? 'https://www.tusanagustin.com/' : 'https://www.tusanagustin.com/en/'}/>
-		<meta property="og:image" content="https://www.tusanagustin.com/assets/media/logo-header-new_extraLargeThumb.webp"/>
-		<meta property="og:description" content={ogDescriptions[lang]}/>
+		<meta property="og:title" content={`${title} | Tu San Agustín`}/>
+		<meta property="og:type" content={ogType}/>
+		<meta property="og:url" content={canonicalUrl}/>
+		<meta property="og:image" content={ogImage}/>
+		<meta property="og:description" content={metaDescription}/>
 		<meta property="og:site_name" content="Tu San Agustín"/>
 		<meta property="og:locale" content={lang === 'es' ? 'es_LA' : 'en_US'}>
 
 		<!-- Twitter -->
 		<meta name="twitter:card" content="summary_large_image">
-		<meta name="twitter:title" content={`inicio | ${title}`}>
-		<meta name="twitter:description" content={ogDescriptions[lang]}>
+		<meta name="twitter:title" content={`${title} | Tu San Agustín`}>
+		<meta name="twitter:description" content={metaDescription}>
+		<meta name="twitter:image" content={ogImage}>
 
 		<link rel="shortcut icon" href="https://www.tusanagustin.com/assets/media/logo-header-new_extraLargeThumb.webp">
-		<link rel="canonical" href={lang === 'es' ? 'https://www.tusanagustin.com/' : 'https://www.tusanagustin.com/en/'}/>
+		<link rel="canonical" href={canonicalUrl}/>
 	</head>
 	<body class="min-h-screen font-sans antialiased">
 		<slot />

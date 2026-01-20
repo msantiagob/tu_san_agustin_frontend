@@ -2,45 +2,68 @@
 import '../styles/global.css';
 import ScrollToTop from '../components/ui/ScrollToTop.astro';
 import SearchModal from '../components/ui/SearchModal.astro';
-import { getImage } from 'astro:assets';
-
 
 interface Props {
-	title: string;
+	title?: string;
+	description?: string;
+	canonical?: string;
+	ogImage?: string;
+	keywords?: string;
 }
 
-const { title } = Astro.props;
+const {
+	title = 'Catering Bodas Gourmet',
+	description = 'Servicio de catering gourmet para bodas de destino en Medellín y Colombia. Transformamos cada momento en una experiencia gastronómica única con menús de autor y presentaciones elegantes.',
+	canonical,
+	ogImage = 'https://www.tusanagustin.com/assets/media/detalles-gourmet/portada-bloque-1-3.png',
+	keywords = 'catering bodas, gourmet wedding, catering gourmet Medellín, bodas destino Colombia, menú bodas'
+} = Astro.props;
 
+const baseUrl = 'https://www.tusanagustin.com';
+const canonicalUrl = canonical || `${baseUrl}/catering-bodas-gourmet`;
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="es" class="dark">
 	<head>
- <meta charset="UTF-8">
-      <meta name="description"
-      content="En una boda de destino, la comida no solo alimenta: cuenta una historia. Nuestro servicio de gourmet wedding catering está diseñado para transformar cada momento en una experiencia sensorial única">
-<!-- Schema.org para Google+ -->
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{title} | Tu San Agustín</title>
+		<meta name="description" content={description}>
+		<meta name="keywords" content={keywords}>
 
-<meta itemprop="name" content="Gourmet Wedding">
-<meta itemprop="description"
-      content="En una boda de destino, la comida no solo alimenta: cuenta una historia. Nuestro servicio de gourmet wedding catering está diseñado para transformar cada momento en una experiencia sensorial única">
-<meta itemprop="image" content=" https://www.tusanagustin.com/assets/media/blog/bodas-igualitarias-en-medellin/272.jpg">
-<!-- Open Graph para Facebook-->
-<meta property="og:title" content="GOUERMET WEDDING"/>
-<meta property="og:type" content="article"/>
-    <meta property="og:url" content="https://www.tusanagustin.com/detalles-gourmet-medellin"/> <meta property="og:image" content="https://www.tusanagustin.com/assets/media/detalles-gourmet/portada-bloque-1-3.png"/><meta property="og:description"
-      content="En una boda de destino, la comida no solo alimenta: cuenta una historia. Nuestro servicio de gourmet wedding catering está diseñado para transformar cada momento en una experiencia sensorial única"/>
-<meta property="og:site_name" content="Tu San Agustin"/>
-<meta property="og:locale" content="es_LA">
+		<!-- Schema.org -->
+		<meta itemprop="name" content={`${title} | Tu San Agustín`}>
+		<meta itemprop="description" content={description}>
+		<meta itemprop="image" content={ogImage}>
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:title" content={`${title} | Tu San Agustín`}/>
+		<meta property="og:type" content="article"/>
+		<meta property="og:url" content={canonicalUrl}/>
+		<meta property="og:image" content={ogImage}/>
+		<meta property="og:description" content={description}/>
+		<meta property="og:site_name" content="Tu San Agustín"/>
+		<meta property="og:locale" content="es_LA">
+
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:title" content={`${title} | Tu San Agustín`}>
+		<meta name="twitter:description" content={description}>
+		<meta name="twitter:image" content={ogImage}>
+
+		<!-- Canonical -->
+		<link rel="canonical" href={canonicalUrl}/>
+		<link rel="shortcut icon" href="https://www.tusanagustin.com/assets/media/logo-header-new_extraLargeThumb.webp">
+
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 	</head>
-
-	<meta name="keywords" content="Gourmet Wedding, Boda de destino, Catering gourmet">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="Sn6woLackUqYanWzaUZGKRRqVT9twqtK2XgC4UVm"/>
-    <title>  GOUERMET WEDDING | Tu San Agustin</title>
 	<body class="min-h-screen font-sans antialiased">
 		<slot />
-        <ScrollToTop />
-        <SearchModal />
+		<ScrollToTop />
+		<SearchModal />
 	</body>
 </html>

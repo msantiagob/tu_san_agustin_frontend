@@ -2,47 +2,68 @@
 import '../styles/global.css';
 import ScrollToTop from '../components/ui/ScrollToTop.astro';
 import SearchModal from '../components/ui/SearchModal.astro';
-import { getImage } from 'astro:assets';
-
 
 interface Props {
-	title: string;
+	title?: string;
+	description?: string;
+	canonical?: string;
+	ogImage?: string;
+	keywords?: string;
 }
 
-const { title } = Astro.props;
+const {
+	title = 'Bodas Igualitarias en Medellín',
+	description = 'Celebra tu amor sin etiquetas. Organizamos bodas LGBTQ+ en Medellín y Colombia con la misma dedicación y elegancia. El amor es amor en cualquiera de sus formas.',
+	canonical,
+	ogImage = 'https://www.tusanagustin.com/assets/media/blog/bodas-igualitarias-en-medellin/272.jpg',
+	keywords = 'bodas igualitarias, bodas LGBTQ Medellín, matrimonio igualitario Colombia, bodas gay Medellín, wedding planner LGBTQ'
+} = Astro.props;
 
+const baseUrl = 'https://www.tusanagustin.com';
+const canonicalUrl = canonical || `${baseUrl}/bodas-igualitarias`;
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="es" class="dark">
 	<head>
- <meta charset="UTF-8">
-      <meta name="description"
-      content="El amor es amor en cualquiera de sus formas Encontrar a esa persona ideal, que sea el cómplice perfecto para recorrer de principio a ...">
-<!-- Schema.org para Google+ -->
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{title} | Tu San Agustín</title>
+		<meta name="description" content={description}>
+		<meta name="keywords" content={keywords}>
 
-<meta itemprop="name" content="BODAS IGUALITARIAS EN MEDELLÍN">
-<meta itemprop="description"
-      content="El amor es amor en cualquiera de sus formas Encontrar a esa persona ideal, que sea el cómplice perfecto para recorrer de principio a ...">
-<meta itemprop="image" content=" https://www.tusanagustin.com/assets/media/blog/bodas-igualitarias-en-medellin/272.jpg">
-<!-- Open Graph para Facebook-->
-<meta property="og:title" content="BODAS IGUALITARIAS EN MEDELLÍN"/>
-<meta property="og:type" content="article"/>
-<meta property="og:url" content="https://www.tusanagustin.com/blog/bodas-igualitarias-en-medellin"/>
-<meta property="og:image" content="https://www.tusanagustin.com/assets/media/blog/bodas-igualitarias-en-medellin/272.jpg"/>
-<meta property="og:description"
-      content="El amor es amor en cualquiera de sus formas Encontrar a esa persona ideal, que sea el cómplice perfecto para recorrer de principio a ..."/>
-<meta property="og:site_name" content="Tu San Agustin"/>
-<meta property="og:locale" content="es_LA">
+		<!-- Schema.org -->
+		<meta itemprop="name" content={`${title} | Tu San Agustín`}>
+		<meta itemprop="description" content={description}>
+		<meta itemprop="image" content={ogImage}>
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:title" content={`${title} | Tu San Agustín`}/>
+		<meta property="og:type" content="article"/>
+		<meta property="og:url" content={canonicalUrl}/>
+		<meta property="og:image" content={ogImage}/>
+		<meta property="og:description" content={description}/>
+		<meta property="og:site_name" content="Tu San Agustín"/>
+		<meta property="og:locale" content="es_LA">
+
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:title" content={`${title} | Tu San Agustín`}>
+		<meta name="twitter:description" content={description}>
+		<meta name="twitter:image" content={ogImage}>
+
+		<!-- Canonical -->
+		<link rel="canonical" href={canonicalUrl}/>
+		<link rel="shortcut icon" href="https://www.tusanagustin.com/assets/media/logo-header-new_extraLargeThumb.webp">
+
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 	</head>
-
-	<meta name="keywords" content="Viajes y turismo san agustín">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="Sn6woLackUqYanWzaUZGKRRqVT9twqtK2XgC4UVm"/>
-    <title>  BODAS IGUALITARIAS EN MEDELLÍN | Tu San Agustin</title>
 	<body class="min-h-screen font-sans antialiased">
 		<slot />
-        <ScrollToTop />
-        <SearchModal />
+		<ScrollToTop />
+		<SearchModal />
 	</body>
 </html>

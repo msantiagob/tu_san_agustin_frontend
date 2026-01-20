@@ -1,6 +1,7 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
+import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,7 +17,23 @@ export default defineConfig({
       en: 'es'
     }
   },
-  integrations: [tailwind(), react()],
+  integrations: [
+    tailwind(),
+    react(),
+    sitemap({
+      changefreq: 'weekly',
+      priority: 0.7,
+      lastmod: new Date(),
+      filter: (page) => !page.includes('/admin'),
+      i18n: {
+        defaultLocale: 'es',
+        locales: {
+          es: 'es-CO',
+          en: 'en-US',
+        },
+      },
+    }),
+  ],
   compressHTML: true,
   prefetch: true,
   image: {
