@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 // Layout components
-import Navbar from '../components/layout/Navbar.astro';
+import Navbar from '../components/gourmet-wedding/Navbar.astro';
 import Footer from '../components/layout/Footer.astro';
 
 // Home components
@@ -12,7 +12,7 @@ const lang = 'es';
 ---
 
 <Layout title='Home' lang={lang}>
-  <Navbar lang={lang} />
+	<Navbar />
   <!-- Hero Section -->
   <section aria-label='Banner principal'>
     <Banner
@@ -253,10 +253,9 @@ const lang = 'es';
       <div class='text-center space-y-4'>
         <h3 class='text-3xl md:text-5xl font-poppins font-bold text-[#D1C1A3] italic'>
           ¿Cómo comunicarlo sin
+          <span class="font-poppins font-bold text-[#4EAC9F] block">parecer brusc@?</span>
         </h3>
-        <h4 class='text-2xl md:text-3xl font-poppins font-bold text-[#4EAC9F]'>
-          parecer brusc@?
-        </h4>
+
       </div>
 
       <p class='text-center max-w-3xl mx-auto text-[#333638] font-poppins text-lg leading-relaxed'>

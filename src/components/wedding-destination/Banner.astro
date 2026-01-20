@@ -1,7 +1,5 @@
 ---
 import { Image } from 'astro:assets';
-import { useTranslations, getTranslations } from '../../i18n/utils';
-import Menu from '../shared/Menu.astro';
 import type { ImageMetadata } from 'astro';
 
 interface Props {
@@ -17,81 +15,126 @@ const {
   title = 'Invitados, Vuelos',
   subtitle = 'y Etiqueta'
 } = Astro.props;
-const t = useTranslations(lang);
-const translations = getTranslations(lang);
 ---
 
-<div
-  class='w-[calc(100%-8px)] md:w-[calc(100%-16px)] max-w-[2000px] h-[650px] md:h-[800px] relative rounded-[2rem] md:rounded-[3rem] overflow-hidden mx-auto'
->
-
-  <div class='swiper mySwiper w-full h-full'>
-    <div class='swiper-wrapper'>
-      <div class='swiper-slide relative'>
-
-        {bannerImage && (
-          <Image
+<div class="w-[calc(100%-8px)] md:w-[calc(100%-16px)] max-w-[2000px] h-[650px] md:h-[800px] relative rounded-[2rem] md:rounded-[3rem] overflow-hidden mx-auto">
+    {bannerImage && (
+        <Image
             src={bannerImage}
-            class='absolute inset-0 w-full h-full object-cover'
-            style='object-position: bottom 15%;'
-            alt={translations.banner.slides[0].alt}
-            loading='eager'
-            fetchpriority='high'
+            class="absolute inset-0 w-full h-full object-cover banner-zoom-animation"
+            style="object-position: center;"
+            alt={title}
+            loading="eager"
+            fetchpriority="high"
             width={1600}
             height={900}
             widths={[480, 768, 1024, 1280, 1600]}
-            quality={70}
-          />
-        )}
-        <div class='absolute inset-0 bg-black/30'></div>
-        <div
-          class='relative z-10 h-full flex flex-col items-center justify-center text-center px-4 pb-24 md:pb-20'
-        >
-          <h1
-            class='text-5xl md:text-5xl lg:text-8xl font-extrabold text-white drop-shadow-lg leading-tight'
-          >
-            {title} {subtitle && <span class="block">{subtitle}</span>}
-          </h1>
+            sizes="(max-width: 768px) 100vw, 1600px"
+            format="avif"
+            quality={75}
+        />
+    )}
 
-        </div>
-      </div>
+    <!-- Text Overlay -->
+    <div class="absolute inset-0 flex flex-col justify-center items-center px-6 md:px-24 text-white z-20 pointer-events-none">
+         <div class="text-center mt-10 md:mt-20">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-poppins font-bold drop-shadow-2xl leading-none tracking-tight">
+                {title}
+            </h1>
+            {subtitle && (
+                <h2 class="text-4xl md:text-6xl lg:text-7xl font-poppins font-bold drop-shadow-2xl leading-tight mt-1 md:mt-0 opacity-95">
+                    {subtitle}
+                </h2>
+            )}
+         </div>
     </div>
 
-    <!-- Navigation Arrows -->
-    <button
-      class='swiper-button-prev-banner absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-50 text-white/70 hover:text-white cursor-pointer transition-all hover:scale-110'
-      aria-label={t('common.ariaLabels.prevSlide')}
-    >
-      <svg
-        xmlns='http://www.w3.org/2000/svg'
-        width='30'
-        height='30'
-        viewBox='0 0 24 24'
-        fill='none'
-        stroke='currentColor'
-        stroke-width='2.5'
-        stroke-linecap='round'
-        stroke-linejoin='round'><path d='m15 18-6-6 6-6'></path></svg
-      >
-    </button>
-    <button
-      class='swiper-button-next-banner absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-50 text-white/70 hover:text-white cursor-pointer transition-all hover:scale-110'
-      aria-label={t('common.ariaLabels.nextSlide')}
-    >
-      <svg
-        xmlns='http://www.w3.org/2000/svg'
-        width='30'
-        height='30'
-        viewBox='0 0 24 24'
-        fill='none'
-        stroke='currentColor'
-        stroke-width='2.5'
-        stroke-linecap='round'
-        stroke-linejoin='round'><path d='m9 18 6-6-6-6'></path></svg
-      >
-    </button>
+    <!-- Navigation Bar (Top) -->
+    <div class="absolute top-0 left-0 right-0 z-30 w-full px-4 py-8 md:px-12 md:py-10 flex flex-col md:flex-row items-start justify-between gap-5 bg-gradient-to-b from-black/90 via-black/40 to-transparent">
 
-    <Menu/>
-  </div>
+        <!-- Left Menu -->
+        <div class="hidden md:flex flex-1 justify-start gap-8 pb-1 items-center">
+            <a href="https://www.tusanagustin.com/" class="nav-text-link">Inicio</a>
+
+            <!-- Eventos Dropdown -->
+            <div class="relative group">
+                <button class="nav-text-link flex items-center gap-1 focus:outline-none">
+                    Eventos
+                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur-md rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left -translate-y-2 group-hover:translate-y-0 text-left overflow-hidden border border-white/20">
+                     <a href="https://www.tusanagustin.com/eventos/bodas" class="block px-6 py-3 text-gray-800 hover:bg-[#4EAC9F] hover:text-white transition-colors font-medium border-b border-gray-100 last:border-0">Bodas</a>
+                    <a href="https://www.tusanagustin.com/eventos/bodas-destino" class="block px-6 py-3 text-gray-800 hover:bg-[#4EAC9F] hover:text-white transition-colors font-medium border-b border-gray-100 last:border-0">Bodas Destino</a>
+                    <a href="https://www.tusanagustin.com/eventos/15-anos" class="block px-6 py-3 text-gray-800 hover:bg-[#4EAC9F] hover:text-white transition-colors font-medium border-b border-gray-100 last:border-0">Quinces Años</a>
+                    <a href="https://www.tusanagustin.com/eventos/corporativos" class="block px-6 py-3 text-gray-800 hover:bg-[#4EAC9F] hover:text-white transition-colors font-medium border-b border-gray-100 last:border-0">Corporativos</a>
+                    <a href="https://www.tusanagustin.com/eventos/sociales" class="block px-6 py-3 text-gray-800 hover:bg-[#4EAC9F] hover:text-white transition-colors font-medium border-b border-gray-100 last:border-0">Sociales</a>
+                </div>
+            </div>
+
+            <!-- Servicios Dropdown -->
+             <div class="relative group">
+                <button class="nav-text-link flex items-center gap-1 focus:outline-none">
+                    Servicios
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div class="absolute top-full left-0 mt-2 w-72 bg-white/95 backdrop-blur-md rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left -translate-y-2 group-hover:translate-y-0 text-left overflow-hidden border border-white/20">
+                    <a href="https://www.tusanagustin.com/servicios/catering" class="block px-6 py-3 text-gray-800 hover:bg-[#4EAC9F] hover:text-white transition-colors font-medium border-b border-gray-100 last:border-0">Catering</a>
+                    <a href="https://www.tusanagustin.com/servicios/decoracion" class="block px-6 py-3 text-gray-800 hover:bg-[#4EAC9F] hover:text-white transition-colors font-medium border-b border-gray-100 last:border-0">Decoración</a>
+                    <a href="https://www.tusanagustin.com/servicios/event-wedding-planner" class="block px-6 py-3 text-gray-800 hover:bg-[#4EAC9F] hover:text-white transition-colors font-medium border-b border-gray-100 last:border-0">Event & Wedding Planner</a>
+                    <a href="https://www.tusanagustin.com/servicios/lugares" class="block px-6 py-3 text-gray-800 hover:bg-[#4EAC9F] hover:text-white transition-colors font-medium border-b border-gray-100 last:border-0">Lugares para eventos</a>
+                    <a href="https://www.tusanagustin.com/servicios/artistas" class="block px-6 py-3 text-gray-800 hover:bg-[#4EAC9F] hover:text-white transition-colors font-medium border-b border-gray-100 last:border-0">Artistas y espectáculos</a>
+                    <a href="https://www.tusanagustin.com/servicios/fotografia" class="block px-6 py-3 text-gray-800 hover:bg-[#4EAC9F] hover:text-white transition-colors font-medium border-b border-gray-100 last:border-0">Fotografía y video</a>
+                    <a href="https://www.tusanagustin.com/servicios/audiovisuales" class="block px-6 py-3 text-gray-800 hover:bg-[#4EAC9F] hover:text-white transition-colors font-medium border-b border-gray-100 last:border-0">Ayudas audiovisuales</a>
+                    <a href="https://www.tusanagustin.com/servicios/carros-antiguos" class="block px-6 py-3 text-gray-800 hover:bg-[#4EAC9F] hover:text-white transition-colors font-medium border-b border-gray-100 last:border-0">Carros antiguos</a>
+                </div>
+            </div>
+
+             <a href="https://www.tusanagustin.com/historias-de-eventos-reales" class="nav-text-link">Historias</a>
+        </div>
+
+
+        <!-- Right Menu -->
+        <div class="hidden md:flex flex-1 justify-end gap-8 pb-1 items-center">
+             <a href="https://www.tusanagustin.com/blog" class="nav-text-link">Blog</a>
+             <a href="https://www.tusanagustin.com/bodas-destino" class="nav-text-link">Bodas de Destino</a>
+             <a href="https://www.tusanagustin.com/quienes-somos" class="nav-text-link">Nosotros</a>
+        </div>
+    </div>
 </div>
 
+<style>
+    /* Banner Image Zoom Out Animation */
+    .banner-zoom-animation {
+        animation: zoomOut 2s ease-out forwards;
+    }
+
+    @keyframes zoomOut {
+        from {
+            transform: scale(1.1);
+        }
+        to {
+            transform: scale(1);
+        }
+    }
+
+    /* Estilo Enlaces de Texto (Solo Desktop) */
+    .nav-text-link {
+        color: rgba(255, 255, 255, 0.95);
+        font-family: 'Playfair Display', serif;
+        font-size: 1.25rem;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-shadow: 0 4px 8px rgba(0,0,0,0.9);
+        white-space: nowrap;
+        letter-spacing: 0.02em;
+    }
+    .nav-text-link:hover {
+        color: #ffffff;
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+        transform: scale(1.05);
+    }
+
+    .font-poppins { font-family: 'Poppins', sans-serif; }
+</style>
