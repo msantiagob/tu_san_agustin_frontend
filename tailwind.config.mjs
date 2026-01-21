@@ -4,8 +4,11 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				'serif': ['Lora', 'serif'], // Reemplaza la fuente serif por defecto
-				'lora': ['Lora', 'serif'],  // O crea una clase específica
+				'sans': ['Poppins', 'sans-serif'], // Fuente sans-serif por defecto
+				'serif': ['Lora', 'serif'],
+				'lora': ['Lora', 'serif'],
+				'alice': ['Alice', 'serif'],
+				'poppins': ['Poppins', 'sans-serif'],
 			},
 			colors: {
 				border: "hsl(var(--border))",

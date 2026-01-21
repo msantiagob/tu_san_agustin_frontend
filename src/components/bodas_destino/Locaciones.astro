@@ -3,15 +3,16 @@ import ServiceCard from '../ui/home/ServiceCard.astro';
 import imgRionegro from '../../assets/images/home/loc-rionegro.webp';
 import imgEnvigado from '../../assets/images/home/Montview.jpeg';
 import imgMedellin from '../../assets/images/home/6CED1B6E-E6A6-42B3-982B-814ED01A55AC-_1_.webp';
+import Button from '../../components/shared/Button.astro';
 ---
 
 <div class='bg-[#FDF5E9 ] py-8 md:py-16'>
   <div class='max-w-7xl mx-auto px-4 md:px-16'>
-    <div class='text-center space-y-2 '>
+    <div class='text-center space-y-2'>
       <h2
         class='text-3xl md:text-5xl font-poppins font-bold text-[#D1C1A3] text-center mb-12'
       >
-        <span class='text-[#4EAC9F] not-italic'>Locaciones</span>para tus
+        <span class='text-[#4EAC9F] not-italic'>Locaciones </span>para tus
         eventos
       </h2>
     </div>
@@ -92,12 +93,13 @@ import imgMedellin from '../../assets/images/home/6CED1B6E-E6A6-42B3-982B-814ED0
     </div>
 
     <div class='flex justify-center mt-8 mb-12'>
-      <a
+      <Button
+        variant='primary'
+        size='md'
         href='https://wa.me/573168753305?text=Hola!'
-        class='bg-[#333638] text-white px-10 py-3 rounded-full hover:bg-opacity-90 transition-all font-medium'
       >
         Quiero Reservar
-      </a>
+      </Button>
     </div>
   </div>
 </div>
