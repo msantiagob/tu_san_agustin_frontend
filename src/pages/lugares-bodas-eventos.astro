@@ -60,33 +60,33 @@ const repeat = Array.from({ length: 9 });
         >
           Categorías
         </h2>
-        <div class='flex gap-36'>
+        <div class='grid grid-cols-2 md:flex gap-8 md:gap-16 lg:gap-36'>
           <div class='flex flex-col items-center text-center'>
-            <h5 class='text-charcoal font-alice font-bold text-lg mb-2'>
+            <h5 class='text-charcoal font-alice font-bold text-sm md:text-lg mb-2'>
               Cantidad de Personas
             </h5>
-            <Image src={icono1} alt='' class='w-32 h-auto' />
+            <Image src={icono1} alt='' class='w-24 md:w-32 h-auto' />
           </div>
           <div class='flex flex-col items-center text-center'>
-            <h5 class='text-charcoal font-alice font-bold text-lg mb-2'>
+            <h5 class='text-charcoal font-alice font-bold text-sm md:text-lg mb-2'>
               Ciudades
             </h5>
-            <Image src={icono2} alt='' class='w-16 h-auto' />
+            <Image src={icono2} alt='' class='w-12 md:w-16 h-auto' />
           </div>
           <div class='flex flex-col items-center text-center'>
-            <h5 class='text-charcoal font-alice font-bold text-lg mb-2'>
+            <h5 class='text-charcoal font-alice font-bold text-sm md:text-lg mb-2'>
               Tipo de Evento
             </h5>
-            <Image src={icono3} alt='' class='w-16 h-auto' />
+            <Image src={icono3} alt='' class='w-12 md:w-16 h-auto' />
           </div>
           <div class='flex flex-col items-center text-center'>
-            <h5 class='text-charcoal font-alice font-bold text-lg mb-2'>
+            <h5 class='text-charcoal font-alice font-bold text-sm md:text-lg mb-2'>
               Tipo de Lugar
             </h5>
-            <Image src={icono4} alt='' class='w-16 h-auto' />
+            <Image src={icono4} alt='' class='w-12 md:w-16 h-auto' />
           </div>
         </div>
-        <div class='flex gap-16'>
+        <div class='flex gap-8 md:gap-16'>
           <Button variant='primary' size='md'>Filtrar</Button>
           <Button variant='secondary' size='md'>Borrar</Button>
         </div>
@@ -94,13 +94,12 @@ const repeat = Array.from({ length: 9 });
     </section>
 
     <section
-      class='max-w-7xl mx-auto px-4
-    gap-4 md:gap-4 grid grid-cols-3 pb-32'
+      class='max-w-7xl mx-auto px-4 gap-4 md:gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pb-16 md:pb-32'
     >
       {
         repeat.map((_, index) => (
-          <article class='flex flex-col justify-center gap-5 m-10'>
-            <h4 class='text-charcoal font-poppins font-bold text-center text-xl'>
+          <article class='flex flex-col justify-center gap-4 md:gap-5 m-4 md:m-10'>
+            <h4 class='text-charcoal font-poppins font-bold text-center text-lg md:text-xl'>
               Centro de Eventos <br /> Villa Celeste
             </h4>
 
