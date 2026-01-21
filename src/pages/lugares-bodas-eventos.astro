@@ -7,6 +7,7 @@ import { Image } from 'astro:assets';
 import Banner from '../components/wedding-destination/Banner.astro';
 import Button from '../components/shared/Button.astro';
 import JoinUsFooter from '../components/shared/JoinUsFooter.astro';
+import Locaciones from '../components/bodas_destino/Locaciones.astro';
 
 import Carrousel from '../components/lugares/Slider.astro';
 
@@ -21,19 +22,21 @@ import footerBg from '../assets/images/lugares/footer-bg.webp';
 const lang = 'es';
 
 const seo = {
-	title: 'Lugares para Bodas y Eventos en Medellín',
-	description: 'Encuentra los mejores lugares para bodas y eventos en Medellín y Antioquia. Haciendas, fincas, salones, hoteles y centros de convenciones. Más de 90 locaciones exclusivas.',
-	keywords: 'lugares bodas Medellín, fincas para bodas, haciendas eventos Antioquia, salones matrimonios, locaciones bodas Colombia'
+  title: 'Lugares para Bodas y Eventos en Medellín',
+  description:
+    'Encuentra los mejores lugares para bodas y eventos en Medellín y Antioquia. Haciendas, fincas, salones, hoteles y centros de convenciones. Más de 90 locaciones exclusivas.',
+  keywords:
+    'lugares bodas Medellín, fincas para bodas, haciendas eventos Antioquia, salones matrimonios, locaciones bodas Colombia',
 };
 
 const repeat = Array.from({ length: 9 });
 ---
 
 <Layout
-	title={seo.title}
-	description={seo.description}
-	keywords={seo.keywords}
-	lang={lang}
+  title={seo.title}
+  description={seo.description}
+  keywords={seo.keywords}
+  lang={lang}
 >
   <Navbar lang={lang} />
   <main class='min-h-screen'>
@@ -59,19 +62,27 @@ const repeat = Array.from({ length: 9 });
         </h2>
         <div class='flex gap-36'>
           <div class='flex flex-col items-center text-center'>
-            <h5 class='text-charcoal font-alice font-bold text-lg mb-2'>Cantidad de Personas</h5>
+            <h5 class='text-charcoal font-alice font-bold text-lg mb-2'>
+              Cantidad de Personas
+            </h5>
             <Image src={icono1} alt='' class='w-32 h-auto' />
           </div>
           <div class='flex flex-col items-center text-center'>
-            <h5 class='text-charcoal font-alice font-bold text-lg mb-2'>Ciudades</h5>
+            <h5 class='text-charcoal font-alice font-bold text-lg mb-2'>
+              Ciudades
+            </h5>
             <Image src={icono2} alt='' class='w-16 h-auto' />
           </div>
           <div class='flex flex-col items-center text-center'>
-            <h5 class='text-charcoal font-alice font-bold text-lg mb-2'>Tipo de Evento</h5>
+            <h5 class='text-charcoal font-alice font-bold text-lg mb-2'>
+              Tipo de Evento
+            </h5>
             <Image src={icono3} alt='' class='w-16 h-auto' />
           </div>
           <div class='flex flex-col items-center text-center'>
-            <h5 class='text-charcoal font-alice font-bold text-lg mb-2'>Tipo de Lugar</h5>
+            <h5 class='text-charcoal font-alice font-bold text-lg mb-2'>
+              Tipo de Lugar
+            </h5>
             <Image src={icono4} alt='' class='w-16 h-auto' />
           </div>
         </div>
@@ -82,12 +93,14 @@ const repeat = Array.from({ length: 9 });
       </div>
     </section>
 
-    <section class='max-w-7xl mx-auto px-4
-    gap-8 md:gap-12 grid grid-cols-3'>
+    <section
+      class='max-w-7xl mx-auto px-4
+    gap-4 md:gap-4 grid grid-cols-3 pb-32'
+    >
       {
         repeat.map((_, index) => (
           <article class='flex flex-col justify-center gap-5 m-10'>
-            <h4 class='text-charcoal font-poppins font-bold text-center'>
+            <h4 class='text-charcoal font-poppins font-bold text-center text-xl'>
               Centro de Eventos <br /> Villa Celeste
             </h4>
 
@@ -95,7 +108,7 @@ const repeat = Array.from({ length: 9 });
               src={imgArticle}
               alt='Descripción clara y real de la imagen'
               loading='lazy'
-              class='mx-auto'
+              class='w-full h-full object-cover rounded-[32px] shadow-md pointer-events-none select-none'
             />
 
             <div class='mx-auto'>
@@ -107,8 +120,9 @@ const repeat = Array.from({ length: 9 });
         ))
       }
     </section>
-
-    <Carrousel lang={lang} />
+    <section class='bg-[#323639]'>
+      <Locaciones />
+    </section>
   </main>
   <JoinUsFooter backgroundImage={footerBg} showBackground={true} />
 </Layout>
