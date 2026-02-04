@@ -1,13 +1,14 @@
 ---
 import { Image } from 'astro:assets';
-import logoVerde from '../../assets/images/logo-verde.webp';
-import flagColombia from '../../assets/images/colombia.webp';
-import iconFb from '../../assets/images/icon-facebook.webp';
-import iconIg from '../../assets/images/icon-instagram.webp';
-import iconTk from '../../assets/images/icon-tiktok.webp';
-import iconLi from '../../assets/images/icon-linkedin.webp';
-import iconYt from '../../assets/images/icon-youtube.webp';
-import iconWa from '../../assets/images/icon-whatsapp.webp';
+import flagColombia from '../../assets/images/gourmet-wedding/colombia.webp';
+import iconFb from '../../assets/images/gourmet-wedding/Facebook.webp';
+import iconIg from '../../assets/images/gourmet-wedding/Instagram.webp';
+import iconTk from '../../assets/images/gourmet-wedding/TikTock.webp';
+import iconLi from '../../assets/images/gourmet-wedding/Link.webp';
+import iconYt from '../../assets/images/gourmet-wedding/Youtube.webp';
+import iconWa from '../../assets/images/gourmet-wedding/Whatsapp.webp';
+import logoVerde from '../../assets/images/gourmet-wedding/LogoSanAgustínGris.webp';
+
 import { useTranslations } from '../../i18n/utils';
 
 interface Props {
@@ -21,7 +22,7 @@ const t = useTranslations(lang);
 <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-40 opacity-0 pointer-events-none transition-opacity duration-300"></div>
 
 <aside id="sidebar" class="fixed top-0 right-0 h-full w-[85%] max-w-md bg-brand-cream z-50 transform translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] shadow-2xl flex flex-col">
-    
+
     <!-- Header with Close Button -->
     <div class="flex items-center justify-between p-6 border-b border-gray-100">
         <Image src={logoVerde} alt="San Agustín Logo" class="h-10 w-auto object-contain" width={150} height={78} loading="lazy" />
@@ -32,7 +33,7 @@ const t = useTranslations(lang);
 
     <!-- Scrollable Content -->
     <div class="flex-1 overflow-y-auto py-8 px-8 space-y-10">
-        
+
         <!-- Navigation Links -->
        <nav class="flex flex-col space-y-6">
     <a href="https://www.tusanagustin.com/" class="text-3xl font-serif text-charcoal hover:text-teal hover:pl-4 transition-all duration-300 cursor-pointer">{t('common.navigation.home')}</a>
