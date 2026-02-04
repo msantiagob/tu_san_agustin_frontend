@@ -8,6 +8,7 @@ import Banner from '../components/wedding-destination/Banner.astro';
 import Button from '../components/shared/Button.astro';
 import JoinUsFooter from '../components/shared/JoinUsFooter.astro';
 import Locaciones from '../components/bodas_destino/Locaciones.astro';
+import VenuesGrid from '../components/lugares/VenuesGrid';
 
 import Carrousel from '../components/lugares/Slider.astro';
 
@@ -18,15 +19,6 @@ import icono4 from '../assets/images/lugares/icono-4.webp';
 import bannerLugares from '../assets/images/lugares/tu_san_agustin_lugares_para_eventos_banner_001.webp';
 import footerBg from '../assets/images/lugares/footer-bg.webp';
 
-// Imágenes de lugares
-import imgEventosCampestres from '../assets/images/lugares_list/tu_san_agustin_lugares_para_eventos_eventoscampestres_016.webp';
-import imgHaciendaElSalitre from '../assets/images/lugares_list/tu_san_agustin_lugares_para_eventos_haciendaelsalitre_013.webp';
-import imgHaciendaKala from '../assets/images/lugares_list/tu_san_agustin_lugares_para_eventos_haciendakala_011.webp';
-import imgHaciendaPozoChico from '../assets/images/lugares_list/tu_san_agustin_lugares_para_eventos_haciendapozochico_010.webp';
-import imgHaciendaSanRafael from '../assets/images/lugares_list/tu_san_agustin_lugares_para_eventos_haciendasanrafael_008.webp';
-import imgHaciendasYFincas from '../assets/images/lugares_list/tu_san_agustin_lugares_para_eventos_haciendasyfincasparabodas_018.webp';
-import imgHotelLaVictoria from '../assets/images/lugares_list/tu_san_agustin_lugares_para_eventos_hotelyeventoshaciendalavictoria_009.webp';
-
 const lang = 'es';
 
 const seo = {
@@ -36,15 +28,6 @@ const seo = {
   keywords:
     'lugares bodas Medellín, fincas para bodas, haciendas eventos Antioquia, salones matrimonios, locaciones bodas Colombia',
 };
-
-const lugares = [
-  { nombre: 'Eventos Campestres', imagen: imgEventosCampestres },
-  { nombre: 'Hacienda El Salitre', imagen: imgHaciendaElSalitre },
-  { nombre: 'Hacienda Kala', imagen: imgHaciendaKala },
-  { nombre: 'Hacienda Pozo Chico', imagen: imgHaciendaPozoChico },
-  { nombre: 'Hacienda San Rafael', imagen: imgHaciendaSanRafael },
-  { nombre: 'Haciendas y Fincas', imagen: imgHaciendasYFincas },
-];
 ---
 
 <Layout
@@ -108,31 +91,8 @@ const lugares = [
       </div>
     </section>
 
-    <section
-      class='max-w-7xl mx-auto px-4 gap-4 md:gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pb-16 md:pb-32'
-    >
-      {
-        lugares.map((lugar) => (
-          <article class='flex flex-col justify-center gap-4 md:gap-5 m-4 md:m-10'>
-            <h4 class='text-charcoal font-poppins font-bold text-center text-lg md:text-xl'>
-              {lugar.nombre}
-            </h4>
-
-            <Image
-              src={lugar.imagen}
-              alt={lugar.nombre}
-              loading='lazy'
-              class='w-full h-full object-cover rounded-[32px] shadow-md pointer-events-none select-none'
-            />
-
-            <div class='mx-auto'>
-              <Button variant='primary' size='md' href='/pagina-destino'>
-                Ver mas
-              </Button>
-            </div>
-          </article>
-        ))
-      }
+    <section>
+      <VenuesGrid client:load />
     </section>
     <section class='bg-[#323639]'>
       <Locaciones />

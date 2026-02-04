@@ -1,0 +1,29 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/layout/Navbar.astro';
+import VenueDetail from '../../components/lugares/VenueDetail';
+import JoinUsFooter from '../../components/shared/JoinUsFooter.astro';
+import footerBg from '../../assets/images/lugares/footer-bg.webp';
+
+const { id } = Astro.params;
+const lang = 'es';
+
+const seo = {
+  title: 'Detalle del Lugar',
+  description: 'Conoce todos los detalles de este lugar para bodas y eventos en Medellín y Antioquia.',
+  keywords: 'lugares bodas Medellín, fincas para bodas, haciendas eventos Antioquia',
+};
+---
+
+<Layout
+  title={seo.title}
+  description={seo.description}
+  keywords={seo.keywords}
+  lang={lang}
+>
+  <Navbar lang={lang} />
+  <main class="min-h-screen bg-gray-50">
+    <VenueDetail client:load venueId={id} />
+  </main>
+  <JoinUsFooter backgroundImage={footerBg} showBackground={true} />
+</Layout>
