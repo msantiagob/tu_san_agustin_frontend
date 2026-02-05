@@ -1,0 +1,364 @@
+---
+import { Image } from 'astro:assets';
+
+// Import images
+
+import imgMenu from '../../assets/images/alimentacion_empleados/024-AL~3.webp'; // Plate/Food
+import imgStations from '../../assets/images/alimentacion_empleados/0223F1~1.WEBp'; // Salad/Launchbox like
+import imgPlating from '../../assets/images/alimentacion_empleados/024-AL~1.webp';
+import imgGallery1 from '../../assets/images/alimentacion_empleados/024-AL~3.webp';
+import imgGallery2 from '../../assets/images/alimentacion_empleados/024-AL~1 (2).WEBp';
+import imgGallery3 from '../../assets/images/alimentacion_empleados/024-AL~4.WEBP';
+import imgGallery4 from '../../assets/images/alimentacion_empleados/024-AL~2 (2).WEBp';
+import imgGallery5 from '../../assets/images/alimentacion_empleados/024-AL~3 (2).WEBp';
+import imgGallery6 from '../../assets/images/alimentacion_empleados/0234F5~1.WEBP'; // Kitchen Tech 1
+import imgGallery7 from '../../assets/images/alimentacion_empleados/024-AL~1 (2).WEBp'; // Kitchen Tech 2
+import imgGallery8 from '../../assets/images/alimentacion_empleados/024-AL~4.WEBP'; // Kitchen Tech 3
+import imgGallery9 from '../../assets/images/alimentacion_empleados/024-AL~2 (2).WEBp'; // Kitchen Tech 4
+import imgGallery10 from '../../assets/images/alimentacion_empleados/0293C3~1.webp'; // Kitchen Tech 5
+import imgGallery11 from '../../assets/images/alimentacion_empleados/022708~1.webp'; // Kitchen Tech 5
+import imgGallery12 from '../../assets/images/alimentacion_empleados/023E2C~1.webp'; // Kitchen Tech 5
+import imgGallery13 from '../../assets/images/alimentacion_empleados/0213C3~1.webp'; // Kitchen Tech 5
+import imgGallery14 from '../../assets/images/alimentacion_empleados/02D894~1.webp'; // Kitchen Tech 5
+
+
+
+import imgTestimonial from '../../assets/images/alimentacion_empleados/024-AL~2.webp'; // Couple / Toasting
+
+// Using imgStations as the lunchbox placeholder for now as it looks somewhat relevant, or imgMenu.
+// Ideally we'd have the specific lunchbox image.
+---
+
+<div class="bg-[#333638] w-full overflow-hidden mt-20 font-['Poppins']">
+
+    <!-- SECTION 1: Titular Principal -->
+    <div class="max-w-7xl mx-auto px-4 md:px-8 pt-16 pb-8 text-center">
+        <h1 class="text-4xl md:text-6xl font-semibold mb-4 uppercase leading-tight font-['Poppins']">
+            <span class="text-[#4EAC9F]">Soluciones</span> <span class="text-[#FDF5E9]">Corporativas</span><br/>
+            <span class="text-[#FDF5E9]">Saludables y</span> <span class="text-[#4EAC9F]">Productivas</span>
+        </h1>
+
+        <div class="max-w-4xl mx-auto bg-[#FDF5E9] p-8 md:p-12 rounded-[2rem] shadow-2xl mt-12 mb-16 border-4 border-[#4EAC9F]/10">
+            <p class="text-[#333638] text-lg md:text-xl font-medium leading-relaxed">
+                Diseñamos y operamos servicios de alimentación empresarial para cuidar el bienestar, el tiempo y la energía de tus colaboradores. Menús balanceados, logística eficiente y servicio personalizado para empresas que valoran su equipo.
+            </p>
+        </div>
+    </div>
+
+    <!-- SECTION 2: Videos Principales -->
+    <div class="max-w-7xl mx-auto px-4 md:px-8 pb-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="relative rounded-[3rem] overflow-hidden shadow-2xl aspect-video border-4 border-white/5">
+                <iframe
+                    class="w-full h-full"
+                    src="https://www.youtube.com/embed/M533m4Qj0Bc?si=TVTydfEH_KV_ckVB"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                ></iframe>
+            </div>
+            <div class="relative rounded-[3rem] overflow-hidden shadow-2xl aspect-video border-4 border-white/5">
+                <iframe
+                    class="w-full h-full"
+                    src="https://www.youtube.com/embed/FKkHDL6IsJI?si=ombVSTJxJAt7dI-U"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                ></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 3: Cards Informativas y Tabla de Variables -->
+    <div class="max-w-7xl mx-auto px-4 md:px-8 py-16 space-y-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+            <div class="p-10 md:p-14 rounded-[3rem] bg-[#FDF5E9] relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-[12px] h-full bg-[#F9F9F9]"></div>
+                <h2 class="text-3xl md:text-4xl font-semibold text-[#333638] mb-8 font-['Poppins']">
+                    <span class="text-[#4EAC9F]">Tu San Agustín</span> Servicios de Alimentación Industrial
+                </h2>
+                <p class="text-[#333638] text-lg leading-relaxed font-medium">
+                    En Tu San Agustín ofrecemos soluciones integrales en alimentación empresarial y corporativa diseñadas para mejorar la salud, productividad y satisfacción de los empleados. Nuestros servicios se adaptan a las necesidades específicas de cada organización, brindando opciones de menús balanceados, logística eficiente y operación segura dentro o fuera del lugar de trabajo.
+                </p>
+            </div>
+            <div class="bg-[#FDF5E9] p-10 md:p-14 rounded-[3rem] shadow-xl flex flex-col justify-center">
+                <h2 class="text-3xl md:text-4xl font-semibold text-[#333638] mb-8 font-['Poppins'] text-center">
+                    Invertir en alimentación <br/><span class="text-[#4EAC9F]">Para</span> empleados
+                </h2>
+                <p class="text-[#333638] text-lg leading-relaxed font-medium text-center">
+                    Generar un retorno positivo en la productividad laboral, mediado por disminución de ausentismo, aumento del rendimiento y mejora en el clima organizacional.
+                </p>
+            </div>
+        </div>
+
+        <!-- Grid de Variables -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 pt-12 items-stretch">
+            <!-- Tipo de Empresa -->
+            <div class="md:col-span-3 space-y-4">
+                <div class="bg-[#4EAC9F] text-[#FDF5E9] py-3 px-6 rounded-full text-center font-semibold text-lg shadow-lg">Tipo de empresa</div>
+                <div class="bg-[#FDF5E9] p-8 rounded-[2.5rem] shadow-lg flex flex-col items-center justify-center h-[240px]">
+                    <div class="space-y-4 text-center">
+                        <span class="block text-xl font-semibold text-[#333638]">Pequeña</span>
+                        <span class="block text-xl font-semibold text-[#333638]">Mediana</span>
+                        <span class="block text-xl font-semibold text-[#333638]">Grande</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Variables Dependientes 1 (Wide) -->
+            <div class="md:col-span-6 space-y-4">
+                <div class="bg-[#4EAC9F] text-[#FDF5E9] py-3 px-6 rounded-full text-center font-semibold text-lg shadow-lg">Variables Dependientes</div>
+                <div class="bg-[#FDF5E9] p-8 rounded-[2.5rem] shadow-lg flex flex-col items-center justify-center h-[240px] text-center">
+                    <div class="space-y-6">
+                        <span class="block text-xl font-semibold text-[#333638]">Productividad por empleado, rotación</span>
+                        <span class="block text-xl font-semibold text-[#333638]">Ausentismo, satisfacción laboral, rendimiento</span>
+                        <span class="block text-xl font-semibold text-[#333638]">Eficiencia operativa, ROI, reputación interna</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Variables Dependientes 2 (Vertical) -->
+            <div class="md:col-span-3 space-y-4">
+                <div class="bg-[#4EAC9F] text-[#F9F9F9] py-3 px-6 rounded-full text-center font-semibold text-lg shadow-lg">Variables Dependientes</div>
+                <div class="bg-[#FDF5E9] p-6 rounded-[2.5rem] shadow-lg flex flex-col items-center justify-center gap-4 h-full text-center">
+                    <span class="text-base font-semibold text-[#333638] leading-tight">Costo mensual de alimentación por empleado</span>
+                    <span class="text-base font-semibold text-[#333638] leading-tight">Tipo de servicio (interno o externo), menú ofrecido</span>
+                    <span class="text-base font-semibold text-[#333638] leading-tight">Presupuesto anual en alimentación/ tamaño de planta</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 4: Frase Destacada y Galería -->
+    <div class="w-full bg-[#333638] pt-24 pb-16 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 text-center space-y-8">
+            <h2 class="text-4xl md:text-5xl font-semibold text-[#FDF5E9] font-['Poppins'] leading-tight">
+                La alimentación de calidad<br/>no solo nutre cuerpos, sino que
+            </h2>
+            <h3 class="text-2xl md:text-3xl font-semibold text-[#4EAC9F] italic">
+                Construye equipos más motivados,<br/>comprometidos y felices.
+            </h3>
+
+            <div class="py-12">
+                <p class="text-[#FDF5E9] text-xl font-medium max-w-4xl mx-auto mb-12">
+                    Desde comedores en planta hasta entregas programadas,<br/>diseñamos experiencias que impulsan el bienestar laboral.
+                </p>
+
+                <!-- SECTION 8: Image Composition (CONSERVADA) -->
+                <div class="space-y-4 pt-12">
+                    <!-- Top Row: Tall left, 2 stacked center, Tall right -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <!-- Left: Tall image -->
+                        <div class="rounded-[2rem] overflow-hidden h-64 md:h-[500px]">
+                            <Image src={imgGallery10} alt="Food plate 1" class="w-full h-full object-cover" />
+                        </div>
+
+                        <!-- Center: 2 small images stacked -->
+                        <div class="flex flex-col gap-4">
+                            <div class="rounded-[2rem] overflow-hidden h-32 md:h-[240px]">
+                                <Image src={imgGallery11} alt="Couple celebration" class="w-full h-full object-cover" />
+                            </div>
+                            <div class="rounded-[2rem] overflow-hidden h-32 md:h-[240px]">
+                                <Image src={imgGallery12} alt="Food plate 2" class="w-full h-full object-cover" />
+                            </div>
+                        </div>
+
+                        <!-- Right: Tall image -->
+                        <div class="rounded-[2rem] overflow-hidden h-64 md:h-[500px]">
+                            <Image src={imgGallery13} alt="Buffet line" class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+
+                    <!-- Bottom Row: Wide but short image -->
+                    <div class="rounded-[2rem] overflow-hidden h-32 md:h-48">
+                        <Image src={imgGallery14} alt="Wide food display" class="w-full h-full object-cover" />
+                    </div>
+                </div>
+
+                <!-- BLOQUE ADICIONAL (Image 3) -->
+                <div class="mt-24 space-y-12">
+                     <div class="text-center">
+                        <h2 class="text-4xl md:text-5xl font-semibold mb-2 uppercase leading-tight font-['Poppins'] text-[#FDF5E9]">
+                            <span class="text-[#4EAC9F]">Soluciones</span> Corporativas<br/>
+                            Saludables y <span class="text-[#4EAC9F]">Productivas</span>
+                        </h2>
+                        <p class="text-[#4EAC9F] italic text-2xl font-semibold">Una experiencia que nutre el talento</p>
+                    </div>
+
+                    <div class="max-w-4xl mx-auto bg-[#FDF5E9] p-10 md:p-14 rounded-[3rem] shadow-xl">
+                        <p class="text-[#333638] text-lg md:text-xl font-medium leading-relaxed text-center">
+                            En Tu San Agustín ofrecemos soluciones integrales en alimentación empresarial y corporativa diseñadas para mejorar la salud, productividad y satisfacción de los empleados. Nuestros servicios se adaptan a las necesidades específicas de cada organización, brindando opciones de menús balanceados, logística eficiente y operación segura dentro o fuera del lugar de trabajo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 5: Formulario y Beneficios para Tu Empresa -->
+    <div class="max-w-7xl mx-auto px-4 md:px-8 py-20 space-y-24">
+        <!-- Beneficios CTA -->
+        <div class="space-y-12">
+            <h2 class="text-4xl md:text-5xl font-semibold text-[#FDF5E9] text-center font-['Poppins'] leading-tight">
+                Si te preguntas <span class="text-[#4EAC9F]">qué tipo<br/>de menú</span> elegir revisa:
+            </h2>
+            <div class="flex justify-center">
+                <div class="bg-[#FDF5E9] text-[#333638] px-10 py-5 rounded-full font-semibold text-xl shadow-2xl hover:scale-105 transition-transform cursor-pointer border-4 border-[#4EAC9F]/20">
+                    Menús para empleados desde la lógica nutricional
+                </div>
+            </div>
+        </div>
+
+        <!-- Lista de Beneficios con Video/Imagen -->
+        <div class="space-y-16">
+            <h2 class="text-4xl font-semibold text-[#4EAC9F] font-['Poppins'] mb-12">Beneficios para Tu Empresa</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+                <div class="space-y-10">
+                    <div class="flex items-start gap-8">
+                        <div class="w-4 h-4 rounded-full bg-[#4EAC9F] mt-2 shrink-0 shadow-[0_0_15px_rgba(78,172,159,0.5)]"></div>
+                        <div class="space-y-2">
+                            <h4 class="text-xl font-semibold text-[#4EAC9F]">Mayor productividad</h4>
+                            <p class="text-[#FDF5E9] text-lg font-medium">Los colaboradores bien alimentados rinden más y se enferman menos.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-8">
+                        <div class="w-4 h-4 rounded-full bg-[#4EAC9F] mt-2 shrink-0 shadow-[0_0_15px_rgba(78,172,159,0.5)]"></div>
+                        <div class="space-y-2">
+                            <h4 class="text-xl font-semibold text-[#4EAC9F]">Bienestar laboral</h4>
+                            <p class="text-[#FDF5E9] text-lg font-medium">Una buena comida durante la jornada fortalece el clima organizacional.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-8">
+                        <div class="w-4 h-4 rounded-full bg-[#4EAC9F] mt-2 shrink-0 shadow-[0_0_15px_rgba(78,172,159,0.5)]"></div>
+                        <div class="space-y-2">
+                            <h4 class="text-xl font-semibold text-[#4EAC9F]">Retención del talento</h4>
+                            <p class="text-[#FDF5E9] text-lg font-medium">Brindar alimentación es un incentivo valorado y diferencial.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-8">
+                        <div class="w-4 h-4 rounded-full bg-[#4EAC9F] mt-2 shrink-0 shadow-[0_0_15px_rgba(78,172,159,0.5)]"></div>
+                        <div class="space-y-2">
+                            <h4 class="text-xl font-semibold text-[#4EAC9F]">Optimización del tiempo</h4>
+                            <p class="text-[#FDF5E9] text-lg font-medium">Evita desplazamientos innecesarios y mejora la eficiencia operativa.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-8">
+                        <div class="w-4 h-4 rounded-full bg-[#4EAC9F] mt-2 shrink-0 shadow-[0_0_15px_rgba(78,172,159,0.5)]"></div>
+                        <div class="space-y-2">
+                            <h4 class="text-xl font-semibold text-[#4EAC9F]">Imagen corporativa positiva</h4>
+                            <p class="text-[#FDF5E9] text-lg font-medium">Refleja compromiso social y responsabilidad empresarial.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative rounded-[3rem] overflow-hidden shadow-2xl aspect-video border-4 border-white/5 self-center">
+                    <iframe
+                        class="w-full h-full"
+                        src="https://www.youtube.com/embed/M533m4Qj0Bc?si=hJXeYE567ctfGaXO"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Final CTA -->
+        <div class="space-y-16 py-12">
+            <h2 class="text-5xl md:text-6xl font-semibold text-center font-['Poppins'] leading-tight">
+                <span class="text-[#FDF5E9]">¡Solicita tu</span><br/>
+                <span class="text-[#4EAC9F]">Propuesta personalizada!</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="space-y-10">
+                    <p class="text-[#FDF5E9] text-xl font-medium leading-relaxed">
+                        Contamos con distintos planes de servicio ajustados al tamaño y dinámica de tu empresa. Solicita tu cotización personalizada o descargar nuestro portafolio con ejemplos de menús, modelos operativos y referencias.
+                    </p>
+                    <button class="bg-[#FDF5E9] text-[#333638] px-8 py-3 rounded-full font-semibold text-sm uppercase tracking-widest hover:bg-[#4EAC9F] hover:text-[#FDF5E9] transition-all duration-300 shadow-xl">
+                        Descubre más aquí
+                    </button>
+                </div>
+                <div class="rounded-[3rem] overflow-hidden shadow-2xl h-[400px]">
+                    <Image src={imgGallery13} alt="Food selection" class="w-full h-full object-cover" />
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 6: ¿Qué es un Comedor Empresarial? - Explicación -->
+        <div class="space-y-16 py-12 border-t border-white/5">
+            <h2 class="text-4xl md:text-6xl font-semibold text-center font-['Poppins'] leading-tight">
+                <span class="text-[#FDF5E9]">¿Qué es un</span><br/>
+                <span class="text-[#4EAC9F]">Comedor Empresarial?</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+                <div class="md:col-span-2 space-y-8">
+                    <p class="text-[#FDF5E9] text-xl font-medium leading-relaxed">
+                        Un comedor empresarial - también llamado casino corporativo - es un espacio físico o servicio tercerizado donde los empleados reciben alimentación balanceada, higiénica y planificada durante su jornada laboral.
+                    </p>
+                    <p class="text-[#FDF5E9] text-xl font-medium leading-relaxed">
+                        Va más allá de "almorzar en la oficina", se trata de una estrategia integral de bienestar, productividad y cumplimiento normativo en salud ocupacional.
+                    </p>
+                </div>
+                <div class="flex justify-center md:justify-end">
+                    <button class="bg-[#FDF5E9] text-[#4EAC9F] px-8 py-5 rounded-full font-semibold text-lg shadow-2xl hover:scale-105 transition-transform border-4 border-[#4EAC9F]/10">
+                        Descargar aquí nuestro portafolio
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 7: ¿Qué es un Comedor Empresarial? - Detalle -->
+        <div class="space-y-16 py-12">
+            <h2 class="text-4xl md:text-6xl font-semibold text-center font-['Poppins'] leading-tight">
+                <span class="text-[#FDF5E9]">¿Qué es un</span><br/>
+                <span class="text-[#4EAC9F]">Comedor Empresarial?</span>
+            </h2>
+
+            <div class="max-w-4xl mx-auto">
+                <ul class="space-y-8">
+                    {[
+                        "Conoce nuestras líneas especializadas de servicio y elige la que mejor se adapta a tu organización:",
+                        "Bienestar laboral a través de la alimentación.",
+                        "Transformamos los espacios de alimentación en momentos de integración, descanso y cuidado.",
+                        "Menús personalizados y nutrición corporativa.",
+                        "Menús pensados por nutricionistas, adaptados a las necesidades de tu equipo.",
+                        "Calidad, logística y sostenibilidad.",
+                        "Operaciones confiables y responsables que garantizan seguridad, eficiencia y compromiso"
+                    ].map((text) => (
+                        <li class="flex items-start gap-6">
+                            <div class="w-4 h-4 rounded-full bg-[#4EAC9F] mt-2 shrink-0 shadow-[0_0_15px_rgba(78,172,159,0.5)]"></div>
+                            <span class="text-[#FDF5E9] text-xl font-medium leading-relaxed">{text}</span>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // Video play/pause logic
+    document.addEventListener('astro:page-load', () => {
+         const containers = document.querySelectorAll('.video-container');
+
+        containers.forEach(container => {
+            const video = container.querySelector('video');
+            // Basic click to play/pause
+            container.addEventListener('click', () => {
+                if (video.paused) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+        });
+    });
+</script>

@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/LayoutComedores.astro';
+import Banner from '../components/comedores/Banner.astro';
+import GuideBody from '../components/comedores/GuideBody.astro';
+
+import Navbar from '../components/comedores/Navbar.astro';
+
+
+
+import BrandInfo from '../components/comedores/BrandInfo.astro';
+import Footer from '../components/comedores/Footer.astro';
+
+---
+
+
+
+<Layout title="Home">
+	<Navbar />
+	<main class="min-h-screen">
+
+		<Banner />
+		<GuideBody />
+
+
+
+		<div class="md:my-16"></div>
+
+
+		<div class="md:my-16"></div>
+
+
+		<div class="md:my-16"></div>
+
+
+		<div class="my-0 md:my-10"></div>
+		<BrandInfo />
+		<Footer />
+	</main>
+</Layout>

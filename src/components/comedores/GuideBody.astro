@@ -1,0 +1,247 @@
+---
+import { Image } from 'astro:assets';
+
+// Import images for the new design
+import imgVideoPoster from '../assets/../../assets/images/comedores/022-Menú-para-Empleados-experiencia-tu-san-agustin.webp';
+import imgGallery1 from '../assets/../../assets/images/comedores/022-Menú-para-Empleados-alimentacion-con-criterio-001.webp';
+import imgGallery2 from '../assets/../../assets/images/comedores/022-Menú-para-Empleados-alimentacion-con-criterio-002.webp';
+import imgGallery3 from '../assets/../../assets/images/comedores/022-Menú-para-Empleados-alimentacion-con-criterio-003.webp';
+import imgGallery4 from '../assets/../../assets/images/comedores/022-Menú-para-Empleados-alimentacion-con-criterio-004.webp';
+import imgGallery5 from '../assets/../../assets/images/comedores/022-Menú-para-Empleados-alimentacion-con-criterio-005.webp';
+
+import imgMenu1 from '../assets/../../assets/images/comedores/022-Menú-para-Empleados-menus-que-piensan-001.webp';
+import imgMenu2 from '../assets/../../assets/images/comedores/022-Menú-para-Empleados-menus-que-piensan-002.webp';
+import imgMenu3 from '../assets/../../assets/images/comedores/022-Menú-para-Empleados-menus-que-piensan-003.webp';
+
+import imgExperiencia from '../assets/../../assets/images/comedores/022-Menú-para-Empleados-experiencia-tu-san-agustin.webp';
+---
+
+<div class="bg-[#333638] w-full overflow-hidden font-['Poppins'] text-[#FDF5E9]">
+
+    <!-- BLOQUE 1: Alimentar con Criterio -->
+    <section class="max-w-7xl mx-auto px-6 py-16 md:py-24">
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-6xl font-bold text-[#4EAC9F] leading-tight">
+                Alimentar con Criterio:
+            </h1>
+            <p class="text-2xl md:text-4xl font-bold mt-2">
+                Salud, energía y rendimiento de alto nivel
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6 text-lg md:text-xl font-light leading-relaxed">
+                <p>Una empresa que se respeta no improvisa cuando se trata de energía humana.</p>
+                <p>Alimentar a tu equipo no es un detalle operativo: <span class="text-[#4EAC9F] font-semibold">es una decisión de liderazgo.</span> Y en un entorno corporativo competitivo, la forma en que comes refleja la forma en que lideras.</p>
+                <p>El menú que entregas es el mensaje silencioso que le das a tu equipo: <span class="text-[#4EAC9F] font-semibold italic">"Te cuido porque te necesito al 100%".</span> Por eso, los menús corporativos deben ser diseñados desde una lógica nutricional de alto rendimiento, con respaldo profesional y orientación a resultados.</p>
+            </div>
+            <div class="relative rounded-[2rem] overflow-hidden shadow-2xl aspect-video border-4 border-white/10 group cursor-pointer max-w-md mx-auto md:max-w-none">
+                <iframe
+                    class="w-full h-full"
+                    src="https://www.youtube.com/embed/M533m4Qj0Bc?si=KN50vAzh57W56rg2&playsinline=1"
+                    title="San Agustín Gastronomía"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                ></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOQUE 2: Grilla de Menús -->
+    <section class="max-w-6xl mx-auto px-4 py-12">
+        <div class="text-center mb-12 max-w-4xl mx-auto">
+            <p class="text-[#4EAC9F] text-xl md:text-2xl font-semibold leading-relaxed">
+                Aquí te presentamos los tipos de menú que una empresa inteligente, ambiciosa y responsable debe considerar.
+            </p>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-stretch justify-center gap-1 md:gap-2 px-2">
+            <!-- Columna lateral superior/izquierda -->
+            <div class="flex flex-col gap-1 md:gap-2 w-full md:w-[20%]">
+                <div class="rounded-[2rem] overflow-hidden shadow-lg aspect-square">
+                    <Image src={imgGallery1} alt="Menú 1" class="w-full h-full object-cover" />
+                </div>
+                <div class="rounded-[2rem] overflow-hidden shadow-lg aspect-square">
+                    <Image src={imgGallery2} alt="Menú 2" class="w-full h-full object-cover" />
+                </div>
+            </div>
+
+            <!-- Centro destacado (ALINEADO EN ALTURA) -->
+            <div class="w-full md:w-[45%]">
+                <div class="rounded-[2.5rem] overflow-hidden shadow-2xl h-full">
+                    <Image src={imgGallery3} alt="Menú Central" class="w-full h-full object-cover" />
+                </div>
+            </div>
+
+            <!-- Columna lateral inferior/derecha -->
+            <div class="flex flex-col gap-1 md:gap-2 w-full md:w-[20%]">
+                <div class="rounded-[2rem] overflow-hidden shadow-lg aspect-square">
+                    <Image src={imgGallery4} alt="Menú 4" class="w-full h-full object-cover" />
+                </div>
+                <div class="rounded-[2rem] overflow-hidden shadow-lg aspect-square">
+                    <Image src={imgGallery5} alt="Menú 5" class="w-full h-full object-cover" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOQUE 3: Alimentación Corporativa con Sentido -->
+    <section class="max-w-7xl mx-auto px-6 py-20 text-center">
+        <h2 class="text-4xl md:text-6xl font-bold text-[#4EAC9F] mb-4">
+            Alimentar Corporativa con Sentido:
+        </h2>
+        <p class="text-2xl md:text-4xl font-bold mb-12">
+            Diseño de Menús Nutricionales para Empresas
+        </p>
+
+        <div class="max-w-5xl mx-auto space-y-8 text-lg md:text-xl font-light">
+            <p>
+                En Tu San Agustín no servimos comida: <span class="text-[#4EAC9F] font-semibold">Servimos energía, salud y compromiso.</span> Diseñamos y operamos <span class="text-[#4EAC9F] font-semibold underline underline-offset-4">menús nutricionales para empleados</span> que entienden la realidad de tu empresa y responden a los ritmos de tu operación. Ya sea en planta, en oficina o en terreno, alimentamos a tu gente como se alimenta al recurso más valioso de una organización: con estrategia.
+            </p>
+        </div>
+    </section>
+
+    <!-- BLOQUE 4: Beneficios Header (SIN FONDO AZUL/VERDE) -->
+    <section class="max-w-7xl mx-auto px-6 pt-16 text-center">
+        <h2 class="text-3xl md:text-5xl font-bold text-[#4EAC9F]">
+            ¿Por qué ofrecer un menú diseñado nutricionalmente?
+        </h2>
+    </section>
+
+    <!-- BLOQUE 4: Detalles Beneficios -->
+    <section class="max-w-7xl mx-auto px-6 py-12">
+        <div class="max-w-4xl mx-auto space-y-4 mb-24">
+            <div class="flex items-center gap-4">
+                <div class="w-3 h-3 rounded-full bg-[#4EAC9F]"></div>
+                <p class="text-xl md:text-2xl font-light font-['Poppins']">Porque mejora la productividad y reduce el ausentismo.</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="w-3 h-3 rounded-full bg-[#4EAC9F]"></div>
+                <p class="text-xl md:text-2xl font-light font-['Poppins']">Porque fortalece la cultura organizacional.</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="w-3 h-3 rounded-full bg-[#4EAC9F]"></div>
+                <p class="text-xl md:text-2xl font-light font-['Poppins']">Porque te posiciona como un empleador de alto nivel.</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="w-3 h-3 rounded-full bg-[#4EAC9F]"></div>
+                <p class="text-xl md:text-2xl font-light font-['Poppins']">Porque la alimentación también es seguridad y salud en el trabajo (ISO 45001)</p>
+            </div>
+        </div>
+
+        <div class="text-center space-y-6">
+            <h3 class="text-3xl md:text-5xl font-bold max-w-5xl mx-auto leading-tight">
+                Cada Almuerzo es una declaración. Nosotros te ayudamos a que ese mensaje sea
+            </h3>
+            <p class="text-[#4EAC9F] text-3xl md:text-5xl font-bold italic py-4">
+                "Aquí cuidamos a las personas"
+            </p>
+        </div>
+    </section>
+
+    <!-- BLOQUE 5: Cápsulas de Menú -->
+    <section class="max-w-7xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div class="rounded-[3rem] overflow-hidden shadow-2xl h-[300px]">
+                <Image src={imgMenu1} alt="Menú Balanceado" class="w-full h-full object-cover" />
+            </div>
+            <div class="rounded-[3rem] overflow-hidden shadow-2xl h-[300px]">
+                <Image src={imgMenu2} alt="Menú Saludable" class="w-full h-full object-cover" />
+            </div>
+            <div class="rounded-[3rem] overflow-hidden shadow-2xl h-[300px]">
+                <Image src={imgMenu3} alt="Menú Gourmet" class="w-full h-full object-cover" />
+            </div>
+        </div>
+
+        <div class="text-center space-y-4">
+            <h4 class="text-2xl md:text-4xl font-bold">Menús que piensan como tu empresa</h4>
+            <h5 class="text-[#4EAC9F] text-2xl md:text-4xl font-bold">Menús Balanceado Clásico</h5>
+            <p class="text-xl font-light opacity-90">Ideal para jornadas regulares. Nutrición completa, ligera y variada.</p>
+        </div>
+    </section>
+
+    <!-- BLOQUE 6: Especial Para y EXPERIENCIA / PROPUESTA (UNIFICADOS) -->
+    <section class="max-w-7xl mx-auto px-6 py-20 text-center">
+        <h3 class="text-[#4EAC9F] text-3xl md:text-6xl font-bold mb-16">Especial para:</h3>
+
+        <div class="max-w-4xl mx-auto text-left space-y-6 mb-20">
+            <div class="flex items-start gap-4">
+                <div class="w-3 h-3 rounded-full bg-[#4EAC9F] mt-2 shrink-0"></div>
+                <p class="text-xl md:text-2xl font-light">Empresas de 20 a 1000+ empleados.</p>
+            </div>
+            <div class="flex items-start gap-4">
+                <div class="w-3 h-3 rounded-full bg-[#4EAC9F] mt-2 shrink-0"></div>
+                <p class="text-xl md:text-2xl font-light">Call centers, plantas, logística, salud, técnologia.</p>
+            </div>
+            <div class="flex items-start gap-4">
+                <div class="w-3 h-3 rounded-full bg-[#4EAC9F] mt-2 shrink-0"></div>
+                <p class="text-xl md:text-2xl font-light">Comedores corporativos o entrega diaria en porciones individuales.</p>
+            </div>
+        </div>
+
+        <!-- Tarjeta Experiencia + Propuesta al lado de la imagen -->
+        <div class="bg-transparent rounded-[4rem] flex flex-col md:flex-row items-start gap-12 max-w-6xl mx-auto">
+            <!-- Imagen izquierda -->
+            <div class="w-full md:w-[45%] h-full rounded-[3rem] overflow-hidden shadow-2xl">
+                <Image src={imgExperiencia} alt="Experiencia San Agustín" class="w-full h-full object-cover" />
+            </div>
+
+            <!-- Texto derecha (Experiencia + Propuesta) -->
+            <div class="w-full md:w-[55%] text-left space-y-10 py-4">
+                <div>
+                    <h3 class="text-[#4EAC9F] text-3xl md:text-5xl font-bold mb-6">Experiencia San Agustín</h3>
+                    <ul class="space-y-4 text-lg md:text-xl font-light">
+                        <li class="flex items-center gap-3">
+                            <div class="w-2 h-2 rounded-full bg-[#4EAC9F]"></div>
+                            <span>Asesoría nutricional profesional.</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-2 h-2 rounded-full bg-[#4EAC9F]"></div>
+                            <span>Operación en sitio o servicio tercerizado.</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-2 h-2 rounded-full bg-[#4EAC9F]"></div>
+                            <span>Control de calidad, BPM e higiene certificada.</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <div class="w-2 h-2 rounded-full bg-[#4EAC9F]"></div>
+                            <span>Logística puntual, eficiente y amigable.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="pt-8 ">
+                    <h3 class="text-[#4EAC9F] text-3xl md:text-5xl font-bold mb-4">Solicita tu</h3>
+                    <h4 class="text-[#4EAC9F] text-3xl md:text-5xl font-bold mb-6">Propuesta personalizada</h4>
+                    <p class="text-xl md:text-2xl font-light leading-relaxed">
+                        Cada empresa es diferente. Por eso, nuestro menú también lo es. Escríbenos hoy y transforma el almuerzo en una experiencia de bienestar y cultural.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOQUE 7: Botones Finales -->
+    <section class="max-w-7xl mx-auto px-6 pb-24 text-center">
+        <div class="flex flex-col items-center gap-6 mt-12">
+            <a href="#" class="bg-[#4EAC9F] text-[#333638] px-12 py-5 rounded-full font-bold text-2xl md:text-3xl hover:bg-white transition-all transform hover:scale-105 shadow-xl">
+                Descarga nuestro Portafolio
+            </a>
+            <a href="https://wa.me/573168753305" target="_blank" class="bg-[#FDF5E9] text-[#333638] px-12 py-5 rounded-full font-bold text-xl md:text-2xl hover:bg-[#4EAC9F] hover:text-[#FDF5E9] transition-all transform hover:scale-105 shadow-xl">
+                Contáctanos Aquí para Agendar una visita
+            </a>
+        </div>
+    </section>
+
+</div>
+
+<style>
+    /* Asegurar que Poppins esté cargado y se aplique consistentemente */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    div {
+        font-family: 'Poppins', sans-serif;
+    }
+</style>
+

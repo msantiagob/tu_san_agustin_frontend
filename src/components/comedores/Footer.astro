@@ -1,0 +1,299 @@
+---
+import { Image } from 'astro:assets';
+import flagColombia from '../assets/../../assets/images/comedores/colombia.webp';
+import iconFb from '../assets/../../assets/images/comedores/facebook.webp';
+import iconIg from '../assets/../../assets/images/comedores/instagram.webp';
+import iconTk from '../assets/../../assets/images/comedores/TikTock.webp';
+import iconLi from '../assets/../../assets/images/comedores/Link.webp';
+import iconYt from '../assets/../../assets/images/comedores/youtube.webp';
+import iconWa from '../assets/../../assets/images/comedores/whatsapp.webp';
+import logoVerde from '../assets/../../assets/images/comedores/LogoSanAgustínGris.webp';
+import iconPh from '../assets/../../assets/images/comedores/Telefono.webp';
+import imgVisa from '../assets/../../assets/images/comedores/visa.webp';
+import imgMastercard from '../assets/../../assets/images/comedores/mastercard.webp';
+import imgPaypal from '../assets/../../assets/images/comedores/paypal.webp';
+import imgPse from '../assets/../../assets/images/comedores/pse.webp';
+import imgWompi from '../assets/../../assets/images/comedores/wompi.webp';
+import iconPi from '../assets/../../assets/images/comedores/Pinterest _1.webp';
+
+// Awards images (importing them all to ensure Astro processes them)
+import award1 from '../assets/../../assets/images/comedores/home_tusanagustin-29.webp';
+import award2 from '../assets/../../assets/images/comedores/home_tusanagustin-30.webp';
+import award3 from '../assets/../../assets/images/comedores/home_tusanagustin-31.webp';
+import award4 from '../assets/../../assets/images/comedores/home_tusanagustin-32.webp';
+import award5 from '../assets/../../assets/images/comedores/home_tusanagustin-34-1.webp';
+import award6 from '../assets/../../assets/images/comedores/home_tusanagustin-35.webp';
+import award7 from '../assets/../../assets/images/comedores/home_tusanagustin-36.webp';
+import award8 from '../assets/../../assets/images/comedores/home_tusanagustin-37.webp';
+import award9 from '../assets/../../assets/images/comedores/home_tusanagustin-38.webp';
+import award10 from '../assets/../../assets/images/comedores/home_tusanagustin-41.webp';
+import award11 from '../assets/../../assets/images/comedores/diseño-sin-título-10.webp';
+import award12 from '../assets/../../assets/images/comedores/diseño-sin-título-2.webp';
+const awards = [award1, award2, award3, award4, award5, award6, award7, award8, award9, award10, award11, award12];
+---
+
+<section class="bg-[#FDF5E9 ] py-10 md:py-20 px-4 md:px-10">
+    <div class="max-w-7xl mx-auto space-y-12 md:space-y-24">
+
+        <!-- TOP SECTION: CONÓCENOS / QUIÉNES SOMOS -->
+        <div class="flex flex-col lg:flex-row justify-between items-start gap-12">
+            <div class="space-y-6 flex-1">
+                <div class="space-y-2">
+                    <h3 class="text-2xl md:text-3xl font-extrabold text-[#4EAC9F] tracking-tight">Conócenos</h3>
+                    <h2 class="text-4xl md:text-7xl font-extrabold text-[#2D3748] leading-none">¿Quiénes Somos?</h2>
+                </div>
+
+                <!-- Description Box (Wider but Thinner) -->
+                <div class="relative max-w-xl bg-[#D1C1A3] px-10 py-8 rounded-[40px] border border-white/5">
+                    <p class="text-sm md:text-lg leading-relaxed font-light text-white">
+                        Somos Tu San Agustín, la empresa líder en operación de eventos. Con más de 35 años, ofrecemos soluciones integrales y personalizadas para cualquier tipo de evento.
+                    </p>
+                    <div class="flex justify-end mt-4">
+                        <a href="https://www.tusanagustin.com/sobre-nosotros" class="bg-white text-black px-8 py-2.5 rounded-full text-xs hover:bg-opacity-90 transition-all uppercase tracking-widest shadow-lg inline-block">
+                            Ver Mas
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Awards Carousel with Arrows -->
+            <div class="lg:w-1/3 w-full flex flex-col items-center gap-6 mt-6 md:mt-12">
+                <p class="text-lg font-bold tracking-widest text-[#4EAC9F] text-center">Premios Y Certificaciones</p>
+
+                <div class="relative w-80 mx-auto flex items-center justify-center">
+                    <!-- Custom Arrows (Absolutely positioned relative to this centered box) -->
+                    <div class="swiper-button-prev-awards absolute left-0 z-10 text-[#4EAC9F] cursor-pointer hover:scale-110 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                    </div>
+
+                    <div class="swiper awardsSwiper w-40 h-56 overflow-hidden mx-auto">
+                        <div class="swiper-wrapper">
+                            {awards.map((award) => {
+                                const isBig = award === award11 || award === award12;
+                                return (
+                                    <div class="swiper-slide flex items-center justify-center">
+                                        <div class="w-40 h-40 flex items-center justify-center p-2">
+                                            <Image
+                                                src={award}
+                                                alt="Premio o Certificación"
+                                                class={`max-h-full object-contain drop-shadow-lg ${isBig ? "scale-[1.7]" : ""}`}
+                                                width={200}
+                                                height={200}
+                                                loading="lazy"
+                                            />
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+
+                    <div class="swiper-button-next-awards absolute right-0 z-10 text-[#4EAC9F] cursor-pointer hover:scale-110 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MIDDLE SECTION: CONTACT FORM -->
+        <div class="flex flex-col items-center space-y-12">
+            <h3 class="text-[#4EAC9F] text-4xl md:text-7xl font-extrabold mb-6 md:mb-12">Contáctanos</h3>
+
+            <form class="w-full max-w-xl space-y-4">
+                <div class="space-y-4">
+                    <input type="text" placeholder="Nombre y Apellido*" class="w-full bg-[#333638] text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium" />
+                    <input type="tel" placeholder="Whatsapp*" class="w-full bg-[#333638] text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium" />
+                    <input type="email" placeholder="Email*" class="w-full bg-[#333638] text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium" />
+                    <select required class="w-full bg-[#333638] text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 appearance-none font-medium" aria-label="Tipo de Evento">
+                        <option value="" disabled selected hidden>Tipo de Evento</option>
+                        <option>Boda</option>
+                        <option>Quince Años</option>
+                        <option>Corporativo</option>
+                        <option>Otro</option>
+                    </select>
+                    <textarea placeholder="Mensaje" rows="1" class="w-full bg-[#333638] text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium"></textarea>
+                </div>
+
+                <div class="flex justify-center pt-4">
+                    <button type="submit" class="bg-[#4EAC9F] text-white px-16 py-3 rounded-xl text-lg  hover:bg-opacity-90 transition-all shadow-xl">
+                        Enviar
+                    </button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    </div>
+</section>
+
+<footer class="bg-[#333638] text-white py-10 md:py-20 px-4 md:px-10">
+    <div class="max-w-7xl mx-auto">
+        <!-- BOTTOM SECTION: BRANDING & LINKS -->
+        <div class="pt-20 border-t border-white/5 flex flex-col lg:flex-row gap-16 lg:gap-24">
+
+            <!-- Branding Column -->
+            <div class="lg:w-1/3 space-y-8">
+                <div class="relative inline-block">
+                    <Image src={logoVerde} alt="San Agustín Logo" class="h-24 md:h-28 invert brightness-0 w-auto" loading="lazy" />
+                </div>
+
+                <div class="space-y-4">
+                    <p class="text-[#4EAC9F] text-xl font-bold italic tracking-tight">Síguenos @tusanagustin</p>
+                    <div class="flex gap-4">
+                        <a href="https://www.facebook.com/tusanagustineventos/" class="hover:scale-110 transition-transform"><Image src={iconFb} alt="Facebook" class="h-5 w-5 object-contain invert brightness-0" loading="lazy" /></a>
+                        <a href="https://www.instagram.com/tusanagustin/" class="hover:scale-110 transition-transform"><Image src={iconIg} alt="Instagram" class="h-5 w-5 object-contain invert brightness-0" loading="lazy" /></a>
+                        <a href="https://wa.me/573168753305?text=Hola!" class="hover:scale-110 transition-transform"><Image src={iconWa} alt="WhatsApp" class="h-5 w-5 object-contain invert brightness-0" loading="lazy" /></a>
+                        <a href="https://www.tiktok.com/@tusanagustin" class="hover:scale-110 transition-transform"><Image src={iconTk} alt="TikTok" class="h-5 w-5 object-contain invert brightness-0" loading="lazy" /></a>
+                        <a href="https://www.youtube.com/@tusanagustin" class="hover:scale-110 transition-transform"><Image src={iconYt} alt="YouTube" class="h-5 w-5 object-contain invert brightness-0" loading="lazy" /></a>
+                        <a href="https://www.linkedin.com/company/tusanagustin/" class="hover:scale-110 transition-transform"><Image src={iconLi} alt="LinkedIn" class="h-5 w-5 object-contain invert brightness-0" loading="lazy" /></a>
+                        <a href="#" class="hover:scale-110 transition-transform"><Image src={iconPi} alt="Pinterest" class="h-5 w-5 object-contain invert brightness-0" loading="lazy" /></a>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <p class="text-[#4EAC9F] text-lg font-bold">Contáctanos</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3 group cursor-pointer">
+                            <Image src={iconPh} alt="Telefono " class="h-6 w-6 object-contain invert brightness-0 group-hover:scale-110 transition-transform" loading="lazy" />
+                             <span class="text-base text-gray-300 font-medium">(+57) 316 875 33 05</span>
+                        </div>
+                        <div class="flex items-center gap-3 group cursor-pointer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white" class="group-hover:scale-110 transition-transform"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
+                            <span class="text-base text-gray-300 font-medium">contacto@tusanagustin.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:w-2/3 grid grid-cols-2 md:grid-cols-3 gap-8">
+                <nav aria-label="Footer Navigation Primary">
+                    <ul class="space-y-1.5">
+                        {[
+                            { name: 'Inicio', url: 'https://www.tusanagustin.com/' },
+                            { name: 'Eventos', url: 'https://www.tusanagustin.com/eventos' },
+                            { name: 'Servicios', url: 'https://www.tusanagustin.com/servicios' },
+                            { name: 'Galerías', url: 'https://www.tusanagustin.com/galeria' },
+                            { name: 'Lugares', url: 'https://www.tusanagustin.com/lugares' },
+                            { name: 'Event Planners', url: 'https://www.tusanagustin.com/event-planners' },
+                            { name: 'Artistas', url: 'https://www.tusanagustin.com/artistas' },
+                            { name: 'Historias', url: 'https://www.tusanagustin.com/historias' },
+                            { name: 'Blog', url: 'https://www.tusanagustin.com/blog' }
+                        ].map((link) => (
+                            <li><a href={link.url} class="text-gray-300 hover:text-[#4EAC9F] flex items-center gap-2 text-base font-medium transition-colors" style="font-family: 'Poppins', sans-serif;">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#4EAC9F]"></span> {link.name}
+                            </a></li>
+                        ))}
+                    </ul>
+                </nav>
+                <nav aria-label="Footer Navigation Secondary">
+                    <ul class="space-y-1.5">
+                        {[
+                            { name: 'Contáctanos', url: 'https://www.tusanagustin.com/contactanos' },
+                            { name: 'Sobre nosotros', url: 'https://www.tusanagustin.com/sobre-nosotros' },
+                            { name: 'Preguntas frecuentes', url: 'https://www.tusanagustin.com/preguntas-frecuentes' },
+                            { name: 'Condiciones legales', url: 'https://www.tusanagustin.com/condiciones-legales' },
+                            { name: 'Políticas de privacidad', url: 'https://www.tusanagustin.com/politicas-de-privacidad' },
+                            { name: 'Consentimiento de cookies', url: 'https://www.tusanagustin.com/cookies' },
+                            { name: 'Mapa del sitio', url: 'https://www.tusanagustin.com/mapa-del-sitio' }
+                        ].map((link) => (
+                            <li><a href={link.url} class="text-gray-300 hover:text-[#4EAC9F] flex items-center gap-2 text-base font-medium transition-colors" style="font-family: 'Poppins', sans-serif;">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#4EAC9F]"></span> {link.name}
+                            </a></li>
+                        ))}
+                    </ul>
+                </nav>
+                <nav aria-label="Footer Navigation Tertiary">
+                    <ul class="space-y-1.5">
+                        {[
+                            { name: 'Trabaja con nosotros', url: 'https://www.tusanagustin.com/trabaja-con-nosotros' },
+                            { name: 'Events & Wedding Planners', url: 'https://www.tusanagustin.com/planeadores' },
+                            { name: 'Artistas y espectáculos', url: 'https://www.tusanagustin.com/artistas-y-espectaculos' },
+                            { name: 'Lugares para eventos', url: 'https://www.tusanagustin.com/lugares-eventos' },
+                            { name: 'Proveedores', url: 'https://www.tusanagustin.com/proveedores' }
+                        ].map((link) => (
+                            <li><a href={link.url} class="text-gray-300 hover:text-[#4EAC9F] flex items-center gap-2 text-base font-medium transition-colors" style="font-family: 'Poppins', sans-serif;">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#4EAC9F]"></span> {link.name}
+                            </a></li>
+                        ))}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <!-- PAYMENT METHODS -->
+      <div class="flex flex-col items-end w-full mt-10 pr-4">
+        <div class="flex flex-col items-center space-y-2">
+            <p class="text-[#4EAC9F] text-lg italic font-medium opacity-90">Medios de Pago</p>
+            <div class="bg-[#E5E0D8] px-8 py-3 rounded-2xl flex flex-wrap justify-center items-center gap-6 shadow-md">
+
+                <Image src={imgVisa}
+                     alt="Visa"
+                     class="h-8 w-auto opacity-70 hover:opacity-100 transition-all duration-300" loading="lazy" />
+
+                <Image src={imgMastercard}
+                     alt="Mastercard"
+                     class="h-10 w-auto opacity-70 hover:opacity-100 transition-all duration-300" loading="lazy" />
+
+                <Image src={imgPaypal}
+                     alt="PayPal"
+                     class="h-8 w-auto opacity-70 hover:opacity-100 transition-all duration-300" loading="lazy" />
+
+                <Image src={imgPse}
+                     alt="PSE"
+                     class="h-14 w-auto opacity-70 hover:opacity-100 transition-all duration-300" loading="lazy" />
+
+                <Image src={imgWompi}
+                     alt="Wompi"
+                     class="h-12 w-auto opacity-70 hover:opacity-100 transition-all duration-300" loading="lazy" />
+
+            </div>
+        </div>
+      </div>
+
+    </div>
+</footer>
+
+<script>
+    import Swiper from 'swiper';
+    import { Autoplay, EffectFade, Navigation } from 'swiper/modules';
+    import 'swiper/css';
+    import 'swiper/css/effect-fade';
+    import 'swiper/css/navigation';
+
+    const initAwardsSwiper = () => {
+        requestAnimationFrame(() => {
+            new Swiper(".awardsSwiper", {
+                modules: [Autoplay, EffectFade, Navigation],
+                effect: "fade",
+                fadeEffect: { crossFade: true },
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next-awards',
+                    prevEl: '.swiper-button-prev-awards',
+                },
+                slidesPerView: 1,
+                spaceBetween: 0,
+                observer: false,
+                observeParents: false,
+            });
+        });
+    };
+
+    initAwardsSwiper();
+    document.addEventListener('astro:page-load', initAwardsSwiper);
+</script>
+
+<style>
+    /* Select placeholder effect */
+    select:invalid {
+        color: #9ca3af;
+    }
+    select option {
+        color: white;
+        background-color: #333638;
+    }
+</style>

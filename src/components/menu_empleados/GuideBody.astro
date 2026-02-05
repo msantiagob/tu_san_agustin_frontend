@@ -1,0 +1,270 @@
+---
+import { Image } from 'astro:assets';
+
+// Import images
+
+import imgMenu from '../../assets/images/menu_empleados/024-AL~3.webp'; // Plate/Food
+import imgStations from '../../assets/images/menu_empleados/0223F1~1.WEBp'; // Salad/Launchbox like
+import imgPlating from '../../assets/images/menu_empleados/024-AL~1.webp';
+import imgGallery1 from '../../assets/images/menu_empleados/024-AL~3.webp';
+import imgGallery2 from '../../assets/images/menu_empleados/024-AL~1 (2).WEBp';
+import imgGallery3 from '../../assets/images/menu_empleados/024-AL~4.WEBP';
+import imgGallery4 from '../../assets/images/menu_empleados/024-AL~2 (2).WEBp';
+import imgGallery5 from '../../assets/images/menu_empleados/024-AL~3 (2).WEBp';
+import imgGallery6 from '../../assets/images/menu_empleados/0234F5~1.WEBP'; // Kitchen Tech 1
+import imgGallery7 from '../../assets/images/menu_empleados/024-AL~1 (2).WEBp'; // Kitchen Tech 2
+import imgGallery8 from '../../assets/images/menu_empleados/024-AL~4.WEBP'; // Kitchen Tech 3
+import imgGallery9 from '../../assets/images/menu_empleados/024-AL~2 (2).WEBp'; // Kitchen Tech 4
+import imgGallery10 from '../../assets/images/menu_empleados/0293C3~1.webp'; // Kitchen Tech 5
+import imgGallery11 from '../../assets/images/menu_empleados/022708~1.webp'; // Kitchen Tech 5
+import imgGallery12 from '../../assets/images/menu_empleados/0293C3~1.webp'; // Kitchen Tech 5
+import imgGallery13 from '../../assets/images/menu_empleados/0213C3~1.webp'; // Kitchen Tech 5
+import imgGallery14 from '../../assets/images/menu_empleados/02D894~1.webp'; // Kitchen Tech 5
+
+
+
+import imgTestimonial from '../../assets/images/menu_empleados/024-AL~2.webp'; // Couple / Toasting
+
+// Using imgStations as the lunchbox placeholder for now as it looks somewhat relevant, or imgMenu.
+// Ideally we'd have the specific lunchbox image.
+---
+
+<div class="bg-[#333638] w-full overflow-hidden mt-20 font-['Poppins']">
+
+    <!-- SECTION 1: Casino Empresarial Intro & List -->
+    <div class="max-w-7xl mx-auto px-4 md:px-8 pt-16 pb-8">
+
+        <!-- Intro Paragraph -->
+        <div class="max-w-2xl text-left mb-16">
+            <p class="text-[#FDF5E9] text-lg md:text-xl font-medium leading-relaxed">
+                En Tu San Agustín, transformamos la manera en que las empresas alimentan a su equipo. Nuestra línea de <span class="text-[#4EAC9F]">alimentación empresarial para empleados</span> ofrece desde <span class="text-[#4EAC9F]">comedores corporativos tipo casino</span> hasta menús <span class="text-[#4EAC9F]">empacados, bowls saludables, coffe breaks, asados e integraciones</span>, todo diseñado bajo altos estándares de nutrición, sabor y logística eficiente.
+            </p>
+        </div>
+
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 font-['Poppins']">
+                <span class="text-[#4EAC9F]">Casino Empresarial:</span><br/>
+                <span class="text-[#FDF5E9]">Más que un comedor corporativo</span>
+            </h1>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <p class="text-[#FDF5E9] text-xl font-normal leading-relaxed">
+                    Un <span class="text-[#4EAC9F]">casino empresarial</span> es la solución ideal para empresas que desean un servicio continuo de alimentación dentro de sus instalaciones. Ofrecemos:
+                </p>
+
+                <ul class="space-y-4">
+                    {[
+                        "Cocina en sitio o entrega desde centro de producción",
+                        "Personal operativo, logístico y de servicio",
+                        "Menús balanceados, validados por nutricionistas",
+                        "Control de porciones y protocolos sanitarios BPM / INVIMA",
+                        "Servicios en turnos o buffet empresarial"
+                    ].map((item) => (
+                        <li class="flex items-start gap-4">
+                            <div class="w-3 h-3 rounded-full bg-[#4EAC9F] mt-2 shrink-0"></div>
+                            <span class="text-[#FDF5E9] text-lg font-light">{item}</span>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+
+            <div class="relative rounded-[2rem] overflow-hidden shadow-2xl aspect-video border-4 border-white/5 group bg-black md:mr-8">
+                <iframe
+                    class="w-full h-full"
+                    src="https://www.youtube.com/embed/FKkHDL6IsJI?si=LbXDzFR9wgKVPrut"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                ></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 2: Cost Structure Text Blocks -->
+    <div class="max-w-7xl mx-auto px-4 md:px-8 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+             <!-- Text Column -->
+            <div class="space-y-8 text-[#FDF5E9] text-lg leading-relaxed font-light">
+                <p>
+                    Contar con un <span class="text-[#4EAC9F]">comedor empresarial</span> o <span class="text-[#4EAC9F]">casino corporativo</span> es una de las decisiones más efectivas que puede tomar una organización interesada en el bienestar de sus empleados y en la mejora de su productividad. Sin embargo, como inversión estratégica, su implementación requiere una evaluación financiera clara y detallada.
+                </p>
+                <p>
+                    En este artículo, te contamos cómo se estructura el marco de costos para operar un comedor empresarial, y qué factores debes de tener en cuenta para tomar decisiones informadas.
+                </p>
+                <p>
+                    La estructura de costos de un comedor empresarial se divide en tres categorías principales: <span class="text-[#4EAC9F]">costos fijos, variables e indirectos.</span>
+                </p>
+                <p>
+                    Los costos fijos son aquellos que no dependen del número de raciones servidas. Incluye el alquiler o adecuación del espacio físico (si aplica), los salarios del personal de cocina y servicio, los servicios públicos como agua, gas y electricidad, así como los costos asociados a licencias sanitarias, mantenimiento de equipos y seguros.
+                </p>
+            </div>
+
+            <!-- Image Column -->
+            <div class="h-full">
+                <div class="rounded-[2rem] overflow-hidden h-[600px] shadow-xl border-4 border-white/5">
+                     <Image src={imgGallery13} alt="Buffet empresarial" class="w-full h-full object-cover" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Full Width Text Continuation -->
+        <div class="mt-16 space-y-8 text-[#FDF5E9] text-lg leading-relaxed font-light max-w-4xl">
+            <p>
+                En cambio, los <span class="text-[#4EAC9F]">costos variables</span> cambian según el volumen e raciones servidas. Aquí se incluye los alimentos e insumos, las porciones especiales por restricciones o preferencias alimentarias, y los residuos generados. Cada ración tiene un valor que se ajusta según la calidad de los ingredientes, el tipo de menú y el nivel de personalización.
+            </p>
+            <p>
+                Por último, los <span class="text-[#4EAC9F]">costos indirectos</span> comprenden elementos como la logística de transporte (en caso de operar desde un centro de producción externo), la supervisión del servicio, la asesoría nutricional o el sistema de control de acceso de los empleados al casino.
+            </p>
+            <p>
+                Existen también distintas <span class="text-[#4EAC9F]">modalidades operativas</span> que influyen en el costo final del servicio. Por ejemplo, una empresa que tiene cocina in situ realiza una inversión inicial mayor, pero puede reducir el costo por ración a mediano plazo si el volumen de empleados atendidos es alto. En cambio, un servicio tercerizado desde una cocina central permite operar sin infraestructura propia, ideal para empresas medianas que desean controlar el gasto sin sacrificar calidad.
+            </p>
+            <p>
+                También es posible aplicar esquemas mixtos de <span class="text-[#4EAC9F]">subsidio compartido</span>, donde la empresa aumenta un porcentaje del costo del almuerzo y el empleado cubre el restante, generando responsabilidad compartida y sostenibilidad presupuestal.
+            </p>
+        </div>
+    </div>
+
+    <!-- SECTION 3: Benefits Bubbles -->
+    <div class="max-w-7xl mx-auto px-4 md:px-8 py-16 space-y-12">
+        <div class="flex flex-col gap-12 max-w-5xl mx-auto">
+             <!-- Bubble 1: Left -->
+             <div class="bg-[#FDF5E9] p-8 md:p-10 rounded-[2.5rem] shadow-xl self-start md:w-[85%] relative">
+                 <p class="text-[#333638] font-bold text-lg  leading-relaxed">
+                  <span class="font-bold">Ahora bien, </span>   <span  class="font-bold text-[#4EAC9F]" >¿Por qué invertir en un comedor empresarial?</span> Más allá del plato, los beneficios son múltiples: mejorar la retención del talento, reduce el ausentismo, optimiza los tiempos de trabajo, fortalece la cultura corporativa y posiciona a la organización como una empresa empleadora responsable.
+                 </p>
+                 <!-- Speech bubble tail substitute (optional, visual adjustment) -->
+             </div>
+
+             <!-- Bubble 2: Right -->
+             <div class="bg-[#FDF5E9] p-8 md:p-10 rounded-[2.5rem] shadow-xl self-end md:w-[80%]">
+                 <p class="text-[#333638] text-lg font-bold leading-relaxed">
+                     Antes de tomar una decisión, es fundamental realizar un diagnóstico que incluya el número de raciones promedio por día, el tipo de jornada laboral, el espacio disponible, la capacidad de subsidio y los objetivos que se buscan (bienestar, fidelización, clima organizacional, etc.)
+                 </p>
+             </div>
+
+             <!-- Bubble 3: Left -->
+             <div class="bg-[#FDF5E9] p-8 md:p-10 rounded-[2.5rem] shadow-xl self-start md:w-[80%]">
+                 <p class="text-[#333638] text-lg font-bold leading-relaxed">
+                     Un comedor bien diseñado y estratégicamente implementado no solo alimenta: <span class="text-[#4EAC9F]">refuerza el tejido de la empresa y contribuye directamente al crecimiento del negocio.</span>
+                 </p>
+             </div>
+        </div>
+    </div>
+
+
+    <!-- SECTION 4: Case Study -->
+    <div class="max-w-7xl mx-auto px-4 md:px-8 py-20">
+
+        <!-- Video Center -->
+        <div class="flex justify-end mb-16">
+            <div class="w-full md:w-3/4 relative rounded-[2rem] overflow-hidden shadow-2xl aspect-video border-4 border-white/5">
+                <iframe
+                    class="w-full h-full"
+                    src="https://www.youtube.com/embed/gSHe4IhUhR4?si=v36T_NmVf49nckPm"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                ></iframe>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 py-12">
+
+   <div class="max-w-7xl mx-auto px-6 py-12">
+
+    <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold mb-2 font-['Poppins']">
+            <span class="text-[#4EAC9F]">Cuando la buena intención</span><br/>
+            <span class="text-[#4EAC9F]">no fue suficiente</span>
+        </h2>
+        <h3 class="text-3xl font-bold text-[#FDF5E9]">El caso de Grupo Térmica S.A.S</h3>
+    </div>
+
+    <div class="max-w-4xl mb-16 space-y-8 text-[#FDF5E9] text-left">
+        <p class="text-lg font-light leading-relaxed">
+            Grupo Térmica S.A.S es una empresa mediana del sector metalmecánico ubicada en las afueras de Medellín. Con 20 empleados en operación continua y jornadas extendidas, la dirección decide implementar un programa interno de alimentación como incentivo y forma de cuidar a su equipo.
+        </p>
+        <p class="text-lg font-light leading-relaxed">
+            Al no contar con un comedor formal ni experiencia en servicio de alimentación colectiva, optaron por una solución que parecía simple: adaptar la pequeña cocina de la oficina administrativa para preparar los almuerzos diariamente. Asignaron a una auxiliar operativa con experiencia casera, compraron algunos insumos al por mayor y establecieron un menú rotativo. Todo parecía ir bien... al principio.
+        </p>
+        <p class="text-[#4EAC9F] text-xl font-medium pt-4">
+            Pero en menos de dos meses, aparecieron los problemas:
+        </p>
+        <ul class="space-y-6">
+            {[
+                { title: "Inestabilidad en los menús:", content: "A falta de planificación nutricional, los almuerzos eran repetitivos o desbalanceados, lo que redujo la satisfacción del equipo." },
+                { title: "Contaminación cruzada:", content: "La cocina no tenía zonas diferenciadas para materias primas y platos servidos. Tres empleados presentaron síntomas de intoxicación leve en una misma semana." },
+                { title: "Retrasos en producción:", content: "Como la misma persona debía cocinar y servir, a menudo los almuerzos no estaban listos a tiempo. Esto causaba pausas operativas desorganizadas y descontento general." },
+                { title: "Pérdidas económicas:", content: "Los desperdicios por mala manipulación de alimentos aumentaron. También hubo daños en el refrigerador por sobrecarga, lo que generó gastos adicionales." },
+                { title: "Sanción sanitaria preventiva:", content: "Durante una visita de rutina, la Secretaría de Salud Municipal hizo observaciones por falta de protocolos y almacenamiento inadecuado. El servicio tuvo que suspenderse temporalmente." }
+            ].map((item) => (
+                <li class="flex items-start gap-4">
+                    <div class="w-3 h-3 rounded-full bg-[#4EAC9F] mt-2 shrink-0"></div>
+                    <div>
+                        <span class="text-[#4EAC9F] font-bold">{item.title}</span>
+                        <span class="text-[#FDF5E9] font-light ml-1">{item.content}</span>
+                    </div>
+                </li>
+            ))}
+        </ul>
+    </div>
+
+    <div class="ml-auto max-w-3xl h-[300px] md:h-[400px] rounded-[3rem] overflow-hidden shadow-2xl">
+        <Image
+            src={imgGallery12}
+            alt="Equipo de cocina profesional"
+            class="w-full h-full object-cover object-center"
+        />
+    </div>
+
+</div>
+
+</div>
+
+    <!-- SECTION 5: Conclusion / La Lección -->
+    <div class="max-w-7xl mx-auto px-4 md:px-8 py-20">
+        <h2 class="text-4xl md:text-6xl font-bold text-center text-[#4EAC9F] mb-16 font-['Poppins']">
+            ¿La lección?
+        </h2>
+
+        <div class="flex flex-col gap-12 max-w-4xl mx-auto">
+            <div class="bg-[#FDF5E9] p-8 md:p-10 rounded-[2.5rem] shadow-xl">
+                 <p class="text-[#333638] text-lg font-medium leading-relaxed">
+                     La intención de cuidar al equipo fue genuina, pero el desconocimiento técnico y operativo terminó generando más problemas que beneficios. Luego del incidente, Grupo Térmica S.A.S contrató un servicio profesional de alimentación empresarial con cocina centralizada y entregas empacadas.
+                 </p>
+            </div>
+
+            <div class="bg-[#FDF5E9] p-8 md:p-10 rounded-[2.5rem] shadow-xl self-end md:w-[90%]">
+                 <p class="text-[#333638] text-lg font-medium leading-relaxed">
+                     Hoy los empleados reciben menús balanceados, variados y a tiempo. La empresa no solo eliminó los riesgos sanitarios y financieros, sino que mejoró el clima laboral y la percepción del liderazgo.
+                 </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // Video play/pause logic
+    document.addEventListener('astro:page-load', () => {
+         const containers = document.querySelectorAll('.video-container');
+
+        containers.forEach(container => {
+            const video = container.querySelector('video');
+            // Basic click to play/pause
+            container.addEventListener('click', () => {
+                if (video.paused) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+        });
+    });
+</script>
