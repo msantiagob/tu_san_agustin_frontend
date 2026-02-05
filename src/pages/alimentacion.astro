@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/LayoutAlimentacionCorporativa.astro';
+import Banner from '../components/alimentacion_corporativa/Banner.astro';
+import GuideBody from '../components/alimentacion_corporativa/GuideBody.astro';
+
+import Navbar from '../components/alimentacion_corporativa/Navbar.astro';
+
+
+
+import BrandInfo from '../components/alimentacion_corporativa/BrandInfo.astro';
+import Footer from '../components/alimentacion_corporativa/Footer.astro';
+
+---
+
+
+
+<Layout title="Home">
+	<Navbar />
+	<main class="min-h-screen">
+
+		<Banner />
+		<GuideBody />
+
+
+
+		<div class="md:my-16"></div>
+
+
+		<div class="md:my-16"></div>
+
+
+		<div class="md:my-16"></div>
+
+
+		<div class="my-0 md:my-10"></div>
+		<BrandInfo />
+		<Footer />
+	</main>
+</Layout>

@@ -44,3 +44,5 @@ Thumbs.db
 .cache/
 src/assets/images/boda-destinos/video.mp4
 *.mp4
+# Local Netlify folder
+.netlify

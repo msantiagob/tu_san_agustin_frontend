@@ -1,0 +1,355 @@
+---
+import { Image } from 'astro:assets';
+
+// Import images
+
+import imgMenu from '../../assets/images/alimentacion_corporativa/024-AL~3.webp'; // Plate/Food
+import imgStations from '../../assets/images/alimentacion_corporativa/0223F1~1.WEBp'; // Salad/Launchbox like
+import imgPlating from '../../assets/images/alimentacion_corporativa/024-AL~1.webp';
+import imgGallery1 from '../../assets/images/alimentacion_corporativa/024-AL~3.webp';
+import imgGallery2 from '../../assets/images/alimentacion_corporativa/024-AL~1 (2).WEBp';
+import imgGallery3 from '../../assets/images/alimentacion_corporativa/024-AL~4.WEBP';
+import imgGallery4 from '../../assets/images/alimentacion_corporativa/024-AL~2 (2).WEBp';
+import imgGallery5 from '../../assets/images/alimentacion_corporativa/024-AL~3 (2).WEBp';
+import imgGallery6 from '../../assets/images/alimentacion_corporativa/0234F5~1.WEBP'; // Kitchen Tech 1
+import imgGallery7 from '../../assets/images/alimentacion_corporativa/024-AL~1 (2).WEBp'; // Kitchen Tech 2
+import imgGallery8 from '../../assets/images/alimentacion_corporativa/024-AL~4.WEBP'; // Kitchen Tech 3
+import imgGallery9 from '../../assets/images/alimentacion_corporativa/024-AL~2 (2).WEBp'; // Kitchen Tech 4
+import imgGallery10 from '../../assets/images/alimentacion_corporativa/0293C3~1.webp'; // Kitchen Tech 5
+import imgGallery11 from '../../assets/images/alimentacion_corporativa/022708~1.webp'; // Kitchen Tech 5
+import imgGallery12 from '../../assets/images/alimentacion_corporativa/023E2C~1.webp'; // Kitchen Tech 5
+import imgGallery13 from '../../assets/images/alimentacion_corporativa/0213C3~1.webp'; // Kitchen Tech 5
+import imgGallery14 from '../../assets/images/alimentacion_corporativa/02D894~1.webp'; // Kitchen Tech 5
+
+
+
+import imgTestimonial from '../../assets/images/alimentacion_corporativa/024-AL~2.webp'; // Couple / Toasting
+
+
+---
+
+<div class="bg-[#333638] w-full overflow-hidden  mt-20">
+
+    <!-- SECTION 1: Intro -->
+    <div class="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24 space-y-12 text-center">
+        <div>
+            <h2 class="text-4xl md:text-5xl font-bold text-[#4EAC9F] mb-2">
+                ¿Por qué ofrecer menús
+            </h2>
+            <h2 class="text-4xl md:text-5xl font-bold text-[#FDF5E9]">
+                Para empleados?
+            </h2>
+        </div>
+
+        <div class="max-w-3xl space-y-8">
+             <h3 class="text-2xl md:text-3xl font-bold text-[#4EAC9F] text-left">
+                La alimentación como estrategia<br />
+                de bienestar y eficiencia
+             </h3>
+
+             <p class="text-[#FDF5E9] text-lg leading-relaxed text-left">
+                Ofrecer alimentación para empleados no solo un gesto de bienestar, sino una decisión estratégica que impacta directamente la productividad, el clima organizacional y la reputación corporativa. En empresas que operan jornadas prolongadas, en sectores de alta rotación o en zonas alejadas, la alimentación corporativa se convierte en una necesidad operativa y humana.
+             </p>
+
+             <p class="text-[#FDF5E9] text-lg leading-relaxed text-left">
+                Tanto en pequeñas como en grandes organizaciones, brindar comida caliente, balanceada y adaptada al perfil del equipo es un diferencial que mejora la retención del talento y la eficiencia diaria.
+             </p>
+        </div>
+    </div>
+
+    <!-- SECTION 2: Beneficios -->
+    <div class="bg-[#333638] w-full py-16 md:py-20 border-t border-gray-700/30">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#4EAC9F] mb-12 max-w-2xl">
+                Beneficios tangibles de<br />
+                la alimentación<br />
+                para empleados
+            </h2>
+
+            <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+                 <!-- Image Left (Lunchbox) -->
+                <div class="w-full md:w-1/3">
+                    <div class="rounded-[2rem] overflow-hidden bg-white p-2 shadow-xl h-[500px] md:h-[600px]">
+                        <!-- Using a placeholder image that resembles food/lunchbox -->
+                         <Image src={imgStations} alt="Lunchbox corporativo" class="w-full h-full object-cover rounded-[1.5rem]" />
+                    </div>
+                </div>
+
+                <!-- Text Right (List) -->
+                <div class="w-full md:w-2/3">
+                    <ul class="space-y-6">
+                        {[
+                            "Disminuye el ausentismo y mejora la salud laboral.",
+                            "Ahorra tiempo operativo y evita desplazamiento externos.", // 'desplazamiento' copied as is, likely 'desplazamientos' intended but keeping strictly to text provided slightly corrected for grammar if obvious, but sticking close. Image says "desplazamiento".
+                            "Fomenta la integración y el sentido de pertenencia.",
+                            "Incrementa la productividad y el enfoque durante la jornada.",
+                            "Fortalece la imagen interna de la empresa como empleador responsable."
+                        ].map((item) => (
+                            <li class="flex items-start gap-3">
+                                <span class="w-4 h-4 rounded-full bg-[#4EAC9F] mt-1.5 shrink-0"></span>
+                                <span class="text-[#FDF5E9] text-lg">{item}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+             <!-- Video under benefits? Image 2 shows a video player at bottom right. -->
+            <div class="mt-12 flex justify-end">
+                 <div class="w-full md:w-1/2 relative rounded-[2rem] overflow-hidden shadow-lg aspect-video">
+                     <!-- YouTube Video Embed -->
+                    <iframe
+                        width="100%"
+                        height="100%"
+                        src="https://www.youtube.com/embed/rxp0AQ8aGk0?si=gjtTn-P19UTBVNid"
+                        title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen
+                        class="w-full h-full"
+                    ></iframe>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- SECTION 3: Menu Corporativo Description -->
+    <div class="max-w-7xl mx-auto px-4 md:px-8 py-16 space-y-12">
+        <div class="text-center md:text-left space-y-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#4EAC9F] mb-6 text-center">
+                ¿Por qué ofrecer menús<br />
+                Para empleados?
+            </h2>
+             <!-- Repetition of title in Image 3? Image 3 starts with "Un menú corporativo es..." but has the header again at the top. I will include the text block. -->
+
+            <div class="bg-[#333638] text-[#FDF5E9] p-0 md:p-4 rounded-xl space-y-6">
+                <p class="text-lg">
+                    Un menú corporativo es un conjunto de preparaciones diseñadas para cubrir las necesidades nutricionales de los empleados durante su jornada laboral.
+                </p>
+
+                <h3 class="text-xl font-bold text-[#FDF5E9]">Está pensando para:</h3>
+
+                <ul class="space-y-4">
+                     {[
+                        "Ser energética pero no pesado.",
+                        "Ajustarse al presupuesto de la empresa.",
+                        "Cumplir con las buenas practicas de Manufactura (BPM)",
+                        "Adaptarse a horarios, espacios y logística interna."
+                    ].map((item) => (
+                        <li class="flex items-center gap-3">
+                            <span class="w-3 h-3 rounded-full bg-[#4EAC9F] shrink-0"></span>
+                            <span class="text-[#FDF5E9] text-lg">{item}</span>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </div>
+
+        <!-- Images Grid: 2 tall narrow + 2 small stacked -->
+        <!-- Images Grid: 2 tall narrow + 2 small stacked -->
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+            <!-- Left: 2 tall narrow images side by side (3/5 width) -->
+            <div class="md:col-span-3 grid grid-cols-2 gap-4">
+                <div class="rounded-[2rem] overflow-hidden h-64 md:h-[600px] shadow-lg">
+                    <Image src={imgGallery6} alt="Food 1" class="w-full h-full object-cover" />
+                </div>
+                <div class="rounded-[2rem] overflow-hidden h-64 md:h-[600px] shadow-lg">
+                    <Image src={imgGallery7} alt="Food 2" class="w-full h-full object-cover" />
+                </div>
+            </div>
+
+            <!-- Right: 2 small images stacked (2/5 width) -->
+            <div class="md:col-span-2 flex flex-col gap-4">
+                <div class="rounded-[2rem] overflow-hidden h-32 md:h-[292px] shadow-lg">
+                    <Image src={imgGallery8} alt="Food 3" class="w-full h-full object-cover" />
+                </div>
+                <div class="rounded-[2rem] overflow-hidden h-32 md:h-[292px] shadow-lg">
+                    <Image src={imgGallery9} alt="Food 4" class="w-full h-full object-cover" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 4: Tipos de Empresa vs Razón -->
+    <div class="max-w-7xl mx-auto px-4 md:px-8 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 relative">
+             <!-- Left Column -->
+             <div class="space-y-8 flex flex-col items-center">
+                <div class="bg-[#FDF5E9] px-8 py-3 rounded-full shadow-lg border-2 border-[#4EAC9F]/20">
+                    <h3 class="text-2xl font-bold text-[#4EAC9F]">Tipos de Empresa</h3>
+                </div>
+
+                <div class="space-y-6 w-full flex flex-col items-center">
+                    {[
+                        "Empresas industriales o manufacturas.",
+                        "Centros logísticos, sector salud y transporte.",
+                        "Call centers y servicos de atención al cliente.",
+                        "Empresas ubicadas en zonas alejadas.",
+                        "Empresas medianas y grandes con más de 50 empleados",
+                        "Empresas que buscan certificaciones de RSE (ISO 45001)"
+                    ].map((text) => (
+                        <div class="bg-[#FDF5E9] text-[#333638] px-6 py-4 rounded-full text-center font-medium w-full max-w-sm shadow-md hover:scale-105 transition-transform border border-transparent hover:border-[#4EAC9F]">
+                            {text}
+                        </div>
+                    ))}
+                </div>
+             </div>
+
+             <!-- Right Column -->
+             <div class="space-y-8 flex flex-col items-center">
+                <div class="bg-[#FDF5E9] px-8 py-3 rounded-full shadow-lg border-2 border-[#4EAC9F]/20 text-center">
+                    <h3 class="text-2xl font-bold text-[#4EAC9F] leading-none">
+                        Razón para Invertir en<br/>
+                        Alimentación para Empleados
+                    </h3>
+                </div>
+
+                <div class="space-y-6 w-full flex flex-col items-center">
+                     {[
+                        "Turnos largos, trabajo físico intenso, procesos que no permiten pausas prolongadas.",
+                        "Alta exigencia física y logística; trabajadores en movimiento constante (bodegas, hospitales, aeropuertos , etc.)",
+                        "Alta rotación, carga emocinal, estrés laboral. Empleados jóvenes que valoran beneficios tengibles como la comida.",
+                        "Falta de restaurantes o servicios de alimentación cercanos. La empresa se vuelve responsable de garantizar el acceso.",
+                        "Viabilidad de economías de escala para montar comedores internos o contratar servicios de alimentación corporativa.",
+                        "La alimentación forma parte de las estrategias de salud ocupacional y bienestar organizacional."
+                    ].map((text) => (
+                        <div class="bg-[#FDF5E9] text-[#333638] px-6 py-4 rounded-[2rem] text-center font-medium w-full max-w-md shadow-md hover:scale-105 transition-transform flex items-center justify-center min-h-[5rem] border border-transparent hover:border-[#4EAC9F]">
+                            {text}
+                        </div>
+                    ))}
+                </div>
+             </div>
+        </div>
+    </div>
+
+    <!-- SECTION 5: Tecnología -->
+    <div class="max-w-7xl mx-auto px-4 md:px-8 py-16 space-y-20">
+
+        <!-- Block 1 -->
+        <div class="text-center md:text-left">
+            <h2 class="text-4xl md:text-5xl font-bold text-[#FDF5E9] mb-6">
+                Tecnología de <span class="text-[#4EAC9F]">Automatización</span>
+            </h2>
+            <p class="text-[#FDF5E9] text-base md:text-lg leading-relaxed max-w-4xl">
+                Una de las características más destacadas de una cocina industrial e inteligente es la incorporación de tecnología de automatización. Equipos como robots de cocina y sistemas de cocción automatizados permiten una preparación uniforme y precisa de los alimentos. Esto no solo reduce el tiempo de cocción, sino que también asegura que cada plato mantenga su calidad y sabor. Imagina poder preparar grandes volúmenes de comida sin comprometer la consistencia; esto es posible gracias a la tecnología.
+            </p>
+        </div>
+
+        <!-- Block 2 -->
+        <div class="text-center md:text-right flex flex-col items-end">
+            <h2 class="text-4xl md:text-5xl font-bold text-[#FDF5E9] mb-6">
+                Sistemas de Monitoreo<br />
+                <span class="text-[#4EAC9F]">en Tiempo Real.</span>
+            </h2>
+            <p class="text-[#FDF5E9] text-base md:text-lg leading-relaxed max-w-4xl text-right">
+                La inteligencia en la cocina también se refleja en los sistemas de moniyoteo. <span class="text-[#4EAC9F] underline decoration-skip-ink">Sensores inteligentes</span> controlan la temperatura, la humedad y otros factores críticos en tiempo real, garantizando que los ingredientes se conserven en condiciones óptimas. Esto miniminza el desperdicio y <span class="text-[#4EAC9F]">maximiza la frescura de los productos</span>, un apsecto fundamental para cualquier chef que se preocupe por la calidad de sus platos.
+            </p>
+        </div>
+
+        <!-- 3 Images Tech -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+             <!-- Using placeholders for kitchen/tech images -->
+             <div class="rounded-[2rem] overflow-hidden h-64 shadow-lg border-4 border-[#FDF5E9]/10">
+                <Image src={imgPlating} alt="Kitchen Tech 1" class="w-full h-full object-cover" />
+             </div>
+             <div class="rounded-[2rem] overflow-hidden h-64 shadow-lg border-4 border-[#FDF5E9]/10">
+                <Image src={imgTestimonial} alt="Kitchen Tech 2" class="w-full h-full object-cover" />
+             </div>
+             <div class="rounded-[2rem] overflow-hidden h-64 shadow-lg border-4 border-[#FDF5E9]/10">
+                <Image src={imgMenu} alt="Kitchen Tech 3" class="w-full h-full object-cover" />
+             </div>
+        </div>
+
+        <!-- Block 3 -->
+        <div class="text-center md:text-left">
+             <h2 class="text-4xl md:text-5xl font-bold text-[#FDF5E9] mb-6">
+                Gestión Eficiente <span class="text-[#4EAC9F]">de Inventarios</span>
+            </h2>
+            <p class="text-[#FDF5E9] text-base md:text-lg leading-relaxed max-w-4xl">
+                <span class="text-[#4EAC9F]">La gestión de inventarios es otro pilar de las cocinas inteligentes.</span> Con Software avanzado, es posible rastrear la disponibilidad de ingredientes y prever necesidades futuras. Esto <span class="text-[#4EAC9F]">asegura que siempre tengamos los productos necesarios a mano</span>, evitando interrupciones en la producción. La planificación eficiente no solo ahorra tiempo, sino que <span class="text-[#4EAC9F]">también reduce costos</span>, permitiendo que más recursos se destinen a la creatividad culinaria.
+            </p>
+        </div>
+
+        <!-- Block 4 -->
+         <div class="text-center md:text-right flex flex-col items-end">
+            <h2 class="text-4xl md:text-5xl font-bold text-[#FDF5E9] mb-6">
+                Cocción <span class="text-[#4EAC9F]">Sostenible</span>
+            </h2>
+            <p class="text-[#FDF5E9] text-base md:text-lg leading-relaxed max-w-4xl text-right">
+                La sostenibilidad es una preocupación creciente en la industria alimentaria, y las cocinas inteligentes están diseñadas para abordar este desafío. Utilizan tecnologías que <span class="text-[#4EAC9F]">reducen el consumo de energía</span> y agua, lo que no solo <span class="text-[#4EAC9F]">beneficia al medio ambiente</span>, sino que también <span class="text-[#4EAC9F]">disminuye los costos operativos</span>. Al adoptar prácticas sostenibles, las cocinas pueden ofrecer alimentos de alta calidad sin comprome la salud del planeta.
+            </p>
+        </div>
+
+        <!-- SECTION 6: Interacción con el Cliente -->
+        <div class="text-center md:text-left">
+             <h2 class="text-4xl md:text-5xl font-bold text-[#FDF5E9] mb-6">
+                Interacción <span class="text-[#4EAC9F]">con el Cliente</span>
+            </h2>
+            <p class="text-[#FDF5E9] text-base md:text-lg leading-relaxed max-w-4xl">
+                Otro aspecto innovador de las cocinas industriales inteligentes es la <span class="text-[#4EAC9F]">interacción con el cliente.</span> A través de aplicaciones móviles y pantallas interactivas, los consumidores <span class="text-[#4EAC9F]">pueden personalizar sus pedidos</span> y recibir información detallada sobre los ingredientes y su origen. Esta trasnparencia fomenta una conexión más profunda entre el consumidor y la comida que consume, creando una experiencia más enriquecedora.
+            </p>
+        </div>
+
+        <!-- SECTION 7: Beneficios para la Productividad -->
+        <div class="text-center md:text-right flex flex-col items-end">
+            <h2 class="text-4xl md:text-5xl font-bold text-[#FDF5E9] mb-6">
+                Beneficios para <span class="text-[#4EAC9F]">la Productividad</span>
+            </h2>
+            <p class="text-[#FDF5E9] text-base md:text-lg leading-relaxed max-w-4xl text-right">
+                La implementación de una cocina industrial e inteligente tiene un impacto directo en la productividad. Al reducir el tiempo de preparación y cocción, los chefs pueden enfocarse en la creatividad y la presentación de los platos. Además, <span class="text-[#4EAC9F]">la calidad constante de los alimentos</span> asegura que los clientes estén satisfechos, lo que a su vez puede aumentar la lealtad y las recomendaciones.
+            </p>
+        </div>
+
+        <!-- SECTION 8: Image Composition -->
+        <div class="space-y-4 pt-12">
+            <!-- Top Row: Tall left, 2 stacked center, Tall right -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Left: Tall image -->
+                <div class="rounded-[2rem] overflow-hidden h-64 md:h-[500px]">
+                    <Image src={imgGallery10} alt="Food plate 1" class="w-full h-full object-cover" />
+                </div>
+
+                <!-- Center: 2 small images stacked -->
+                <div class="flex flex-col gap-4">
+                    <div class="rounded-[2rem] overflow-hidden h-32 md:h-[240px]">
+                        <Image src={imgGallery11} alt="Couple celebration" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="rounded-[2rem] overflow-hidden h-32 md:h-[240px]">
+                        <Image src={imgGallery12} alt="Food plate 2" class="w-full h-full object-cover" />
+                    </div>
+                </div>
+
+                <!-- Right: Tall image -->
+                <div class="rounded-[2rem] overflow-hidden h-64 md:h-[500px]">
+                    <Image src={imgGallery13} alt="Buffet line" class="w-full h-full object-cover" />
+                </div>
+            </div>
+
+            <!-- Bottom Row: Wide but short image -->
+            <div class="rounded-[2rem] overflow-hidden h-32 md:h-48">
+                <Image src={imgGallery14} alt="Wide food display" class="w-full h-full object-cover" />
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // Video play/pause logic
+    document.addEventListener('astro:page-load', () => {
+         const containers = document.querySelectorAll('.video-container');
+
+        containers.forEach(container => {
+            const video = container.querySelector('video');
+            // Basic click to play/pause
+            container.addEventListener('click', () => {
+                if (video.paused) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+        });
+    });
+</script>
