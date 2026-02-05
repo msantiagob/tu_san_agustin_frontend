@@ -577,6 +577,16 @@ const awards = [
   const API_URL =
     import.meta.env.PUBLIC_API_URL || 'http://localhost:8000/api/v1';
 
+  // Form ID y Field IDs del backend
+  const FORM_ID = 2;
+  const FIELD_IDS = {
+    nombre: 6,
+    whatsapp: 7,
+    email: 8,
+    tipo_evento: 9,
+    mensaje: 10,
+  };
+
   const initContactForm = () => {
     const form = document.getElementById('contact-form') as HTMLFormElement;
     const submitBtn = document.getElementById(
@@ -599,33 +609,38 @@ const awards = [
       formMessage.classList.add('hidden');
 
       // Recoger datos del formulario
-      const formData = {
-        nombre: (document.getElementById('nombre') as HTMLInputElement).value,
-        whatsapp: (document.getElementById('whatsapp') as HTMLInputElement)
-          .value,
-        email: (document.getElementById('email') as HTMLInputElement).value,
-        tipo_evento: (
-          document.getElementById('tipo_evento') as HTMLSelectElement
-        ).value,
-        mensaje:
-          (document.getElementById('mensaje') as HTMLTextAreaElement).value ||
-          '',
+      const nombre = (document.getElementById('nombre') as HTMLInputElement).value;
+      const whatsapp = (document.getElementById('whatsapp') as HTMLInputElement).value;
+      const email = (document.getElementById('email') as HTMLInputElement).value;
+      const tipo_evento = (document.getElementById('tipo_evento') as HTMLSelectElement).value;
+      const mensaje = (document.getElementById('mensaje') as HTMLTextAreaElement).value || 'Sin mensaje';
+
+      // Preparar datos para el endpoint de submissions
+      const submissionData = {
+        form_id: FORM_ID,
+        answers: [
+          { field_id: FIELD_IDS.nombre, value: nombre },
+          { field_id: FIELD_IDS.whatsapp, value: whatsapp },
+          { field_id: FIELD_IDS.email, value: email },
+          { field_id: FIELD_IDS.tipo_evento, value: tipo_evento },
+          { field_id: FIELD_IDS.mensaje, value: mensaje },
+        ],
       };
 
       try {
-        const response = await fetch(`${API_URL}/contact/submit`, {
+        const response = await fetch(`${API_URL}/submissions/forms/${FORM_ID}/submit`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(formData),
+          body: JSON.stringify(submissionData),
         });
 
         const result = await response.json();
 
-        if (response.ok && result.success) {
+        if (response.ok) {
           // Éxito
-          formMessage.textContent = result.message;
+          formMessage.textContent = '¡Mensaje enviado! Te contactaremos pronto.';
           formMessage.className =
             'text-center py-2 px-4 rounded-lg bg-green-600 text-white';
           formMessage.classList.remove('hidden');
