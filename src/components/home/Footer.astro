@@ -105,23 +105,26 @@ const awards = [award1, award2, award3, award4, award5, award6, award7, award8, 
         <div class="flex flex-col items-center space-y-12">
             <h3 class="text-[#4EAC9F] text-4xl md:text-7xl font-extrabold mb-6 md:mb-12">Contáctanos</h3>
 
-            <form class="w-full max-w-xl space-y-4">
+            <form id="contact-form-home" class="w-full max-w-xl space-y-4">
                 <div class="space-y-4">
-                    <input type="text" placeholder="Nombre y Apellido*" class="w-full bg-[#333638] text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium" />
-                    <input type="tel" placeholder="Whatsapp*" class="w-full bg-[#333638] text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium" />
-                    <input type="email" placeholder="Email*" class="w-full bg-[#333638] text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium" />
-                    <select required class="w-full bg-[#333638] text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 appearance-none font-medium" aria-label="Tipo de Evento">
+                    <input type="text" id="nombre-home" name="nombre" required placeholder="Nombre y Apellido*" class="w-full bg-[#333638] text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium" />
+                    <input type="tel" id="whatsapp-home" name="whatsapp" required placeholder="Whatsapp*" class="w-full bg-[#333638] text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium" />
+                    <input type="email" id="email-home" name="email" required placeholder="Email*" class="w-full bg-[#333638] text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium" />
+                    <select id="tipo_evento-home" name="tipo_evento" required class="w-full bg-[#333638] text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 appearance-none font-medium" aria-label="Tipo de Evento">
                         <option value="" disabled selected hidden>Tipo de Evento</option>
-                        <option>Boda</option>
-                        <option>Quince Años</option>
-                        <option>Corporativo</option>
-                        <option>Otro</option>
+                        <option value="Boda">Boda</option>
+                        <option value="Quince Años">Quince Años</option>
+                        <option value="Corporativo">Corporativo</option>
+                        <option value="Otro">Otro</option>
                     </select>
-                    <textarea placeholder="Mensaje" rows="1" class="w-full bg-[#333638] text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium"></textarea>
+                    <textarea id="mensaje-home" name="mensaje" placeholder="Mensaje" rows="1" class="w-full bg-[#333638] text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium"></textarea>
                 </div>
 
+                <!-- Mensaje de estado -->
+                <div id="form-message-home" class="hidden text-center py-2 px-4 rounded-lg"></div>
+
                 <div class="flex justify-center pt-4">
-                    <button type="submit" class="bg-[#4EAC9F] text-white px-16 py-3 rounded-xl text-lg  hover:bg-opacity-90 transition-all shadow-xl">
+                    <button type="submit" id="submit-btn-home" class="bg-[#4EAC9F] text-white px-16 py-3 rounded-xl text-lg  hover:bg-opacity-90 transition-all shadow-xl disabled:opacity-50 disabled:cursor-not-allowed">
                         Enviar
                     </button>
                 </div>
@@ -291,6 +294,83 @@ const awards = [award1, award2, award3, award4, award5, award6, award7, award8, 
 
     initAwardsSwiper();
     document.addEventListener('astro:page-load', initAwardsSwiper);
+
+    // Contact Form Handler
+    const API_URL = import.meta.env.PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+
+    // Form ID y Field IDs del backend
+    const FORM_ID = 2;
+    const FIELD_IDS = {
+        nombre: 6,
+        whatsapp: 7,
+        email: 8,
+        tipo_evento: 9,
+        mensaje: 10,
+    };
+
+    const initContactForm = () => {
+        const form = document.getElementById('contact-form-home') as HTMLFormElement;
+        const submitBtn = document.getElementById('submit-btn-home') as HTMLButtonElement;
+        const formMessage = document.getElementById('form-message-home') as HTMLDivElement;
+
+        if (!form) return;
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Enviando...';
+            formMessage.classList.add('hidden');
+
+            const nombre = (document.getElementById('nombre-home') as HTMLInputElement).value;
+            const whatsapp = (document.getElementById('whatsapp-home') as HTMLInputElement).value;
+            const email = (document.getElementById('email-home') as HTMLInputElement).value;
+            const tipo_evento = (document.getElementById('tipo_evento-home') as HTMLSelectElement).value;
+            const mensaje = (document.getElementById('mensaje-home') as HTMLTextAreaElement).value || 'Sin mensaje';
+
+            const submissionData = {
+                form_id: FORM_ID,
+                answers: [
+                    { field_id: FIELD_IDS.nombre, value: nombre },
+                    { field_id: FIELD_IDS.whatsapp, value: whatsapp },
+                    { field_id: FIELD_IDS.email, value: email },
+                    { field_id: FIELD_IDS.tipo_evento, value: tipo_evento },
+                    { field_id: FIELD_IDS.mensaje, value: mensaje },
+                ],
+            };
+
+            try {
+                const response = await fetch(`${API_URL}/submissions/forms/${FORM_ID}/submit`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(submissionData),
+                });
+
+                if (response.ok) {
+                    formMessage.textContent = '¡Mensaje enviado! Te contactaremos pronto.';
+                    formMessage.className = 'text-center py-2 px-4 rounded-lg bg-green-600 text-white';
+                    formMessage.classList.remove('hidden');
+                    form.reset();
+                } else {
+                    const result = await response.json();
+                    formMessage.textContent = result.detail || 'Error al enviar. Intente nuevamente.';
+                    formMessage.className = 'text-center py-2 px-4 rounded-lg bg-red-600 text-white';
+                    formMessage.classList.remove('hidden');
+                }
+            } catch (error) {
+                formMessage.textContent = 'Error de conexión. Verifique su internet.';
+                formMessage.className = 'text-center py-2 px-4 rounded-lg bg-red-600 text-white';
+                formMessage.classList.remove('hidden');
+                console.error('Error:', error);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Enviar';
+            }
+        });
+    };
+
+    initContactForm();
+    document.addEventListener('astro:page-load', initContactForm);
 </script>
 
 <style>
