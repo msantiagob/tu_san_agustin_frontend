@@ -1,0 +1,493 @@
+---
+import { Image } from 'astro:assets';
+import ServiceCard from './ui/ServiceCard.astro';
+import ServiceCardLabeled from './ui/ServiceCardLabeled.astro';
+
+// Images Import
+// Card Images
+import imgGarden from '../../assets/images/wedding_venues/tusanagustin_destination_wedding_planner_medellin_wedding_venues_002_jardines_y_espacios_naturales.webp';
+import imgMansion from '../../assets/images/wedding_venues/tusanagustin_destination_wedding_planner_medellin_wedding_venues_003_casa_patrimoniales_y_haciendas.jpg';
+import imgIntimate from '../../assets/images/wedding_venues/tusanagustin_destination_wedding_planner_medellin_wedding_venues_004_lugares_intimos.webp';
+
+// Reason Images
+import imgDance from '../../assets/images/wedding_venues/tusanagustin_destination_wedding_planner_medellin_wedding_venues_006_relacion_calidad_precio.webp';
+import imgVenue from '../../assets/images/wedding_venues/tusanagustin_destination_wedding_planner_medellin_wedding_venues_locaciones_de_ensueno.jpg';
+import imgcasamiento from '../../assets/images/wedding_venues/IMG-20251112-WA0176.webp';
+import imgFood from '../../assets/images/wedding_venues/0J8A2448.webp';
+import imgLegal from '../../assets/images/wedding_venues/MPYV8199.webp';
+import imgsaliendo from '../../assets/images/wedding_venues/MPYV8175.webp';
+// Collage Images
+import imgCol1 from '../../assets/images/wedding_venues/tusanagustin_destination_wedding_planner_medellin_wedding_venues_005_carrusel001.webp'; // Kiss
+import imgCol2 from '../../assets/images/wedding_venues/IMG-20251112-WA0161.webp'; // Motorcycle? (Guessing)
+import imgCol3 from '../../assets/images/wedding_venues/tusanagustin_destination_wedding_planner_medellin_wedding_venues_005_carrusel005.webp';
+import imgCol4 from '../../assets/images/wedding_venues/IMG-20251112-WA0176.webp';
+import imgCol5 from '../../assets/images/wedding_venues/tusanagustin_destination_wedding_planner_medellin_wedding_venues_005_carrusel003.webp';
+
+
+// Collage Images2
+import img1 from '../../assets/images/wedding_venues/tusanagustin_destination_wedding_planner_medellin_wedding_venues_004_lugares_intimos.webp';
+import img2 from '../../assets/images/wedding_venues/tusanagustin_destination_wedding_planner_medellin_wedding_venues_weddings_estaslistoparaplanear_002.webp';
+import img3 from '../../assets/images/wedding_venues/tusanagustin_destination_wedding_planner_medellin_wedding_venues_weddings_estaslistoparaplanear_003.webp';
+
+// Video Cover / Header
+import imgHeaderVideo from '../../assets/images/wedding_venues/Banner.webp'; // Placeholder if needed
+
+---
+
+<div class="bg-[#FDF5E9] w-full pb-20 font-poppins text-[#333638]">
+    <div class="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24 space-y-24">
+
+        <!-- HEADER SECTION -->
+        <div class="space-y-12">
+            <div class="text-center space-y-4">
+                <h2 class="text-3xl md:text-5xl font-bold text-[#D1C1A3]">
+                    Locaciones de <span class="text-[#4EAC9F]">Ensueño</span> para <br />
+                    Tu <span class="text-[#4EAC9F]">Boda de Destino</span>
+                </h2>
+                <p class="text-lg md:text-xl text-[#333638] max-w-2xl mx-auto">
+                    Desde jardines botánicos hasta rooftops de lujo. <br />
+                    Encuentra el lugar perfecto.
+                </p>
+                <div class="pt-4">
+                     <a href="https://wa.me/573168753305" class="inline-block bg-[#333638] text-[#FDF5E9] px-8 py-3 rounded-full font-medium hover:bg-[#4EAC9F] transition-colors italic">
+                        Agenda una videollamada gratuita
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center gap-10">
+                <!-- Video/Image Left -->
+                <div class="w-full md:w-1/2 rounded-[2rem] overflow-hidden shadow-xl aspect-video relative group">
+                     <iframe
+                        width="100%"
+                        height="100%"
+                        src="https://www.youtube.com/embed/K6Fp6EPBRHU?si=-ZRGMkv86OB4NCtj&playsinline=1"
+                        title="Tu San Agustín Rustic"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen class="w-full h-full">
+                    </iframe>
+                </div>
+                <!-- Text Right -->
+                <div class="w-full md:w-1/2 space-y-6">
+                    <h3 class="text-2xl font-bold text-white absolute top-0 left-0 p-4 opacity-0 pointer-events-none">Tu San Agustín Rustic</h3> <!-- Hidden Accessible Title -->
+                    <p class="text-lg leading-relaxed text-justify">
+                        Explorar los mejores Medellín wedding venues es el primer paso para una boda de destino inolvidable.
+                    </p>
+                    <p class="text-lg leading-relaxed text-justify">
+                        Te presentamos las locaciones más emblemáticas, exclusivas y con el estilo perfecto para tu historia.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SERVICE CARDS SECTION -->
+        <div class="w-full max-w-7xl relative mx-auto px-4 md:px-16 py-10">
+
+            <button class="swiper-prev-custom absolute left-0 top-[40%] -translate-y-1/2 z-50 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center hover:bg-gray-50 transition-all border border-gray-100 text-gray-800 cursor-pointer" aria-label="Anterior">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+
+            <button class="swiper-next-custom absolute right-0 top-[40%] -translate-y-1/2 z-50 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center hover:bg-gray-50 transition-all border border-gray-100 text-gray-800 cursor-pointer" aria-label="Siguiente">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+
+            <div class="swiper mySwiperIntro !p-6">
+                <div class="swiper-wrapper">
+
+                    {/* Original Slides */}
+                    <div class="swiper-slide pb-12">
+                         <ServiceCard
+                            title="Jardines y espacios naturales"
+                            description="Jardín Botánico, Santa Elena, fincas campestres."
+                            image={imgGarden}
+                        />
+                    </div>
+                    <div class="swiper-slide pb-12">
+                         <ServiceCard
+                            title="Casas patrimoniales y haciendas"
+                            description="Mansiones coloniales, casonas con historia."
+                            image={imgMansion}
+                        />
+                    </div>
+                    <div class="swiper-slide pb-12">
+                         <ServiceCard
+                            title="Lugares íntimos"
+                            description="Escenarios para bodas pequeñas o privadas."
+                            image={imgIntimate}
+                        />
+                    </div>
+
+                    {/* Duplicates for Loop */}
+                    <div class="swiper-slide pb-12">
+                         <ServiceCard
+                            title="Jardines y espacios naturales"
+                            description="Jardín Botánico, Santa Elena, fincas campestres."
+                            image={imgGarden}
+                        />
+                    </div>
+                    <div class="swiper-slide pb-12">
+                         <ServiceCard
+                            title="Casas patrimoniales y haciendas"
+                            description="Mansiones coloniales, casonas con historia."
+                            image={imgMansion}
+                        />
+                    </div>
+                    <div class="swiper-slide pb-12">
+                         <ServiceCard
+                            title="Lugares íntimos"
+                            description="Escenarios para bodas pequeñas o privadas."
+                            image={imgIntimate}
+                        />
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="flex justify-center mt-8">
+                <button class="bg-[#333638] text-white px-12 py-3 rounded-full text-lg italic font-light tracking-wide hover:bg-opacity-90 transition-all shadow-lg">
+                    Ver más
+                </button>
+            </div>
+        </div>
+
+        <!-- COLLAGE SECTION -->
+        <div class="flex flex-col md:flex-row gap-6 md:gap-8 max-w-4xl mx-auto">
+            <!-- Left Column: Title + 2 Square Images -->
+            <div class="w-full md:w-1/2 space-y-6">
+                <h2 class="text-2xl md:text-4xl font-bold text-[#D1C1A3] italic leading-tight">
+                    El escenario perfecto para <br/>
+                    una promesa eterna.
+                </h2>
+                <div class="rounded-[40px] overflow-hidden aspect-square max-w-sm shadow-lg">
+                    <Image src={imgCol1} alt="Boda 1" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                </div>
+                <div class="rounded-[40px] overflow-hidden aspect-square max-w-sm shadow-lg">
+                    <Image src={imgCol4} alt="Boda 4" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                </div>
+            </div>
+
+            <!-- Right Column: 3 Square Images -->
+            <div class="w-full md:w-1/2 space-y-6 md:pt-16">
+                <div class="rounded-[40px] overflow-hidden aspect-square max-w-sm shadow-lg">
+                    <Image src={imgCol2} alt="Boda 2" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                </div>
+                <div class="rounded-[40px] overflow-hidden aspect-square max-w-sm shadow-lg">
+                    <Image src={imgCol3} alt="Boda 3" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                </div>
+                <div class="rounded-[40px] overflow-hidden aspect-square max-w-sm shadow-lg">
+                    <Image src={imgCol5} alt="Boda 5" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                </div>
+            </div>
+        </div>
+
+        <!-- REASONS INTRO -->
+        <div class="text-center space-y-6 max-w-4xl mx-auto">
+             <h3 class="text-3xl md:text-5xl font-bold text-[#D1C1A3]">
+                Destination Wedding en <span class="text-[#4EAC9F]">Medellín</span>
+            </h3>
+             <h4 class="text-xl md:text-3xl font-bold text-[#D1C1A3] opacity-80">
+              <span class="text-[#4EAC9F]">  6 Razones</span> para Elegir Colombia <br/>
+                para tu <span class="text-[#4EAC9F]">Boda de Lujo.</span>
+            </h4>
+            <p class="text-[#333638] text-base leading-relaxed text-center">
+                Organizar una destination wedding en Medellín se ha convertido en una de las decisiones más inteligentes para parejas extranjeras que buscan una celebración de alto nivel, sin pagar precios desorbitados. En este artículo te compartimos las 6 razones por las cuales Colombia, y en especial Medellín, están redefiniendo el concepto de bodas de lujo con un enfoque personalizado, cultural y absolutamente gourmet.
+            </p>
+        </div>
+
+        <!-- REASON 01 -->
+        <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+            <div class="w-full md:w-1/2 space-y-4">
+                <h3 class="text-2xl md:text-3xl font-bold text-[#D1C1A3] italic">
+                    Relación Calidad-Precio <br/>
+                    Imbatible para Bodas de Destino.
+                </h3>
+                <div class="text-6xl font-bold text-[#4EAC9F] bg-clip-text">01.</div>
+                <div class="text-[#333638] text-lg space-y-4 text-justify">
+                    <p>
+                        Celebrar una boda de destino en Colombia cuesta hasta un 40% menos que en destinos tradicionales como Cancún, Miami o Punta Cana, sin sacrificar calidad, gastronomía ni atención personalizada. Aquí, lo que en otros lugares es un lujo, en Medellín es estándar.
+                    </p>
+                    <p>
+                        Gracias al trabajo de un luxury destination wedding planner, puedes acceder a locaciones privadas, menús gourmet y producción de alto nivel, con un presupuesto flexible, ajustado a tu estilo y necesidades.
+                    </p>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 text-right">
+                <div class="rounded-[30px] overflow-hidden inline-block w-full max-w-md h-[500px]">
+                    <Image src={imgDance} alt="Baile de novios" class="w-full h-full object-cover" />
+                </div>
+            </div>
+        </div>
+
+        <!-- REASON 02 -->
+        <div class="flex flex-col md:flex-row-reverse items-center gap-10 md:gap-16">
+            <div class="w-full md:w-1/2 space-y-4">
+                 <h3 class="text-2xl md:text-3xl font-bold text-[#D1C1A3] italic">
+                    Locaciones de Ensueño: <br/>
+                    Medellín y sus Alrededores.
+                </h3>
+                <div class="text-6xl font-bold text-[#4EAC9F]">02.</div>
+                <div class="text-[#333638] text-lg space-y-4 text-justify">
+                    <p>
+                        La variedad de wedding venues en Medellín Colombia es una de sus mayores fortalezas. Desde fincas con vista al embalse en Guatapé hasta terrazas urbanas con skyline de la ciudad, cada lugar ofrece una atmósfera única y personalizada.
+                    </p>
+                    <p>
+                        Al trabajar con un wedding planner en Medellín, puedes hacer visitas virtuales, comparar espacios y construir la narrativa de tu boda alrededor de una locación con alma, historia y estética de alto impacto.
+                    </p>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 text-left">
+                <div class="rounded-[30px] overflow-hidden inline-block w-full max-w-md h-[500px]">
+                    <Image src={imgVenue} alt="Locaciones de Ensueño" class="w-full h-full object-cover" />
+                </div>
+            </div>
+        </div>
+
+        <!-- REASON 03 -->
+        <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+             <div class="w-full md:w-1/2 space-y-4">
+                 <h3 class="text-2xl md:text-3xl font-bold text-[#D1C1A3] italic">
+                    Gastronomía Gourmet: <br/>
+                    Una Boda con Sabor Propio.
+                </h3>
+                <div class="text-6xl font-bold text-[#4EAC9F]">03.</div>
+                <div class="text-[#333638] text-lg space-y-4 text-justify">
+                    <p>
+                        El gourmet wedding catering es uno de los diferenciales más potentes de las bodas en Colombia. Aquí no hablamos de menús prearmados, sino de experiencias culinarias curadas por chefs expertos que mezclan ingredientes locales con técnicas internacionales.
+                    </p>
+                </div>
+                <div class="pt-4 space-y-4">
+                    <a href="/catering" class="inline-block bg-[#333638] text-[#FDF5E9] px-6 py-2 rounded-full font-medium hover:bg-[#4EAC9F] transition-colors italic">
+                        Descubre más aquí
+                    </a>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 text-right">
+                <div class="rounded-[30px] overflow-hidden inline-block w-full max-w-md h-[400px]">
+                    <Image src={imgFood} alt="Gastronomía Gourmet" class="w-full h-full object-cover" />
+                </div>
+            </div>
+        </div>
+
+        <!-- GUIDE BUTTON SECTION (Separate Centered Block) -->
+        <div class="text-center py-8">
+            <p class="text-base mb-4">
+                Además, puedes explorar nuestra guía
+            </p>
+            <a href="#" class="inline-block bg-[#333638] text-white px-8 py-3 rounded-full text-sm md:text-base hover:bg-[#4EAC9F] transition-colors italic">
+                ¿Cómo elegir el menú perfecto para tu boda?
+            </a>
+        </div>
+
+         <!-- REASON 04 -->
+         <div class="flex flex-col md:flex-row-reverse items-center gap-10 md:gap-16">
+            <div class="w-full md:w-1/2 space-y-4">
+                 <h3 class="text-2xl md:text-3xl font-bold text-[#D1C1A3] italic">
+                    Asesoría Legal Clara para <br/>
+                    Parejas Internacionales.
+                </h3>
+                <div class="text-6xl font-bold text-[#4EAC9F]">04.</div>
+                <div class="text-[#333638] text-lg space-y-4 text-justify">
+                    <p>
+                        ¿Te preocupa casarte en otro país? No te preocupes. Nuestro equipo se especializa en colombia marriage laws, ofreciendo apoyo integral desde los documentos iniciales hasta la ceremonia.
+                    </p>
+                </div>
+                <div class="pt-6 space-y-2 text-center">
+                     <p class="text-[#333638]">Lee la guía completa aquí</p>
+                     <a href="#" class="inline-block bg-[#333638] text-[#FDF5E9] px-6 py-2 rounded-full font-medium hover:bg-[#4EAC9F] transition-colors italic">
+                        Requisitos legales para casarse en Colombia
+                    </a>
+                    <p class="text-sm text-[#333638] pt-2 max-w-md mx-auto">
+                        También abordamos temas específicos como elopement planner y gay marriage en Colombia con total claridad y respeto.
+                    </p>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 text-left">
+                <div class="rounded-[30px] overflow-hidden inline-block w-full max-w-md h-[500px]">
+                    <Image src={imgLegal} alt="Asesoría Legal" class="w-full h-full object-cover" />
+                </div>
+            </div>
+        </div>
+
+        <!-- REASON 05 -->
+        <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+            <div class="w-full md:w-1/2 space-y-4">
+                 <h3 class="text-2xl md:text-3xl font-bold text-[#D1C1A3] italic">
+                    Wedding Planners <br/>
+                    con Visión Internacional.
+                </h3>
+                <div class="text-6xl font-bold text-[#4EAC9F]">05.</div>
+                <div class="text-[#333638] text-lg space-y-4 text-justify">
+                    <p>
+                        Trabajar con un wedding planner en Colombia que tenga experiencia internacional marca la diferencia entre una boda "bonita" y una boda impecable y sin sobresaltos.
+                    </p>
+                    <p class="font-medium">Nuestros coordinadores son expertos en:</p>
+                    <ul class="space-y-2 ml-4">
+                        <li class="flex items-start gap-2">
+                            <span class="w-2 h-2 rounded-full bg-[#D1C1A3] mt-2 shrink-0"></span>
+                            <span>Manejo de invitados extranjeros</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="w-2 h-2 rounded-full bg-[#D1C1A3] mt-2 shrink-0"></span>
+                            <span>Producción audiovisual con estándares globales</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="w-2 h-2 rounded-full bg-[#D1C1A3] mt-2 shrink-0"></span>
+                            <span>Traducción cultural de la ceremonia</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="w-2 h-2 rounded-full bg-[#D1C1A3] mt-2 shrink-0"></span>
+                            <span>Diseño emocional y ejecución logística</span>
+                        </li>
+                    </ul>
+                    <p>
+                        Además, si buscas una experiencia íntima, conoce nuestras small destination wedding ideas.
+                    </p>
+                </div>
+                <div class="pt-4">
+                    <a href="#" class="inline-block bg-[#333638] text-[#FDF5E9] px-6 py-2 rounded-full font-medium hover:bg-[#4EAC9F] transition-colors italic">
+                        Descubre más aquí
+                    </a>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 text-right">
+                <div class="rounded-[30px] overflow-hidden inline-block w-full max-w-md h-[400px]">
+                    <Image src={imgsaliendo} alt="Wedding Planners" class="w-full h-full object-cover object-[25%_center] md:object-left" />
+                </div>
+            </div>
+        </div>
+
+        <!-- REASON 06 -->
+        <div class="flex flex-col md:flex-row-reverse items-center gap-10 md:gap-16">
+            <div class="w-full md:w-1/2 space-y-4">
+                 <h3 class="text-2xl md:text-3xl font-bold text-[#D1C1A3] italic">
+                    Estilo y Personalización Total.
+                </h3>
+                <div class="text-6xl font-bold text-[#4EAC9F]">06.</div>
+                <div class="text-[#333638] text-lg space-y-4 text-justify">
+                    <p>
+                        Desde una ceremonia espiritual en una montaña hasta una cena privada frente a una cascada, cada boda en Colombia se diseña desde cero. No hay paquetes preestablecidos. Tus sueños, nosotros lo construimos. En nuestro blog también puedes inspirarte con ideas.
+                    </p>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 text-left">
+                <div class="rounded-[30px] overflow-hidden inline-block w-full max-w-md h-[500px]">
+                    <Image src={imgcasamiento} alt="Estilo y Personalización" class="w-full h-full object-cover" />
+                </div>
+            </div>
+        </div>
+
+        <!-- GUIDE BUTTON SECTION (Centered) -->
+        <div class="text-center py-8">
+            <a href="#" class="inline-block bg-[#333638] text-white px-8 py-3 rounded-full text-sm md:text-base hover:bg-[#4EAC9F] transition-colors italic">
+                Guía práctica para bodas de destino
+            </a>
+        </div>
+
+        <!-- FINAL GALLERY - Simple Square Images -->
+        <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+            <div class="rounded-[40px] overflow-hidden aspect-square w-full max-w-[280px] shadow-lg">
+                <Image src={img1} alt="Lugares íntimos" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            </div>
+            <div class="rounded-[40px] overflow-hidden aspect-square w-full max-w-[280px] shadow-lg">
+                <Image src={img2} alt="Casas patrimoniales" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            </div>
+            <div class="rounded-[40px] overflow-hidden aspect-square w-full max-w-[280px] shadow-lg">
+                <Image src={img3} alt="Jardines naturales" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            </div>
+        </div>
+
+        <!-- CTA SECTION - "Estas List@" -->
+        <div class="text-center space-y-6 py-12 max-w-3xl mx-auto">
+             <h3 class="text-3xl md:text-4xl font-bold">
+                <span class="text-[#D1C1A3]">Estas List@ para planear tu</span><br/>
+                <span class="text-[#4EAC9F]">Destination Wedding en Medellín</span>
+            </h3>
+            <p class="text-[#333638] text-base leading-relaxed">
+                Con más de 35 años de experiencia, locaciones premium y la mejor gastronomía del país, hacemos realidad bodas que trascienden el tiempo. Somos más que planners. Somos arquitectos de momentos inolvidables.
+            </p>
+            <div class="pt-4">
+                <a href="https://wa.me/573168753305" class="inline-block bg-[#333638] text-[#FDF5E9] px-8 py-3 rounded-full font-medium hover:bg-[#4EAC9F] transition-colors italic">
+                    Solicita tu presupuesto personalizado ahora
+                </a>
+            </div>
+        </div>
+
+        <!-- FINAL TITLE -->
+        <div class="text-center py-8">
+             <h2 class="text-3xl md:text-5xl font-bold">
+                <span class="text-[#D1C1A3]">Descubre la magia de</span> <span class="text-[#4EAC9F]">Medellín</span>
+            </h2>
+        </div>
+
+    </div>
+</div>
+
+<style>
+    .font-poppins { font-family: 'Poppins', sans-serif; }
+
+    /* Force Poppins on all headings within this component, overriding global Alice font */
+    div h1, div h2, div h3, div h4, div h5, div h6 {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    /* Forzar que el swiper sea visible y permita arrastre */
+    .swiper { width: 100%; height: auto; }
+    .swiper-slide {
+        height: auto;
+        user-select: none;
+        will-change: transform; /* Performance hint for browser */
+    }
+
+    /* Si las flechas no aparecen, es por el Z-INDEX */
+    .swiper-prev-custom, .swiper-next-custom {
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        width: 48px; /* Explicit dimensions to reduce layout calculations */
+        height: 48px;
+    }
+
+    /* Evita que la imagen bloquee el arrastre del mouse */
+    img { pointer-events: none; }
+</style>
+
+<script>
+    import Swiper from 'swiper';
+    import { Navigation } from 'swiper/modules';
+    import 'swiper/css';
+    import 'swiper/css/navigation';
+
+    // Función de inicialización
+    const initGuideSwiper = () => {
+        // Defer to next frame to avoid forced reflow
+        requestAnimationFrame(() => {
+            new Swiper(".mySwiperIntro", {
+                modules: [Navigation],
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                simulateTouch: true,
+                grabCursor: true,
+                navigation: {
+                    nextEl: ".swiper-next-custom",
+                    prevEl: ".swiper-prev-custom",
+                },
+                observer: false, // Disable to reduce layout reads
+                observeParents: false,
+                breakpoints: {
+                    640: { slidesPerView: 1.5, spaceBetween: 20 },
+                    768: { slidesPerView: 2, spaceBetween: 30 },
+                    1024: { slidesPerView: 3, spaceBetween: 40 }
+                }
+            });
+        });
+    };
+
+    // Ejecutar al cargar la página
+    initGuideSwiper();
+
+    // Soporte para View Transitions de Astro
+    document.addEventListener('astro:page-load', initGuideSwiper);
+</script>
