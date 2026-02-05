@@ -8,7 +8,7 @@ import Banner from '../components/wedding-destination/Banner.astro';
 import Button from '../components/shared/Button.astro';
 import JoinUsFooter from '../components/shared/JoinUsFooter.astro';
 import Locaciones from '../components/bodas_destino/Locaciones.astro';
-import VenuesGrid from '../components/lugares/VenuesGrid';
+import VenuesSection from '../components/lugares/VenuesSection';
 
 import Carrousel from '../components/lugares/Slider.astro';
 
@@ -48,8 +48,8 @@ const seo = {
       />
     </section>
 
-    <!-- Guia Section -->
-    <section aria-label='Eventos únicos' class='my-16 md:my-32'>
+    <!-- Categorías Section -->
+    <section aria-label='Categorías' class='my-16 md:my-32'>
       <div
         class='max-w-7xl mx-auto px-4 flex justify-between items-center flex-col md:flex-col gap-8 md:gap-12'
       >
@@ -63,36 +63,35 @@ const seo = {
             <h5 class='text-charcoal font-alice font-bold text-sm md:text-lg mb-2'>
               Cantidad de Personas
             </h5>
-            <Image src={icono1} alt='' class='w-24 md:w-32 h-auto' />
+            <Image src={icono1} alt='Icono cantidad de personas' class='w-24 md:w-32 h-auto' />
           </div>
           <div class='flex flex-col items-center text-center'>
             <h5 class='text-charcoal font-alice font-bold text-sm md:text-lg mb-2'>
               Ciudades
             </h5>
-            <Image src={icono2} alt='' class='w-12 md:w-16 h-auto' />
+            <Image src={icono2} alt='Icono ciudades' class='w-12 md:w-16 h-auto' />
           </div>
           <div class='flex flex-col items-center text-center'>
             <h5 class='text-charcoal font-alice font-bold text-sm md:text-lg mb-2'>
               Tipo de Evento
             </h5>
-            <Image src={icono3} alt='' class='w-12 md:w-16 h-auto' />
+            <Image src={icono3} alt='Icono tipo de evento' class='w-12 md:w-16 h-auto' />
           </div>
           <div class='flex flex-col items-center text-center'>
             <h5 class='text-charcoal font-alice font-bold text-sm md:text-lg mb-2'>
               Tipo de Lugar
             </h5>
-            <Image src={icono4} alt='' class='w-12 md:w-16 h-auto' />
+            <Image src={icono4} alt='Icono tipo de lugar' class='w-12 md:w-16 h-auto' />
           </div>
-        </div>
-        <div class='flex gap-8 md:gap-16'>
-          <Button variant='primary' size='md'>Filtrar</Button>
-          <Button variant='secondary' size='md'>Borrar</Button>
         </div>
       </div>
     </section>
 
-    <section>
-      <VenuesGrid client:load />
+    <!-- Filtros y Lugares -->
+    <section aria-label='Filtros y lugares'>
+      <div class='max-w-7xl mx-auto px-4'>
+        <VenuesSection client:load />
+      </div>
     </section>
     <section class='bg-[#323639]'>
       <Locaciones />
