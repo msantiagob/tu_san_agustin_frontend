@@ -1,0 +1,177 @@
+---
+import { Image } from 'astro:assets';
+import logoVerde from '../assets/../../assets/images/comedores/logo-verde.webp';
+import flagColombia from '../assets/../../assets/images/comedores/colombia.webp';
+import iconFb from '../assets/../../assets/images/comedores/facebook.webp';
+import iconIg from '../assets/../../assets/images/comedores/instagram.webp';
+import iconTk from '../assets/../../assets/images/comedores/TikTock.webp';
+import iconLi from '../assets/../../assets/images/comedores/Link.webp';
+import iconYt from '../assets/../../assets/images/comedores/youtube.webp';
+import iconWa from '../assets/../../assets/images/comedores/whatsapp.webp';
+import logoVerde from '../assets/../../assets/images/comedores/LogoSanAgustínGris.webp';
+import iconPh from '../assets/../../assets/images/comedores/Telefono.webp';
+import iconPifrom  from '../assets/../../assets/images/comedores/Pinterest _1.webp';
+---
+
+<div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-40 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+
+<aside id="sidebar" class="fixed top-0 right-0 h-full w-[85%] max-w-md bg-[#FDF5E9] z-50 transform translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] shadow-2xl flex flex-col">
+
+    <!-- Header with Close Button -->
+    <div class="flex items-center justify-between p-6 border-b border-gray-100">
+        <Image src={logoVerde} alt="San Agustín Logo" class="h-10 w-auto object-contain" width={150} height={78} loading="lazy" />
+        <button id="close-sidebar" class="p-2 rounded-full hover:bg-gray-100 transition-colors group" aria-label="Cerrar menú">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400 group-hover:text-[#4EAC9F] transition-colors"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+    </div>
+
+    <!-- Scrollable Content -->
+    <div class="flex-1 overflow-y-auto py-8 px-8 space-y-10">
+
+        <!-- Navigation Links -->
+       <nav class="flex flex-col space-y-4">
+    <a href="https://www.tusanagustin.com/" class="text-3xl font-serif text-[#333638] hover:text-[#4EAC9F] hover:pl-4 transition-all duration-300 cursor-pointer">Inicio</a>
+
+    <!-- Eventos Accordion -->
+    <details class="group">
+        <summary class="flex items-center justify-between text-3xl font-serif text-[#333638] hover:text-[#4EAC9F] hover:pl-4 transition-all duration-300 cursor-pointer list-none">
+            Eventos
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-open:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
+        </summary>
+        <div class="pl-4 mt-2 space-y-2 border-l-2 border-[#4EAC9F]/30 ml-2">
+            <a href="https://www.tusanagustin.com/eventos/bodas" class="block text-xl text-gray-600 hover:text-[#4EAC9F] py-1">Bodas</a>
+            <a href="https://www.tusanagustin.com/eventos/bodas-destino" class="block text-xl text-gray-600 hover:text-[#4EAC9F] py-1">Bodas Destino</a>
+            <a href="https://www.tusanagustin.com/eventos/15-anos" class="block text-xl text-gray-600 hover:text-[#4EAC9F] py-1">Quinces Años</a>
+            <a href="https://www.tusanagustin.com/eventos/corporativos" class="block text-xl text-gray-600 hover:text-[#4EAC9F] py-1">Corporativos</a>
+            <a href="https://www.tusanagustin.com/eventos/sociales" class="block text-xl text-gray-600 hover:text-[#4EAC9F] py-1">Sociales</a>
+        </div>
+    </details>
+
+    <!-- Servicios Accordion -->
+    <details class="group">
+        <summary class="flex items-center justify-between text-3xl font-serif text-[#333638] hover:text-[#4EAC9F] hover:pl-4 transition-all duration-300 cursor-pointer list-none">
+            Servicios
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-open:rotate-180"><path d="m6 9 6 6 6-6"/></svg>
+        </summary>
+        <div class="pl-4 mt-2 space-y-2 border-l-2 border-[#4EAC9F]/30 ml-2">
+            <a href="https://www.tusanagustin.com/servicios/catering" class="block text-xl text-gray-600 hover:text-[#4EAC9F] py-1">Catering</a>
+            <a href="https://www.tusanagustin.com/servicios/decoracion" class="block text-xl text-gray-600 hover:text-[#4EAC9F] py-1">Decoración</a>
+            <a href="https://www.tusanagustin.com/servicios/event-wedding-planner" class="block text-xl text-gray-600 hover:text-[#4EAC9F] py-1">Event & Wedding Planner</a>
+            <a href="https://www.tusanagustin.com/servicios/lugares" class="block text-xl text-gray-600 hover:text-[#4EAC9F] py-1">Lugares para eventos</a>
+            <a href="https://www.tusanagustin.com/servicios/artistas" class="block text-xl text-gray-600 hover:text-[#4EAC9F] py-1">Artistas y espectáculos</a>
+            <a href="https://www.tusanagustin.com/servicios/fotografia" class="block text-xl text-gray-600 hover:text-[#4EAC9F] py-1">Fotografía y video</a>
+            <a href="https://www.tusanagustin.com/servicios/audiovisuales" class="block text-xl text-gray-600 hover:text-[#4EAC9F] py-1">Ayudas audiovisuales</a>
+            <a href="https://www.tusanagustin.com/servicios/carros-antiguos" class="block text-xl text-gray-600 hover:text-[#4EAC9F] py-1">Carros antiguos</a>
+        </div>
+    </details>
+
+    <a href="https://www.tusanagustin.com/blog" class="text-3xl font-serif text-[#333638] hover:text-[#4EAC9F] hover:pl-4 transition-all duration-300 cursor-pointer">Blog</a>
+
+    <a href="https://www.tusanagustin.com/bodas-destino" class="text-3xl font-serif text-[#333638] hover:text-[#4EAC9F] hover:pl-4 transition-all duration-300 cursor-pointer">Bodas de Destino</a>
+
+    <a href="https://www.tusanagustin.com/quienes-somos" class="text-3xl font-serif text-[#333638] hover:text-[#4EAC9F] hover:pl-4 transition-all duration-300 cursor-pointer">Nosotros</a>
+</nav>
+
+        <hr class="border-gray-100">
+
+        <!-- Language Selector -->
+        <div class="space-y-4">
+            <p class="text-sm uppercase tracking-widest text-gray-400 font-medium">Idioma</p>
+            <div class="flex items-center gap-4">
+                <button class="lang-btn active group flex items-center gap-3 px-4 py-2 rounded-full border border-gray-200 hover:border-[#4EAC9F] transition-all bg-white shadow-sm" data-lang="es">
+                    <Image src={flagColombia} alt="Colombia" class="w-6 h-6 object-cover rounded-full shadow-sm" width={24} height={24} loading="lazy" />
+                    <span class="text-sm font-medium text-gray-600 group-hover:text-[#4EAC9F]">Español</span>
+                </button>
+                <button class="lang-btn group flex items-center gap-3 px-4 py-2 rounded-full border border-transparent hover:bg-white hover:shadow-sm hover:border-gray-200 transition-all opacity-50 hover:opacity-100" data-lang="en">
+                    <!-- USA Flag SVG since local image might not exist, ensuring visual consistency -->
+                    <div class="w-6 h-6 rounded-full overflow-hidden shadow-sm relative">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" class="w-full h-full object-cover">
+                            <path fill="#bd3d44" d="M0 0h640v480H0"/>
+                            <path stroke="#fff" stroke-width="37" d="M0 55.3h640M0 129h640M0 203h640M0 277h640M0 351h640M0 425h640"/>
+                            <path fill="#192f5d" d="M0 0h364.8v258.5H0"/>
+                        </svg>
+                    </div>
+                    <span class="text-sm font-medium text-gray-600 group-hover:text-[#4EAC9F]">English</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Social Media -->
+        <div class="space-y-4">
+             <p class="text-sm uppercase tracking-widest text-gray-400 font-medium">Síguenos</p>
+             <div class="flex gap-4 flex-wrap">
+                <a href="https://www.facebook.com/tusanagustineventos/" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-[#4EAC9F] hover:bg-[#4EAC9F] hover:text-white transition-all shadow-sm">
+                    <Image src={iconFb} alt="Facebook" class="h-5 w-5 object-contain" width={20} height={20} />
+                </a>
+                <a href="https://www.instagram.com/tusanagustin/" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-[#4EAC9F] hover:bg-[#4EAC9F] hover:text-white transition-all shadow-sm">
+                    <Image src={iconIg} alt="Instagram" class="h-5 w-5 object-contain" width={20} height={20} />
+                </a>
+                <a href="https://www.tiktok.com/@tusanagustin" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-[#4EAC9F] hover:bg-[#4EAC9F] hover:text-white transition-all shadow-sm">
+                    <Image src={iconTk} alt="TikTok" class="h-5 w-5 object-contain" width={20} height={20} />
+                </a>
+                <a href="https://www.linkedin.com/company/tusanagustin/" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-[#4EAC9F] hover:bg-[#4EAC9F] hover:text-white transition-all shadow-sm">
+                    <Image src={iconLi} alt="LinkedIn" class="h-5 w-5 object-contain" width={20} height={20} />
+                </a>
+                <a href="https://www.youtube.com/@tusanagustin" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-[#4EAC9F] hover:bg-[#4EAC9F] hover:text-white transition-all shadow-sm">
+                    <Image src={iconYt} alt="YouTube" class="h-5 w-5 object-contain" width={20} height={20} />
+                </a>
+                <a href="https://wa.me/573168753305?text=Hola!" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-[#4EAC9F] hover:bg-[#4EAC9F] hover:text-white transition-all shadow-sm">
+                    <Image src={iconWa} alt="WhatsApp" class="h-5 w-5 object-contain" width={20} height={20} />
+                </a>
+             </div>
+        </div>
+
+    </div>
+</aside>
+
+<script>
+    // Logic for Sidebar Toggle
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+    const closeBtn = document.getElementById('close-sidebar');
+
+    const closeSidebar = () => {
+        sidebar?.classList.add('translate-x-full');
+        overlay?.classList.remove('opacity-100', 'pointer-events-auto');
+        overlay?.classList.add('opacity-0', 'pointer-events-none');
+    };
+
+    const openSidebar = () => {
+        sidebar?.classList.remove('translate-x-full');
+        overlay?.classList.remove('opacity-0', 'pointer-events-none');
+        overlay?.classList.add('opacity-100', 'pointer-events-auto');
+    };
+
+    closeBtn?.addEventListener('click', closeSidebar);
+    overlay?.addEventListener('click', closeSidebar);
+
+    // Listen for custom event from Navbar
+    document.addEventListener('open-sidebar', openSidebar);
+
+    // Language Toggle Logic
+    const langBtns = document.querySelectorAll('.lang-btn');
+    langBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+             // Reset all
+             langBtns.forEach(b => {
+                b.classList.remove('active', 'bg-white', 'border-gray-200', 'shadow-sm');
+                b.classList.add('border-transparent', 'opacity-50');
+             });
+
+             // Activate clicked
+             btn.classList.add('active', 'bg-white', 'border-gray-200', 'shadow-sm');
+             btn.classList.remove('border-transparent', 'opacity-50');
+        });
+    });
+</script>
+
+<style>
+    /* Scrollbar Styling */
+    #sidebar div::-webkit-scrollbar {
+        width: 6px;
+    }
+    #sidebar div::-webkit-scrollbar-thumb {
+        background-color: #e5e7eb;
+        border-radius: 20px;
+    }
+</style>
