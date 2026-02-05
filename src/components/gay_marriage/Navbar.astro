@@ -1,0 +1,131 @@
+---
+import { Image } from 'astro:assets';
+import Sidebar from './Sidebar.astro';
+import flagColombia from '../../assets/images/gay_marriage/colombia.webp';
+import iconFb from '../../assets/images/gay_marriage/facebook.webp';
+import iconIg from '../../assets/images/gay_marriage/instagram.webp';
+import iconTk from '../../assets/images/gay_marriage/TikTock.webp';
+import iconLi from '../../assets/images/gay_marriage/Link.webp';
+import iconYt from '../../assets/images/gay_marriage/youtube.webp';
+import iconWa from '../../assets/images/gay_marriage/whatsapp.webp';
+import logoVerde from '../../assets/images/gay_marriage/LogoSanAgustínGris.webp';
+import iconPh from '../../assets/images/gay_marriage/Telefono.webp';
+import iconPi  from '../../assets/images/gay_marriage/Pinterest _1.webp';
+---
+
+<nav class="w-full bg-[#FDF5E9] border-b border-gray-100 py-2 sm:py-3 relative z-30 font-['Poppins']">
+    <div class="max-w-[1400px] mx-auto px-4 md:px-8 flex items-center justify-between">
+
+        <!-- Left Section: Language & Socials (Hidden on mobile) -->
+        <div class="hidden md:flex items-center gap-4 sm:gap-6 flex-1 justify-start">
+            <!-- Language Toggle Desktop -->
+            <button id="lang-toggle-desktop" class="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity group relative" aria-label="Cambiar idioma">
+                <div class="relative w-7 h-7 rounded-full overflow-hidden border border-gray-200 shadow-sm group-hover:shadow-md transition-all">
+                    <!-- Colombia Flag (Default) -->
+                    <Image id="flag-col" src={flagColombia} alt="Colombia" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 opacity-100" width={28} height={28} loading="eager" />
+
+                    <!-- USA Flag (Hidden by default) -->
+                    <div id="flag-usa" class="absolute inset-0 w-full h-full bg-white transition-opacity duration-300 opacity-0">
+                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" class="w-full h-full object-cover">
+                            <path fill="#bd3d44" d="M0 0h640v480H0"/>
+                            <path stroke="#fff" stroke-width="37" d="M0 55.3h640M0 129h640M0 203h640M0 277h640M0 351h640M0 425h640"/>
+                            <path fill="#192f5d" d="M0 0h364.8v258.5H0"/>
+                        </svg>
+                    </div>
+                </div>
+                <span id="lang-text" class="text-gray-800 text-sm font-medium w-6">ES</span>
+            </button>
+
+            <div class="h-4 w-px bg-gray-300"></div>
+
+            <div class="flex items-center gap-3">
+                <a href="https://www.facebook.com/tusanagustineventos/" class="hover:scale-110 transition-transform"><Image src={iconFb} alt="Facebook" class="h-4 w-4 object-contain text-[#4EAC9F]" width={16} height={16} loading="eager" /></a>
+                <a href="https://www.instagram.com/tusanagustin/" class="hover:scale-110 transition-transform"><Image src={iconIg} alt="Instagram" class="h-4 w-4 object-contain text-[#4EAC9F]" width={16} height={16} loading="eager" /></a>
+                <a href="https://www.tiktok.com/@tusanagustin" class="hover:scale-110 transition-transform"><Image src={iconTk} alt="TikTok" class="h-4 w-4 object-contain text-[#4EAC9F]" width={16} height={16} loading="eager" /></a>
+                <a href="https://www.linkedin.com/company/tusanagustin/" class="hover:scale-110 transition-transform"><Image src={iconLi} alt="LinkedIn" class="h-4 w-4 object-contain text-[#4EAC9F]" width={16} height={16} loading="eager" /></a>
+                <a href="https://www.youtube.com/@tusanagustin" class="hover:scale-110 transition-transform"><Image src={iconYt} alt="YouTube" class="h-4 w-4 object-contain text-[#4EAC9F]" width={16} height={16} loading="eager" /></a>
+                <a href="https://wa.me/573168753305?text=Hola!" class="hover:scale-110 transition-transform"><Image src={iconWa} alt="WhatsApp" class="h-4 w-4 object-contain text-[#4EAC9F]" width={16} height={16} loading="eager" /></a>
+            </div>
+        </div>
+
+        <!-- Center: Logo (Absolute centered on mobile to handle the hamburger) -->
+        <div class="flex-shrink-0 absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 md:flex-1 md:flex md:justify-center">
+            <Image src={logoVerde} alt="San Agustín Logo" class="h-10 sm:h-12 md:h-14 w-auto object-contain" width={150} height={78} loading="eager" />
+        </div>
+
+        <!-- Right Section: Contact & Menu -->
+        <div class="flex items-center gap-2 md:gap-4 flex-1 justify-end">
+             <!-- Contact (Hidden mobile) -->
+            <div class="hidden md:flex items-center gap-2 md:gap-4 mr-4">
+                <div class=" p-1.5 hover:scale-110 transition-transform">
+                     <a href="https://wa.me/573168753305?text=Hola!"><Image src={iconPh} alt="Telefono " class="h-4 w-4 object-contain" width={16} height={16} loading="eager" /></a>
+                </div>
+                <a href="https://wa.me/573168753305?text=Hola!" class="flex flex-row items-center gap-2 hover:opacity-80 transition-opacity">
+                    <span class="text-gray-800 text-sm md:text-lg font-medium whitespace-nowrap font-['Poppins']">(+57) 316 875 33 05</span>
+                    <span class="text-xs text-[#4EAC9F] font-semibold uppercase tracking-wider shrink-0 font-['Poppins']">Llámanos</span>
+                </a>
+            </div>
+
+            <!-- Search Button -->
+            <button data-open-search class="p-2 rounded-full hover:bg-gray-100 transition-colors group" aria-label="Buscar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-700 group-hover:text-[#4EAC9F] transition-colors"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            </button>
+
+            <!-- Hamburger Button (Mobile Only) -->
+            <button id="menu-toggle" class="md:hidden p-2 rounded-full hover:bg-gray-100 transition-colors group" aria-label="Abrir menú">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-gray-700 group-hover:text-[#4EAC9F] transition-colors"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
+            </button>
+        </div>
+
+    </div>
+</nav>
+
+<Sidebar />
+
+<script>
+    // Sidebar Logic
+    document.getElementById('menu-toggle')?.addEventListener('click', () => {
+        document.dispatchEvent(new CustomEvent('open-sidebar'));
+    });
+
+    // Desktop Language Toggle Logic
+    const langToggle = document.getElementById('lang-toggle-desktop');
+    const flagCol = document.getElementById('flag-col');
+    const flagUsa = document.getElementById('flag-usa');
+    const langText = document.getElementById('lang-text');
+
+    let currentLang = 'es';
+
+    langToggle?.addEventListener('click', () => {
+        if (currentLang === 'es') {
+            // Switch to EN
+            flagCol?.classList.remove('opacity-100');
+            flagCol?.classList.add('opacity-0');
+
+            flagUsa?.classList.remove('opacity-0');
+            flagUsa?.classList.add('opacity-100');
+
+            if (langText) langText.textContent = 'EN';
+
+            currentLang = 'en';
+        } else {
+            // Switch to ES
+            flagCol?.classList.remove('opacity-0');
+            flagCol?.classList.add('opacity-100');
+
+            flagUsa?.classList.remove('opacity-100');
+            flagUsa?.classList.add('opacity-0');
+
+            if (langText) langText.textContent = 'ES';
+
+            currentLang = 'es';
+        }
+    });
+</script>
+
+<style>
+/* Custom updates for this component specifically if tailwind is not enough */
+.text-brandGreen svg {
+    color: #4EAC9F; /* Fallback or specific override */
+}
+</style>
