@@ -44,5 +44,6 @@ Thumbs.db
 .cache/
 src/assets/images/boda-destinos/video.mp4
 *.mp4
+!src/assets/images/bodas_destino_colombia/boda-destino-san-agustin-1.mp4
 # Local Netlify folder
 .netlify
