@@ -1,34 +1,34 @@
 ---
 import { Image } from 'astro:assets';
-import flagColombia from '../../assets/images/boda_igualitaria/colombia.webp';
-import iconFb from '../../assets/images/boda_igualitaria/Facebook.webp';
-import iconIg from '../../assets/images/boda_igualitaria/Instagram.webp';
-import iconTk from '../../assets/images/boda_igualitaria/TikTock.webp';
-import iconLi from '../../assets/images/boda_igualitaria/Link.webp';
-import iconYt from '../../assets/images/boda_igualitaria/Youtube.webp';
-import iconWa from '../../assets/images/boda_igualitaria/Whatsapp.webp';
-import logoVerde from '../../assets/images/boda_igualitaria/LogoSanAgustínGris.webp';
-import iconPh from '../../assets/images/boda_igualitaria/Telefono.webp';
-import imgVisa from '../../assets/images/boda_igualitaria/visa.webp';
-import imgMastercard from '../../assets/images/boda_igualitaria/mastercard.webp';
-import imgPaypal from '../../assets/images/boda_igualitaria/paypal.webp';
-import imgPse from '../../assets/images/boda_igualitaria/pse.webp';
-import imgWompi from '../../assets/images/boda_igualitaria/wompi.webp';
-import iconPi from '../../assets/images/boda_igualitaria/Pinterest _1.webp';
+import iconFb from '../../assets/images/home/Facebook.webp';
+import iconIg from '../../assets/images/home/Instagram.webp';
+import iconTk from '../../assets/images/home/TikTock.webp';
+import iconLi from '../../assets/images/home/Link.webp';
+import iconYt from '../../assets/images/home/Youtube.webp';
+import iconWa from '../../assets/images/home/Whatsapp.webp';
+import logoVerde from '../../assets/images/logo-verde.webp';
+import iconPh from '../../assets/images/home/Telefono.webp';
+import imgVisa from '../../assets/images/home/visa.webp';
+import imgMastercard from '../../assets/images/home/mastercard.webp';
+import imgPaypal from '../../assets/images/home/paypal.webp';
+import imgPse from '../../assets/images/home/pse.webp';
+import imgWompi from '../../assets/images/home/wompi.webp';
+import iconPi from '../../assets/images/home/Pinterest _1.webp';
 
 // Awards images (importing them all to ensure Astro processes them)
-import award1 from '../../assets/images/boda_igualitaria/home_tusanagustin-29.webp';
-import award2 from '../../assets/images/boda_igualitaria/home_tusanagustin-30.webp';
-import award3 from '../../assets/images/boda_igualitaria/home_tusanagustin-31.webp';
-import award4 from '../../assets/images/boda_igualitaria/home_tusanagustin-32.webp';
-import award5 from '../../assets/images/boda_igualitaria/home_tusanagustin-34-1.webp';
-import award6 from '../../assets/images/boda_igualitaria/home_tusanagustin-35.webp';
-import award7 from '../../assets/images/boda_igualitaria/home_tusanagustin-36.webp';
-import award8 from '../../assets/images/boda_igualitaria/home_tusanagustin-37.webp';
-import award9 from '../../assets/images/boda_igualitaria/home_tusanagustin-38.webp';
-import award10 from '../../assets/images/boda_igualitaria/home_tusanagustin-41.webp';
-import award11 from '../../assets/images/boda_igualitaria/diseño-sin-título-10.webp';
-import award12 from '../../assets/images/boda_igualitaria/diseño-sin-título-2.webp';
+import award1 from '../../assets/images/home/home_tusanagustin-29.webp';
+import award2 from '../../assets/images/home/home_tusanagustin-30.webp';
+import award3 from '../../assets/images/home/home_tusanagustin-31.webp';
+import award4 from '../../assets/images/home/home_tusanagustin-32.webp';
+import award5 from '../../assets/images/home/home_tusanagustin-34-1.webp';
+import award6 from '../../assets/images/home/home_tusanagustin-35.webp';
+import award7 from '../../assets/images/home/home_tusanagustin-36.webp';
+import award8 from '../../assets/images/home/home_tusanagustin-37.webp';
+import award9 from '../../assets/images/home/home_tusanagustin-38.webp';
+import award10 from '../../assets/images/home/home_tusanagustin-41.webp';
+import award11 from '../../assets/images/home/diseño-sin-título-10.webp';
+import award12 from '../../assets/images/home/diseño-sin-título-2.webp';
+import ContactForm from './ContactForm.astro';
 const awards = [award1, award2, award3, award4, award5, award6, award7, award8, award9, award10, award11, award12];
 ---
 
@@ -95,32 +95,7 @@ const awards = [award1, award2, award3, award4, award5, award6, award7, award8, 
             </div>
         </div>
 
-        <!-- MIDDLE SECTION: CONTACT FORM -->
-        <div class="flex flex-col items-center space-y-12">
-            <h3 class="text-[#4EAC9F] text-4xl md:text-7xl font-extrabold mb-6 md:mb-12">Contáctanos</h3>
-
-            <form class="w-full max-w-xl space-y-4">
-                <div class="space-y-4">
-                    <input type="text" placeholder="Nombre y Apellido*" class="w-full bg-[#333638] text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium" />
-                    <input type="tel" placeholder="Whatsapp*" class="w-full bg-[#333638] text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium" />
-                    <input type="email" placeholder="Email*" class="w-full bg-[#333638] text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium" />
-                    <select required class="w-full bg-[#333638] text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 appearance-none font-medium" aria-label="Tipo de Evento">
-                        <option value="" disabled selected hidden>Tipo de Evento</option>
-                        <option>Boda</option>
-                        <option>Quince Años</option>
-                        <option>Corporativo</option>
-                        <option>Otro</option>
-                    </select>
-                    <textarea placeholder="Mensaje" rows="1" class="w-full bg-[#333638] text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium"></textarea>
-                </div>
-
-                <div class="flex justify-center pt-4">
-                    <button type="submit" class="bg-[#4EAC9F] text-white px-16 py-3 rounded-xl text-lg  hover:bg-opacity-90 transition-all shadow-xl">
-                        Enviar
-                    </button>
-                </div>
-            </form>
-        </div>
+        <ContactForm />
 
     </div>
     </div>
@@ -154,7 +129,7 @@ const awards = [award1, award2, award3, award4, award5, award6, award7, award8, 
                     <p class="text-[#4EAC9F] text-lg font-bold">Contáctanos</p>
                     <div class="space-y-4">
                         <div class="flex items-center gap-3 group cursor-pointer">
-                            <Image src={iconPh} alt="Telefono " class="h-6 w-6 object-contain invert brightness-0 group-hover:scale-110 transition-transform" loading="lazy" />
+                            <Image src={iconPh} alt="Phone" class="h-6 w-6 object-contain invert brightness-0 group-hover:scale-110 transition-transform" loading="lazy" />
                              <span class="text-base text-gray-300 font-medium">(+57) 316 875 33 05</span>
                         </div>
                         <div class="flex items-center gap-3 group cursor-pointer">
@@ -285,6 +260,7 @@ const awards = [award1, award2, award3, award4, award5, award6, award7, award8, 
 
     initAwardsSwiper();
     document.addEventListener('astro:page-load', initAwardsSwiper);
+
 </script>
 
 <style>

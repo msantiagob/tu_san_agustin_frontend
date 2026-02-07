@@ -1,0 +1,116 @@
+<!-- MIDDLE SECTION: CONTACT FORM -->
+<div class="flex flex-col items-center space-y-12">
+    <h3 class="text-[#4EAC9F] text-4xl md:text-7xl font-extrabold mb-6 md:mb-12">Contáctanos</h3>
+
+    <form id="contact-form" class="w-full max-w-xl space-y-4">
+        <div class="space-y-4">
+            <input type="text" id="nombre" name="nombre" required placeholder="Nombre y Apellido*" class="w-full bg-[#333638] text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium" />
+            <input type="tel" id="whatsapp" name="whatsapp" required placeholder="Whatsapp*" class="w-full bg-[#333638] text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium" />
+            <input type="email" id="email" name="email" required placeholder="Email*" class="w-full bg-[#333638] text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium" />
+            <select id="tipo_evento" name="tipo_evento" required class="w-full bg-[#333638] text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 appearance-none font-medium" aria-label="Tipo de Evento">
+                <option value="" disabled selected hidden>Tipo de Evento</option>
+                <option value="Boda">Boda</option>
+                <option value="Quince Años">Quince Años</option>
+                <option value="Corporativo">Corporativo</option>
+                <option value="Otro">Otro</option>
+            </select>
+            <textarea id="mensaje" name="mensaje" placeholder="Mensaje" rows="1" class="w-full bg-[#333638] text-white px-8 py-4 rounded-xl focus:outline-none focus:ring-2 ring-[#4EAC9F]/50 placeholder:text-gray-400 font-medium"></textarea>
+        </div>
+
+        <!-- Mensaje de estado -->
+        <div id="form-message" class="hidden text-center py-2 px-4 rounded-lg"></div>
+
+        <div class="flex justify-center pt-4">
+            <button type="submit" id="submit-btn" class="bg-[#4EAC9F] text-white px-16 py-3 rounded-xl text-lg hover:bg-opacity-90 transition-all shadow-xl disabled:opacity-50 disabled:cursor-not-allowed">
+                Enviar
+            </button>
+        </div>
+    </form>
+</div>
+
+<script>
+    const API_URL = import.meta.env.PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+
+    const FORM_ID = 2;
+    const FIELD_IDS = {
+        nombre: 6,
+        whatsapp: 7,
+        email: 8,
+        tipo_evento: 9,
+        mensaje: 10,
+    };
+
+    const initContactForm = () => {
+        const form = document.getElementById('contact-form') as HTMLFormElement;
+        const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+        const formMessage = document.getElementById('form-message') as HTMLDivElement;
+
+        if (!form) return;
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Enviando...';
+            formMessage.classList.add('hidden');
+
+            const nombre = (document.getElementById('nombre') as HTMLInputElement).value;
+            const whatsapp = (document.getElementById('whatsapp') as HTMLInputElement).value;
+            const email = (document.getElementById('email') as HTMLInputElement).value;
+            const tipo_evento = (document.getElementById('tipo_evento') as HTMLSelectElement).value;
+            const mensaje = (document.getElementById('mensaje') as HTMLTextAreaElement).value || 'Sin mensaje';
+
+            const submissionData = {
+                form_id: FORM_ID,
+                answers: [
+                    { field_id: FIELD_IDS.nombre, value: nombre },
+                    { field_id: FIELD_IDS.whatsapp, value: whatsapp },
+                    { field_id: FIELD_IDS.email, value: email },
+                    { field_id: FIELD_IDS.tipo_evento, value: tipo_evento },
+                    { field_id: FIELD_IDS.mensaje, value: mensaje },
+                ],
+            };
+
+            try {
+                const response = await fetch(`${API_URL}/submissions/forms/${FORM_ID}/submit`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(submissionData),
+                });
+
+                if (response.ok) {
+                    formMessage.textContent = '¡Mensaje enviado! Te contactaremos pronto.';
+                    formMessage.className = 'text-center py-2 px-4 rounded-lg bg-green-600 text-white';
+                    formMessage.classList.remove('hidden');
+                    form.reset();
+                } else {
+                    const result = await response.json();
+                    formMessage.textContent = result.detail || 'Error al enviar. Intente nuevamente.';
+                    formMessage.className = 'text-center py-2 px-4 rounded-lg bg-red-600 text-white';
+                    formMessage.classList.remove('hidden');
+                }
+            } catch (error) {
+                formMessage.textContent = 'Error de conexión. Verifique su internet.';
+                formMessage.className = 'text-center py-2 px-4 rounded-lg bg-red-600 text-white';
+                formMessage.classList.remove('hidden');
+                console.error('Error:', error);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Enviar';
+            }
+        });
+    };
+
+    initContactForm();
+    document.addEventListener('astro:page-load', initContactForm);
+</script>
+
+<style>
+    select:invalid {
+        color: #9ca3af;
+    }
+    select option {
+        color: white;
+        background-color: #333638;
+    }
+</style>
